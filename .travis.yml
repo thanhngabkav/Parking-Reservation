@@ -2,5 +2,5 @@ language: java
 jdk: oraclejdk8
 install: true
 script:
-  - ./mvnw clean install
+  - ./mvnw/parking_reservation_1.0 clean install
   - bash <(curl -s https://codecov.io/bash)
