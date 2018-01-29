@@ -2,7 +2,7 @@ language: java
 jdk: oraclejdk8
 install: true
 before_install:
-  - chmod +x mvnw
+  - chmod +x ./parking_reservation_1.0/mvnw
 script:
   - ./parking_reservation_1.0/mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
   - bash <(curl -s https://codecov.io/bash)
