@@ -6,6 +6,6 @@ cache:
     directories:
     - $HOME/.m2
 script:
-  - mvn install ./parking_reservation_1.0 -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - mvn -f ./parking_reservation_1.0 install clean -DskipTests=true
   - bash <(curl -s https://codecov.io/bash)
 
