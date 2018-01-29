@@ -5,7 +5,10 @@ install: true
 cache:
     directories:
     - $HOME/.m2
+cache:
+    directories:
+    - $HOME/.m2
 script:
-  - ./parking_reservation_1.0 mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - ./parking_reservation_1.0/mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
   - bash <(curl -s https://codecov.io/bash)
 
