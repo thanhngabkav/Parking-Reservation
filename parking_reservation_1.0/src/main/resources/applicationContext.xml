@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/musicmanager" />
+        <property name="username" value="root" />
+        <property name="password" value="root" />
+    </bean>
+
+    <bean id="hibernate5AnnotatedSessionFactory"
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="annotatedClasses">
+            <list>
+                <value>com.tma.ntnga.musicmanager.entities.Song</value>
+                <value>com.tma.ntnga.musicmanager.entities.User</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="songRepository" class="com.tma.ntnga.musicmanager.dataAccess.SongRepositoryImp">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory"/>
+    </bean>
+
+    <bean id="userRepository" class="com.tma.ntnga.musicmanager.dataAccess.UserRepositoryImp">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory"/>
+    </bean>
+    
+    <bean id="songService" class="com.tma.ntnga.musicmanager.services.SongServiceImp">
+        <property name="userRepository" ref="userRepository"/>
+        <property name="songRepository" ref="songRepository"/>
+    </bean>
+
+    <bean id="mBeanRegister" class="com.tma.ntnga.musicmanager.services.MBeanRegister">
+        <property name="songService" ref="songService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+
+    <bean id="musicManagerApplication" class="com.tma.ntnga.musicmanager.MusicManagerApplication">
+        <property name="mBeanRegister" ref="mBeanRegister"/>
+        <property name="sampleData" ref="sampleData"/>
+    </bean>
+
+    <bean id="userService" class="com.tma.ntnga.musicmanager.services.UserServiceImp">
+        <property name="userRepository" ref="userRepository"/>
+        <property name="sshService" ref="sshService"/>
+    </bean>
+
+    <bean id="sshService" class="com.tma.ntnga.musicmanager.services.SSHServiceImp">
+    </bean>
+
+    <bean id="sampleData" class="com.tma.ntnga.musicmanager.services.SampleData">
+        <property name="songService" ref="songService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean id="messageConverter" class="com.tma.ntnga.musicmanager.messageHandler.MessageConverter">
+    </bean>
+</beans>
