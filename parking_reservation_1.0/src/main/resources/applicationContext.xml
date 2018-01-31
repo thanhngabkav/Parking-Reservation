@@ -5,18 +5,24 @@
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/musicmanager" />
+        <property name="url" value="jdbc:mysql://localhost:3306/parkingmanager" />
         <property name="username" value="root" />
         <property name="password" value="root" />
     </bean>
 
-    <bean id="hibernate5AnnotatedSessionFactory"
+    <bean id="sessionFactory"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="annotatedClasses">
             <list>
-                <value>com.tma.ntnga.musicmanager.entities.Song</value>
-                <value>com.tma.ntnga.musicmanager.entities.User</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Driver</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.ParkingOwner</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.VehicleType</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Parking</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.TicketType</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Vehicle</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Ticket</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.ParkingStation</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -29,41 +35,5 @@
         </property>
     </bean>
 
-    <bean id="songRepository" class="com.tma.ntnga.musicmanager.dataAccess.SongRepositoryImp">
-        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory"/>
-    </bean>
 
-    <bean id="userRepository" class="com.tma.ntnga.musicmanager.dataAccess.UserRepositoryImp">
-        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory"/>
-    </bean>
-    
-    <bean id="songService" class="com.tma.ntnga.musicmanager.services.SongServiceImp">
-        <property name="userRepository" ref="userRepository"/>
-        <property name="songRepository" ref="songRepository"/>
-    </bean>
-
-    <bean id="mBeanRegister" class="com.tma.ntnga.musicmanager.services.MBeanRegister">
-        <property name="songService" ref="songService"/>
-        <property name="userService" ref="userService"/>
-    </bean>
-
-    <bean id="musicManagerApplication" class="com.tma.ntnga.musicmanager.MusicManagerApplication">
-        <property name="mBeanRegister" ref="mBeanRegister"/>
-        <property name="sampleData" ref="sampleData"/>
-    </bean>
-
-    <bean id="userService" class="com.tma.ntnga.musicmanager.services.UserServiceImp">
-        <property name="userRepository" ref="userRepository"/>
-        <property name="sshService" ref="sshService"/>
-    </bean>
-
-    <bean id="sshService" class="com.tma.ntnga.musicmanager.services.SSHServiceImp">
-    </bean>
-
-    <bean id="sampleData" class="com.tma.ntnga.musicmanager.services.SampleData">
-        <property name="songService" ref="songService"/>
-        <property name="userService" ref="userService"/>
-    </bean>
-    <bean id="messageConverter" class="com.tma.ntnga.musicmanager.messageHandler.MessageConverter">
-    </bean>
 </beans>
