@@ -3,16 +3,18 @@ package com.atp.webservice.parking_reservation_10.entities;
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
+import java.util.UUID;
 
 @Table(name = "vehicle")
 @Entity
-public class Vehicle {
+public class Vehicle implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int ID;
+    private UUID ID;
 
     @Column(name = "name", nullable = false, length = 200)
     private String name;
@@ -44,11 +46,11 @@ public class Vehicle {
         this(DefaultValue.STRING,DefaultValue.INT, DefaultValue.STRING);
     }
 
-    public int getID() {
+    public UUID getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(UUID ID) {
         this.ID = ID;
     }
 

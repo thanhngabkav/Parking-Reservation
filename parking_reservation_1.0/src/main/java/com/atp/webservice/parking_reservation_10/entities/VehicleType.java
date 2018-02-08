@@ -3,13 +3,14 @@ package com.atp.webservice.parking_reservation_10.entities;
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 @Table(name = "vehicle_type")
 @Entity
-public class VehicleType {
+public class VehicleType implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

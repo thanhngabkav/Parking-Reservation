@@ -3,6 +3,7 @@ package com.atp.webservice.parking_reservation_10.entities;
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.Objects;
 
 @Table(name = "parking")
 @Entity
-public class Parking {
+public class Parking  implements Serializable{
 
     @Id
     @Column(name = "id")

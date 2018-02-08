@@ -3,12 +3,13 @@ package com.atp.webservice.parking_reservation_10.entities;
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Objects;
 
 @Table(name = "parking_station")
 @Entity
-public class ParkingStation {
+public class ParkingStation implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

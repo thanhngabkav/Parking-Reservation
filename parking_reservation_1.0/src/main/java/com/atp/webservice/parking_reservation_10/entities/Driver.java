@@ -3,19 +3,21 @@ package com.atp.webservice.parking_reservation_10.entities;
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 @Table(name = "driver")
 @Entity
-public class Driver {
+public class Driver implements Serializable{
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
+    private UUID ID;
 
     @Column(name = "phone_number")
     private String phoneNumber;
@@ -55,11 +57,11 @@ public class Driver {
         this(DefaultValue.STRING, DefaultValue.STRING, DefaultValue.TIMESTAMP, DefaultValue.STRING, DefaultValue.DOUBLE, DefaultValue.STRING);
     }
 
-    public int getID() {
+    public UUID getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(UUID ID) {
         this.ID = ID;
     }
 
