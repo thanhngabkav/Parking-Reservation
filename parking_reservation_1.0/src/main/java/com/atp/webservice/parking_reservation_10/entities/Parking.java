@@ -1,6 +1,7 @@
 package com.atp.webservice.parking_reservation_10.entities;
 
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
+import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,8 +9,9 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
-@Table(name = "parking")
+@Table(name = TableName.PARKING)
 @Entity
 public class Parking  implements Serializable{
 
@@ -55,7 +57,7 @@ public class Parking  implements Serializable{
     private String parkingMapLink;
 
     @Column(name = "owner_id", nullable = false, insertable = false, updatable = false)
-    private int ownerID;
+    private UUID ownerID;
 
     @JoinColumn(name = "owner_id")
     @ManyToOne
@@ -67,7 +69,7 @@ public class Parking  implements Serializable{
     @OneToMany(mappedBy = "parking", cascade = CascadeType.MERGE)
     private List<ParkingStation> parkingStations;
 
-    public Parking(String keyPair, String name, String address, Timestamp createdDate, String status, int level, Time openTime, Time closeTime, String imageLink, int totalSlots, int usedSlots, String parkingMapLink, int ownerID) {
+    public Parking(String keyPair, String name, String address, Timestamp createdDate, String status, int level, Time openTime, Time closeTime, String imageLink, int totalSlots, int usedSlots, String parkingMapLink, UUID ownerID) {
         this.keyPair = keyPair;
         this.name = name;
         this.address = address;
@@ -86,7 +88,7 @@ public class Parking  implements Serializable{
     public Parking() {
         this(DefaultValue.STRING, DefaultValue.STRING, DefaultValue.STRING,
                 DefaultValue.TIMESTAMP,DefaultValue.STRING, DefaultValue.INT, DefaultValue.TIME, DefaultValue.TIME,
-                DefaultValue.STRING, DefaultValue.INT, DefaultValue.INT, DefaultValue.STRING, DefaultValue.INT);
+                DefaultValue.STRING, DefaultValue.INT, DefaultValue.INT, DefaultValue.STRING, DefaultValue.UUID);
     }
 
     public int getID() {
@@ -206,11 +208,11 @@ public class Parking  implements Serializable{
         return this;
     }
 
-    public int getOwnerID() {
+    public UUID getOwnerID() {
         return ownerID;
     }
 
-    public Parking setOwnerID(int ownerID) {
+    public Parking setOwnerID(UUID ownerID) {
         this.ownerID = ownerID;
         return this;
     }

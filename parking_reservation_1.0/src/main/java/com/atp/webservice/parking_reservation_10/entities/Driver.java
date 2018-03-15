@@ -1,6 +1,7 @@
 package com.atp.webservice.parking_reservation_10.entities;
 
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
+import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,14 +11,18 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-@Table(name = "driver")
+@Table(name = TableName.DRIVER)
 @Entity
-public class Driver implements Serializable{
+@AttributeOverrides({
+        @AttributeOverride(name="id", column=@Column(name="id")),
+        @AttributeOverride(name="user_name", column=@Column(name="user_name"))
+})
+public class Driver extends User implements Serializable{
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID ID;
+//    @Id
+//    @Column(name = "id")
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private UUID ID;
 
     @Column(name = "phone_number")
     private String phoneNumber;
@@ -57,13 +62,13 @@ public class Driver implements Serializable{
         this(DefaultValue.STRING, DefaultValue.STRING, DefaultValue.TIMESTAMP, DefaultValue.STRING, DefaultValue.DOUBLE, DefaultValue.STRING);
     }
 
-    public UUID getID() {
-        return ID;
-    }
-
-    public void setID(UUID ID) {
-        this.ID = ID;
-    }
+//    public UUID getID() {
+//        return ID;
+//    }
+//
+//    public void setID(UUID ID) {
+//        this.ID = ID;
+//    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -135,12 +140,12 @@ public class Driver implements Serializable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Driver driver = (Driver) o;
-        return ID == driver.ID;
+        return this.getUserID() == driver.getUserID();
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(ID);
+        return Objects.hash(this.getUserID());
     }
 }

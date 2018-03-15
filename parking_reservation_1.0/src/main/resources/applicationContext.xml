@@ -15,14 +15,18 @@
         <property name="dataSource" ref="dataSource" />
         <property name="annotatedClasses">
             <list>
+                <value>com.atp.webservice.parking_reservation_10.entities.User</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.UserRole</value>
                 <value>com.atp.webservice.parking_reservation_10.entities.Driver</value>
                 <value>com.atp.webservice.parking_reservation_10.entities.ParkingOwner</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.ParkingStation</value>
                 <value>com.atp.webservice.parking_reservation_10.entities.VehicleType</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Vehicle</value>
                 <value>com.atp.webservice.parking_reservation_10.entities.Parking</value>
                 <value>com.atp.webservice.parking_reservation_10.entities.TicketType</value>
-                <value>com.atp.webservice.parking_reservation_10.entities.Vehicle</value>
                 <value>com.atp.webservice.parking_reservation_10.entities.Ticket</value>
-                <value>com.atp.webservice.parking_reservation_10.entities.ParkingStation</value>
+
+
             </list>
         </property>
         <property name="hibernateProperties">
@@ -30,7 +34,7 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
                 <prop key="hibernate.current_session_context_class">thread</prop>
                 <prop key="hibernate.show_sql">false</prop>
-                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
             </props>
         </property>
     </bean>

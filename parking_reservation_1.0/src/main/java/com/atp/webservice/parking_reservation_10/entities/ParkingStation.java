@@ -1,13 +1,14 @@
 package com.atp.webservice.parking_reservation_10.entities;
 
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
+import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.Objects;
 
-@Table(name = "parking_station")
+@Table(name = TableName.PARKING_STATION)
 @Entity
 public class ParkingStation implements Serializable{
 

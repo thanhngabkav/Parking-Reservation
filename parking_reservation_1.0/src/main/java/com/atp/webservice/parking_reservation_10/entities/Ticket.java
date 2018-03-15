@@ -1,6 +1,7 @@
 package com.atp.webservice.parking_reservation_10.entities;
 
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
+import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,7 +9,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 import java.util.UUID;
 
-@Table(name = "ticket")
+@Table(name = TableName.TICKET)
 @Entity
 public class Ticket implements Serializable{
 
@@ -23,13 +24,13 @@ public class Ticket implements Serializable{
     private String status;
 
     @Column(name = "checkin_time")
-    private Timestamp chekinTime;
+    private Timestamp checkinTime;
 
     @Column(name = "checkout_time")
     private Timestamp checkoutTime;
 
     @Column(name = "driver_id")
-    private int driverID;
+    private UUID driverID;
 
     @Column(name = "parking_id")
     private int parkingID;
@@ -49,11 +50,11 @@ public class Ticket implements Serializable{
     @JoinColumn(name = "ticket_type_id", insertable = false, updatable = false)
     private TicketType ticketType;
 
-    public Ticket(UUID ID, Timestamp createdTime, String status, Timestamp chekinTime, Timestamp checkoutTime, int driverID, int parkingID, int ticketTypeID) {
+    public Ticket(UUID ID, Timestamp createdTime, String status, Timestamp checkinTime, Timestamp checkoutTime, UUID driverID, int parkingID, int ticketTypeID) {
         this.ID = ID;
         this.createdTime = createdTime;
         this.status = status;
-        this.chekinTime = chekinTime;
+        this.checkinTime = checkinTime;
         this.checkoutTime = checkoutTime;
         this.driverID = driverID;
         this.parkingID = parkingID;
@@ -62,7 +63,7 @@ public class Ticket implements Serializable{
 
     public Ticket() {
         this(DefaultValue.UUID, DefaultValue.TIMESTAMP, DefaultValue.STRING, DefaultValue.TIMESTAMP, DefaultValue.TIMESTAMP,
-                DefaultValue.INT, DefaultValue.INT, DefaultValue.INT);
+                DefaultValue.UUID, DefaultValue.INT, DefaultValue.INT);
     }
 
     public UUID getID() {
@@ -93,11 +94,11 @@ public class Ticket implements Serializable{
     }
 
     public Timestamp getChekinTime() {
-        return chekinTime;
+        return checkinTime;
     }
 
     public Ticket setChekinTime(Timestamp chekinTime) {
-        this.chekinTime = chekinTime;
+        this.checkinTime = chekinTime;
         return this;
     }
 
@@ -110,11 +111,11 @@ public class Ticket implements Serializable{
         return this;
     }
 
-    public int getDriverID() {
+    public UUID getDriverID() {
         return driverID;
     }
 
-    public Ticket setDriverID(int driverID) {
+    public Ticket setDriverID(UUID driverID) {
         this.driverID = driverID;
         return this;
     }
