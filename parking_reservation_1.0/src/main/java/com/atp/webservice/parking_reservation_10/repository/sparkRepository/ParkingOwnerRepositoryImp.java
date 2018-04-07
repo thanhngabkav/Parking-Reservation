@@ -1,17 +1,17 @@
 //package com.atp.webservice.parking_reservation_10.repository.sparkRepository;
 //
-//import com.atp.webservice.parking_reservation_10.entities.ParkingOwner;
+//import com.atp.controller.parking_reservation_10.entities.Owner;
 //
 //import java.util.List;
 //
 //public class ParkingOwnerRepositoryImp implements ParkingOwnerRepository {
 //    @Override
-//    public List<ParkingOwner> findAll() {
+//    public List<Owner> findAll() {
 //        return null;
 //    }
 //
 //    @Override
-//    public ParkingOwner findOne(Integer integer) {
+//    public Owner findOne(Integer integer) {
 //        return null;
 //    }
 //
@@ -31,12 +31,12 @@
 //    }
 //
 //    @Override
-//    public ParkingOwner save(ParkingOwner entity) {
+//    public Owner save(Owner entity) {
 //        return null;
 //    }
 //
 //    @Override
-//    public List<ParkingOwner> GetAll() {
+//    public List<Owner> GetAll() {
 //        return null;
 //    }
 //}

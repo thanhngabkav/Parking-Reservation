@@ -1,7 +1,7 @@
 //package com.atp.webservice.parking_reservation_10.repository.sparkRepository;
 //
-//import com.atp.webservice.parking_reservation_10.entities.Driver;
-//import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.DriverCRUDRepository;
+//import com.atp.controller.parking_reservation_10.entities.Driver;
+//import com.atp.controller.parking_reservation_10.repository.springCRUDRepository.DriverCRUDRepository;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Repository;
 //

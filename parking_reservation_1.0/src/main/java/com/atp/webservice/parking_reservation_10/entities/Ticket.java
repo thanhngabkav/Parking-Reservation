@@ -29,11 +29,14 @@ public class Ticket implements Serializable{
     @Column(name = "checkout_time")
     private Timestamp checkoutTime;
 
+    @Column(name = "qr_code")
+    private String qRCode;
+
     @Column(name = "driver_id")
     private UUID driverID;
 
-    @Column(name = "parking_id")
-    private int parkingID;
+    @Column(name = "station_id")
+    private int stationID;
 
     @Column(name = "ticket_type_id", insertable = false, updatable = false)
     private int ticketTypeID;
@@ -43,27 +46,29 @@ public class Ticket implements Serializable{
     private Driver driver;
 
     @ManyToOne
-    @JoinColumn(name = "parking_id", insertable = false, updatable = false)
-    private Parking parking;
+    @JoinColumn(name = "station_id", insertable = false, updatable = false)
+    private Station station;
 
     @ManyToOne
     @JoinColumn(name = "ticket_type_id", insertable = false, updatable = false)
     private TicketType ticketType;
 
-    public Ticket(UUID ID, Timestamp createdTime, String status, Timestamp checkinTime, Timestamp checkoutTime, UUID driverID, int parkingID, int ticketTypeID) {
+
+    public Ticket(UUID ID, Timestamp createdTime, String status, Timestamp checkinTime, Timestamp checkoutTime,String qRCode, UUID driverID, int stationID, int ticketTypeID) {
         this.ID = ID;
         this.createdTime = createdTime;
         this.status = status;
         this.checkinTime = checkinTime;
         this.checkoutTime = checkoutTime;
+        this.qRCode = qRCode;
         this.driverID = driverID;
-        this.parkingID = parkingID;
+        this.stationID = stationID;
         this.ticketTypeID = ticketTypeID;
     }
 
     public Ticket() {
         this(DefaultValue.UUID, DefaultValue.TIMESTAMP, DefaultValue.STRING, DefaultValue.TIMESTAMP, DefaultValue.TIMESTAMP,
-                DefaultValue.UUID, DefaultValue.INT, DefaultValue.INT);
+               DefaultValue.STRING, DefaultValue.UUID, DefaultValue.INT, DefaultValue.INT);
     }
 
     public UUID getID() {
@@ -93,15 +98,6 @@ public class Ticket implements Serializable{
         return this;
     }
 
-    public Timestamp getChekinTime() {
-        return checkinTime;
-    }
-
-    public Ticket setChekinTime(Timestamp chekinTime) {
-        this.checkinTime = chekinTime;
-        return this;
-    }
-
     public Timestamp getCheckoutTime() {
         return checkoutTime;
     }
@@ -109,6 +105,26 @@ public class Ticket implements Serializable{
     public Ticket setCheckoutTime(Timestamp checkoutTime) {
         this.checkoutTime = checkoutTime;
         return this;
+    }
+
+    public Timestamp getCheckinTime() {
+        return checkinTime;
+    }
+
+    public void setCheckinTime(Timestamp checkinTime) {
+        this.checkinTime = checkinTime;
+    }
+
+    public String getqRCode() {
+        return qRCode;
+    }
+
+    public void setqRCode(String qRCode) {
+        this.qRCode = qRCode;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
     }
 
     public UUID getDriverID() {
@@ -120,12 +136,12 @@ public class Ticket implements Serializable{
         return this;
     }
 
-    public int getParkingID() {
-        return parkingID;
+    public int getStationID() {
+        return stationID;
     }
 
-    public Ticket setParkingID(int parkingID) {
-        this.parkingID = parkingID;
+    public Ticket setStationID(int stationID) {
+        this.stationID = stationID;
         return this;
     }
 
@@ -147,12 +163,12 @@ public class Ticket implements Serializable{
         return this;
     }
 
-    public Parking getParking() {
-        return parking;
+    public Station getStation() {
+        return station;
     }
 
-    public Ticket setParking(Parking parking) {
-        this.parking = parking;
+    public Ticket setStation(Station station) {
+        this.station = station;
         return this;
     }
 

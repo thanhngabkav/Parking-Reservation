@@ -8,4 +8,5 @@ import java.util.UUID;
 
 @Repository
 public interface DriverCRUDRepository extends CrudRepository<Driver, UUID>{
+    Driver findDriverByEmailOrPhoneNumber(String userName);
 }

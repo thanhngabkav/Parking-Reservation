@@ -3,11 +3,11 @@ package com.atp.webservice.parking_reservation_10.entities.uitls;
 public class TableName {
     public static final String DRIVER = "driver";
 
-    public static final String PARKING = "parking";
+    public static final String STATION = "station";
 
-    public static final String PARKING_OWNER = "parking_owner";
+    public static final String OWNER = "owner";
 
-    public static final String PARKING_STATION = "parking_station";
+//    public static final String PARKING_STATION = "parking_station";
 
     public static final String TICKET = "ticket";
 
@@ -19,5 +19,7 @@ public class TableName {
 
     public static final String USER = "user";//login user
 
-    public static final String USER_ROLE = "user_role";
+    public static final String ROLE = "role";
+
+    public  static final String SERVICE = "service";
 }

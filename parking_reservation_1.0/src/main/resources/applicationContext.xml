@@ -16,15 +16,16 @@
         <property name="annotatedClasses">
             <list>
                 <value>com.atp.webservice.parking_reservation_10.entities.User</value>
-                <value>com.atp.webservice.parking_reservation_10.entities.UserRole</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Role</value>
                 <value>com.atp.webservice.parking_reservation_10.entities.Driver</value>
-                <value>com.atp.webservice.parking_reservation_10.entities.ParkingOwner</value>
-                <value>com.atp.webservice.parking_reservation_10.entities.ParkingStation</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Owner</value>
+                <!--<value>com.atp.controller.parking_reservation_10.entities.ParkingStation</value> -->
                 <value>com.atp.webservice.parking_reservation_10.entities.VehicleType</value>
                 <value>com.atp.webservice.parking_reservation_10.entities.Vehicle</value>
-                <value>com.atp.webservice.parking_reservation_10.entities.Parking</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Station</value>
                 <value>com.atp.webservice.parking_reservation_10.entities.TicketType</value>
                 <value>com.atp.webservice.parking_reservation_10.entities.Ticket</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Service</value>
 
 
             </list>
@@ -34,7 +35,7 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
                 <prop key="hibernate.current_session_context_class">thread</prop>
                 <prop key="hibernate.show_sql">false</prop>
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
         </property>
     </bean>

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Table(name = TableName.TICKET_TYPE)
+@Table(name = TableName.VEHICLE_TYPE)
 @Entity
 public class VehicleType implements Serializable{
 

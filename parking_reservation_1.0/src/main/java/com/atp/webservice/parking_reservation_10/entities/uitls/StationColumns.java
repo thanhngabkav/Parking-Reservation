@@ -1,6 +1,6 @@
 package com.atp.webservice.parking_reservation_10.entities.uitls;
 
-public class ParkingCols {
+public class StationColumns {
 
     public static final  String  ID = "id";
     public static final  String  KEY_PARE = "key_pair";
@@ -8,7 +8,7 @@ public class ParkingCols {
     public static final  String  ADDRESS = "address";
     public static final  String  CREATED_DATE = "created_date";
     public static final  String  STATUS = "status";
-    public static final  String  LEVEL = "V";
+    public static final  String  LEVEL = "level";
     public static final  String  OPEN_TIME = "open_time";
     public static final  String  CLOSE_TIME = "close_time";
     public static final  String  IMAGE_LINK = "image_link";

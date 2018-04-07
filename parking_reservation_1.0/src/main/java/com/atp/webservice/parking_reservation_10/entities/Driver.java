@@ -19,22 +19,14 @@ import java.util.UUID;
 })
 public class Driver extends User implements Serializable{
 
-//    @Id
-//    @Column(name = "id")
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private UUID ID;
-
-    @Column(name = "phone_number")
-    private String phoneNumber;
+    @Column(name = "application_id")
+    private String applicationID;
 
     @Column(name = "full_name")
     private String fullName;
 
     @Column(name = "created_date")
     private Timestamp createdDate;
-
-    @Column(name = "status")
-    private String status;
 
     @Column(name = "balance")
     private double balance;
@@ -48,19 +40,19 @@ public class Driver extends User implements Serializable{
     @OneToMany(mappedBy = "driver", cascade = CascadeType.MERGE)
     private List<Ticket> tickets;
 
-    public Driver(String phoneNumber, String fullName, Timestamp createdDate, String status, double balance, String token) {
-        this.phoneNumber = phoneNumber;
+    public Driver(String applicationID, String fullName, Timestamp createdDate, double balance, String token) {
+        this.applicationID = applicationID;
         this.fullName = fullName;
         this.createdDate = createdDate;
-        this.status = status;
         this.balance = balance;
         this.token = token;
         this.vehicleList = new ArrayList<Vehicle>();
     }
 
     public Driver() {
-        this(DefaultValue.STRING, DefaultValue.STRING, DefaultValue.TIMESTAMP, DefaultValue.STRING, DefaultValue.DOUBLE, DefaultValue.STRING);
+        this(DefaultValue.STRING, DefaultValue.STRING, DefaultValue.TIMESTAMP, DefaultValue.DOUBLE, DefaultValue.STRING);
     }
+
 
 //    public UUID getID() {
 //        return ID;
@@ -70,13 +62,6 @@ public class Driver extends User implements Serializable{
 //        this.ID = ID;
 //    }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 
     public String getFullName() {
         return fullName;
@@ -92,14 +77,6 @@ public class Driver extends User implements Serializable{
 
     public void setCreatedDate(Timestamp createdDate) {
         this.createdDate = createdDate;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public double getBalance() {

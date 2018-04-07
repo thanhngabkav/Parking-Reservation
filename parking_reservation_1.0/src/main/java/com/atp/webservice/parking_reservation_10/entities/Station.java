@@ -2,6 +2,7 @@ package com.atp.webservice.parking_reservation_10.entities;
 
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
 import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
+import org.codehaus.jackson.annotate.JsonProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,65 +12,92 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-@Table(name = TableName.PARKING)
+@Table(name = TableName.STATION)
 @Entity
-public class Parking  implements Serializable{
+public class Station implements Serializable{
 
     @Id
+    @JsonProperty("id")
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
+    @JsonProperty("application_id")
+    @Column(name = "application_id")
+    private String applicationID;
+
+    @JsonProperty("key_pair")
     @Column(name = "key_pair", columnDefinition = "TEXT")
     private String keyPair;
 
+    @JsonProperty("name")
     @Column(name = "name", length = 500)
     private String name;
 
+    @JsonProperty("address")
     @Column(name = "address", length = 500)
     private String address;
 
+    @JsonProperty("created_date")
     @Column(name = "created_date")
     private Timestamp createdDate;
 
+    @JsonProperty("status")
     @Column(name = "status", length = 50)
     private String status;
 
+    @JsonProperty("level")
     @Column(name = "level")
     private int level;
 
+    @JsonProperty("open_time")
     @Column(name = "open_time")
     private Time openTime;
 
+    @JsonProperty("Close_time")
     @Column(name = "close_time")
     private Time closeTime;
 
+    @JsonProperty("image_link")
     @Column(name = "image_link", length = 500)
     private String imageLink;
 
+    @JsonProperty("total_slots")
     @Column(name = "total_slots")
     private int totalSlots;
 
+    @JsonProperty("used_slots")
     @Column(name = "used_slots")
     private int usedSlots;
 
+    @JsonProperty("parking_map_link")
     @Column(name = "parking_map_link")
     private String parkingMapLink;
 
+    @JsonProperty("coordinate")
+    @Column(name = "coordinate", length = 200)
+    private String coordinate;
+
+    @JsonProperty("owner_id")
     @Column(name = "owner_id", nullable = false, insertable = false, updatable = false)
     private UUID ownerID;
 
     @JoinColumn(name = "owner_id")
     @ManyToOne
-    private ParkingOwner owner;
+    private Owner owner;
 
-    @OneToMany(mappedBy = "parking", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "station", cascade = CascadeType.MERGE)
     private List<Ticket> tickets;
 
-    @OneToMany(mappedBy = "parking", cascade = CascadeType.MERGE)
-    private List<ParkingStation> parkingStations;
+    @OneToMany(mappedBy = "station", cascade = CascadeType.MERGE)
+    private List<Service> services;
 
-    public Parking(String keyPair, String name, String address, Timestamp createdDate, String status, int level, Time openTime, Time closeTime, String imageLink, int totalSlots, int usedSlots, String parkingMapLink, UUID ownerID) {
+
+//    @OneToMany(mappedBy = "parking", cascade = CascadeType.MERGE)
+//    private List<ParkingStation> parkingStations;
+
+    public Station(String applicationID, String keyPair, String name, String address, Timestamp createdDate, String status, int level, Time openTime, Time closeTime, String imageLink, int totalSlots, int usedSlots, String parkingMapLink, String coordinate, UUID ownerID) {
+        this.applicationID = applicationID;
         this.keyPair = keyPair;
         this.name = name;
         this.address = address;
@@ -82,21 +110,31 @@ public class Parking  implements Serializable{
         this.totalSlots = totalSlots;
         this.usedSlots = usedSlots;
         this.parkingMapLink = parkingMapLink;
+        this.coordinate = coordinate;
         this.ownerID = ownerID;
     }
 
-    public Parking() {
-        this(DefaultValue.STRING, DefaultValue.STRING, DefaultValue.STRING,
+    public Station() {
+        this(DefaultValue.STRING, DefaultValue.STRING, DefaultValue.STRING, DefaultValue.STRING,
                 DefaultValue.TIMESTAMP,DefaultValue.STRING, DefaultValue.INT, DefaultValue.TIME, DefaultValue.TIME,
-                DefaultValue.STRING, DefaultValue.INT, DefaultValue.INT, DefaultValue.STRING, DefaultValue.UUID);
+                DefaultValue.STRING, DefaultValue.INT, DefaultValue.INT, DefaultValue.STRING, DefaultValue.STRING, DefaultValue.UUID);
     }
 
     public int getID() {
         return ID;
     }
 
-    public Parking setID(int ID) {
+    public Station setID(int ID) {
         this.ID = ID;
+        return this;
+    }
+
+    public String getApplicationID() {
+        return applicationID;
+    }
+
+    public Station setApplicationID(String applicationID) {
+        this.applicationID = applicationID;
         return this;
     }
 
@@ -104,7 +142,7 @@ public class Parking  implements Serializable{
         return keyPair;
     }
 
-    public Parking setKeyPair(String keyPair) {
+    public Station setKeyPair(String keyPair) {
         this.keyPair = keyPair;
         return this;
     }
@@ -113,7 +151,7 @@ public class Parking  implements Serializable{
         return name;
     }
 
-    public Parking setName(String name) {
+    public Station setName(String name) {
         this.name = name;
         return this;
     }
@@ -122,7 +160,7 @@ public class Parking  implements Serializable{
         return address;
     }
 
-    public Parking setAddress(String address) {
+    public Station setAddress(String address) {
         this.address = address;
         return this;
     }
@@ -131,7 +169,7 @@ public class Parking  implements Serializable{
         return createdDate;
     }
 
-    public Parking setCreatedDate(Timestamp createdDate) {
+    public Station setCreatedDate(Timestamp createdDate) {
         this.createdDate = createdDate;
         return this;
     }
@@ -140,7 +178,7 @@ public class Parking  implements Serializable{
         return status;
     }
 
-    public Parking setStatus(String status) {
+    public Station setStatus(String status) {
         this.status = status;
         return this;
     }
@@ -149,7 +187,7 @@ public class Parking  implements Serializable{
         return level;
     }
 
-    public Parking setLevel(int level) {
+    public Station setLevel(int level) {
         this.level = level;
         return this;
     }
@@ -158,7 +196,7 @@ public class Parking  implements Serializable{
         return openTime;
     }
 
-    public Parking setOpenTime(Time openTime) {
+    public Station setOpenTime(Time openTime) {
         this.openTime = openTime;
         return this;
     }
@@ -167,7 +205,7 @@ public class Parking  implements Serializable{
         return closeTime;
     }
 
-    public Parking setCloseTime(Time closeTime) {
+    public Station setCloseTime(Time closeTime) {
         this.closeTime = closeTime;
         return this;
     }
@@ -176,7 +214,7 @@ public class Parking  implements Serializable{
         return imageLink;
     }
 
-    public Parking setImageLink(String imageLink) {
+    public Station setImageLink(String imageLink) {
         this.imageLink = imageLink;
         return this;
     }
@@ -185,7 +223,7 @@ public class Parking  implements Serializable{
         return totalSlots;
     }
 
-    public Parking setTotalSlots(int totalSlots) {
+    public Station setTotalSlots(int totalSlots) {
         this.totalSlots = totalSlots;
         return this;
     }
@@ -194,7 +232,7 @@ public class Parking  implements Serializable{
         return usedSlots;
     }
 
-    public Parking setUsedSlots(int usedSlots) {
+    public Station setUsedSlots(int usedSlots) {
         this.usedSlots = usedSlots;
         return this;
     }
@@ -203,25 +241,33 @@ public class Parking  implements Serializable{
         return parkingMapLink;
     }
 
-    public Parking setParkingMapLink(String parkingMapLink) {
+    public Station setParkingMapLink(String parkingMapLink) {
         this.parkingMapLink = parkingMapLink;
         return this;
+    }
+
+    public String getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(String coordinate) {
+        this.coordinate = coordinate;
     }
 
     public UUID getOwnerID() {
         return ownerID;
     }
 
-    public Parking setOwnerID(UUID ownerID) {
+    public Station setOwnerID(UUID ownerID) {
         this.ownerID = ownerID;
         return this;
     }
 
-    public ParkingOwner getOwner() {
+    public Owner getOwner() {
         return owner;
     }
 
-    public Parking setOwner(ParkingOwner owner) {
+    public Station setOwner(Owner owner) {
         this.owner = owner;
         return this;
     }
@@ -230,31 +276,38 @@ public class Parking  implements Serializable{
         return tickets;
     }
 
-    public Parking setTickets(List<Ticket> tickets) {
+    public Station setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
         return this;
     }
 
-    public List<ParkingStation> getParkingStations() {
-        return parkingStations;
+    public List<Service> getServices() {
+        return services;
     }
 
-    public Parking setParkingStations(List<ParkingStation> parkingStations) {
-        this.parkingStations = parkingStations;
-        return this;
+    public void setServices(List<Service> services) {
+        this.services = services;
     }
+
+    //    public List<ParkingStation> getParkingStations() {
+//        return parkingStations;
+//    }
+//
+//    public Station setParkingStations(List<ParkingStation> parkingStations) {
+//        this.parkingStations = parkingStations;
+//        return this;
+//    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Parking parking = (Parking) o;
-        return ID == parking.ID;
+        Station station = (Station) o;
+        return ID == station.ID;
     }
 
     @Override
     public int hashCode() {
-
         return Objects.hash(ID);
     }
 }

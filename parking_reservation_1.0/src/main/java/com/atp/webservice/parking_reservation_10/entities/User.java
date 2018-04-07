@@ -1,6 +1,7 @@
 package com.atp.webservice.parking_reservation_10.entities;
 
 import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
+import scala.sys.SystemProperties$;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,8 +18,11 @@ public class User implements Serializable{
     @Column(name = "user_id")
     private UUID userID;
 
-    @Column(name = "user_name")
-    public String userName;
+    @Column(name = "phone_number", length = 50, nullable = false, unique = true)
+    private String phoneNumber;
+
+    @Column(name = "email", length = 150, nullable = false, unique = true)
+    private String email;
 
     @Column(name = "password")
     public String password;
@@ -26,15 +30,25 @@ public class User implements Serializable{
     @Column(name = "user_type")
     public String userType;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<UserRole> userRoles;
+    @Column(name = "status")
+    private String status;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private List<Role> roles;
 
 
-    public User(String userName, String password, String userType, List<UserRole> userRoles) {
-        this.userName = userName;
+    public User(String phoneNumber, String email, String password, String userType, String status, List<Role> roles) {
+        this.phoneNumber = phoneNumber;
+        this.email = email;
         this.password = password;
         this.userType = userType;
-        this.userRoles = userRoles;
+        this.status = status;
+        this.roles = roles;
     }
 
     public User() {
@@ -48,12 +62,20 @@ public class User implements Serializable{
         this.userID = userID;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -72,12 +94,20 @@ public class User implements Serializable{
         this.userType = userType;
     }
 
-    public List<UserRole> getUserRoles() {
-        return userRoles;
+    public String getStatus() {
+        return status;
     }
 
-    public void setUserRoles(List<UserRole> userRoles) {
-        this.userRoles = userRoles;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     @Override

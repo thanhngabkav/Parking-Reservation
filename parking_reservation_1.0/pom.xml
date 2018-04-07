@@ -5,8 +5,8 @@
 
 	<groupId>com.atp.webservice</groupId>
 	<artifactId>parking_reservation_1.0</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
 
 	<name>parking_reservation_1.0</name>
 	<description>Demo project for Spring Boot</description>
@@ -133,6 +133,13 @@
 		<dependency>
 			<groupId>org.codehaus.janino</groupId>
 			<artifactId>commons-compiler</artifactId>
+			<version>3.0.7</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.codehaus.janino/janino -->
+		<dependency>
+			<groupId>org.codehaus.janino</groupId>
+			<artifactId>janino</artifactId>
 			<version>3.0.7</version>
 		</dependency>
 
