@@ -12,6 +12,6 @@ public class UserService {
     private UserCRUDRepository userCRUDRepository;
 
     public User getUserByUserName(String userName) {
-        return  userCRUDRepository.findUserByEmailOrPhoneNumber(userName);
+        return  userCRUDRepository.findFirstByEmailOrderByPhoneNumber(userName);
     }
 }

@@ -1,13 +1,11 @@
 package com.atp.webservice.parking_reservation_10.entities;
 
 import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
-import scala.sys.SystemProperties$;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 
 @Table(name = TableName.USER)
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -16,7 +14,7 @@ public class User implements Serializable{
 
     @Id
     @Column(name = "user_id")
-    private UUID userID;
+    private String userID;
 
     @Column(name = "phone_number", length = 50, nullable = false, unique = true)
     private String phoneNumber;
@@ -54,11 +52,11 @@ public class User implements Serializable{
     public User() {
     }
 
-    public UUID getUserID() {
+    public String getUserID() {
         return userID;
     }
 
-    public void setUserID(UUID userID) {
+    public void setUserID(String userID) {
         this.userID = userID;
     }
 

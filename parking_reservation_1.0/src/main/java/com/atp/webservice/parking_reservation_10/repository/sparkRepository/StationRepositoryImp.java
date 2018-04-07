@@ -23,12 +23,12 @@ public class StationRepositoryImp implements StationRepository {
 
     private static Dataset<StationPresenter> parkingDataSet;
 
-    @PostConstruct
-    public void InitParkingDataSet(){
-        parkingDataSet = SparkHelper.GetRRDFromTable(TableName.STATION, StationPresenter.class);
-        parkingDataSet.persist(StorageLevel.MEMORY_ONLY());
-        //parkingDataSet.show();
-    }
+//    @PostConstruct
+//    public void InitParkingDataSet(){
+//        parkingDataSet = SparkHelper.GetRRDFromTable(TableName.STATION, StationPresenter.class);
+//        parkingDataSet.persist(StorageLevel.MEMORY_ONLY());
+//        //parkingDataSet.show();
+//    }
 
     @Override
     public List<StationPresenter> findAll() {

@@ -20,7 +20,6 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Transactional
 public class UserServiceImp implements UserService{
@@ -39,7 +38,8 @@ public class UserServiceImp implements UserService{
 
     @Override
     public User getUserByUserName(String userName) {
-        Driver driver = driverCRUDRepository.findDriverByEmailOrPhoneNumber(userName);
+        com.atp.webservice.parking_reservation_10.entities.User userEntity = userCRUDRepository.findFirstByEmailOrderByPhoneNumber(userName);
+        Driver driver = driverCRUDRepository.findOne(userEntity.getUserID());
         List<Vehicle> vehicleList = vehicleCRUDRepository.findByDriveID(driver.getUserID());
         List<com.atp.webservice.parking_reservation_10.services.mobileServices.presenter.Vehicle>
                 listVehiclePresenter = new ArrayList<>();
@@ -54,7 +54,7 @@ public class UserServiceImp implements UserService{
 
     @Override
     public User getUserByUserID(String userID) {
-        Driver driver = driverCRUDRepository.findOne(UUID.fromString(userID));
+        Driver driver = driverCRUDRepository.findOne(userID);
         List<Vehicle> vehicleList = vehicleCRUDRepository.findByDriveID(driver.getUserID());
         List<com.atp.webservice.parking_reservation_10.services.mobileServices.presenter.Vehicle>
                 listVehiclePresenter = new ArrayList<>();
@@ -71,8 +71,8 @@ public class UserServiceImp implements UserService{
     @Override
     public boolean createNewDriver(User user) {
 
-        com.atp.webservice.parking_reservation_10.entities.User userByEmail = userCRUDRepository.findUserByEmailOrPhoneNumber(user.getEmail());
-        com.atp.webservice.parking_reservation_10.entities.User userByPhone = userCRUDRepository.findUserByEmailOrPhoneNumber(user.getPhoneNumber());
+        com.atp.webservice.parking_reservation_10.entities.User userByEmail = userCRUDRepository.findFirstByEmailOrderByPhoneNumber(user.getEmail());
+        com.atp.webservice.parking_reservation_10.entities.User userByPhone = userCRUDRepository.findFirstByEmailOrderByPhoneNumber(user.getPhoneNumber());
 
         if(userByEmail!= null || userByPhone!= null){
             //user is exited!
@@ -80,7 +80,7 @@ public class UserServiceImp implements UserService{
         }
         //create user
         com.atp.webservice.parking_reservation_10.entities.User m_user = new com.atp.webservice.parking_reservation_10.entities.User();
-        m_user.setUserID(DefaultValue.UUID);
+        m_user.setUserID(DefaultValue.UUID.toString());
         m_user.setPassword(user.getPassword());
         m_user.setPhoneNumber(user.getPhoneNumber());
         m_user.setEmail(user.getEmail());

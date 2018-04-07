@@ -50,10 +50,6 @@ public class Service implements Serializable{
         this.stationID = stationID;
     }
 
-    public Station getStation() {
-        return station;
-    }
-
     public void setStation(Station station) {
         this.station = station;
     }

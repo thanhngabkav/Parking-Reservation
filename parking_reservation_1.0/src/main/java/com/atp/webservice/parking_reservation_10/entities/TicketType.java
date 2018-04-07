@@ -98,16 +98,8 @@ public class TicketType implements Serializable{
         this.holdingTime = holdingTime;
     }
 
-    public VehicleType getVehicleType() {
-        return vehicleType;
-    }
-
     public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
-    }
-
-    public Station getStation() {
-        return station;
     }
 
     public void setStation(Station station) {

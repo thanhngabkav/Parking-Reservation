@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Objects;
-import java.util.UUID;
 
 public class StationPresenter implements Serializable{
 
@@ -223,7 +222,7 @@ public class StationPresenter implements Serializable{
                 .setName(this.getName())
                 .setOpenTime(Time.valueOf(this.getOpen_time()))
                 .setOwner(null)//can be find Owner here if necessary
-                .setOwnerID(UUID.fromString(this.getOwner_id()))
+                .setOwnerID(this.getOwner_id())
                 .setParkingMapLink(this.parking_map_link)
                 .setStatus(this.getStatus())
                 //.setParkingStations(null)//can be find List<Station Station> here if necessary

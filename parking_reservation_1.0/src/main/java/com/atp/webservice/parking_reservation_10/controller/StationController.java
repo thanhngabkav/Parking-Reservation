@@ -35,14 +35,10 @@ public class StationController {
     /**
      * Find Station by ID
      * @param stationID
-     * @param result
      * @return
      */
     @RequestMapping(value = "/{id}")
-    public ResponseEntity<Station> findOne(@PathVariable(value = "id") int stationID, BindingResult result){
-        if(result.hasErrors()){
-            return new ResponseEntity<Station>(HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<Station> findOne(@PathVariable(value = "id") Integer stationID){
 
         return new ResponseEntity<Station>(stationService.getStationByID(stationID), HttpStatus.OK);
 

@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
-import java.util.UUID;
 
 @Table(name = TableName.TICKET)
 @Entity
@@ -15,7 +14,7 @@ public class Ticket implements Serializable{
 
     @Id
     @Column(name = "id")
-    private UUID ID;
+    private String ID;
 
     @Column(name = "created_time")
     private Timestamp createdTime;
@@ -33,7 +32,7 @@ public class Ticket implements Serializable{
     private String qRCode;
 
     @Column(name = "driver_id")
-    private UUID driverID;
+    private String driverID;
 
     @Column(name = "station_id")
     private int stationID;
@@ -54,7 +53,7 @@ public class Ticket implements Serializable{
     private TicketType ticketType;
 
 
-    public Ticket(UUID ID, Timestamp createdTime, String status, Timestamp checkinTime, Timestamp checkoutTime,String qRCode, UUID driverID, int stationID, int ticketTypeID) {
+    public Ticket(String ID, Timestamp createdTime, String status, Timestamp checkinTime, Timestamp checkoutTime,String qRCode, String driverID, int stationID, int ticketTypeID) {
         this.ID = ID;
         this.createdTime = createdTime;
         this.status = status;
@@ -67,15 +66,15 @@ public class Ticket implements Serializable{
     }
 
     public Ticket() {
-        this(DefaultValue.UUID, DefaultValue.TIMESTAMP, DefaultValue.STRING, DefaultValue.TIMESTAMP, DefaultValue.TIMESTAMP,
-               DefaultValue.STRING, DefaultValue.UUID, DefaultValue.INT, DefaultValue.INT);
+        this(DefaultValue.UUID.toString(), DefaultValue.TIMESTAMP, DefaultValue.STRING, DefaultValue.TIMESTAMP, DefaultValue.TIMESTAMP,
+               DefaultValue.STRING, DefaultValue.UUID.toString(), DefaultValue.INT, DefaultValue.INT);
     }
 
-    public UUID getID() {
+    public String getID() {
         return ID;
     }
 
-    public Ticket setID(UUID ID) {
+    public Ticket setID(String ID) {
         this.ID = ID;
         return this;
     }
@@ -127,11 +126,11 @@ public class Ticket implements Serializable{
         this.driver = driver;
     }
 
-    public UUID getDriverID() {
+    public String getDriverID() {
         return driverID;
     }
 
-    public Ticket setDriverID(UUID driverID) {
+    public Ticket setDriverID(String driverID) {
         this.driverID = driverID;
         return this;
     }
@@ -154,27 +153,18 @@ public class Ticket implements Serializable{
         return this;
     }
 
-    public Driver getDriver() {
-        return driver;
-    }
 
     public Ticket setDirver(Driver driver) {
         this.driver = driver;
         return this;
     }
 
-    public Station getStation() {
-        return station;
-    }
 
     public Ticket setStation(Station station) {
         this.station = station;
         return this;
     }
 
-    public TicketType getTicketType() {
-        return ticketType;
-    }
 
     public Ticket setTicketType(TicketType ticketType) {
         this.ticketType = ticketType;

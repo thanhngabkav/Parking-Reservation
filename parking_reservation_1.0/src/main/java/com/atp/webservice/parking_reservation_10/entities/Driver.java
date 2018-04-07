@@ -9,13 +9,11 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 
 @Table(name = TableName.DRIVER)
 @Entity
 @AttributeOverrides({
-        @AttributeOverride(name="id", column=@Column(name="id")),
-        @AttributeOverride(name="user_name", column=@Column(name="user_name"))
+        @AttributeOverride(name="id", column=@Column(name="id"))
 })
 public class Driver extends User implements Serializable{
 
@@ -54,14 +52,23 @@ public class Driver extends User implements Serializable{
     }
 
 
-//    public UUID getID() {
+
+//    public String getID() {
 //        return ID;
 //    }
 //
-//    public void setID(UUID ID) {
+//    public void setID(String ID) {
 //        this.ID = ID;
 //    }
 
+
+    public String getApplicationID() {
+        return applicationID;
+    }
+
+    public void setApplicationID(String applicationID) {
+        this.applicationID = applicationID;
+    }
 
     public String getFullName() {
         return fullName;
@@ -95,22 +102,6 @@ public class Driver extends User implements Serializable{
         this.token = token;
     }
 
-    public List<Vehicle> getVehicleList() {
-        return vehicleList;
-    }
-
-    public void setVehicleList(List<Vehicle> vehicleList) {
-        this.vehicleList = vehicleList;
-    }
-
-    public List<Ticket> getTickets() {
-        return tickets;
-    }
-
-    public Driver setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
-        return this;
-    }
 
     @Override
     public boolean equals(Object o) {

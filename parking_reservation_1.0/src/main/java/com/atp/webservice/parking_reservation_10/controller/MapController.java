@@ -23,23 +23,20 @@ public class MapController {
 
     /**
      * Get list location near a place(lat, lng) in a radius
-     * @param lat lat coordinate
-     * @param lng long coordinate
-     * @param rad radius
+     *
+     * @param lat      lat coordinate
+     * @param lng      long coordinate
+     * @param rad      radius
      * @param response {@link HttpServletResponse}
-     * @param result binding result
      * @return
      */
     @RequestMapping(value = "/place", method = RequestMethod.GET)
     public ResponseEntity<List<StationLocation>> getNearByLocation(@RequestParam("lat") double lat, @RequestParam("lng") double lng,
-                                                                   @RequestParam("rad") double rad, HttpServletResponse response,
-                                                                   BindingResult result){
-        if(result.hasErrors()){
-            return  new ResponseEntity<List<StationLocation>>(HttpStatus.BAD_REQUEST);
-        }else{
-            StationLocation place  = new StationLocation(-1,lat, lng);
-            List<StationLocation> stationLocations = mapService.getNearByParking(place, rad);
-            return new ResponseEntity<List<StationLocation>>(stationLocations,HttpStatus.OK);
-        }
+                                                                   @RequestParam("rad") double rad, HttpServletResponse response) {
+
+        StationLocation place = new StationLocation(-1, lat, lng);
+        List<StationLocation> stationLocations = mapService.getNearByParking(place, rad);
+        return new ResponseEntity<List<StationLocation>>(stationLocations, HttpStatus.OK);
+
     }
 }

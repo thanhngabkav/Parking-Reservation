@@ -34,7 +34,7 @@ public class TicketServiceImp implements TicketService{
     @Override
     public List<Ticket> getListTicketByDriverIDAndStatus(String driverID, String status){
         List<com.atp.webservice.parking_reservation_10.entities.Ticket> tickets =
-                ticketCRUDRepository.findTicketsByDriverIDAndStatus(UUID.fromString(driverID), status);
+                ticketCRUDRepository.findTicketsByDriverIDAndStatus(driverID, status);
         List<Ticket> result = new ArrayList<Ticket>();
         for(com.atp.webservice.parking_reservation_10.entities.Ticket ticket : tickets){
             Ticket m_ticket = new Ticket();

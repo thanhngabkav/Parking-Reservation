@@ -12,15 +12,14 @@ import java.util.Objects;
 @Table(name = TableName.OWNER)
 @Entity
 @AttributeOverrides({
-        @AttributeOverride(name="id", column=@Column(name="id")),
-        @AttributeOverride(name="user_name", column=@Column(name="user_name"))
+        @AttributeOverride(name="id", column=@Column(name="id"))
 })
 public class Owner extends User implements Serializable{
 
 //    @Id
 //    @Column(name = "id")
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private UUID ID;
+//    private String ID;
 
     @Column(name = "name", length = 250, nullable = false)
     private String name;
@@ -28,7 +27,7 @@ public class Owner extends User implements Serializable{
     @Column(name = "address", length = 250, nullable = false)
     private String address;
 
-    @Column(name = "user_name", length = 150, nullable = false)
+    @Column(name = "user_name", length = 150)
     private String userName;
 
     @Column(name = "bank_account_number", length = 200)
@@ -45,7 +44,7 @@ public class Owner extends User implements Serializable{
     @Type(type =  "text")
     private String privateKey;
 
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.PERSIST)
     private List<Station> stations;
 
     public Owner(String name, String address, String userName, String bankAccountNumber, String bankName) {
@@ -115,14 +114,6 @@ public class Owner extends User implements Serializable{
 
     public void setPrivateKey(String privateKey) {
         this.privateKey = privateKey;
-    }
-
-    public List<Station> getStations() {
-        return stations;
-    }
-
-    public void setStations(List<Station> stations) {
-        this.stations = stations;
     }
 
     @Override

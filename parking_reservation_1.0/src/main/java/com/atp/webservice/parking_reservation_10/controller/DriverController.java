@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/api//drivers")
+@RequestMapping(value = "/api/drivers")
 public class DriverController {
 
     @Autowired

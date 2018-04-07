@@ -6,7 +6,6 @@ import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.UUID;
 
 @Table(name = TableName.VEHICLE)
 @Entity
@@ -14,7 +13,7 @@ public class Vehicle implements Serializable{
 
     @Id
     @Column(name = "id")
-    private UUID ID;
+    private String ID;
 
     @Column(name = "name", nullable = false, length = 200)
     private String name;
@@ -26,7 +25,7 @@ public class Vehicle implements Serializable{
     private int vehicleTypeID;
 
     @Column(name = "driver_id", insertable = false, updatable = false)
-    private UUID driveID;
+    private String driveID;
 
     @ManyToOne
     @JoinColumn(name = "vehicle_type_id")
@@ -46,11 +45,11 @@ public class Vehicle implements Serializable{
         this(DefaultValue.STRING,DefaultValue.INT, DefaultValue.STRING);
     }
 
-    public UUID getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(UUID ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
@@ -78,24 +77,16 @@ public class Vehicle implements Serializable{
         this.vehicleTypeID = vehicleTypeID;
     }
 
-    public UUID getDriveID() {
+    public String getDriveID() {
         return driveID;
     }
 
-    public void setDriveID(UUID driveID) {
+    public void setDriveID(String driveID) {
         this.driveID = driveID;
-    }
-
-    public VehicleType getVehicleType() {
-        return vehicleType;
     }
 
     public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
-    }
-
-    public Driver getDriver() {
-        return driver;
     }
 
     public void setDriver(Driver driver) {

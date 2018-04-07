@@ -34,8 +34,8 @@ public class MapServiceImp implements MapService {
         for(Station station : stationList){
             try{
                 //split station coordinate to get lat and lng
-                lng2 = Double.parseDouble(station.getCoordinate().split(",")[0]);
-                lat2 = Double.parseDouble(station.getCoordinate().split(",")[1]);
+                lng2 = Double.parseDouble(station.getCoordinate().split(",")[1]);
+                lat2 = Double.parseDouble(station.getCoordinate().split(",")[0]);
                 if(mapHelper.distance(lat1,lng1,lat2,lng2,DISTANCE_UNIT) <= radius){
                     StationLocation location = new StationLocation(station.getID(),lat2,lng2);
                     location.setTotalSlot(station.getTotalSlots());

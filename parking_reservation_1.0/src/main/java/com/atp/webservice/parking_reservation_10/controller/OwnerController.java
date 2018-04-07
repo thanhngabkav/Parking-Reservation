@@ -28,7 +28,7 @@ public class OwnerController {
      *
      * @return
      */
-    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Owner>> GetAll() {
         List<Owner> ownerList = new ArrayList<Owner>();
         this.parkingOwnerRepository.findAll().forEach(ownerList::add);
@@ -42,7 +42,7 @@ public class OwnerController {
      * @return
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Owner> GetOwnerByID(@PathVariable("id") int ownerID) {
+    public ResponseEntity<Owner> GetOwnerByID(@PathVariable("id") String ownerID) {
         Owner owner = this.parkingOwnerRepository.findOne(ownerID);
         return new ResponseEntity<Owner>(owner, HttpStatus.OK);
 

@@ -10,7 +10,6 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 
 @Table(name = TableName.STATION)
 @Entity
@@ -80,23 +79,23 @@ public class Station implements Serializable{
 
     @JsonProperty("owner_id")
     @Column(name = "owner_id", nullable = false, insertable = false, updatable = false)
-    private UUID ownerID;
+    private String ownerID;
 
     @JoinColumn(name = "owner_id")
     @ManyToOne
     private Owner owner;
 
-    @OneToMany(mappedBy = "station", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "station", cascade = CascadeType.PERSIST)
     private List<Ticket> tickets;
 
-    @OneToMany(mappedBy = "station", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "station", cascade = CascadeType.PERSIST)
     private List<Service> services;
 
 
 //    @OneToMany(mappedBy = "parking", cascade = CascadeType.MERGE)
 //    private List<ParkingStation> parkingStations;
 
-    public Station(String applicationID, String keyPair, String name, String address, Timestamp createdDate, String status, int level, Time openTime, Time closeTime, String imageLink, int totalSlots, int usedSlots, String parkingMapLink, String coordinate, UUID ownerID) {
+    public Station(String applicationID, String keyPair, String name, String address, Timestamp createdDate, String status, int level, Time openTime, Time closeTime, String imageLink, int totalSlots, int usedSlots, String parkingMapLink, String coordinate, String ownerID) {
         this.applicationID = applicationID;
         this.keyPair = keyPair;
         this.name = name;
@@ -117,7 +116,7 @@ public class Station implements Serializable{
     public Station() {
         this(DefaultValue.STRING, DefaultValue.STRING, DefaultValue.STRING, DefaultValue.STRING,
                 DefaultValue.TIMESTAMP,DefaultValue.STRING, DefaultValue.INT, DefaultValue.TIME, DefaultValue.TIME,
-                DefaultValue.STRING, DefaultValue.INT, DefaultValue.INT, DefaultValue.STRING, DefaultValue.STRING, DefaultValue.UUID);
+                DefaultValue.STRING, DefaultValue.INT, DefaultValue.INT, DefaultValue.STRING, DefaultValue.STRING, DefaultValue.UUID.toString());
     }
 
     public int getID() {
@@ -254,17 +253,13 @@ public class Station implements Serializable{
         this.coordinate = coordinate;
     }
 
-    public UUID getOwnerID() {
+    public String getOwnerID() {
         return ownerID;
     }
 
-    public Station setOwnerID(UUID ownerID) {
+    public Station setOwnerID(String ownerID) {
         this.ownerID = ownerID;
         return this;
-    }
-
-    public Owner getOwner() {
-        return owner;
     }
 
     public Station setOwner(Owner owner) {
@@ -297,6 +292,7 @@ public class Station implements Serializable{
 //        this.parkingStations = parkingStations;
 //        return this;
 //    }
+
 
     @Override
     public boolean equals(Object o) {

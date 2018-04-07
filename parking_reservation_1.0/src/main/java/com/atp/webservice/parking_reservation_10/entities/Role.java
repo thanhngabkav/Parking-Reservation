@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity
 @Table(name = TableName.ROLE)
@@ -45,10 +44,6 @@ public class Role implements Serializable{
 
     public void setRoleName(String roleName) {
         this.roleName = roleName;
-    }
-
-    public List<User> getUsers() {
-        return users;
     }
 
     public void setUsers(List<User> users) {

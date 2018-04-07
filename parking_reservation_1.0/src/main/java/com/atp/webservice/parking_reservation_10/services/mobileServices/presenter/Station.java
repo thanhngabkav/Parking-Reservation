@@ -236,7 +236,7 @@ public class Station implements Serializable{
                         .setName(station.getName())
                         .setOpenTime(station.getOpenTime())
                         .setCloseTime(station.getCloseTime())
-                        .setOwnerID(station.getOwnerID())
+                        .setOwnerID(UUID.fromString(station.getOwnerID()))
                         .setParkingMapLink(station.getParkingMapLink())
                         .setStatus(station.getStatus())
                         .setTotalSlots(station.getTotalSlots())

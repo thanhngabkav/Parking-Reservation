@@ -34,7 +34,7 @@ public class TicketController {
      * @param status
      * @return List {@link Ticket} if found or null with status NOT_FOUND
      */
-    @RequestMapping(value = "/ticket/user/{id}")
+    @RequestMapping(value = "/user/{id}")
     public ResponseEntity<List<Ticket>> getTicketsByStatus(@PathVariable("id") String userID,
                                                        @RequestParam("status") String status){
         if(status.equals(TicketStatus.IN_USE)){
