@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/parkingmanager" />
+        <property name="username" value="root" />
+        <property name="password" value="atp@123!@#" />
+    </bean>
+
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="annotatedClasses">
+            <list>
+                <value>com.atp.webservice.parking_reservation_10.entities.User</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Role</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Driver</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Owner</value>
+                <!--<value>com.atp.controller.parking_reservation_10.entities.ParkingStation</value> -->
+                <value>com.atp.webservice.parking_reservation_10.entities.VehicleType</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Vehicle</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Station</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.TicketType</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Ticket</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Service</value>
+
+
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
+            </props>
+        </property>
+    </bean>
+
+
+</beans>
