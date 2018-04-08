@@ -7,7 +7,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/parkingmanager" />
         <property name="username" value="root" />
-        <property name="password" value="atp@123!@#" />
+        <property name="password" value="root" />
     </bean>
 
     <bean id="sessionFactory"
