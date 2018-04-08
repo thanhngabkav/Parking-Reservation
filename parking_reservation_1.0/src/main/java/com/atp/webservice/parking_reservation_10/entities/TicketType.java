@@ -66,6 +66,10 @@ public class TicketType implements Serializable{
         return Objects.hash(ID);
     }
 
+    public int getID() {
+        return ID;
+    }
+
     public int getVehicleTypeID() {
         return vehicleTypeID;
     }
