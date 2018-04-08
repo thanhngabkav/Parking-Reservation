@@ -5,6 +5,7 @@ import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Table(name = TableName.VEHICLE)
@@ -21,19 +22,23 @@ public class Vehicle implements Serializable{
     @Column(name = "license_plate", length = 50)
     private String licensePlate;
 
-    @Column(name = "vehicle_type_id", insertable = false, updatable = false)
+    @Column(name = "vehicle_type_id")
     private int vehicleTypeID;
 
-    @Column(name = "driver_id", insertable = false, updatable = false)
+    @Column(name = "driver_id", nullable = false)
     private String driveID;
 
     @ManyToOne
-    @JoinColumn(name = "vehicle_type_id")
+    @JoinColumn(name = "vehicle_type_id", insertable = false, updatable = false)
     private VehicleType vehicleType;
 
     @ManyToOne
-    @JoinColumn(name = "driverID", nullable = false)
+    @JoinColumn(name = "driver_id", insertable = false, updatable = false)
     private Driver driver;
+
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.MERGE)
+    private List<Ticket> tickets;
+
 
     public Vehicle(String name, int vehicleTypeID, String licensePlate) {
         this.name = name;
@@ -91,6 +96,10 @@ public class Vehicle implements Serializable{
 
     public void setDriver(Driver driver) {
         this.driver = driver;
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
     }
 
     @Override

@@ -78,10 +78,10 @@ public class Station implements Serializable{
     private String coordinate;
 
     @JsonProperty("owner_id")
-    @Column(name = "owner_id", nullable = false, insertable = false, updatable = false)
+    @Column(name = "owner_id")
     private String ownerID;
 
-    @JoinColumn(name = "owner_id")
+    @JoinColumn(name = "owner_id", insertable = false, updatable = false)
     @ManyToOne
     private Owner owner;
 
@@ -267,14 +267,14 @@ public class Station implements Serializable{
         return this;
     }
 
-    public List<Ticket> getTickets() {
-        return tickets;
-    }
-
-    public Station setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
-        return this;
-    }
+//    public List<Ticket> getTickets() {
+//        return tickets;
+//    }
+//
+//    public Station setTickets(List<Ticket> tickets) {
+//        this.tickets = tickets;
+//        return this;
+//    }
 
     public List<Service> getServices() {
         return services;

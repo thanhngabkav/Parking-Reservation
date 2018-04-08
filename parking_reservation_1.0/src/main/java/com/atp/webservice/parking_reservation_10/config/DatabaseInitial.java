@@ -1,16 +1,11 @@
 package com.atp.webservice.parking_reservation_10.config;
 
 
-import com.atp.webservice.parking_reservation_10.entities.Driver;
-import com.atp.webservice.parking_reservation_10.entities.Owner;
-import com.atp.webservice.parking_reservation_10.entities.Station;
-import com.atp.webservice.parking_reservation_10.entities.User;
+import com.atp.webservice.parking_reservation_10.entities.*;
+import com.atp.webservice.parking_reservation_10.entities.uitls.TicketStatus;
 import com.atp.webservice.parking_reservation_10.entities.uitls.UserStatus;
 import com.atp.webservice.parking_reservation_10.entities.uitls.UserType;
-import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.DriverCRUDRepository;
-import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.OwnerCRUDRepository;
-import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.StationCRUDRepository;
-import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.UserCRUDRepository;
+import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.*;
 import com.atp.webservice.parking_reservation_10.services.algorithms.KeypairHelper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,6 +18,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Time;
@@ -31,10 +27,11 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 /**
- *
+ * This class is use for generate sample data
  */
 @Component
 public class DatabaseInitial implements ApplicationListener<ContextRefreshedEvent> {
@@ -50,6 +47,18 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
 
     @Autowired
     private StationCRUDRepository stationCRUDRepository;
+
+    @Autowired
+    private VehicleTypeCRUDRepository vehicleTypeCRUDRepository;
+
+    @Autowired
+    private  VehicleCRUDRepository vehicleCRUDRepository;
+
+    @Autowired
+    private TicketTypeCRUDRepository ticketTypeCRUDRepository;
+
+    @Autowired
+    private  TicketCRUDRepository ticketCRUDRepository;
 
     private static Logger logger = Logger.getLogger(DatabaseInitial.class);
 
@@ -68,6 +77,109 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
         } catch (IOException e) {
             logger.warn("Init Stations fail");
             e.printStackTrace();
+        }
+        initVehicleType();
+
+        initVehicle();
+
+        initTicketType();
+
+        initTicket();
+
+    }
+
+    private void  initVehicleType(){
+        VehicleType  vehicle = new VehicleType();
+        vehicle.setName("Xe Đạp");
+        vehicleTypeCRUDRepository.save(vehicle);
+        //
+        VehicleType  vehicle1 = new VehicleType();
+        vehicle.setName("Xe Máy");
+        vehicleTypeCRUDRepository.save(vehicle);
+        //
+        VehicleType  vehicle2 = new VehicleType();
+        vehicle.setName("Ô Tô");
+        vehicleTypeCRUDRepository.save(vehicle);
+        //
+        VehicleType  vehicle3 = new VehicleType();
+        vehicle.setName("Xe Tải");
+        vehicleTypeCRUDRepository.save(vehicle);
+        //
+        VehicleType  vehicle4 = new VehicleType();
+        vehicle.setName("Xe Khách");
+        vehicleTypeCRUDRepository.save(vehicle);
+    }
+
+    private void  initVehicle(){
+        List<Driver> drivers = driverCRUDRepository.findAll();
+        List<VehicleType> vehicleTypes = vehicleTypeCRUDRepository.findAll();
+        for(Driver driver : drivers){
+            for(VehicleType vehicleType : vehicleTypes){
+                byte[] array = new byte[7]; // length is bounded by 7
+                new Random().nextBytes(array);
+                String generatedString = new String(array, Charset.forName("EUC-KR"));
+                Vehicle  vehicle = new Vehicle();
+                vehicle.setID(UUID.randomUUID().toString());
+                vehicle.setDriveID(driver.getUserID());
+                vehicle.setLicensePlate(generatedString);
+                vehicle.setVehicleTypeID(vehicleType.getID());
+                vehicle.setVehicleType(vehicleType);
+                vehicle.setDriver(driver);
+                vehicle.setName("Driver Vehicle");
+                vehicleCRUDRepository.save(vehicle);
+            }
+        }
+    }
+
+    private void initTicketType(){
+        List<VehicleType> allvVehicleTypes = vehicleTypeCRUDRepository.findAll();
+        List<Station> allStations = stationCRUDRepository.findAll();
+        for (Station station : allStations){
+            for(VehicleType vehicleType: allvVehicleTypes){
+                TicketType ticketType = new TicketType();
+                ticketType.setHoldingTime(Time.valueOf(LocalTime.of(1,0,0)));
+                ticketType.setPrice(vehicleType.getID()*3 + station.getID()*2 + 2000);
+                ticketType.setStation(station);
+                ticketType.setStationID(station.getID());
+                ticketType.setVehicleType(vehicleType);
+                ticketType.setVehicleTypeID(vehicleType.getID());
+
+                ticketTypeCRUDRepository.save(ticketType);
+            }
+        }
+
+    }
+
+    private void initTicket(){
+        List<Vehicle> allVehicles = vehicleCRUDRepository.findAll();
+        List<Station> allStations = stationCRUDRepository.findAll();
+        List<TicketType> allTicketTypes = ticketTypeCRUDRepository.findAll();
+        String[] ticketStatus = {TicketStatus.CHECKED, TicketStatus.HOLDIND, TicketStatus.IN_USE, TicketStatus.USED};
+        int i=0;
+
+        for(Vehicle vehicle : allVehicles){
+            for(Station station : allStations){
+                for(TicketType ticketType : allTicketTypes){
+                    i++;
+                    Ticket ticket = new Ticket();
+                    ticket.setID(UUID.randomUUID().toString())
+                            .setCheckinTime(Timestamp.valueOf(LocalDateTime.now()));
+                    if(i%5 ==0)
+                        ticket.setCheckoutTime(Timestamp.valueOf(LocalDateTime.now()));
+                    else
+                        ticket.setCheckoutTime(null);
+                    ticket.setCreatedTime(Timestamp.valueOf(LocalDateTime.now()))
+                            .setDriverID(vehicle.getDriveID());
+                    ticket.setqRCode("");
+                    ticket.setStationID(station.getID())
+                            .setStatus(ticketStatus[i%4]);
+                    ticket.setTicketTypeID(ticketType.getID());
+                    ticket.setVehicleID(vehicle.getID());
+                    ticket.setTicketType(ticketType)
+                            .setVehicle(vehicle);
+                    ticketCRUDRepository.save(ticket);
+                }
+            }
         }
 
     }

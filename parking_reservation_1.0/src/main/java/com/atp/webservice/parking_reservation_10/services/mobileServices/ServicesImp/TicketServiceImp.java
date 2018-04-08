@@ -39,7 +39,8 @@ public class TicketServiceImp implements TicketService{
         for(com.atp.webservice.parking_reservation_10.entities.Ticket ticket : tickets){
             Ticket m_ticket = new Ticket();
             m_ticket.setCheckInTime(ticket.getCheckinTime().toString());
-            m_ticket.setCheckOutTime(ticket.getCheckoutTime().toString());
+            if(ticket.getCheckoutTime()!=null)
+                m_ticket.setCheckOutTime(ticket.getCheckoutTime().toString());
             m_ticket.setCreatedDate(ticket.getCreatedTime().toString());
             m_ticket.setId(ticket.getID().toString());
             m_ticket.setDriverID(ticket.getDriverID().toString());

@@ -102,6 +102,13 @@ public class Driver extends User implements Serializable{
         this.token = token;
     }
 
+    public List<Vehicle> getVehicleList() {
+        return vehicleList;
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
 
     @Override
     public boolean equals(Object o) {

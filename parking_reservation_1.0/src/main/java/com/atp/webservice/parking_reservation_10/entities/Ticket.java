@@ -37,8 +37,11 @@ public class Ticket implements Serializable{
     @Column(name = "station_id")
     private int stationID;
 
-    @Column(name = "ticket_type_id", insertable = false, updatable = false)
+    @Column(name = "ticket_type_id", nullable = false)
     private int ticketTypeID;
+
+    @Column(name = "vehicle_id", nullable = false)
+    private String vehicleID;
 
     @ManyToOne
     @JoinColumn(name = "driver_id", insertable = false, updatable = false)
@@ -52,8 +55,14 @@ public class Ticket implements Serializable{
     @JoinColumn(name = "ticket_type_id", insertable = false, updatable = false)
     private TicketType ticketType;
 
+    @ManyToOne
+    @JoinColumn(name = "vehicle_id", insertable = false, updatable = false)
+    private Vehicle vehicle;
 
-    public Ticket(String ID, Timestamp createdTime, String status, Timestamp checkinTime, Timestamp checkoutTime,String qRCode, String driverID, int stationID, int ticketTypeID) {
+
+
+    public Ticket(String ID, Timestamp createdTime, String status, Timestamp checkinTime, Timestamp checkoutTime,String qRCode,
+                  String driverID, int stationID, int ticketTypeID, String vehicleID ) {
         this.ID = ID;
         this.createdTime = createdTime;
         this.status = status;
@@ -63,11 +72,12 @@ public class Ticket implements Serializable{
         this.driverID = driverID;
         this.stationID = stationID;
         this.ticketTypeID = ticketTypeID;
+        this.vehicleID = vehicleID;
     }
 
     public Ticket() {
         this(DefaultValue.UUID.toString(), DefaultValue.TIMESTAMP, DefaultValue.STRING, DefaultValue.TIMESTAMP, DefaultValue.TIMESTAMP,
-               DefaultValue.STRING, DefaultValue.UUID.toString(), DefaultValue.INT, DefaultValue.INT);
+               DefaultValue.STRING, DefaultValue.UUID.toString(), DefaultValue.INT, DefaultValue.INT, DefaultValue.STRING);
     }
 
     public String getID() {
@@ -154,21 +164,27 @@ public class Ticket implements Serializable{
     }
 
 
-    public Ticket setDirver(Driver driver) {
-        this.driver = driver;
-        return this;
-    }
-
-
-    public Ticket setStation(Station station) {
-        this.station = station;
-        return this;
-    }
+//    public Ticket setStation(Station station) {
+//        this.station = station;
+//        return this;
+//    }
 
 
     public Ticket setTicketType(TicketType ticketType) {
         this.ticketType = ticketType;
         return this;
+    }
+
+    public String getVehicleID() {
+        return vehicleID;
+    }
+
+    public void setVehicleID(String vehicleID) {
+        this.vehicleID = vehicleID;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
 
     @Override

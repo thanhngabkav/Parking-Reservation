@@ -18,10 +18,10 @@ public class TicketType implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
-    @Column(name = "vehicle_type_id", updatable = false, insertable = false)
+    @Column(name = "vehicle_type_id")
     private int vehicleTypeID;
 
-    @Column(name = "station_id", insertable = false, updatable = false)
+    @Column(name = "station_id")
     private int stationID;
 
     @Column(name = "price")
@@ -31,14 +31,14 @@ public class TicketType implements Serializable{
     private Time holdingTime;
 
     @ManyToOne
-    @JoinColumn(name = "vehicle_type_id")
+    @JoinColumn(name = "vehicle_type_id", updatable = false, insertable = false)
     private VehicleType vehicleType;
 
     @ManyToOne
-    @JoinColumn(name = "station_id")
+    @JoinColumn(name = "station_id", insertable = false, updatable = false)
     private Station station;
 
-    @OneToMany(mappedBy = "ticketType", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "ticketType", cascade = CascadeType.PERSIST)
     private List<Ticket> tickets;
 
     public TicketType(int vehicleTypeID, int stationID, double price, Time holdingTime) {
@@ -64,6 +64,10 @@ public class TicketType implements Serializable{
     public int hashCode() {
 
         return Objects.hash(ID);
+    }
+
+    public int getID() {
+        return ID;
     }
 
     public int getVehicleTypeID() {

@@ -226,7 +226,7 @@ public class StationPresenter implements Serializable{
                 .setParkingMapLink(this.parking_map_link)
                 .setStatus(this.getStatus())
                 //.setParkingStations(null)//can be find List<Station Station> here if necessary
-                .setTickets(null)
+                //.setTickets(null)
                 .setTotalSlots(this.getTotal_slots())
                 .setUsedSlots(this.getUsed_slots())
                 .setCloseTime(Time.valueOf(this.getClose_time()));
