@@ -37,10 +37,10 @@ public class Ticket implements Serializable{
     @Column(name = "station_id")
     private int stationID;
 
-    @Column(name = "ticket_type_id", insertable = false, updatable = false)
+    @Column(name = "ticket_type_id", nullable = false)
     private int ticketTypeID;
 
-    @Column(name = "vehicle_id", insertable = false, updatable = false)
+    @Column(name = "vehicle_id", nullable = false)
     private String vehicleID;
 
     @ManyToOne
@@ -164,10 +164,10 @@ public class Ticket implements Serializable{
     }
 
 
-    public Ticket setStation(Station station) {
-        this.station = station;
-        return this;
-    }
+//    public Ticket setStation(Station station) {
+//        this.station = station;
+//        return this;
+//    }
 
 
     public Ticket setTicketType(TicketType ticketType) {

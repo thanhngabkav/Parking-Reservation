@@ -22,21 +22,21 @@ public class Vehicle implements Serializable{
     @Column(name = "license_plate", length = 50)
     private String licensePlate;
 
-    @Column(name = "vehicle_type_id", insertable = false, updatable = false)
+    @Column(name = "vehicle_type_id")
     private int vehicleTypeID;
 
-    @Column(name = "driver_id", insertable = false, updatable = false)
+    @Column(name = "driver_id", nullable = false)
     private String driveID;
 
     @ManyToOne
-    @JoinColumn(name = "vehicle_type_id")
+    @JoinColumn(name = "vehicle_type_id", insertable = false, updatable = false)
     private VehicleType vehicleType;
 
     @ManyToOne
-    @JoinColumn(name = "driver_id", nullable = false)
+    @JoinColumn(name = "driver_id", insertable = false, updatable = false)
     private Driver driver;
 
-    @OneToMany(mappedBy = "vehicle")
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.MERGE)
     private List<Ticket> tickets;
 
 

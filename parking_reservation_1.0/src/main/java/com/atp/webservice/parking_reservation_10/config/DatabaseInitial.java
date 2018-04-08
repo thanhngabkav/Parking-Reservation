@@ -31,7 +31,7 @@ import java.util.Random;
 import java.util.UUID;
 
 /**
- *
+ * This class is use for generate sample data
  */
 @Component
 public class DatabaseInitial implements ApplicationListener<ContextRefreshedEvent> {
@@ -66,8 +66,6 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
 
         logger.info("Importing sample data");
-        initVehicleType();
-
         try {
             initUser();
         } catch (NoSuchAlgorithmException e) {
@@ -80,6 +78,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
             logger.warn("Init Stations fail");
             e.printStackTrace();
         }
+        initVehicleType();
 
         initVehicle();
 
@@ -118,7 +117,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
             for(VehicleType vehicleType : vehicleTypes){
                 byte[] array = new byte[7]; // length is bounded by 7
                 new Random().nextBytes(array);
-                String generatedString = new String(array, Charset.forName("UTF-8"));
+                String generatedString = new String(array, Charset.forName("EUC-KR"));
                 Vehicle  vehicle = new Vehicle();
                 vehicle.setID(UUID.randomUUID().toString());
                 vehicle.setDriveID(driver.getUserID());
@@ -157,6 +156,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
         List<TicketType> allTicketTypes = ticketTypeCRUDRepository.findAll();
         String[] ticketStatus = {TicketStatus.CHECKED, TicketStatus.HOLDIND, TicketStatus.IN_USE, TicketStatus.USED};
         int i=0;
+
         for(Vehicle vehicle : allVehicles){
             for(Station station : allStations){
                 for(TicketType ticketType : allTicketTypes){
@@ -169,13 +169,12 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
                     else
                         ticket.setCheckoutTime(null);
                     ticket.setCreatedTime(Timestamp.valueOf(LocalDateTime.now()))
-                            .setDriverID(vehicle.getDriveID())
-                            .setqRCode("");
-                    ticket.setStation(station)
-                            .setStationID(station.getID())
-                            .setStatus(ticketStatus[i%4])
-                            .setTicketTypeID(ticketType.getID())
-                            .setVehicleID(vehicle.getID());
+                            .setDriverID(vehicle.getDriveID());
+                    ticket.setqRCode("");
+                    ticket.setStationID(station.getID())
+                            .setStatus(ticketStatus[i%4]);
+                    ticket.setTicketTypeID(ticketType.getID());
+                    ticket.setVehicleID(vehicle.getID());
                     ticket.setTicketType(ticketType)
                             .setVehicle(vehicle);
                     ticketCRUDRepository.save(ticket);
