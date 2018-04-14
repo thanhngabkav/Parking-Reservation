@@ -69,7 +69,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
 
         initServices();
 
-        logger.info("Importing sample data");
+        ///logger.info("Importing sample data");
         try {
             initUser();
         } catch (NoSuchAlgorithmException e) {
@@ -93,7 +93,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     }
 
     private void initServices() {
-        logger.info("Init Services");
+        //logger.info("Init Services");
         String[] services = {StationServices.DO_XE, StationServices.SUA_XE, StationServices.DO_XANG, StationServices.RUA_XE};
         for(String service : services){
             serviceCRUDRepository.save(new Service(service));
@@ -101,7 +101,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     }
 
     private void initRoles() {
-        logger.info("Init Roles");
+       // logger.info("Init Roles");
         String[] roles = {UserRole.ADMIN_ROLE, UserRole.DRIVER_ROLE, UserRole.OWNER_ROLE, UserRole.THIRD_PARTY};
         for(String role : roles){
             roleCRUDRepository.save(new Role(role));
@@ -131,7 +131,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     }
 
     private void  initVehicle(){
-        logger.info("Init Vehicles");
+        //logger.info("Init Vehicles");
         List<Driver> drivers = driverCRUDRepository.findAll();
         List<VehicleType> vehicleTypes = vehicleTypeCRUDRepository.findAll();
         for(Driver driver : drivers){
@@ -153,7 +153,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     }
 
     private void initTicketType(){
-        logger.info("Init Ticket Types");
+       // logger.info("Init Ticket Types");
         List<VehicleType> allvVehicleTypes = vehicleTypeCRUDRepository.findAll();
         List<Station> allStations = stationCRUDRepository.findAll();
         for (Station station : allStations){
@@ -173,7 +173,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     }
 
     private void initTicket(){
-        logger.info("Init Tickets");
+        //logger.info("Init Tickets");
         List<Vehicle> allVehicles = vehicleCRUDRepository.findAll();
         List<Station> allStations = stationCRUDRepository.findAll();
         List<TicketType> allTicketTypes = ticketTypeCRUDRepository.findAll();
@@ -209,7 +209,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
 
     private void initOwner(User user, int i) throws NoSuchAlgorithmException {
         //Init owner
-        logger.info("Init Owners");
+       // logger.info("Init Owners");
         Owner owner = new Owner();
         owner.setUserID(user.getUserID());
         owner.setAddress("Owner Address");
@@ -275,7 +275,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     }
 
     private void initMobileAppUser(User user) {
-        logger.info("Init Drivers");
+        //logger.info("Init Drivers");
         Driver driver = new Driver();
         driver.setUserID(user.getUserID());
         driver.setStatus(user.getStatus());
@@ -292,7 +292,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
 
 
     private void initStation() throws IOException {
-        logger.info("Init Stations");
+       // logger.info("Init Stations");
         List<Owner> ownerList = ownerCRUDRepository.findAll();
         List<Owner> activeOwners = new ArrayList<Owner>();
         for (Owner owner : ownerList){
