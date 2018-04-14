@@ -65,30 +65,30 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
 
-//        initRoles();
-//
-//        initServices();
-//
-//        logger.info("Importing sample data");
-//        try {
-//            initUser();
-//        } catch (NoSuchAlgorithmException e) {
-//            logger.warn("Init Owners fail");
-//            e.printStackTrace();
-//        }
-//        try {
-//            initStation();
-//        } catch (IOException e) {
-//            logger.warn("Init Stations fail");
-//            e.printStackTrace();
-//        }
-//        initVehicleType();
-//
-//        initVehicle();
-//
-//        initTicketType();
-//
-//        initTicket();
+        initRoles();
+
+        initServices();
+
+        logger.info("Importing sample data");
+        try {
+            initUser();
+        } catch (NoSuchAlgorithmException e) {
+            logger.warn("Init Owners fail");
+            e.printStackTrace();
+        }
+        try {
+            initStation();
+        } catch (IOException e) {
+            logger.warn("Init Stations fail");
+            e.printStackTrace();
+        }
+        initVehicleType();
+
+        initVehicle();
+
+        initTicketType();
+
+        initTicket();
 
     }
 
