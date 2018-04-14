@@ -1,5 +1,6 @@
 package com.atp.webservice.parking_reservation_10.entities.sparkPresenter;
 
+import com.atp.webservice.parking_reservation_10.entities.Service;
 import com.atp.webservice.parking_reservation_10.entities.Station;
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
 import org.codehaus.jackson.annotate.JsonProperty;
@@ -8,11 +9,12 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Objects;
 
 public class StationPresenter implements Serializable{
 
-    @JsonProperty("id")
+    @JsonProperty("station_id")
     private int id;
 
     @JsonProperty("key_pair")
@@ -30,9 +32,8 @@ public class StationPresenter implements Serializable{
     @JsonProperty("status")
     private String status;
 
-    @JsonProperty("level")
-    @Column(name = "level")
-    private int level;
+    @JsonProperty("star")
+    private double star;
 
     @JsonProperty("open_time")
     private String open_time;
@@ -46,6 +47,9 @@ public class StationPresenter implements Serializable{
     @JsonProperty("total_slots")
     private int total_slots;
 
+    @JsonProperty("holding_slots")
+    private  int holding_slots;
+
     @JsonProperty("used_slots")
     private int used_slots;
 
@@ -55,18 +59,22 @@ public class StationPresenter implements Serializable{
     @JsonProperty("owner_id")
     private String owner_id;
 
-    public StationPresenter(int id, String key_pair, String name, String address, Timestamp created_date, String status, int level, String open_time, String close_time, String image_link, int total_slots, int used_slots, String parking_map_link, String owner_id) {
+    @JsonProperty("services")
+    List<Service> services;
+
+    public StationPresenter(int id, String key_pair, String name, String address, Timestamp created_date, String status, int star, String open_time, String close_time, String image_link, int total_slots, int holding_slots, int used_slots, String parking_map_link, String owner_id) {
         this.id = id;
         this.key_pair = key_pair;
         this.name = name;
         this.address = address;
         this.created_date = created_date;
         this.status = status;
-        this.level = level;
+        this.star = star;
         this.open_time = open_time;
         this.close_time = close_time;
         this.image_link = image_link;
         this.total_slots = total_slots;
+        this.holding_slots = holding_slots;
         this.used_slots = used_slots;
         this.parking_map_link = parking_map_link;
         this.owner_id = owner_id;
@@ -75,7 +83,8 @@ public class StationPresenter implements Serializable{
     public StationPresenter() {
         this(DefaultValue.INT, DefaultValue.STRING, DefaultValue.STRING, DefaultValue.STRING,
                 DefaultValue.TIMESTAMP,DefaultValue.STRING, DefaultValue.INT, DefaultValue.STRING, DefaultValue.STRING,
-                DefaultValue.STRING, DefaultValue.INT, DefaultValue.INT, DefaultValue.STRING, DefaultValue.STRING);
+                DefaultValue.STRING, DefaultValue.INT, DefaultValue.INT, DefaultValue.INT, DefaultValue.STRING, DefaultValue.STRING);
+
     }
 
     public int getId() {
@@ -126,12 +135,13 @@ public class StationPresenter implements Serializable{
         this.status = status;
     }
 
-    public int getLevel() {
-        return level;
+    public double getStar() {
+        return star;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public void setStar(double star) {
+        this.star = star;
+        return;
     }
 
     public String getOpen_time() {
@@ -166,6 +176,15 @@ public class StationPresenter implements Serializable{
         this.total_slots = total_slots;
     }
 
+    public int getHolding_slots() {
+        return holding_slots;
+    }
+
+    public StationPresenter setHolding_slots(int holding_slots) {
+        this.holding_slots = holding_slots;
+        return this;
+    }
+
     public int getUsed_slots() {
         return used_slots;
     }
@@ -188,6 +207,15 @@ public class StationPresenter implements Serializable{
 
     public void setOwner_id(String owner_id) {
         this.owner_id = owner_id;
+    }
+
+    public List<Service> getServices() {
+        return services;
+    }
+
+    public StationPresenter setServices(List<Service> services) {
+        this.services = services;
+        return this;
     }
 
     @Override
@@ -218,14 +246,14 @@ public class StationPresenter implements Serializable{
                 .setImageLink(this.getImage_link())
                 .setKeyPair(this.getKey_pair())
                 .setCreatedDate(this.getCreated_date())
-                .setLevel(this.getLevel())
+                .setStar(this.getStar())
                 .setName(this.getName())
                 .setOpenTime(Time.valueOf(this.getOpen_time()))
                 .setOwner(null)//can be find Owner here if necessary
                 .setOwnerID(this.getOwner_id())
                 .setParkingMapLink(this.parking_map_link)
                 .setStatus(this.getStatus())
-                //.setParkingStations(null)//can be find List<Station Station> here if necessary
+                //.setParkingStations(null)//can be find List<StationOverview StationOverview> here if necessary
                 //.setTickets(null)
                 .setTotalSlots(this.getTotal_slots())
                 .setUsedSlots(this.getUsed_slots())
@@ -244,7 +272,7 @@ public class StationPresenter implements Serializable{
         this.setId(station.getID());
         this.setImage_link(station.getImageLink());
         this.setKey_pair(station.getKeyPair());
-        this.setLevel(station.getLevel());
+        this.setStar(station.getStar());
         this.setName(station.getName());
         this.setOpen_time(station.getOpenTime().toString());
         this.setOwner_id(station.getOwnerID().toString());

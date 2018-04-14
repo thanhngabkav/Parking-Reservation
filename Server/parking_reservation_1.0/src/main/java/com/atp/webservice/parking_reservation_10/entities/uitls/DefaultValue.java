@@ -10,7 +10,7 @@ public class DefaultValue {
 
     public static final String STRING = "DEFAULT";
 
-    public static final int INT = -1;
+    public static final int INT = 0;
 
     public static final double DOUBLE = 0;
 

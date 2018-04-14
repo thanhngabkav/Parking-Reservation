@@ -36,7 +36,7 @@ public class Vehicle implements Serializable{
     @JoinColumn(name = "driver_id", insertable = false, updatable = false)
     private Driver driver;
 
-    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL)
     private List<Ticket> tickets;
 
 

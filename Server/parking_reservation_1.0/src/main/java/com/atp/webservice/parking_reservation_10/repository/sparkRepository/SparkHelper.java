@@ -11,7 +11,7 @@ public class SparkHelper {
     private SparkHelper() {
         sparkSession = SparkSession
                         .builder()
-                        .appName("Station Reservation")
+                        .appName("StationOverview Reservation")
                         .master("local")
                         .getOrCreate();
     }

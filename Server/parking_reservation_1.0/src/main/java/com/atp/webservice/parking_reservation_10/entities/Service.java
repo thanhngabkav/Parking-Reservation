@@ -5,6 +5,7 @@ import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,19 +13,15 @@ import java.util.Objects;
 public class Service implements Serializable{
 
     @Id
-    @Column(name = "id")
+    @Column(name = "service_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
     @Column(name = "service_name")
     private String serviceName;
 
-    @Column(name = "satation_id")
-    private int stationID;
-
-    @ManyToOne
-    @JoinColumn(name = "station_id", insertable = false, updatable = false)
-    private Station station;
+    @ManyToMany(mappedBy = "services")
+    private List<Station> stations;
 
     public int getServiceID() {
         return ID;
@@ -42,16 +39,16 @@ public class Service implements Serializable{
         this.serviceName = serviceName;
     }
 
-    public int getStationID() {
-        return stationID;
+    public Service setStations(List<Station> stations) {
+        this.stations = stations;
+        return this;
     }
 
-    public void setStationID(int stationID) {
-        this.stationID = stationID;
+    public Service() {
     }
 
-    public void setStation(Station station) {
-        this.station = station;
+    public Service(String serviceName) {
+        this.serviceName = serviceName;
     }
 
     @Override
@@ -68,13 +65,12 @@ public class Service implements Serializable{
         return Objects.hash(ID);
     }
 
+
     @Override
     public String toString() {
         return "Service{" +
                 "serviceID='" + ID + '\'' +
                 ", serviceName='" + serviceName + '\'' +
-                ", stationID=" + stationID +
-                ", station=" + station +
                 '}';
     }
 }

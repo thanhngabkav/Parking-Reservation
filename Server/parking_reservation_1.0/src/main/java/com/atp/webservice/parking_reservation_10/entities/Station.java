@@ -3,6 +3,8 @@ package com.atp.webservice.parking_reservation_10.entities;
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
 import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,12 +14,13 @@ import java.util.List;
 import java.util.Objects;
 
 @Table(name = TableName.STATION)
+@Inheritance(strategy = InheritanceType.JOINED)
 @Entity
 public class Station implements Serializable{
 
     @Id
-    @JsonProperty("id")
-    @Column(name = "id")
+    @JsonProperty("station_id")
+    @Column(name = "station_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
@@ -45,9 +48,9 @@ public class Station implements Serializable{
     @Column(name = "status", length = 50)
     private String status;
 
-    @JsonProperty("level")
-    @Column(name = "level")
-    private int level;
+    @JsonProperty("star")
+    @Column(name = "star")
+    private double star;
 
     @JsonProperty("open_time")
     @Column(name = "open_time")
@@ -69,6 +72,10 @@ public class Station implements Serializable{
     @Column(name = "used_slots")
     private int usedSlots;
 
+    @JsonProperty("holding_slot")
+    @Column(name = "holding_slots")
+    private int holdingSlots;
+
     @JsonProperty("parking_map_link")
     @Column(name = "parking_map_link")
     private String parkingMapLink;
@@ -88,25 +95,35 @@ public class Station implements Serializable{
     @OneToMany(mappedBy = "station", cascade = CascadeType.PERSIST)
     private List<Ticket> tickets;
 
-    @OneToMany(mappedBy = "station", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "station", cascade = CascadeType.ALL)
+    private  List<Comment> comments;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    @JoinTable(
+            name = "station_service",
+            joinColumns = @JoinColumn(name = "station_id"),
+            inverseJoinColumns = @JoinColumn(name = "service_id")
+    )
     private List<Service> services;
 
 
 //    @OneToMany(mappedBy = "parking", cascade = CascadeType.MERGE)
 //    private List<ParkingStation> parkingStations;
 
-    public Station(String applicationID, String keyPair, String name, String address, Timestamp createdDate, String status, int level, Time openTime, Time closeTime, String imageLink, int totalSlots, int usedSlots, String parkingMapLink, String coordinate, String ownerID) {
+    public Station(String applicationID, String keyPair, String name, String address, Timestamp createdDate, String status, int level, Time openTime, Time closeTime, String imageLink, int totalSlots, int holdingSlots, int usedSlots, String parkingMapLink, String coordinate, String ownerID) {
         this.applicationID = applicationID;
         this.keyPair = keyPair;
         this.name = name;
         this.address = address;
         this.createdDate = createdDate;
         this.status = status;
-        this.level = level;
+        this.star = level;
         this.openTime = openTime;
         this.closeTime = closeTime;
         this.imageLink = imageLink;
         this.totalSlots = totalSlots;
+        this.holdingSlots = holdingSlots;
         this.usedSlots = usedSlots;
         this.parkingMapLink = parkingMapLink;
         this.coordinate = coordinate;
@@ -116,7 +133,7 @@ public class Station implements Serializable{
     public Station() {
         this(DefaultValue.STRING, DefaultValue.STRING, DefaultValue.STRING, DefaultValue.STRING,
                 DefaultValue.TIMESTAMP,DefaultValue.STRING, DefaultValue.INT, DefaultValue.TIME, DefaultValue.TIME,
-                DefaultValue.STRING, DefaultValue.INT, DefaultValue.INT, DefaultValue.STRING, DefaultValue.STRING, DefaultValue.UUID.toString());
+                DefaultValue.STRING, DefaultValue.INT, DefaultValue.INT, DefaultValue.INT, DefaultValue.STRING, DefaultValue.STRING, DefaultValue.UUID.toString());
     }
 
     public int getID() {
@@ -182,13 +199,13 @@ public class Station implements Serializable{
         return this;
     }
 
-    public int getLevel() {
-        return level;
+    public double getStar() {
+        return star;
     }
 
-    public Station setLevel(int level) {
-        this.level = level;
-        return this;
+    public Station setStar(double star) {
+        this.star = star;
+        return  this;
     }
 
     public Time getOpenTime() {
@@ -224,6 +241,15 @@ public class Station implements Serializable{
 
     public Station setTotalSlots(int totalSlots) {
         this.totalSlots = totalSlots;
+        return this;
+    }
+
+    public int getHoldingSlots() {
+        return holdingSlots;
+    }
+
+    public Station setHoldingSlots(int holdingSlots) {
+        this.holdingSlots = holdingSlots;
         return this;
     }
 
@@ -271,7 +297,7 @@ public class Station implements Serializable{
 //        return tickets;
 //    }
 //
-//    public Station setTickets(List<Ticket> tickets) {
+//    public StationOverview setTickets(List<Ticket> tickets) {
 //        this.tickets = tickets;
 //        return this;
 //    }
@@ -288,7 +314,7 @@ public class Station implements Serializable{
 //        return parkingStations;
 //    }
 //
-//    public Station setParkingStations(List<ParkingStation> parkingStations) {
+//    public StationOverview setParkingStations(List<ParkingStation> parkingStations) {
 //        this.parkingStations = parkingStations;
 //        return this;
 //    }

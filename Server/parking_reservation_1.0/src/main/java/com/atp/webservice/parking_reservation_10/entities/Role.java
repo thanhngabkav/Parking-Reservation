@@ -25,7 +25,7 @@ public class Role implements Serializable{
     public Role() {
     }
 
-    public Role(String roleName, List<User> users) {
+    public Role(String roleName) {
         this.roleName = roleName;
         this.users = users;
     }

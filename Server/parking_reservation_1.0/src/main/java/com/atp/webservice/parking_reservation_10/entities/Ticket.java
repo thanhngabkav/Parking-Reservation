@@ -164,7 +164,7 @@ public class Ticket implements Serializable{
     }
 
 
-//    public Ticket setStation(Station station) {
+//    public Ticket setStation(StationOverview station) {
 //        this.station = station;
 //        return this;
 //    }

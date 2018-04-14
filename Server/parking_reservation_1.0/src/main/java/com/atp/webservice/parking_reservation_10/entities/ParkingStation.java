@@ -39,7 +39,7 @@
 //
 //    @ManyToOne
 //    @JoinColumn(name = "parking_id")
-//    private Station parking;
+//    private StationOverview parking;
 //
 //    public ParkingStation(String name, String status, Time openTime, Time closeTime, String activeCode, String coordinate, int parkingID) {
 //        this.name = name;
@@ -128,11 +128,11 @@
 //        return this;
 //    }
 //
-//    public Station getStation() {
+//    public StationOverview getStation() {
 //        return parking;
 //    }
 //
-//    public ParkingStation setStation(Station parking) {
+//    public ParkingStation setStation(StationOverview parking) {
 //        this.parking = parking;
 //        return this;
 //    }

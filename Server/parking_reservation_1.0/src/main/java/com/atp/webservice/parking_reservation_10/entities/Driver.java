@@ -32,11 +32,14 @@ public class Driver extends User implements Serializable{
     @Column(name = "token", columnDefinition = "TEXT")
     private String token;
 
-    @OneToMany(mappedBy = "driver", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
     private List<Vehicle> vehicleList;
 
-    @OneToMany(mappedBy = "driver", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "driver", cascade = CascadeType.PERSIST)
     private List<Ticket> tickets;
+
+    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
+    private List<Comment> comments;
 
     public Driver(String applicationID, String fullName, Timestamp createdDate, double balance, String token) {
         this.applicationID = applicationID;

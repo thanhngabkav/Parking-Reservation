@@ -2,7 +2,7 @@ package com.atp.webservice.parking_reservation_10.entities.uitls;
 
 public class StationColumns {
 
-    public static final  String  ID = "id";
+    public static final  String  ID = "station_id";
     public static final  String  KEY_PARE = "key_pair";
     public static final  String  NAME = "name";
     public static final  String  ADDRESS = "address";
@@ -16,4 +16,5 @@ public class StationColumns {
     public static final  String  USED_SLOTS = "used_slots";
     public static final  String  PARKING_MAP_LINK = "parking_map_link";
     public static final  String  OWNER_ID = "owner_id";
+    public static final  String SERVICES = "services";
 }

@@ -5,9 +5,9 @@
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/parkingmanager" />
+        <property name="url" value="jdbc:mysql://localhost:3306/parkingmanager?characterEncoding=UTF-8" />
         <property name="username" value="root" />
-        <property name="password" value="root" />
+        <property name="password" value="" />
     </bean>
 
     <bean id="sessionFactory"
@@ -26,6 +26,7 @@
                 <value>com.atp.webservice.parking_reservation_10.entities.TicketType</value>
                 <value>com.atp.webservice.parking_reservation_10.entities.Ticket</value>
                 <value>com.atp.webservice.parking_reservation_10.entities.Service</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.Comment</value>
 
 
             </list>
@@ -35,7 +36,7 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
                 <prop key="hibernate.current_session_context_class">thread</prop>
                 <prop key="hibernate.show_sql">false</prop>
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
         </property>
     </bean>

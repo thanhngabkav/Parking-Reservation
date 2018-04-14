@@ -9,5 +9,6 @@ import java.util.UUID;
 
 @Repository
 public interface UserCRUDRepository extends JpaRepository<User,String> {
-    User findFirstByEmailOrderByPhoneNumber(String userName);
+    User findFirstByEmail(String userName);
+    User findFirstByPhoneNumber(String userName);
 }
