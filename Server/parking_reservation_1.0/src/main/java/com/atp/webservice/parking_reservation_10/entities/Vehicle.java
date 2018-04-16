@@ -2,6 +2,7 @@ package com.atp.webservice.parking_reservation_10.entities;
 
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
 import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -26,7 +27,7 @@ public class Vehicle implements Serializable{
     private int vehicleTypeID;
 
     @Column(name = "driver_id", nullable = false)
-    private String driveID;
+    private String driverID;
 
     @ManyToOne
     @JoinColumn(name = "vehicle_type_id", insertable = false, updatable = false)
@@ -36,7 +37,8 @@ public class Vehicle implements Serializable{
     @JoinColumn(name = "driver_id", insertable = false, updatable = false)
     private Driver driver;
 
-    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "vehicle", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
+    @JsonIgnore
     private List<Ticket> tickets;
 
 
@@ -82,12 +84,13 @@ public class Vehicle implements Serializable{
         this.vehicleTypeID = vehicleTypeID;
     }
 
-    public String getDriveID() {
-        return driveID;
+    public String getDriverID() {
+        return driverID;
     }
 
-    public void setDriveID(String driveID) {
-        this.driveID = driveID;
+
+    public void setDriverID(String driveID) {
+        this.driverID = driveID;
     }
 
     public List<Ticket> getTickets() {
@@ -102,6 +105,10 @@ public class Vehicle implements Serializable{
     public Vehicle setDriver(Driver driver) {
         this.driver = driver;
         return this;
+    }
+
+    public VehicleType getVehicleType() {
+        return vehicleType;
     }
 
     @Override
@@ -125,7 +132,7 @@ public class Vehicle implements Serializable{
                 ", name='" + name + '\'' +
                 ", licensePlate='" + licensePlate + '\'' +
                 ", vehicleTypeID=" + vehicleTypeID +
-                ", driveID='" + driveID + '\'' +
+                ", driverID='" + driverID + '\'' +
                 ", vehicleType=" + vehicleType +
                 ", driver=" + driver +
                 ", tickets=" + tickets +

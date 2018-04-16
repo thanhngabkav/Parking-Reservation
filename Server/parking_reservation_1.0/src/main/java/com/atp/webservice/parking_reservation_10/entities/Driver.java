@@ -2,6 +2,7 @@ package com.atp.webservice.parking_reservation_10.entities;
 
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
 import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -33,12 +34,15 @@ public class Driver extends User implements Serializable{
     private String token;
 
     @OneToMany(mappedBy = "driver", cascade = CascadeType.PERSIST)
+    @JsonIgnore
     private List<Vehicle> vehicleList;
 
     @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Ticket> tickets;
 
     @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Comment> comments;
 
     public Driver(String applicationID, String fullName, Timestamp createdDate, double balance, String token) {
@@ -105,13 +109,13 @@ public class Driver extends User implements Serializable{
         this.token = token;
     }
 
-    public List<Vehicle> getVehicleList() {
-        return vehicleList;
-    }
+//    public List<Vehicle> getVehicleList() {
+//        return vehicleList;
+//    }
 
-    public List<Ticket> getTickets() {
-        return tickets;
-    }
+//    public List<Ticket> getTickets() {
+//        return tickets;
+//    }
 
     @Override
     public boolean equals(Object o) {

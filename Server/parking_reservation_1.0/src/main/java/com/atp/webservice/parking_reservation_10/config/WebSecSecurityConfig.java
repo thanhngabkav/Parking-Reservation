@@ -1,5 +1,6 @@
 package com.atp.webservice.parking_reservation_10.config;
 
+import com.atp.webservice.parking_reservation_10.entities.uitls.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -26,6 +27,9 @@ public class WebSecSecurityConfig extends WebSecurityConfigurerAdapter{
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/api/maps/**").permitAll()
-                .antMatchers("/api/stations/*").authenticated();
+                .antMatchers("/api/stations/*").hasAnyRole(UserRole.DRIVER_ROLE,UserRole.ADMIN_ROLE, UserRole.OWNER_ROLE )
+                .antMatchers("/api/vehicles/*").hasAnyRole(UserRole.DRIVER_ROLE,UserRole.ADMIN_ROLE)
+                .antMatchers("/api/drivers/*").hasAnyRole(UserRole.DRIVER_ROLE,UserRole.ADMIN_ROLE)
+                .antMatchers("/api/tickets/*").hasAnyRole(UserRole.DRIVER_ROLE,UserRole.ADMIN_ROLE, UserRole.OWNER_ROLE );
     }
 }

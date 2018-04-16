@@ -10,10 +10,12 @@ import com.atp.webservice.parking_reservation_10.repository.sparkRepository.Stat
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.DriverCRUDRepository;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.RoleCRUDRepository;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.UserCRUDRepository;
+import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.VehicleCRUDRepository;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.driverService.DriverService;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.Driver;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.Ticket;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.Vehicle;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.vehicleService.vehicleServiceImp.VehicleServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -38,10 +40,13 @@ public class DriverServiceImp implements DriverService {
     @Autowired
     private RoleCRUDRepository roleCRUDRepository;
 
+    @Autowired
+    private VehicleCRUDRepository vehicleCRUDRepository;
+
     @Override
     public Driver addNewDriver(Driver driver) {
-        if(userCRUDRepository.findFirstByPhoneNumber(driver.getPhoneNumber())!=null ||
-                userCRUDRepository.findFirstByEmail(driver.getEmail())!=null)//user is existed
+        if(userCRUDRepository.findFirstByPhoneNumber(driver.getPhoneNumber())!= null ||
+                userCRUDRepository.findFirstByEmail(driver.getEmail())!= null)//user is existed
             return null;
         else{
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -115,15 +120,14 @@ public class DriverServiceImp implements DriverService {
         if(driverEntity == null)
             return null;
         Driver driver = new Driver();
-        driver.setAddress("No Address");
         driver.setEmail(driverEntity.getEmail());
         driver.setPhoneNumber(driverEntity.getPhoneNumber());
         driver.setUserID(driverEntity.getUserID());
         driver.setDriverName(driverEntity.getFullName());
         driver.setBalance(driverEntity.getBalance());
         List<Vehicle> vehicles = new ArrayList<Vehicle>();
-        for (com.atp.webservice.parking_reservation_10.entities.Vehicle vehicle : driverEntity.getVehicleList()){
-            vehicles.add(new Vehicle().convertFromEntity(vehicle));
+        for (com.atp.webservice.parking_reservation_10.entities.Vehicle vehicle : vehicleCRUDRepository.findByDriverID(driverEntity.getUserID())){
+            vehicles.add(VehicleServiceImp.convertFromEntity(vehicle));
         }
         driver.setVehicles(vehicles);
         return  driver;

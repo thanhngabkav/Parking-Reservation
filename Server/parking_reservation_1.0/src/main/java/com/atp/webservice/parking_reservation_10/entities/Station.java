@@ -2,6 +2,7 @@ package com.atp.webservice.parking_reservation_10.entities;
 
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
 import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -93,9 +94,11 @@ public class Station implements Serializable{
     private Owner owner;
 
     @OneToMany(mappedBy = "station", cascade = CascadeType.PERSIST)
+    @JsonIgnore
     private List<Ticket> tickets;
 
     @OneToMany(mappedBy = "station", cascade = CascadeType.ALL)
+    @JsonIgnore
     private  List<Comment> comments;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -293,14 +296,10 @@ public class Station implements Serializable{
         return this;
     }
 
-//    public List<Ticket> getTickets() {
-//        return tickets;
-//    }
-//
-//    public StationOverview setTickets(List<Ticket> tickets) {
-//        this.tickets = tickets;
-//        return this;
-//    }
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
 
     public List<Service> getServices() {
         return services;

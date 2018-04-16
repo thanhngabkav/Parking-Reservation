@@ -12,15 +12,21 @@ public class Ticket implements Serializable{
 
     private String checkOutTime;
 
-    private String driverID;
 
     private String typeID;
 
+    private String typeName;
+
     private String stationID;
+
+    private String stationName;
 
     private String status;
 
     private String qRCode;
+
+    private Vehicle vehicle;
+
 
     public String getId() {
         return id;
@@ -54,12 +60,13 @@ public class Ticket implements Serializable{
         this.checkOutTime = checkOutTime;
     }
 
-    public String getDriverID() {
-        return driverID;
+    public Vehicle getVehicle() {
+        return vehicle;
     }
 
-    public void setDriverID(String driverID) {
-        this.driverID = driverID;
+    public Ticket setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+        return this;
     }
 
     public String getTypeID() {
@@ -92,5 +99,22 @@ public class Ticket implements Serializable{
 
     public void setqRCode(String qRCode) {
         this.qRCode = qRCode;
+    }
+
+    public String getStationName() {
+        return stationName;
+    }
+    public Ticket setStationName(String stationName) {
+        this.stationName = stationName;
+        return this;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public Ticket setTypeName(String typeName) {
+        this.typeName = typeName;
+        return this;
     }
 }

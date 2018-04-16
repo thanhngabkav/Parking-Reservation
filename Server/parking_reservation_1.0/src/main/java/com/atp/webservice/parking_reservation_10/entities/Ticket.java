@@ -163,16 +163,30 @@ public class Ticket implements Serializable{
         return this;
     }
 
+    public Station getStation() {
+        return station;
+    }
 
-//    public Ticket setStation(StationOverview station) {
-//        this.station = station;
-//        return this;
-//    }
+    public Ticket setStation(Station station) {
+        this.station = station;
+        return this;
+    }
 
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public TicketType getTicketType() {
+        return ticketType;
+    }
 
     public Ticket setTicketType(TicketType ticketType) {
         this.ticketType = ticketType;
         return this;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
     }
 
     public String getVehicleID() {

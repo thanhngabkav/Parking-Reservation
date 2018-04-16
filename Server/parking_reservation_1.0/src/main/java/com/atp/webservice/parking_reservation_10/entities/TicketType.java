@@ -2,6 +2,7 @@ package com.atp.webservice.parking_reservation_10.entities;
 
 import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
 import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -41,7 +42,8 @@ public class TicketType implements Serializable{
     @JoinColumn(name = "station_id", insertable = false, updatable = false)
     private Station station;
 
-    @OneToMany(mappedBy = "ticketType", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "ticketType", cascade = CascadeType.REMOVE)
+    @JsonIgnore
     private List<Ticket> tickets;
 
     public TicketType(int vehicleTypeID, int stationID, double price, Time holdingTime) {

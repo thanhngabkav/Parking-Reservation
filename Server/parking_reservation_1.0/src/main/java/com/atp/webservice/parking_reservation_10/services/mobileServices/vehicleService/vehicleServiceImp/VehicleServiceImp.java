@@ -2,7 +2,9 @@ package com.atp.webservice.parking_reservation_10.services.mobileServices.vehicl
 
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.VehicleCRUDRepository;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.Vehicle;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.VehicleType;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.vehicleService.VehicleService;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.vehicleTypeService.vehicleTypeServiceImp.VehicleTypeServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -41,7 +43,7 @@ public class VehicleServiceImp implements VehicleService {
     @Override
     public List<Vehicle> getAllDriverVehicleByDriver(String driverID) {
         List<com.atp.webservice.parking_reservation_10.entities.Vehicle> driverVehicles =
-                vehicleCRUDRepository.findByDriveID(driverID);
+                vehicleCRUDRepository.findByDriverID(driverID);
         List<Vehicle> vehicles = new ArrayList<Vehicle>();
         for(com.atp.webservice.parking_reservation_10.entities.Vehicle vehicle : driverVehicles)
             vehicles.add(convertFromEntity(vehicle));
@@ -53,7 +55,7 @@ public class VehicleServiceImp implements VehicleService {
         PageRequest pageRequest = new PageRequest(pageNumber-1, PAGE_SIZE);
         List<Vehicle> vehicles = new ArrayList<Vehicle>();
         for(com.atp.webservice.parking_reservation_10.entities.Vehicle vehicle :
-                vehicleCRUDRepository.findByDriveID(driverID,pageRequest))
+                vehicleCRUDRepository.findByDriverID(driverID,pageRequest))
             vehicles.add(convertFromEntity(vehicle));
         return vehicles;
     }
@@ -88,15 +90,15 @@ public class VehicleServiceImp implements VehicleService {
      * @param vehicleEntity {@link com.atp.webservice.parking_reservation_10.entities.Vehicle}
      * @return Vehicle
      */
-    private Vehicle convertFromEntity(com.atp.webservice.parking_reservation_10.entities.Vehicle vehicleEntity){
+    public static Vehicle convertFromEntity(com.atp.webservice.parking_reservation_10.entities.Vehicle vehicleEntity){
         if(vehicleEntity == null)
             return null;
         Vehicle vehicle = new Vehicle();
         vehicle.setName(vehicleEntity.getName());
         vehicle.setLicensePlate(vehicleEntity.getLicensePlate());
         vehicle.setId(vehicleEntity.getID());
-        vehicle.setVehicleTypeID(vehicleEntity.getVehicleTypeID());
-        vehicle.setDriverID(vehicleEntity.getDriveID());
+        vehicle.setVehicleType(VehicleTypeServiceImp.convertFromEntity(vehicleEntity.getVehicleType()));
+        vehicle.setDriverID(vehicleEntity.getDriverID());
 
         return vehicle;
     }
@@ -106,14 +108,15 @@ public class VehicleServiceImp implements VehicleService {
      * @param vehicleModel {@link Vehicle}
      * @return Vehicle
      */
-    private com.atp.webservice.parking_reservation_10.entities.Vehicle convertFromModel(Vehicle vehicleModel){
+    public static com.atp.webservice.parking_reservation_10.entities.Vehicle convertFromModel(Vehicle vehicleModel){
         if(vehicleModel == null)
             return  null;
         com.atp.webservice.parking_reservation_10.entities.Vehicle vehicle = new com.atp.webservice.parking_reservation_10.entities.Vehicle();
         vehicle.setName(vehicleModel.getName());
-        vehicle.setVehicleTypeID(vehicleModel.getVehicleTypeID());
+        vehicle.setVehicleTypeID(vehicleModel.getVehicleType().getTypeID());
+        vehicle.setVehicleType(VehicleTypeServiceImp.convertFromModel(vehicleModel.getVehicleType()));
         vehicle.setID(vehicleModel.getId());
-        vehicle.setDriveID(vehicleModel.getDriverID());
+        vehicle.setDriverID(vehicleModel.getDriverID());
         vehicle.setLicensePlate(vehicleModel.getLicensePlate());
 
         return vehicle;

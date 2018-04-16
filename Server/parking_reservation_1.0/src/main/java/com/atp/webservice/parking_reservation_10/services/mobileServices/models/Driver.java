@@ -14,8 +14,6 @@ public class Driver implements Serializable{
 
     private String email;
 
-    private String address;
-
     private String password;
 
     private List<Vehicle> vehicles;
@@ -27,11 +25,10 @@ public class Driver implements Serializable{
     private double balance;
 
 
-    public Driver(String userID, String phoneNumber, String email, String address, String password, List<Vehicle> vehicles, String driverName, String applicationID, double balance) {
+    public Driver(String userID, String phoneNumber, String email, String password, List<Vehicle> vehicles, String driverName, String applicationID, double balance) {
         this.userID = userID;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.address = address;
         this.password = password;
         this.vehicles = vehicles;
         this.driverName = driverName;
@@ -65,14 +62,6 @@ public class Driver implements Serializable{
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public List<Vehicle> getVehicles() {
@@ -125,7 +114,6 @@ public class Driver implements Serializable{
                 "userID='" + userID + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
                 ", driverName='" + driverName + '\'' +
                 '}';
     }

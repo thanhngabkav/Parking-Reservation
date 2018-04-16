@@ -24,8 +24,8 @@ public class Comment {
     @Type(type = "text")
     private String content;
 
-    @Column(name = "start")
-    private double start;
+    @Column(name = "star")
+    private double star;
 
     @Column(name = "created_time")
     private Timestamp createdTime;
@@ -39,12 +39,12 @@ public class Comment {
     private Station station;
 
 
-    public Comment(String userID, int stationID, String content, double start, Timestamp createdTime) {
+    public Comment(String userID, int stationID, String content, double star, Timestamp createdTime) {
         this.id = DefaultValue.UUID.toString();
         this.userID = userID;
         this.stationID = stationID;
         this.content = content;
-        this.start = start;
+        this.star = star;
         this.createdTime = createdTime;
     }
 
@@ -84,12 +84,12 @@ public class Comment {
         this.content = content;
     }
 
-    public double getStart() {
-        return start;
+    public double getStar() {
+        return star;
     }
 
-    public void setStart(double start) {
-        this.start = start;
+    public void setStar(double star) {
+        this.star = star;
     }
 
     public Timestamp getCreatedTime() {

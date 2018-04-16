@@ -13,18 +13,18 @@ public class Vehicle implements Serializable{
 
     private String name;
 
-    private int vehicleTypeID;
-
     private String licensePlate;
+
+    private VehicleType vehicleType;
 
     private String driverID;
 
-
-    public Vehicle(String id, String name, int vehicleTypeID, String licensePlate) {
+    public Vehicle(String id, String name, VehicleType vehicleType, String licensePlate, String driverID) {
         this.id = id;
         this.name = name;
-        this.vehicleTypeID = vehicleTypeID;
+        this.vehicleType = vehicleType;
         this.licensePlate = licensePlate;
+        this.driverID = driverID;
     }
 
     public Vehicle() {
@@ -46,12 +46,12 @@ public class Vehicle implements Serializable{
         this.name = name;
     }
 
-    public int getVehicleTypeID() {
-        return vehicleTypeID;
+    public VehicleType getVehicleType() {
+        return vehicleType;
     }
 
-    public Vehicle setVehicleTypeID(int vehicleTypeID) {
-        this.vehicleTypeID = vehicleTypeID;
+    public Vehicle setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
         return this;
     }
 
@@ -93,20 +93,9 @@ public class Vehicle implements Serializable{
         return "Vehicle{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", vehicleTypeID=" + vehicleTypeID +
+                ", licensePlate='" + licensePlate + '\'' +
+                ", vehicleType=" + vehicleType +
                 '}';
     }
 
-    /**
-     * Convert from {@link com.atp.webservice.parking_reservation_10.entities.Vehicle} to {@link Vehicle}
-     * @param vehicleEntity {@link com.atp.webservice.parking_reservation_10.entities.Vehicle}
-     * @return Vehicle
-     */
-    public Vehicle convertFromEntity(com.atp.webservice.parking_reservation_10.entities.Vehicle vehicleEntity){
-        this.setId(vehicleEntity.getID());
-        this.setName(vehicleEntity.getName());
-        this.setVehicleTypeID(vehicleEntity.getVehicleTypeID());
-        this.setLicensePlate(vehicleEntity.getLicensePlate());
-        return this;
-    }
 }

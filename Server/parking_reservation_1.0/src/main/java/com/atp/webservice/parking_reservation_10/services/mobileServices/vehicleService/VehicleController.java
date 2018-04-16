@@ -55,7 +55,10 @@ public class VehicleController {
         if(result.hasErrors()){
             return new ResponseEntity<Vehicle>(HttpStatus.FAILED_DEPENDENCY);
         }
-        return new ResponseEntity<Vehicle>(vehicleService.addNewVehicle(vehicle), HttpStatus.OK);
+        Vehicle newVehicle = vehicleService.addNewVehicle(vehicle);
+        if(newVehicle == null)
+            return new ResponseEntity<Vehicle>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<Vehicle>(newVehicle, HttpStatus.OK);
     }
 
 
@@ -70,6 +73,9 @@ public class VehicleController {
         if(result.hasErrors()){
             return new ResponseEntity<Vehicle>(HttpStatus.FAILED_DEPENDENCY);
         }
-        return new ResponseEntity<Vehicle>(vehicleService.editVehicle(vehicle), HttpStatus.OK);
+        Vehicle editVehicle = vehicleService.editVehicle(vehicle);
+        if(editVehicle == null)
+            return new ResponseEntity<Vehicle>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<Vehicle>(editVehicle, HttpStatus.OK);
     }
 }

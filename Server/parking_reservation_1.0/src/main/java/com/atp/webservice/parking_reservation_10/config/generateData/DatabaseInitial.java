@@ -65,11 +65,11 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
 
+        logger.info("Importing sample data");
         initRoles();
 
         initServices();
 
-        ///logger.info("Importing sample data");
         try {
             initUser();
         } catch (NoSuchAlgorithmException e) {
@@ -93,7 +93,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     }
 
     private void initServices() {
-        //logger.info("Init Services");
+        logger.info("Init Services");
         String[] services = {StationServices.DO_XE, StationServices.SUA_XE, StationServices.DO_XANG, StationServices.RUA_XE};
         for(String service : services){
             serviceCRUDRepository.save(new Service(service));
@@ -101,7 +101,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     }
 
     private void initRoles() {
-       // logger.info("Init Roles");
+        logger.info("Init Roles");
         String[] roles = {UserRole.ADMIN_ROLE, UserRole.DRIVER_ROLE, UserRole.OWNER_ROLE, UserRole.THIRD_PARTY};
         for(String role : roles){
             roleCRUDRepository.save(new Role(role));
@@ -114,24 +114,24 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
         vehicleTypeCRUDRepository.save(vehicle);
         //
         VehicleType  vehicle1 = new VehicleType();
-        vehicle.setName("Xe Máy");
-        vehicleTypeCRUDRepository.save(vehicle);
+        vehicle1.setName("Xe Máy");
+        vehicleTypeCRUDRepository.save(vehicle1);
         //
         VehicleType  vehicle2 = new VehicleType();
-        vehicle.setName("Ô Tô");
-        vehicleTypeCRUDRepository.save(vehicle);
+        vehicle2.setName("Ô Tô");
+        vehicleTypeCRUDRepository.save(vehicle2);
         //
         VehicleType  vehicle3 = new VehicleType();
-        vehicle.setName("Xe Tải");
-        vehicleTypeCRUDRepository.save(vehicle);
+        vehicle3.setName("Xe Tải");
+        vehicleTypeCRUDRepository.save(vehicle3);
         //
         VehicleType  vehicle4 = new VehicleType();
-        vehicle.setName("Xe Khách");
-        vehicleTypeCRUDRepository.save(vehicle);
+        vehicle4.setName("Xe Khách");
+        vehicleTypeCRUDRepository.save(vehicle4);
     }
 
     private void  initVehicle(){
-        //logger.info("Init Vehicles");
+        logger.info("Init Vehicles");
         List<Driver> drivers = driverCRUDRepository.findAll();
         List<VehicleType> vehicleTypes = vehicleTypeCRUDRepository.findAll();
         for(Driver driver : drivers){
@@ -141,7 +141,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
                 String generatedString = new String(array, Charset.forName("EUC-KR"));
                 Vehicle  vehicle = new Vehicle();
                 vehicle.setID(UUID.randomUUID().toString());
-                vehicle.setDriveID(driver.getUserID());
+                vehicle.setDriverID(driver.getUserID());
                 vehicle.setLicensePlate(generatedString);
                 vehicle.setVehicleTypeID(vehicleType.getID());
                 vehicle.setName("Driver Vehicle");
@@ -151,11 +151,11 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     }
 
     private void initTicketType(){
-       // logger.info("Init Ticket Types");
-        List<VehicleType> allvVehicleTypes = vehicleTypeCRUDRepository.findAll();
+        logger.info("Init Ticket Types");
+        List<VehicleType> allVehicleTypes = vehicleTypeCRUDRepository.findAll();
         List<Station> allStations = stationCRUDRepository.findAll();
         for (Station station : allStations){
-            for(VehicleType vehicleType: allvVehicleTypes){
+            for(VehicleType vehicleType: allVehicleTypes){
                 TicketType ticketType = new TicketType();
                 ticketType.setHoldingTime(Time.valueOf(LocalTime.of(1,0,0)));
                 ticketType.setPrice(vehicleType.getID()*3 + station.getID()*2 + 2000);
@@ -171,16 +171,15 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     }
 
     private void initTicket(){
-        //logger.info("Init Tickets");
+
         List<Vehicle> allVehicles = vehicleCRUDRepository.findAll();
         List<Station> allStations = stationCRUDRepository.findAll();
-        List<TicketType> allTicketTypes = ticketTypeCRUDRepository.findAll();
         String[] ticketStatus = {TicketStatus.CHECKED, TicketStatus.HOLDIND, TicketStatus.IN_USE, TicketStatus.USED};
         int i=0;
 
         for(Vehicle vehicle : allVehicles){
             for(Station station : allStations){
-                for(TicketType ticketType : allTicketTypes){
+                for(TicketType ticketType : ticketTypeCRUDRepository.findByStationIDAndVehicleTypeID(station.getID(), vehicle.getVehicleTypeID())){
                     i++;
                     Ticket ticket = new Ticket();
                     ticket.setID(UUID.randomUUID().toString())
@@ -190,14 +189,13 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
                     else
                         ticket.setCheckoutTime(null);
                     ticket.setCreatedTime(Timestamp.valueOf(LocalDateTime.now()))
-                            .setDriverID(vehicle.getDriveID());
+                            .setDriverID(vehicle.getDriverID());
                     ticket.setqRCode("");
                     ticket.setStationID(station.getID())
                             .setStatus(ticketStatus[i%4]);
                     ticket.setTicketTypeID(ticketType.getID());
                     ticket.setVehicleID(vehicle.getID());
-                    ticket.setTicketType(ticketType)
-                            .setVehicle(vehicle);
+                    logger.info("Init Tickets " + i);
                     ticketCRUDRepository.save(ticket);
                 }
             }
@@ -226,6 +224,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     }
 
     private void initUser() throws NoSuchAlgorithmException {
+        logger.info("Init user");
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String pass = "123";
         for (int i = 1; i <= 100; i++) {
@@ -290,7 +289,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
 
 
     private void initStation() throws IOException {
-       // logger.info("Init Stations");
+        logger.info("Init Stations");
         List<Owner> ownerList = ownerCRUDRepository.findAll();
         List<Owner> activeOwners = new ArrayList<Owner>();
         for (Owner owner : ownerList){

@@ -16,10 +16,11 @@ import java.util.UUID;
 @Repository
 public interface VehicleCRUDRepository extends JpaRepository<Vehicle, String> {
 
-    List<Vehicle> findByDriveID(String driverID);
+    List<Vehicle> findByDriverID(String driverID);
 
-    List<Vehicle> findByDriveID(String driverID, PageRequest pageRequest);
+    List<Vehicle> findByDriverID(String driverID, PageRequest pageRequest);
 
     //@Query(value = "select v from Vehicle v where v.vehicleTypeID = ?1", nativeQuery = true)
     List<Vehicle> findByVehicleTypeID(@Param("vehicleTypeID") int typeID, Pageable pageRequest);
+
 }

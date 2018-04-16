@@ -50,10 +50,10 @@ public class DriverController {
     public ResponseEntity<Driver> addNewDriver(@RequestBody Driver driver, BindingResult result){
         if(result.hasErrors())
             return new ResponseEntity<Driver>(HttpStatus.NOT_ACCEPTABLE);
-        Driver updatedDriver = driverService.addNewDriver(driver);
-        if(updatedDriver == null)
-            return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
-        return new ResponseEntity<Driver>(driver,HttpStatus.CREATED);
+        Driver newDriver = driverService.addNewDriver(driver);
+        if(newDriver  == null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<Driver>(newDriver,HttpStatus.CREATED);
     }
 
     /**
@@ -68,8 +68,8 @@ public class DriverController {
             return new ResponseEntity<Driver>(HttpStatus.NOT_ACCEPTABLE);
         Driver updatedDriver = driverService.updateDriver(driver);
         if(updatedDriver == null)
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        return new ResponseEntity<Driver>(driver,HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<Driver>(updatedDriver,HttpStatus.OK);
     }
 
     /**
