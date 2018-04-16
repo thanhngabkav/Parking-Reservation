@@ -25,6 +25,7 @@ public class WebSecSecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/*").permitAll();
+                .antMatchers("/api/maps/**").permitAll()
+                .antMatchers("/api/stations/*").authenticated();
     }
 }

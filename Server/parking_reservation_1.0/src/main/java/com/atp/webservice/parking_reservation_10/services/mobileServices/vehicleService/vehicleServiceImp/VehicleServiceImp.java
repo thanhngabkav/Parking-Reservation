@@ -5,10 +5,12 @@ import com.atp.webservice.parking_reservation_10.services.mobileServices.models.
 import com.atp.webservice.parking_reservation_10.services.mobileServices.vehicleService.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class VehicleServiceImp implements VehicleService {
@@ -23,6 +25,7 @@ public class VehicleServiceImp implements VehicleService {
         com.atp.webservice.parking_reservation_10.entities.Vehicle vehicleEntity = convertFromModel(vehicle);
         if(vehicle == null || vehicleCRUDRepository.exists(vehicle.getId()))//convert  fail or existed vehicle
             return null;
+        vehicleEntity.setID(UUID.randomUUID().toString());
         return convertFromEntity(vehicleCRUDRepository.save(vehicleEntity));
     }
 

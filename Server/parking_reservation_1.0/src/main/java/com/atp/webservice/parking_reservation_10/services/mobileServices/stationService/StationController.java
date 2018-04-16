@@ -40,7 +40,6 @@ public class StationController {
     public ResponseEntity<Station> findOne(@PathVariable(value = "id") Integer stationID){
 
         return new ResponseEntity<Station>(stationService.getStationByID(stationID), HttpStatus.OK);
-
     }
 
 }

@@ -30,6 +30,9 @@ public class TicketType implements Serializable{
     @Column(name = "holding_time")
     private Time holdingTime;
 
+    @Column(name = "name")
+    private String name;
+
     @ManyToOne
     @JoinColumn(name = "vehicle_type_id", updatable = false, insertable = false)
     private VehicleType vehicleType;
@@ -116,5 +119,14 @@ public class TicketType implements Serializable{
 
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public TicketType setName(String name) {
+        this.name = name;
+        return this;
     }
 }

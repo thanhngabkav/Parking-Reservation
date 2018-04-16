@@ -9,11 +9,12 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/").permitAll()
-              //  .antMatchers("*/owner/*").hasAnyRole("ADMIN","OWNER")
-                .antMatchers("/api/*").authenticated();
-    }
+//    @Override
+//    public void configure(HttpSecurity http) throws Exception {
+//        http.authorizeRequests()
+//                //.antMatchers("/").permitAll()
+//              //  .antMatchers("*/owner/*").hasAnyRole("ADMIN","OWNER")
+//                .antMatchers("/api/maps/**").permitAll()
+//                .antMatchers("/api/stations/*   ").authenticated();
+//    }
 }

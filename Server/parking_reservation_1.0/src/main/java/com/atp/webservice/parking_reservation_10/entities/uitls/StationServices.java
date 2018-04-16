@@ -7,5 +7,5 @@ public class StationServices {
 
     public static final String DO_XE = "Đỗ Xe";
 
-    public static final String DO_XANG = "Đỗ Xăng";
+    public static final String DO_XANG = "Đổ Xăng";
 }
