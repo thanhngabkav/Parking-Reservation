@@ -23,8 +23,9 @@ public class VehicleServiceImp implements VehicleService {
     @Override
     public Vehicle addNewVehicle(Vehicle vehicle) {
         com.atp.webservice.parking_reservation_10.entities.Vehicle vehicleEntity = convertFromModel(vehicle);
-        if(vehicle == null || vehicleCRUDRepository.exists(vehicle.getId()))//convert  fail or existed vehicle
+        if(vehicleEntity == null )//convert  fail
             return null;
+
         vehicleEntity.setID(UUID.randomUUID().toString());
         return convertFromEntity(vehicleCRUDRepository.save(vehicleEntity));
     }

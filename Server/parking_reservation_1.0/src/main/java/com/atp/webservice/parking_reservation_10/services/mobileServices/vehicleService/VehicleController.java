@@ -24,7 +24,7 @@ public class VehicleController {
      * @param driverId
      * @return
      */
-    @RequestMapping(value = "/driver/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/driver/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Vehicle>> getAllDriverVehicles(@PathVariable("id") String driverId){
 
         return new ResponseEntity<List<Vehicle>>(vehicleService.getAllDriverVehicleByDriver(driverId), HttpStatus.OK);
@@ -36,7 +36,7 @@ public class VehicleController {
      * @param pageNumber
      * @return
      */
-    @RequestMapping(value = "/type/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/type/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Vehicle>> getAllVehiclesByType(@PathVariable("id") int typeID,
                                                               @RequestParam(name = "page") int pageNumber){
 
@@ -50,7 +50,7 @@ public class VehicleController {
      * @param result
      * @return
      */
-    @RequestMapping(value = "/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Vehicle> addNewVehicle(@RequestBody Vehicle vehicle, BindingResult result){
         if(result.hasErrors()){
             return new ResponseEntity<Vehicle>(HttpStatus.FAILED_DEPENDENCY);
@@ -65,7 +65,7 @@ public class VehicleController {
      * @param result
      * @return
      */
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Vehicle> updateVehicle(@PathVariable("id") String id, @RequestBody Vehicle vehicle, BindingResult result){
         if(result.hasErrors()){
             return new ResponseEntity<Vehicle>(HttpStatus.FAILED_DEPENDENCY);

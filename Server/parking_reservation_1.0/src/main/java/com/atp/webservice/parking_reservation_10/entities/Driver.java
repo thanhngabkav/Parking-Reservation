@@ -32,10 +32,10 @@ public class Driver extends User implements Serializable{
     @Column(name = "token", columnDefinition = "TEXT")
     private String token;
 
-    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "driver", cascade = CascadeType.PERSIST)
     private List<Vehicle> vehicleList;
 
-    @OneToMany(mappedBy = "driver", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
     private List<Ticket> tickets;
 
     @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)

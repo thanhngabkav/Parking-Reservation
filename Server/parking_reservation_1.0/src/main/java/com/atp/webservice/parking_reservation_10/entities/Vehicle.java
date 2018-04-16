@@ -90,16 +90,18 @@ public class Vehicle implements Serializable{
         this.driveID = driveID;
     }
 
-    public void setVehicleType(VehicleType vehicleType) {
-        this.vehicleType = vehicleType;
-    }
-
-    public void setDriver(Driver driver) {
-        this.driver = driver;
-    }
-
     public List<Ticket> getTickets() {
         return tickets;
+    }
+
+    public Vehicle setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
+        return this;
+    }
+
+    public Vehicle setDriver(Driver driver) {
+        this.driver = driver;
+        return this;
     }
 
     @Override
@@ -114,5 +116,19 @@ public class Vehicle implements Serializable{
     public int hashCode() {
 
         return Objects.hash(ID);
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "ID='" + ID + '\'' +
+                ", name='" + name + '\'' +
+                ", licensePlate='" + licensePlate + '\'' +
+                ", vehicleTypeID=" + vehicleTypeID +
+                ", driveID='" + driveID + '\'' +
+                ", vehicleType=" + vehicleType +
+                ", driver=" + driver +
+                ", tickets=" + tickets +
+                '}';
     }
 }
