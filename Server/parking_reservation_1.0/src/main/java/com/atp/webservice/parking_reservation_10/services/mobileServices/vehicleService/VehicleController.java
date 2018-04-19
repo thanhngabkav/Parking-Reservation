@@ -2,7 +2,7 @@ package com.atp.webservice.parking_reservation_10.services.mobileServices.vehicl
 
 
 
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.Vehicle;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.VehicleModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,9 +25,9 @@ public class VehicleController {
      * @return
      */
     @RequestMapping(value = "/driver/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Vehicle>> getAllDriverVehicles(@PathVariable("id") String driverId){
+    public ResponseEntity<List<VehicleModel>> getAllDriverVehicles(@PathVariable("id") String driverId){
 
-        return new ResponseEntity<List<Vehicle>>(vehicleService.getAllDriverVehicleByDriver(driverId), HttpStatus.OK);
+        return new ResponseEntity<List<VehicleModel>>(vehicleService.getAllDriverVehicleByDriver(driverId), HttpStatus.OK);
     }
 
     /**
@@ -37,45 +37,45 @@ public class VehicleController {
      * @return
      */
     @RequestMapping(value = "/type/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Vehicle>> getAllVehiclesByType(@PathVariable("id") int typeID,
-                                                              @RequestParam(name = "page") int pageNumber){
+    public ResponseEntity<List<VehicleModel>> getAllVehiclesByType(@PathVariable("id") int typeID,
+                                                                   @RequestParam(name = "page") int pageNumber){
 
-        return new ResponseEntity<List<Vehicle>>(vehicleService.getPageListVehicleByTypeId(typeID, pageNumber), HttpStatus.OK);
+        return new ResponseEntity<List<VehicleModel>>(vehicleService.getPageListVehicleByTypeId(typeID, pageNumber), HttpStatus.OK);
     }
 
 
     /**
      * Add new {@link com.atp.webservice.parking_reservation_10.entities.Vehicle}
-     * @param vehicle
+     * @param vehicleModel
      * @param result
      * @return
      */
     @RequestMapping(value = "/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Vehicle> addNewVehicle(@RequestBody Vehicle vehicle, BindingResult result){
+    public ResponseEntity<VehicleModel> addNewVehicle(@RequestBody VehicleModel vehicleModel, BindingResult result){
         if(result.hasErrors()){
-            return new ResponseEntity<Vehicle>(HttpStatus.FAILED_DEPENDENCY);
+            return new ResponseEntity<VehicleModel>(HttpStatus.FAILED_DEPENDENCY);
         }
-        Vehicle newVehicle = vehicleService.addNewVehicle(vehicle);
-        if(newVehicle == null)
-            return new ResponseEntity<Vehicle>(HttpStatus.BAD_REQUEST);
-        return new ResponseEntity<Vehicle>(newVehicle, HttpStatus.OK);
+        VehicleModel newVehicleModel = vehicleService.addNewVehicle(vehicleModel);
+        if(newVehicleModel == null)
+            return new ResponseEntity<VehicleModel>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<VehicleModel>(newVehicleModel, HttpStatus.OK);
     }
 
 
     /**
      * Add new {@link com.atp.webservice.parking_reservation_10.entities.Vehicle}
-     * @param vehicle
+     * @param vehicleModel
      * @param result
      * @return
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Vehicle> updateVehicle(@PathVariable("id") String id, @RequestBody Vehicle vehicle, BindingResult result){
+    public ResponseEntity<VehicleModel> updateVehicle(@PathVariable("id") String id, @RequestBody VehicleModel vehicleModel, BindingResult result){
         if(result.hasErrors()){
-            return new ResponseEntity<Vehicle>(HttpStatus.FAILED_DEPENDENCY);
+            return new ResponseEntity<VehicleModel>(HttpStatus.FAILED_DEPENDENCY);
         }
-        Vehicle editVehicle = vehicleService.editVehicle(vehicle);
-        if(editVehicle == null)
-            return new ResponseEntity<Vehicle>(HttpStatus.BAD_REQUEST);
-        return new ResponseEntity<Vehicle>(editVehicle, HttpStatus.OK);
+        VehicleModel editVehicleModel = vehicleService.editVehicle(vehicleModel);
+        if(editVehicleModel == null)
+            return new ResponseEntity<VehicleModel>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<VehicleModel>(editVehicleModel, HttpStatus.OK);
     }
 }

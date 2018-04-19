@@ -1,12 +1,9 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.models;
 
-import com.atp.webservice.parking_reservation_10.entities.uitls.UserType;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
-public class Driver implements Serializable{
+public class DriverModel implements Serializable{
 
     private String userID;
 
@@ -16,7 +13,7 @@ public class Driver implements Serializable{
 
     private String password;
 
-    private List<Vehicle> vehicles;
+    private List<VehicleModel> vehicleModels;
 
     private String driverName;
 
@@ -25,19 +22,19 @@ public class Driver implements Serializable{
     private double balance;
 
 
-    public Driver(String userID, String phoneNumber, String email, String password, List<Vehicle> vehicles, String driverName, String applicationID, double balance) {
+    public DriverModel(String userID, String phoneNumber, String email, String password, List<VehicleModel> vehicleModels, String driverName, String applicationID, double balance) {
         this.userID = userID;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
-        this.vehicles = vehicles;
+        this.vehicleModels = vehicleModels;
         this.driverName = driverName;
         this.applicationID = applicationID;
         this.balance = balance;
 
     }
 
-    public Driver() {
+    public DriverModel() {
     }
 
     public String getUserID() {
@@ -64,15 +61,15 @@ public class Driver implements Serializable{
         this.email = email;
     }
 
-    public List<Vehicle> getVehicles() {
-        return vehicles;
+    public List<VehicleModel> getVehicleModels() {
+        return vehicleModels;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public Driver setPassword(String password) {
+    public DriverModel setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -81,7 +78,7 @@ public class Driver implements Serializable{
         return driverName;
     }
 
-    public Driver setDriverName(String driverName) {
+    public DriverModel setDriverName(String driverName) {
         this.driverName = driverName;
         return this;
     }
@@ -90,7 +87,7 @@ public class Driver implements Serializable{
         return applicationID;
     }
 
-    public Driver setApplicationID(String applicationID) {
+    public DriverModel setApplicationID(String applicationID) {
         this.applicationID = applicationID;
         return this;
     }
@@ -99,18 +96,18 @@ public class Driver implements Serializable{
         return balance;
     }
 
-    public Driver setBalance(double balance) {
+    public DriverModel setBalance(double balance) {
         this.balance = balance;
         return this;
     }
 
-    public void setVehicles(List<Vehicle> vehicles) {
-        this.vehicles = vehicles;
+    public void setVehicleModels(List<VehicleModel> vehicleModels) {
+        this.vehicleModels = vehicleModels;
     }
 
     @Override
     public String toString() {
-        return "Driver{" +
+        return "DriverModel{" +
                 "userID='" + userID + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +

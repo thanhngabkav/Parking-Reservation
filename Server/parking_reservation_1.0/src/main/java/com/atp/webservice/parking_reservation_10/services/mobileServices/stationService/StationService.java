@@ -1,25 +1,25 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.stationService;
 
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.Station;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationModel;
 
 import java.util.List;
 
 public interface StationService {
 
     /**
-     * List list {@link Station} by station name
+     * List list {@link StationModel} by station name
      * @param name
-     * @return List {@link Station}
+     * @return List {@link StationModel}
      */
-    List<Station> getStationByName(String name);
+    List<StationModel> getStationByName(String name);
 
 
     /**
-     * Get {@link Station} by ID
+     * Get {@link StationModel} by ID
      * @param stationID
      * @return StationOverview
      */
-    Station getStationByID(int stationID);
+    StationModel getStationByID(int stationID);
 
 
 

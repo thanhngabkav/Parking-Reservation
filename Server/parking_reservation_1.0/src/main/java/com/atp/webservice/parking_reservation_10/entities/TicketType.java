@@ -34,6 +34,9 @@ public class TicketType implements Serializable{
     @Column(name = "name")
     private String name;
 
+    @Column(name = "service_id")
+    private int serviceID;
+
     @ManyToOne
     @JoinColumn(name = "vehicle_type_id", updatable = false, insertable = false)
     private VehicleType vehicleType;
@@ -42,9 +45,6 @@ public class TicketType implements Serializable{
     @JoinColumn(name = "station_id", insertable = false, updatable = false)
     private Station station;
 
-    @OneToMany(mappedBy = "ticketType", cascade = CascadeType.REMOVE)
-    @JsonIgnore
-    private List<Ticket> tickets;
 
     public TicketType(int vehicleTypeID, int stationID, double price, Time holdingTime) {
         this.vehicleTypeID = vehicleTypeID;
@@ -52,6 +52,14 @@ public class TicketType implements Serializable{
         this.price = price;
         this.holdingTime = holdingTime;
     }
+
+    @ManyToOne
+    @JoinColumn(name = "service_id", insertable = false , updatable = false)
+    private Service service;
+
+    @ManyToMany(mappedBy = "ticketTypes")
+    @JsonIgnore
+    private List<Ticket> tickets;
 
     public TicketType() {
         this(DefaultValue.INT,DefaultValue.INT,DefaultValue.DOUBLE, DefaultValue.TIME);
@@ -130,5 +138,13 @@ public class TicketType implements Serializable{
     public TicketType setName(String name) {
         this.name = name;
         return this;
+    }
+
+    public int getServiceID() {
+        return serviceID;
+    }
+
+    public void setServiceID(int serviceID) {
+        this.serviceID = serviceID;
     }
 }

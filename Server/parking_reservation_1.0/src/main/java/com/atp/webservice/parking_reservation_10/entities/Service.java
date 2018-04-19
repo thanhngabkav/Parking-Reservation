@@ -2,6 +2,7 @@ package com.atp.webservice.parking_reservation_10.entities;
 
 
 import com.atp.webservice.parking_reservation_10.entities.uitls.TableName;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,6 +23,11 @@ public class Service implements Serializable{
 
     @ManyToMany(mappedBy = "services")
     private List<Station> stations;
+
+    @OneToMany(mappedBy = "service")
+    @JsonIgnore
+    private List<TicketType> ticketTypes;
+
 
     public int getServiceID() {
         return ID;

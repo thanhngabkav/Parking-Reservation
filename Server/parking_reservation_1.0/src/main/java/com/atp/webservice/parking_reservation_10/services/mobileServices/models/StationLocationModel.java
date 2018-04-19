@@ -3,7 +3,7 @@ package com.atp.webservice.parking_reservation_10.services.mobileServices.models
 import java.io.Serializable;
 import java.util.Objects;
 
-public class StationLocation implements Serializable{
+public class StationLocationModel implements Serializable{
 
     private int stationID;
 
@@ -17,7 +17,7 @@ public class StationLocation implements Serializable{
 
     private double lng;
 
-    public StationLocation(int stationID, double lat, double lng) {
+    public StationLocationModel(int stationID, double lat, double lng) {
         this.stationID = stationID;
         this.lat = lat;
         this.lng = lng;
@@ -26,7 +26,7 @@ public class StationLocation implements Serializable{
         this.usedSlot =0;
     }
 
-    public StationLocation() {
+    public StationLocationModel() {
     }
 
     public int getStationID() {
@@ -81,7 +81,7 @@ public class StationLocation implements Serializable{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StationLocation that = (StationLocation) o;
+        StationLocationModel that = (StationLocationModel) o;
         return stationID == that.stationID;
     }
 
@@ -93,7 +93,7 @@ public class StationLocation implements Serializable{
 
     @Override
     public String toString() {
-        return "StationLocation{" +
+        return "StationLocationModel{" +
                 "stationID=" + stationID +
                 ", totalSlot=" + totalSlot +
                 ", usedSlot=" + usedSlot +

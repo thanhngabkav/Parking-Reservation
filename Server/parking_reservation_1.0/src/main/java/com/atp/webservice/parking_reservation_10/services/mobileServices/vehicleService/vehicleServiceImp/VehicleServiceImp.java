@@ -1,13 +1,11 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.vehicleService.vehicleServiceImp;
 
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.VehicleCRUDRepository;
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.Vehicle;
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.VehicleType;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.VehicleModel;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.vehicleService.VehicleService;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.vehicleTypeService.vehicleTypeServiceImp.VehicleTypeServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,8 +21,8 @@ public class VehicleServiceImp implements VehicleService {
     private VehicleCRUDRepository vehicleCRUDRepository;
 
     @Override
-    public Vehicle addNewVehicle(Vehicle vehicle) {
-        com.atp.webservice.parking_reservation_10.entities.Vehicle vehicleEntity = convertFromModel(vehicle);
+    public VehicleModel addNewVehicle(VehicleModel vehicleModel) {
+        com.atp.webservice.parking_reservation_10.entities.Vehicle vehicleEntity = convertFromModel(vehicleModel);
         if(vehicleEntity == null )//convert  fail
             return null;
 
@@ -33,91 +31,91 @@ public class VehicleServiceImp implements VehicleService {
     }
 
     @Override
-    public Vehicle editVehicle(Vehicle vehicle) {
-        com.atp.webservice.parking_reservation_10.entities.Vehicle vehicleEntity = convertFromModel(vehicle);
-        if(vehicleEntity == null || !vehicleCRUDRepository.exists(vehicle.getId()))//convert fail or not existed
+    public VehicleModel editVehicle(VehicleModel vehicleModel) {
+        com.atp.webservice.parking_reservation_10.entities.Vehicle vehicleEntity = convertFromModel(vehicleModel);
+        if(vehicleEntity == null || !vehicleCRUDRepository.exists(vehicleModel.getId()))//convert fail or not existed
             return null;
         return convertFromEntity(vehicleCRUDRepository.save(vehicleEntity));
     }
 
     @Override
-    public List<Vehicle> getAllDriverVehicleByDriver(String driverID) {
+    public List<VehicleModel> getAllDriverVehicleByDriver(String driverID) {
         List<com.atp.webservice.parking_reservation_10.entities.Vehicle> driverVehicles =
                 vehicleCRUDRepository.findByDriverID(driverID);
-        List<Vehicle> vehicles = new ArrayList<Vehicle>();
+        List<VehicleModel> vehicleModels = new ArrayList<VehicleModel>();
         for(com.atp.webservice.parking_reservation_10.entities.Vehicle vehicle : driverVehicles)
-            vehicles.add(convertFromEntity(vehicle));
-        return vehicles;
+            vehicleModels.add(convertFromEntity(vehicle));
+        return vehicleModels;
     }
 
     @Override
-    public List<Vehicle> getPageListVehicleByDriver(String driverID, int pageNumber) {
+    public List<VehicleModel> getPageListVehicleByDriver(String driverID, int pageNumber) {
         PageRequest pageRequest = new PageRequest(pageNumber-1, PAGE_SIZE);
-        List<Vehicle> vehicles = new ArrayList<Vehicle>();
+        List<VehicleModel> vehicleModels = new ArrayList<VehicleModel>();
         for(com.atp.webservice.parking_reservation_10.entities.Vehicle vehicle :
                 vehicleCRUDRepository.findByDriverID(driverID,pageRequest))
-            vehicles.add(convertFromEntity(vehicle));
-        return vehicles;
+            vehicleModels.add(convertFromEntity(vehicle));
+        return vehicleModels;
     }
 
     @Override
-    public List<Vehicle> getPageListVehicle(int pageNumber) {
+    public List<VehicleModel> getPageListVehicle(int pageNumber) {
         PageRequest pageRequest = new PageRequest(pageNumber-1, PAGE_SIZE);
-        List<Vehicle> vehicles = new ArrayList<Vehicle>();
+        List<VehicleModel> vehicleModels = new ArrayList<VehicleModel>();
         for(com.atp.webservice.parking_reservation_10.entities.Vehicle vehicle :
                 vehicleCRUDRepository.findAll(pageRequest))
-            vehicles.add(convertFromEntity(vehicle));
-        return vehicles;
+            vehicleModels.add(convertFromEntity(vehicle));
+        return vehicleModels;
     }
 
     @Override
-    public Vehicle getVehicleById(String vehicleID) {
+    public VehicleModel getVehicleById(String vehicleID) {
         return convertFromEntity(vehicleCRUDRepository.findOne(vehicleID));
     }
 
     @Override
-    public List<Vehicle> getPageListVehicleByTypeId(int typeID, int pageNumber) {
+    public List<VehicleModel> getPageListVehicleByTypeId(int typeID, int pageNumber) {
         PageRequest pageRequest = new PageRequest(pageNumber-1, PAGE_SIZE);
-        List<Vehicle> vehicles = new ArrayList<Vehicle>();
+        List<VehicleModel> vehicleModels = new ArrayList<VehicleModel>();
         for(com.atp.webservice.parking_reservation_10.entities.Vehicle vehicle :
                 vehicleCRUDRepository.findByVehicleTypeID(typeID,pageRequest))
-            vehicles.add(convertFromEntity(vehicle));
-        return vehicles;
+            vehicleModels.add(convertFromEntity(vehicle));
+        return vehicleModels;
     }
 
     /**
-     * Convert from {@link com.atp.webservice.parking_reservation_10.entities.Vehicle} to {@link Vehicle}
+     * Convert from {@link com.atp.webservice.parking_reservation_10.entities.Vehicle} to {@link VehicleModel}
      * @param vehicleEntity {@link com.atp.webservice.parking_reservation_10.entities.Vehicle}
-     * @return Vehicle
+     * @return VehicleModel
      */
-    public static Vehicle convertFromEntity(com.atp.webservice.parking_reservation_10.entities.Vehicle vehicleEntity){
+    public static VehicleModel convertFromEntity(com.atp.webservice.parking_reservation_10.entities.Vehicle vehicleEntity){
         if(vehicleEntity == null)
             return null;
-        Vehicle vehicle = new Vehicle();
-        vehicle.setName(vehicleEntity.getName());
-        vehicle.setLicensePlate(vehicleEntity.getLicensePlate());
-        vehicle.setId(vehicleEntity.getID());
-        vehicle.setVehicleType(VehicleTypeServiceImp.convertFromEntity(vehicleEntity.getVehicleType()));
-        vehicle.setDriverID(vehicleEntity.getDriverID());
+        VehicleModel vehicleModel = new VehicleModel();
+        vehicleModel.setName(vehicleEntity.getName());
+        vehicleModel.setLicensePlate(vehicleEntity.getLicensePlate());
+        vehicleModel.setId(vehicleEntity.getID());
+        vehicleModel.setVehicleTypeModel(VehicleTypeServiceImp.convertFromEntity(vehicleEntity.getVehicleType()));
+        vehicleModel.setDriverID(vehicleEntity.getDriverID());
 
-        return vehicle;
+        return vehicleModel;
     }
 
     /**
-     * Convert from {@link Vehicle} to {@link com.atp.webservice.parking_reservation_10.entities.Vehicle}
-     * @param vehicleModel {@link Vehicle}
-     * @return Vehicle
+     * Convert from {@link VehicleModel} to {@link com.atp.webservice.parking_reservation_10.entities.Vehicle}
+     * @param vehicleModelModel {@link VehicleModel}
+     * @return VehicleModel
      */
-    public static com.atp.webservice.parking_reservation_10.entities.Vehicle convertFromModel(Vehicle vehicleModel){
-        if(vehicleModel == null)
+    public static com.atp.webservice.parking_reservation_10.entities.Vehicle convertFromModel(VehicleModel vehicleModelModel){
+        if(vehicleModelModel == null)
             return  null;
         com.atp.webservice.parking_reservation_10.entities.Vehicle vehicle = new com.atp.webservice.parking_reservation_10.entities.Vehicle();
-        vehicle.setName(vehicleModel.getName());
-        vehicle.setVehicleTypeID(vehicleModel.getVehicleType().getTypeID());
-        vehicle.setVehicleType(VehicleTypeServiceImp.convertFromModel(vehicleModel.getVehicleType()));
-        vehicle.setID(vehicleModel.getId());
-        vehicle.setDriverID(vehicleModel.getDriverID());
-        vehicle.setLicensePlate(vehicleModel.getLicensePlate());
+        vehicle.setName(vehicleModelModel.getName());
+        vehicle.setVehicleTypeID(vehicleModelModel.getVehicleTypeModel().getTypeID());
+        vehicle.setVehicleType(VehicleTypeServiceImp.convertFromModel(vehicleModelModel.getVehicleTypeModel()));
+        vehicle.setID(vehicleModelModel.getId());
+        vehicle.setDriverID(vehicleModelModel.getDriverID());
+        vehicle.setLicensePlate(vehicleModelModel.getLicensePlate());
 
         return vehicle;
     }

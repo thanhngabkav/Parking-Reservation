@@ -1,6 +1,6 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.driverService;
 
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.Driver;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.DriverModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.ws.rs.PathParam;
 import java.util.List;
 
 @RestController
@@ -19,68 +18,68 @@ public class DriverController {
     private DriverService driverService;
 
     /**
-     * Get all {@link Driver}
+     * Get all {@link DriverModel}
      * @return
      */
     @RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Driver>> getAll() {
-        List<Driver> drivers = driverService.getAll();
-        return new ResponseEntity<List<Driver>>(drivers, HttpStatus.OK);
+    public ResponseEntity<List<DriverModel>> getAll() {
+        List<DriverModel> driverModels = driverService.getAll();
+        return new ResponseEntity<List<DriverModel>>(driverModels, HttpStatus.OK);
     }
 
     /**
-     * Get Page list {@link Driver}
+     * Get Page list {@link DriverModel}
      * @param pageNumber
      * @return
      */
     @RequestMapping(value = "/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Driver>> getPageList(@RequestParam("page") int pageNumber) {
-        List<Driver> drivers = driverService.getPageList(pageNumber);
-        return new ResponseEntity<List<Driver>>(drivers, HttpStatus.OK);
+    public ResponseEntity<List<DriverModel>> getPageList(@RequestParam("page") int pageNumber) {
+        List<DriverModel> driverModels = driverService.getPageList(pageNumber);
+        return new ResponseEntity<List<DriverModel>>(driverModels, HttpStatus.OK);
     }
 
 
     /**
-     * Update {@link Driver}
-     * @param driver {@link Driver}
+     * Update {@link DriverModel}
+     * @param driverModel {@link DriverModel}
      * @param result {@link BindingResult}
      * @return
      */
     @RequestMapping(value = "/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Driver> addNewDriver(@RequestBody Driver driver, BindingResult result){
+    public ResponseEntity<DriverModel> addNewDriver(@RequestBody DriverModel driverModel, BindingResult result){
         if(result.hasErrors())
-            return new ResponseEntity<Driver>(HttpStatus.NOT_ACCEPTABLE);
-        Driver newDriver = driverService.addNewDriver(driver);
-        if(newDriver  == null)
+            return new ResponseEntity<DriverModel>(HttpStatus.NOT_ACCEPTABLE);
+        DriverModel newDriverModel = driverService.addNewDriver(driverModel);
+        if(newDriverModel == null)
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        return new ResponseEntity<Driver>(newDriver,HttpStatus.CREATED);
+        return new ResponseEntity<DriverModel>(newDriverModel,HttpStatus.CREATED);
     }
 
     /**
-     * Update {@link Driver}
-     * @param driver {@link Driver}
+     * Update {@link DriverModel}
+     * @param driverModel {@link DriverModel}
      * @param result {@link BindingResult}
      * @return
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT,produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Driver> updateDriver(@PathVariable("id") String userID, @RequestBody Driver driver, BindingResult result){
+    public ResponseEntity<DriverModel> updateDriver(@PathVariable("id") String userID, @RequestBody DriverModel driverModel, BindingResult result){
         if(result.hasErrors())
-            return new ResponseEntity<Driver>(HttpStatus.NOT_ACCEPTABLE);
-        Driver updatedDriver = driverService.updateDriver(driver);
-        if(updatedDriver == null)
+            return new ResponseEntity<DriverModel>(HttpStatus.NOT_ACCEPTABLE);
+        DriverModel updatedDriverModel = driverService.updateDriver(driverModel);
+        if(updatedDriverModel == null)
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        return new ResponseEntity<Driver>(updatedDriver,HttpStatus.OK);
+        return new ResponseEntity<DriverModel>(updatedDriverModel,HttpStatus.OK);
     }
 
     /**
      * Get driver by id
      * @param driverID
-     * @return Driver
+     * @return DriverModel
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Driver> getById(@PathVariable(name = "id") String driverID){
-        Driver driver = driverService.getDriverById(driverID);
-        return new ResponseEntity<Driver>(driver,HttpStatus.OK);
+    public ResponseEntity<DriverModel> getById(@PathVariable(name = "id") String driverID){
+        DriverModel driverModel = driverService.getDriverById(driverID);
+        return new ResponseEntity<DriverModel>(driverModel,HttpStatus.OK);
     }
 
     /**
@@ -89,9 +88,9 @@ public class DriverController {
      * @return
      */
     @RequestMapping(value = "/find", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Driver> getByUserName(@RequestParam("userName") String emailOrPhone){
-        Driver driver = driverService.getDriverByEmailOrPhoneNumber(emailOrPhone);
-        return new ResponseEntity<Driver>(driver,HttpStatus.OK);
+    public ResponseEntity<DriverModel> getByUserName(@RequestParam("userName") String emailOrPhone){
+        DriverModel driverModel = driverService.getDriverByEmailOrPhoneNumber(emailOrPhone);
+        return new ResponseEntity<DriverModel>(driverModel,HttpStatus.OK);
     }
 
 

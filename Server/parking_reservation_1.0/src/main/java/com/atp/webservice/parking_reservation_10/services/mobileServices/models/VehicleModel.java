@@ -7,7 +7,7 @@ import java.util.Objects;
  * This is a models for {@link com.atp.webservice.parking_reservation_10.entities.Vehicle}
  * Using for transfer data with Mobile Applications
  */
-public class Vehicle implements Serializable{
+public class VehicleModel implements Serializable{
 
     private String id;
 
@@ -15,19 +15,19 @@ public class Vehicle implements Serializable{
 
     private String licensePlate;
 
-    private VehicleType vehicleType;
+    private VehicleTypeModel vehicleTypeModel;
 
     private String driverID;
 
-    public Vehicle(String id, String name, VehicleType vehicleType, String licensePlate, String driverID) {
+    public VehicleModel(String id, String name, VehicleTypeModel vehicleTypeModel, String licensePlate, String driverID) {
         this.id = id;
         this.name = name;
-        this.vehicleType = vehicleType;
+        this.vehicleTypeModel = vehicleTypeModel;
         this.licensePlate = licensePlate;
         this.driverID = driverID;
     }
 
-    public Vehicle() {
+    public VehicleModel() {
     }
 
     public String getId() {
@@ -46,12 +46,12 @@ public class Vehicle implements Serializable{
         this.name = name;
     }
 
-    public VehicleType getVehicleType() {
-        return vehicleType;
+    public VehicleTypeModel getVehicleTypeModel() {
+        return vehicleTypeModel;
     }
 
-    public Vehicle setVehicleType(VehicleType vehicleType) {
-        this.vehicleType = vehicleType;
+    public VehicleModel setVehicleTypeModel(VehicleTypeModel vehicleTypeModel) {
+        this.vehicleTypeModel = vehicleTypeModel;
         return this;
     }
 
@@ -59,7 +59,7 @@ public class Vehicle implements Serializable{
         return licensePlate;
     }
 
-    public Vehicle setLicensePlate(String licensePlate) {
+    public VehicleModel setLicensePlate(String licensePlate) {
         this.licensePlate = licensePlate;
         return this;
     }
@@ -68,7 +68,7 @@ public class Vehicle implements Serializable{
         return driverID;
     }
 
-    public Vehicle setDriverID(String driverID) {
+    public VehicleModel setDriverID(String driverID) {
         this.driverID = driverID;
         return this;
     }
@@ -77,9 +77,9 @@ public class Vehicle implements Serializable{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Vehicle vehicle = (Vehicle) o;
-        return Objects.equals(id, vehicle.id) &&
-                Objects.equals(name, vehicle.name);
+        VehicleModel vehicleModel = (VehicleModel) o;
+        return Objects.equals(id, vehicleModel.id) &&
+                Objects.equals(name, vehicleModel.name);
     }
 
     @Override
@@ -90,11 +90,11 @@ public class Vehicle implements Serializable{
 
     @Override
     public String toString() {
-        return "Vehicle{" +
+        return "VehicleModel{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", licensePlate='" + licensePlate + '\'' +
-                ", vehicleType=" + vehicleType +
+                ", vehicleTypeModel=" + vehicleTypeModel +
                 '}';
     }
 

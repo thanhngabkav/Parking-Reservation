@@ -127,7 +127,7 @@ public class Vehicle implements Serializable{
 
     @Override
     public String toString() {
-        return "Vehicle{" +
+        return "VehicleModel{" +
                 "ID='" + ID + '\'' +
                 ", name='" + name + '\'' +
                 ", licensePlate='" + licensePlate + '\'' +

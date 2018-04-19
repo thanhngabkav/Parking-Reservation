@@ -1,6 +1,6 @@
 //package com.atp.webservice.parking_reservation_10.repository.sparkRepository;
 //
-//import com.atp.controller.parking_reservation_10.entities.Driver;
+//import com.atp.controller.parking_reservation_10.entities.DriverModel;
 //import com.atp.controller.parking_reservation_10.repository.springCRUDRepository.DriverCRUDRepository;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Repository;
@@ -19,12 +19,12 @@
 //
 //
 //    @Override
-//    public List<Driver> findAll() {
+//    public List<DriverModel> findAll() {
 //        return null;
 //    }
 //
 //    @Override
-//    public Driver findOne(UUID uuid) {
+//    public DriverModel findOne(UUID uuid) {
 //        return null;
 //    }
 //
@@ -44,12 +44,12 @@
 //    }
 //
 //    @Override
-//    public Driver save(Driver entity) {
+//    public DriverModel save(DriverModel entity) {
 //        return null;
 //    }
 //
 //    @Override
-//    public List<Driver> GetAll() {
+//    public List<DriverModel> GetAll() {
 //        return null;
 //    }
 //}

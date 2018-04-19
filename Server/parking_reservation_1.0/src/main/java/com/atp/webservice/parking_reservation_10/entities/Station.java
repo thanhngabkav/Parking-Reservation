@@ -29,10 +29,6 @@ public class Station implements Serializable{
     @Column(name = "application_id")
     private String applicationID;
 
-    @JsonProperty("key_pair")
-    @Column(name = "key_pair", columnDefinition = "TEXT")
-    private String keyPair;
-
     @JsonProperty("name")
     @Column(name = "name", length = 500)
     private String name;
@@ -110,13 +106,15 @@ public class Station implements Serializable{
     )
     private List<Service> services;
 
+    @OneToMany(mappedBy = "station")
+    @JsonIgnore
+    private List<TicketType> ticketTypes;
 
 //    @OneToMany(mappedBy = "parking", cascade = CascadeType.MERGE)
 //    private List<ParkingStation> parkingStations;
 
-    public Station(String applicationID, String keyPair, String name, String address, Timestamp createdDate, String status, int level, Time openTime, Time closeTime, String imageLink, int totalSlots, int holdingSlots, int usedSlots, String parkingMapLink, String coordinate, String ownerID) {
+    public Station(String applicationID,String name, String address, Timestamp createdDate, String status, int level, Time openTime, Time closeTime, String imageLink, int totalSlots, int holdingSlots, int usedSlots, String parkingMapLink, String coordinate, String ownerID) {
         this.applicationID = applicationID;
-        this.keyPair = keyPair;
         this.name = name;
         this.address = address;
         this.createdDate = createdDate;
@@ -134,7 +132,7 @@ public class Station implements Serializable{
     }
 
     public Station() {
-        this(DefaultValue.STRING, DefaultValue.STRING, DefaultValue.STRING, DefaultValue.STRING,
+        this(DefaultValue.STRING, DefaultValue.STRING, DefaultValue.STRING,
                 DefaultValue.TIMESTAMP,DefaultValue.STRING, DefaultValue.INT, DefaultValue.TIME, DefaultValue.TIME,
                 DefaultValue.STRING, DefaultValue.INT, DefaultValue.INT, DefaultValue.INT, DefaultValue.STRING, DefaultValue.STRING, DefaultValue.UUID.toString());
     }
@@ -154,15 +152,6 @@ public class Station implements Serializable{
 
     public Station setApplicationID(String applicationID) {
         this.applicationID = applicationID;
-        return this;
-    }
-
-    public String getKeyPair() {
-        return keyPair;
-    }
-
-    public Station setKeyPair(String keyPair) {
-        this.keyPair = keyPair;
         return this;
     }
 

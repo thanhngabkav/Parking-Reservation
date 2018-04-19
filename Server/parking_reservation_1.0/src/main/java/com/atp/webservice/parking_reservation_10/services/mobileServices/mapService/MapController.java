@@ -1,7 +1,6 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.mapService;
 
-import com.atp.webservice.parking_reservation_10.services.mobileServices.mapService.MapService;
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationLocation;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationLocationModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,12 +29,12 @@ public class MapController {
      * @return
      */
     @RequestMapping(value = "/place", method = RequestMethod.GET)
-    public ResponseEntity<List<StationLocation>> getNearByLocation(@RequestParam("lat") double lat, @RequestParam("lng") double lng,
-                                                                   @RequestParam("rad") double rad, HttpServletResponse response) {
+    public ResponseEntity<List<StationLocationModel>> getNearByLocation(@RequestParam("lat") double lat, @RequestParam("lng") double lng,
+                                                                        @RequestParam("rad") double rad, HttpServletResponse response) {
 
-        StationLocation place = new StationLocation(-1, lat, lng);
-        List<StationLocation> stationLocations = mapService.getNearByParking(place, rad);
-        return new ResponseEntity<List<StationLocation>>(stationLocations, HttpStatus.OK);
+        StationLocationModel place = new StationLocationModel(-1, lat, lng);
+        List<StationLocationModel> stationLocationModels = mapService.getNearByParking(place, rad);
+        return new ResponseEntity<List<StationLocationModel>>(stationLocationModels, HttpStatus.OK);
 
     }
 }

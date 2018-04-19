@@ -4,7 +4,10 @@ package com.atp.webservice.parking_reservation_10.config.generateData;
 import com.atp.webservice.parking_reservation_10.entities.*;
 import com.atp.webservice.parking_reservation_10.entities.uitls.*;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.*;
+import com.atp.webservice.parking_reservation_10.services.algorithms.KeyHelper;
 import com.atp.webservice.parking_reservation_10.services.algorithms.KeypairHelper;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.TicketModel;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.ticketService.TicketConverter;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
@@ -18,14 +21,13 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * This class is use for generate sample data
@@ -46,13 +48,13 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     private VehicleTypeCRUDRepository vehicleTypeCRUDRepository;
 
     @Autowired
-    private  VehicleCRUDRepository vehicleCRUDRepository;
+    private VehicleCRUDRepository vehicleCRUDRepository;
 
     @Autowired
     private TicketTypeCRUDRepository ticketTypeCRUDRepository;
 
     @Autowired
-    private  TicketCRUDRepository ticketCRUDRepository;
+    private TicketCRUDRepository ticketCRUDRepository;
 
     @Autowired
     private RoleCRUDRepository roleCRUDRepository;
@@ -60,42 +62,46 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     @Autowired
     private ServiceCRUDRepository serviceCRUDRepository;
 
+
+    @Autowired
+    private TicketConverter ticketConverter;
+
     private static Logger logger = Logger.getLogger(DatabaseInitial.class);
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
 
-        logger.info("Importing sample data");
-        initRoles();
-
-        initServices();
-
-        try {
-            initUser();
-        } catch (NoSuchAlgorithmException e) {
-            logger.warn("Init Owners fail");
-            e.printStackTrace();
-        }
-        try {
-            initStation();
-        } catch (IOException e) {
-            logger.warn("Init Stations fail");
-            e.printStackTrace();
-        }
-        initVehicleType();
-
-        initVehicle();
-
-        initTicketType();
-
-        initTicket();
+//        logger.info("Importing sample data");
+//        initRoles();
+//
+//        initServices();
+//
+//        try {
+//            initUser();
+//        } catch (NoSuchAlgorithmException e) {
+//            logger.warn("Init Owners fail");
+//            e.printStackTrace();
+//        }
+//        try {
+//            initStation();
+//        } catch (IOException e) {
+//            logger.warn("Init Stations fail");
+//            e.printStackTrace();
+//        }
+//        initVehicleType();
+//
+//        initVehicle();
+//
+//        initTicketType();
+//
+//        initTicket();
 
     }
 
     private void initServices() {
         logger.info("Init Services");
         String[] services = {StationServices.DO_XE, StationServices.SUA_XE, StationServices.DO_XANG, StationServices.RUA_XE};
-        for(String service : services){
+        for (String service : services) {
             serviceCRUDRepository.save(new Service(service));
         }
     }
@@ -103,101 +109,120 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     private void initRoles() {
         logger.info("Init Roles");
         String[] roles = {UserRole.ADMIN_ROLE, UserRole.DRIVER_ROLE, UserRole.OWNER_ROLE, UserRole.THIRD_PARTY};
-        for(String role : roles){
+        for (String role : roles) {
             roleCRUDRepository.save(new Role(role));
         }
     }
 
-    private void  initVehicleType(){
-        VehicleType  vehicle = new VehicleType();
+    private void initVehicleType() {
+        VehicleType vehicle = new VehicleType();
         vehicle.setName("Xe Đạp");
         vehicleTypeCRUDRepository.save(vehicle);
         //
-        VehicleType  vehicle1 = new VehicleType();
+        VehicleType vehicle1 = new VehicleType();
         vehicle1.setName("Xe Máy");
         vehicleTypeCRUDRepository.save(vehicle1);
         //
-        VehicleType  vehicle2 = new VehicleType();
+        VehicleType vehicle2 = new VehicleType();
         vehicle2.setName("Ô Tô");
         vehicleTypeCRUDRepository.save(vehicle2);
         //
-        VehicleType  vehicle3 = new VehicleType();
+        VehicleType vehicle3 = new VehicleType();
         vehicle3.setName("Xe Tải");
         vehicleTypeCRUDRepository.save(vehicle3);
         //
-        VehicleType  vehicle4 = new VehicleType();
+        VehicleType vehicle4 = new VehicleType();
         vehicle4.setName("Xe Khách");
         vehicleTypeCRUDRepository.save(vehicle4);
     }
 
-    private void  initVehicle(){
+    private void initVehicle() {
         logger.info("Init Vehicles");
         List<Driver> drivers = driverCRUDRepository.findAll();
         List<VehicleType> vehicleTypes = vehicleTypeCRUDRepository.findAll();
-        for(Driver driver : drivers){
-            for(VehicleType vehicleType : vehicleTypes){
+        for (Driver driver : drivers) {
+            for (VehicleType vehicleType : vehicleTypes) {
                 byte[] array = new byte[7]; // length is bounded by 7
                 new Random().nextBytes(array);
                 String generatedString = new String(array, Charset.forName("EUC-KR"));
-                Vehicle  vehicle = new Vehicle();
+                Vehicle vehicle = new Vehicle();
                 vehicle.setID(UUID.randomUUID().toString());
                 vehicle.setDriverID(driver.getUserID());
                 vehicle.setLicensePlate(generatedString);
                 vehicle.setVehicleTypeID(vehicleType.getID());
-                vehicle.setName("Driver Vehicle");
+                vehicle.setName("Driver's Vehicle");
                 vehicleCRUDRepository.save(vehicle);
             }
         }
     }
 
-    private void initTicketType(){
-        logger.info("Init Ticket Types");
+    private void initTicketType() {
+        logger.info("Init TicketModel Types");
         List<VehicleType> allVehicleTypes = vehicleTypeCRUDRepository.findAll();
         List<Station> allStations = stationCRUDRepository.findAll();
-        for (Station station : allStations){
-            for(VehicleType vehicleType: allVehicleTypes){
+        for (Station station : allStations) {
+            for (VehicleType vehicleType : allVehicleTypes) {
                 TicketType ticketType = new TicketType();
-                ticketType.setHoldingTime(Time.valueOf(LocalTime.of(1,0,0)));
-                ticketType.setPrice(vehicleType.getID()*3 + station.getID()*2 + 2000);
+                ticketType.setHoldingTime(Time.valueOf(LocalTime.of(1, 0, 0)));
+                ticketType.setPrice(vehicleType.getID() * 3 + station.getID() * 2 + 2000);
                 ticketType.setStation(station);
                 ticketType.setName("Type Name or description");
                 ticketType.setStationID(station.getID());
                 ticketType.setVehicleType(vehicleType);
                 ticketType.setVehicleTypeID(vehicleType.getID());
-
+                ticketType.setServiceID(1);//dich vu gui xe
                 ticketTypeCRUDRepository.save(ticketType);
             }
         }
     }
 
-    private void initTicket(){
+    private void initTicket() {
 
         List<Vehicle> allVehicles = vehicleCRUDRepository.findAll();
         List<Station> allStations = stationCRUDRepository.findAll();
         String[] ticketStatus = {TicketStatus.CHECKED, TicketStatus.HOLDIND, TicketStatus.IN_USE, TicketStatus.USED};
-        int i=0;
+        int i = 0;
 
-        for(Vehicle vehicle : allVehicles){
-            for(Station station : allStations){
-                for(TicketType ticketType : ticketTypeCRUDRepository.findByStationIDAndVehicleTypeID(station.getID(), vehicle.getVehicleTypeID())){
-                    i++;
-                    Ticket ticket = new Ticket();
-                    ticket.setID(UUID.randomUUID().toString())
-                            .setCheckinTime(Timestamp.valueOf(LocalDateTime.now()));
-                    if(i%5 ==0)
-                        ticket.setCheckoutTime(Timestamp.valueOf(LocalDateTime.now()));
-                    else
-                        ticket.setCheckoutTime(null);
-                    ticket.setCreatedTime(Timestamp.valueOf(LocalDateTime.now()))
-                            .setDriverID(vehicle.getDriverID());
-                    ticket.setqRCode("");
-                    ticket.setStationID(station.getID())
-                            .setStatus(ticketStatus[i%4]);
-                    ticket.setTicketTypeID(ticketType.getID());
-                    ticket.setVehicleID(vehicle.getID());
-                    logger.info("Init Tickets " + i);
-                    ticketCRUDRepository.save(ticket);
+        for (Vehicle vehicle : allVehicles) {
+            for (Station station : allStations) {
+                Owner  owner = ownerCRUDRepository.findOne(station.getOwnerID());
+                logger.info("Init Tickets " + i);
+                List<TicketType> ticketTypes = ticketTypeCRUDRepository.findByStationIDAndVehicleTypeID(station.getID(), vehicle.getVehicleTypeID());
+                i++;
+                Ticket ticket = new Ticket();
+                ticket.setID(UUID.randomUUID().toString())
+                        .setCheckinTime(Timestamp.valueOf(LocalDateTime.now()));
+                if (i % 5 == 0)
+                    ticket.setCheckoutTime(Timestamp.valueOf(LocalDateTime.now()));
+                else
+                    ticket.setCheckoutTime(null);
+                ticket.setCreatedTime(Timestamp.valueOf(LocalDateTime.now()))
+                        .setDriverID(vehicle.getDriverID());
+                ticket.setqRCode("");
+                ticket.setStationID(station.getID())
+                        .setStatus(ticketStatus[i % 4]);
+                ticket.setStation(station);
+                ticket.setTicketTypes(ticketTypes);
+                ticket.setVehicleID(vehicle.getID());
+                ticket.setVehicle(vehicle);
+                ticket.setPaid(false);
+                double totalPrice =0;
+                for(TicketType ticketType : ticketTypes)
+                    totalPrice+= ticketType.getPrice();
+                ticket.setTotalPrice(totalPrice);
+                StringBuilder QRCode = new StringBuilder();
+                ObjectMapper objectMapper = new ObjectMapper();
+                try {
+                    String content =  objectMapper.writeValueAsString(ticketConverter.convertFromEntity(ticket));
+                    //System.out.println(content);
+                    QRCode.append(KeyHelper.encrypt(content, owner.getSecretKey()));
+                    //System.out.println(KeyHelper.decrypt(QRCode.toString(),owner.getSecretKey()));
+                } catch (Exception e) {
+                    logger.error("Gen QR code fail!");
+                    e.printStackTrace();
                 }
+                ticket.setqRCode(QRCode.toString());
+                ticketCRUDRepository.save(ticket);
             }
         }
 
@@ -205,15 +230,14 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
 
     private void initOwner(User user, int i) throws NoSuchAlgorithmException {
         //Init owner
-       // logger.info("Init Owners");
+        // logger.info("Init Owners");
         Owner owner = new Owner();
         owner.setUserID(user.getUserID());
         owner.setAddress("Owner Address");
         owner.setName("owner " + user.getUserID().toString());
-        owner.setUserName("Owner_"+i);
+        owner.setUserName("Owner_" + i);
         KeyPair keyPair = KeypairHelper.buildKeyPair();
-        owner.setPublicKey(KeypairHelper.EncodePublicKeyToString(keyPair.getPublic()));
-        owner.setPrivateKey(KeypairHelper.EncodePrivateKeyToString(keyPair.getPrivate()));
+        owner.setSecretKey(KeyHelper.genSecretKey());
         owner.setEmail(user.getEmail());
         owner.setPhoneNumber(user.getPhoneNumber());
         owner.setStatus(user.getStatus());
@@ -233,7 +257,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
             User user = new User();
             user.setUserID(UUID.randomUUID().toString());
             user.setPassword(encoder.encode(pass));
-            user.setPhoneNumber("0962810884"+i);
+            user.setPhoneNumber("0962810884" + i);
             user.setEmail(email.toString());
 
             switch (i % 3) {
@@ -262,7 +286,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
 
             switch (i % 3) {
                 case 1:
-                    initOwner(user,i);
+                    initOwner(user, i);
                     break;
                 case 2:
                     initMobileAppUser(user);
@@ -277,7 +301,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
         driver.setUserID(user.getUserID());
         driver.setStatus(user.getStatus());
         driver.setCreatedDate(Timestamp.valueOf(LocalDateTime.now()));
-        driver.setFullName("Driver " + user.getUserID().toString() );
+        driver.setFullName("DriverModel " + user.getUserID().toString());
         driver.setPhoneNumber(user.getPhoneNumber());
         driver.setEmail(user.getEmail());
         driver.setStatus(user.getStatus());
@@ -292,12 +316,13 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
         logger.info("Init Stations");
         List<Owner> ownerList = ownerCRUDRepository.findAll();
         List<Owner> activeOwners = new ArrayList<Owner>();
-        for (Owner owner : ownerList){
-            if(owner.getStatus().equals(UserStatus.ACTIVE))
+        for (Owner owner : ownerList) {
+            if (owner.getStatus().equals(UserStatus.ACTIVE))
                 activeOwners.add(owner);
         }
         ObjectMapper objectMapper = new ObjectMapper();
-        TypeReference<List<GenerateClass.RootObject>> typeReference =  new TypeReference<List<GenerateClass.RootObject>>(){};
+        TypeReference<List<GenerateClass.RootObject>> typeReference = new TypeReference<List<GenerateClass.RootObject>>() {
+        };
         String json = "[\n" +
                 "      {\n" +
                 "         \"geometry\" : {\n" +
@@ -955,13 +980,13 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
                 "]\n";
 
         List<GenerateClass.RootObject> rootObjects = objectMapper.readValue(json, typeReference);
-        Time openTime = Time.valueOf(LocalTime.of(8,30));
-        Time closingTime  = Time.valueOf(LocalTime.of(22,30));
-        for (int i =0;i<rootObjects.size();i++){
+        Time openTime = Time.valueOf(LocalTime.of(8, 30));
+        Time closingTime = Time.valueOf(LocalTime.of(22, 30));
+        for (int i = 0; i < rootObjects.size(); i++) {
 
-            int ownerIndex =  Math.min(i,activeOwners.size()-1);
-            String coordinate = rootObjects.get(i).getGeometry().getLocation().getLat()+","
-                                + rootObjects.get(i).getGeometry().getLocation().getLng();
+            int ownerIndex = Math.min(i, activeOwners.size() - 1);
+            String coordinate = rootObjects.get(i).getGeometry().getLocation().getLat() + ","
+                    + rootObjects.get(i).getGeometry().getLocation().getLng();
             Station station = new Station();
             station.setAddress("Address");
             station.setCoordinate(coordinate);
@@ -972,9 +997,9 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
             station.setTotalSlots(100);
             station.setUsedSlots(23);
             station.setStar(3);
-            station.setKeyPair(ownerList.get(ownerIndex).getPrivateKey()+"," + ownerList.get(ownerIndex).getPublicKey());
             station.setOwner(ownerList.get(ownerIndex));
             station.setServices(serviceCRUDRepository.findAll());
+            station.setStatus(StationStatus.ACTIVE);
             stationCRUDRepository.save(station);
         }
     }

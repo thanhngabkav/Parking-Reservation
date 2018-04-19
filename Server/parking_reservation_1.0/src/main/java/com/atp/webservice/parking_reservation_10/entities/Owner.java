@@ -36,13 +36,10 @@ public class Owner extends User implements Serializable{
     @Column(name = "bank", length = 150)
     private String bankName;
 
-    @Column(name = "public_key")
+    @Column(name = "secret_key")
     @Type(type =  "text")
-    private String publicKey;
+    private String secretKey;
 
-    @Column(name = "private_key")
-    @Type(type =  "text")
-    private String privateKey;
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.PERSIST)
     private List<Station> stations;
@@ -100,20 +97,13 @@ public class Owner extends User implements Serializable{
         this.bankName = bankName;
     }
 
-    public String getPublicKey() {
-        return publicKey;
+    public String getSecretKey() {
+        return secretKey;
     }
 
-    public void setPublicKey(String publicKey) {
-        this.publicKey = publicKey;
-    }
-
-    public String getPrivateKey() {
-        return privateKey;
-    }
-
-    public void setPrivateKey(String privateKey) {
-        this.privateKey = privateKey;
+    public Owner setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
+        return this;
     }
 
     @Override

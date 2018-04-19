@@ -109,11 +109,11 @@ public class Driver extends User implements Serializable{
         this.token = token;
     }
 
-//    public List<Vehicle> getVehicleList() {
+//    public List<VehicleModel> getVehicleList() {
 //        return vehicleList;
 //    }
 
-//    public List<Ticket> getTickets() {
+//    public List<TicketModel> getTickets() {
 //        return tickets;
 //    }
 

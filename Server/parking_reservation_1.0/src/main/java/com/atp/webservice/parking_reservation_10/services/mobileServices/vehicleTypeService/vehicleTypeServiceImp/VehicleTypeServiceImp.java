@@ -1,7 +1,7 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.vehicleTypeService.vehicleTypeServiceImp;
 
 
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.VehicleType;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.VehicleTypeModel;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.vehicleTypeService.VehicleTypeService;
 
 public class VehicleTypeServiceImp implements VehicleTypeService {
@@ -12,28 +12,28 @@ public class VehicleTypeServiceImp implements VehicleTypeService {
      * @param enVehicleType
      * @return
      */
-    public static VehicleType convertFromEntity(
+    public static VehicleTypeModel convertFromEntity(
             com.atp.webservice.parking_reservation_10.entities.VehicleType enVehicleType){
         if(enVehicleType ==  null)
             return null;
-        VehicleType mVehicleType = new VehicleType();
-        mVehicleType.setTypeID(enVehicleType.getID());
-        mVehicleType.setTypeName(enVehicleType.getName());
+        VehicleTypeModel mVehicleTypeModel = new VehicleTypeModel();
+        mVehicleTypeModel.setTypeID(enVehicleType.getID());
+        mVehicleTypeModel.setTypeName(enVehicleType.getName());
 
-        return mVehicleType;
+        return mVehicleTypeModel;
     }
 
     /**
      * Convert from model to Entity
-     * @param mVehicleType
+     * @param mVehicleTypeModel
      * @return
      */
-    public static com.atp.webservice.parking_reservation_10.entities.VehicleType convertFromModel(VehicleType mVehicleType){
-        if(mVehicleType ==  null)
+    public static com.atp.webservice.parking_reservation_10.entities.VehicleType convertFromModel(VehicleTypeModel mVehicleTypeModel){
+        if(mVehicleTypeModel ==  null)
             return  null;
         com.atp.webservice.parking_reservation_10.entities.VehicleType enVehicleType = new com.atp.webservice.parking_reservation_10.entities.VehicleType();
-        enVehicleType.setName(mVehicleType.getTypeName());
-        enVehicleType.setID(mVehicleType.getTypeID());
+        enVehicleType.setName(mVehicleTypeModel.getTypeName());
+        enVehicleType.setID(mVehicleTypeModel.getTypeID());
 
         return enVehicleType;
     }

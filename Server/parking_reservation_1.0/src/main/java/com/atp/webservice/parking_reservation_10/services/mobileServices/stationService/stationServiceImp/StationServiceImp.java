@@ -1,8 +1,8 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.stationService.stationServiceImp;
 
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.StationCRUDRepository;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationModel;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.stationService.StationService;
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.Station;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,22 +16,22 @@ public class StationServiceImp implements StationService {
     private StationCRUDRepository stationCRUDRepository;
 
     @Override
-    public List<Station> getStationByName(String name) {
+    public List<StationModel> getStationByName(String name) {
        List<com.atp.webservice.parking_reservation_10.entities.Station> stations = stationCRUDRepository.findStationsByName(name);
-       List<Station> listStationPresenter = new ArrayList<Station>();
+       List<StationModel> listStationModelPresenter = new ArrayList<StationModel>();
        for(com.atp.webservice.parking_reservation_10.entities.Station station : stations){
-           Station stationPresenter = new Station();
-           stationPresenter.convertFromEntities(station);
-            listStationPresenter.add(stationPresenter);
+           StationModel stationModelPresenter = new StationModel();
+           stationModelPresenter.convertFromEntities(station);
+            listStationModelPresenter.add(stationModelPresenter);
        }
 
-       return  listStationPresenter;
+       return listStationModelPresenter;
     }
 
     @Override
-    public Station getStationByID(int stationID) {
-        Station station =  new Station();
-        station.convertFromEntities(stationCRUDRepository.findOne(stationID));
-        return station;
+    public StationModel getStationByID(int stationID) {
+        StationModel stationModel =  new StationModel();
+        stationModel.convertFromEntities(stationCRUDRepository.findOne(stationID));
+        return stationModel;
     }
 }

@@ -1,6 +1,7 @@
 package com.atp.webservice.parking_reservation_10.repository.springCRUDRepository;
 
 import com.atp.webservice.parking_reservation_10.entities.Vehicle;
+import com.atp.webservice.parking_reservation_10.entities.VehicleType;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -20,7 +21,7 @@ public interface VehicleCRUDRepository extends JpaRepository<Vehicle, String> {
 
     List<Vehicle> findByDriverID(String driverID, PageRequest pageRequest);
 
-    //@Query(value = "select v from Vehicle v where v.vehicleTypeID = ?1", nativeQuery = true)
+    //@Query(value = "select v from VehicleModel v where v.vehicleTypeID = ?1", nativeQuery = true)
     List<Vehicle> findByVehicleTypeID(@Param("vehicleTypeID") int typeID, Pageable pageRequest);
 
 }

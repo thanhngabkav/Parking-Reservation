@@ -9,13 +9,11 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-public class Station implements Serializable{
+public class StationModel implements Serializable{
 
     private int ID;
 
     private String applicationID;
-
-    private String keyPair;
 
     private String name;
 
@@ -45,13 +43,12 @@ public class Station implements Serializable{
 
     private List<Service> services;
 
-    public Station() {
+    public StationModel() {
     }
 
-    public Station(int ID,String applicationID, String keyPair, String name, String address, Timestamp createdDate, String status, double star, Time openTime, Time closeTime, String imageLink, int totalSlots, int usedSlots, String parkingMapLink, String coordinate, UUID ownerID) {
+    public StationModel(int ID, String applicationID, String name, String address, Timestamp createdDate, String status, double star, Time openTime, Time closeTime, String imageLink, int totalSlots, int usedSlots, String parkingMapLink, String coordinate, UUID ownerID) {
         this.ID = ID;
         this.applicationID = applicationID;
-        this.keyPair = keyPair;
         this.name = name;
         this.address = address;
         this.createdDate = createdDate;
@@ -71,7 +68,7 @@ public class Station implements Serializable{
         return ID;
     }
 
-    public Station setID(int ID) {
+    public StationModel setID(int ID) {
         this.ID = ID;
         return this;
     }
@@ -80,17 +77,8 @@ public class Station implements Serializable{
         return applicationID;
     }
 
-    public Station setApplicationID(String applicationID) {
+    public StationModel setApplicationID(String applicationID) {
         this.applicationID = applicationID;
-        return this;
-    }
-
-    public String getKeyPair() {
-        return keyPair;
-    }
-
-    public Station setKeyPair(String keyPair) {
-        this.keyPair = keyPair;
         return this;
     }
 
@@ -98,7 +86,7 @@ public class Station implements Serializable{
         return name;
     }
 
-    public Station setName(String name) {
+    public StationModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -107,7 +95,7 @@ public class Station implements Serializable{
         return address;
     }
 
-    public Station setAddress(String address) {
+    public StationModel setAddress(String address) {
         this.address = address;
         return this;
     }
@@ -116,7 +104,7 @@ public class Station implements Serializable{
         return createdDate;
     }
 
-    public Station setCreatedDate(Timestamp createdDate) {
+    public StationModel setCreatedDate(Timestamp createdDate) {
         this.createdDate = createdDate;
         return this;
     }
@@ -125,7 +113,7 @@ public class Station implements Serializable{
         return status;
     }
 
-    public Station setStatus(String status) {
+    public StationModel setStatus(String status) {
         this.status = status;
         return this;
     }
@@ -134,7 +122,7 @@ public class Station implements Serializable{
         return star;
     }
 
-    public Station setStar(double star) {
+    public StationModel setStar(double star) {
         this.star = star;
         return  this;
     }
@@ -143,7 +131,7 @@ public class Station implements Serializable{
         return openTime;
     }
 
-    public Station setOpenTime(Time openTime) {
+    public StationModel setOpenTime(Time openTime) {
         this.openTime = openTime;
         return this;
     }
@@ -152,7 +140,7 @@ public class Station implements Serializable{
         return closeTime;
     }
 
-    public Station setCloseTime(Time closeTime) {
+    public StationModel setCloseTime(Time closeTime) {
         this.closeTime = closeTime;
         return this;
     }
@@ -161,7 +149,7 @@ public class Station implements Serializable{
         return imageLink;
     }
 
-    public Station setImageLink(String imageLink) {
+    public StationModel setImageLink(String imageLink) {
         this.imageLink = imageLink;
         return this;
     }
@@ -170,7 +158,7 @@ public class Station implements Serializable{
         return totalSlots;
     }
 
-    public Station setTotalSlots(int totalSlots) {
+    public StationModel setTotalSlots(int totalSlots) {
         this.totalSlots = totalSlots;
         return this;
     }
@@ -179,7 +167,7 @@ public class Station implements Serializable{
         return usedSlots;
     }
 
-    public Station setUsedSlots(int usedSlots) {
+    public StationModel setUsedSlots(int usedSlots) {
         this.usedSlots = usedSlots;
         return this;
     }
@@ -188,7 +176,7 @@ public class Station implements Serializable{
         return parkingMapLink;
     }
 
-    public Station setParkingMapLink(String parkingMapLink) {
+    public StationModel setParkingMapLink(String parkingMapLink) {
         this.parkingMapLink = parkingMapLink;
         return this;
     }
@@ -197,7 +185,7 @@ public class Station implements Serializable{
         return coordinate;
     }
 
-    public Station setCoordinate(String coordinate) {
+    public StationModel setCoordinate(String coordinate) {
         this.coordinate = coordinate;
         return this;
     }
@@ -206,7 +194,7 @@ public class Station implements Serializable{
         return ownerID;
     }
 
-    public Station setOwnerID(UUID ownerID) {
+    public StationModel setOwnerID(UUID ownerID) {
         this.ownerID = ownerID;
         return this;
     }
@@ -215,7 +203,7 @@ public class Station implements Serializable{
         return services;
     }
 
-    public Station setServices(List<Service> services) {
+    public StationModel setServices(List<Service> services) {
         this.services = services;
         return this;
     }
@@ -224,8 +212,8 @@ public class Station implements Serializable{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Station station = (Station) o;
-        return ID == station.ID;
+        StationModel stationModel = (StationModel) o;
+        return ID == stationModel.ID;
     }
 
     @Override
@@ -244,7 +232,6 @@ public class Station implements Serializable{
                         .setID(station.getID())
                         .setApplicationID(station.getApplicationID())
                         .setImageLink(station.getImageLink())
-                        .setKeyPair(station.getKeyPair())
                         .setStar(station.getStar())
                         .setName(station.getName())
                         .setOpenTime(station.getOpenTime())

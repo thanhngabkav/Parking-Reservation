@@ -1,7 +1,6 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.driverService;
 
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.Driver;
-import org.springframework.data.domain.Page;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.DriverModel;
 
 import java.util.List;
 
@@ -10,44 +9,44 @@ public interface DriverService {
     static final int PAGE_SIZE = 20;
 
     /**
-     * Add new driver into database
-     * @param driver {@link Driver}
-     * @return added Driver
+     * Add new driverModel into database
+     * @param driverModel {@link DriverModel}
+     * @return added DriverModel
      */
-    Driver addNewDriver(Driver driver);
+    DriverModel addNewDriver(DriverModel driverModel);
 
     /**
-     * Update driver
-     * @param driver {@link Driver}
+     * Update driverModel
+     * @param driverModel {@link DriverModel}
      * @return true if update successful and false if not
      */
-    Driver updateDriver(Driver driver);
+    DriverModel updateDriver(DriverModel driverModel);
 
     /***
      * Get driver by id
      * @param id driverID
-     * @return Driver if found or null if not found
+     * @return DriverModel if found or null if not found
      */
-    Driver getDriverById(String id);
+    DriverModel getDriverById(String id);
 
     /**
      * Get driver by user name (email or phone number)
      * @param userName email or phone number
-     * @return Driver if found or null if not found
+     * @return DriverModel if found or null if not found
      */
-    Driver getDriverByEmailOrPhoneNumber(String userName);
+    DriverModel getDriverByEmailOrPhoneNumber(String userName);
 
     /**
      * Get All Drivers
-     * @return List {@link Driver}
+     * @return List {@link DriverModel}
      */
-    List<Driver> getAll();
+    List<DriverModel> getAll();
 
     /**
      * Get page list Drivers
      * @param pageNumber page number
-     * @return List {@link Driver}
+     * @return List {@link DriverModel}
      */
-    List<Driver> getPageList(int pageNumber);
+    List<DriverModel> getPageList(int pageNumber);
 
 }

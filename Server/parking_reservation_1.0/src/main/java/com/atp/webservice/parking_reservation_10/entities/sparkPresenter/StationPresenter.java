@@ -244,7 +244,6 @@ public class StationPresenter implements Serializable{
                 .setAddress(this.getAddress())
                 .setCloseTime(Time.valueOf(this.getClose_time()))
                 .setImageLink(this.getImage_link())
-                .setKeyPair(this.getKey_pair())
                 .setCreatedDate(this.getCreated_date())
                 .setStar(this.getStar())
                 .setName(this.getName())
@@ -271,7 +270,6 @@ public class StationPresenter implements Serializable{
         this.setCreated_date(station.getCreatedDate());
         this.setId(station.getID());
         this.setImage_link(station.getImageLink());
-        this.setKey_pair(station.getKeyPair());
         this.setStar(station.getStar());
         this.setName(station.getName());
         this.setOpen_time(station.getOpenTime().toString());

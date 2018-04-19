@@ -4,7 +4,7 @@ import com.atp.webservice.parking_reservation_10.entities.Station;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.StationCRUDRepository;
 import com.atp.webservice.parking_reservation_10.services.algorithms.MapHelper;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.mapService.MapService;
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationLocation;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationLocationModel;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,21 +23,21 @@ public class MapServiceImp implements MapService {
     StationCRUDRepository stationCRUDRepository;
 
     @Override
-    public List<StationLocation> getNearByParking(StationLocation stationLocation, double radius) {
+    public List<StationLocationModel> getNearByParking(StationLocationModel stationLocationModel, double radius) {
         MapHelper mapHelper = new MapHelper();
         // this is the bad solution, improvement it if have time
         List<Station> stationList = (List<Station>) stationCRUDRepository.findAll();
         double lng1, lat1, lng2, lat2;
-        lng1 = stationLocation.getLng();
-        lat1= stationLocation.getLat();
-        List<StationLocation> result = new ArrayList<StationLocation>();
+        lng1 = stationLocationModel.getLng();
+        lat1= stationLocationModel.getLat();
+        List<StationLocationModel> result = new ArrayList<StationLocationModel>();
         for(Station station : stationList){
             try{
                 //split station coordinate to get lat and lng
                 lng2 = Double.parseDouble(station.getCoordinate().split(",")[1]);
                 lat2 = Double.parseDouble(station.getCoordinate().split(",")[0]);
                 if(mapHelper.distance(lat1,lng1,lat2,lng2,DISTANCE_UNIT) <= radius){
-                    StationLocation location = new StationLocation(station.getID(),lat2,lng2);
+                    StationLocationModel location = new StationLocationModel(station.getID(),lat2,lng2);
                     location.setTotalSlot(station.getTotalSlots());
                     location.setUsedSlot(station.getUsedSlots());
                     result.add(location);

@@ -1,8 +1,7 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.stationService;
 
 
-import com.atp.webservice.parking_reservation_10.services.mobileServices.stationService.StationService;
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.Station;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,9 +25,9 @@ public class StationController {
      * @return
      */
     @RequestMapping(value = "/")
-    public ResponseEntity<List<Station>> findByName(@RequestParam(value = "name") String name){
+    public ResponseEntity<List<StationModel>> findByName(@RequestParam(value = "name") String name){
 
-        return  new ResponseEntity<List<Station>>(stationService.getStationByName(name), HttpStatus.OK);
+        return  new ResponseEntity<List<StationModel>>(stationService.getStationByName(name), HttpStatus.OK);
     }
 
     /**
@@ -37,9 +36,9 @@ public class StationController {
      * @return
      */
     @RequestMapping(value = "/{id}")
-    public ResponseEntity<Station> findOne(@PathVariable(value = "id") Integer stationID){
+    public ResponseEntity<StationModel> findOne(@PathVariable(value = "id") Integer stationID){
 
-        return new ResponseEntity<Station>(stationService.getStationByID(stationID), HttpStatus.OK);
+        return new ResponseEntity<StationModel>(stationService.getStationByID(stationID), HttpStatus.OK);
     }
 
 }

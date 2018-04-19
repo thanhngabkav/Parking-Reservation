@@ -21,10 +21,10 @@
 @REM Maven2 Start Up Batch script
 @REM
 @REM Required ENV vars:
-@REM JAVA_HOME - stationLocation of a JDK home dir
+@REM JAVA_HOME - stationLocationModel of a JDK home dir
 @REM
 @REM Optional ENV vars
-@REM M2_HOME - stationLocation of maven2's installed home dir
+@REM M2_HOME - stationLocationModel of maven2's installed home dir
 @REM MAVEN_BATCH_ECHO - set to 'on' to enable the echoing of the batch commands
 @REM MAVEN_BATCH_PAUSE - set to 'on' to wait for a key stroke before ending
 @REM MAVEN_OPTS - parameters passed to the Java VM when running Maven
@@ -41,7 +41,7 @@
 @REM set %HOME% to equivalent of $HOME
 if "%HOME%" == "" (set "HOME=%HOMEDRIVE%%HOMEPATH%")
 
-@REM Execute a driver defined script before this one
+@REM Execute a driverModel defined script before this one
 if not "%MAVEN_SKIP_RC%" == "" goto skipRcPre
 @REM check for pre script, once with legacy .bat ending and once with .cmd ending
 if exist "%HOME%\mavenrc_pre.bat" call "%HOME%\mavenrc_pre.bat"
@@ -61,7 +61,7 @@ if not "%JAVA_HOME%" == "" goto OkJHome
 echo.
 echo Error: JAVA_HOME not found in your environment. >&2
 echo Please set the JAVA_HOME variable in your environment to match the >&2
-echo stationLocation of your Java installation. >&2
+echo stationLocationModel of your Java installation. >&2
 echo.
 goto error
 
@@ -72,7 +72,7 @@ echo.
 echo Error: JAVA_HOME is set to an invalid directory. >&2
 echo JAVA_HOME = "%JAVA_HOME%" >&2
 echo Please set the JAVA_HOME variable in your environment to match the >&2
-echo stationLocation of your Java installation. >&2
+echo stationLocationModel of your Java installation. >&2
 echo.
 goto error
 

@@ -51,29 +51,29 @@ public class KeypairHelper {
     }
 
     /**
-     * Encrypt message by {@link PrivateKey}
-     * @param privateKey
+     * Encrypt message by {@link PublicKey}
+     * @param publicKey
      * @param message
      * @return Encrypted message as a String
      * @throws Exception
      */
-    public static String encrypt(PrivateKey privateKey, String message) throws Exception {
+    public static String encrypt(PublicKey publicKey, String message) throws Exception {
         Cipher cipher = Cipher.getInstance("RSA");
-        cipher.init(Cipher.ENCRYPT_MODE, privateKey);
-        return  Base64.getEncoder().encodeToString(cipher.doFinal(message.getBytes()));
+        cipher.init(Cipher.ENCRYPT_MODE, publicKey);
+        return  Base64.getEncoder().encodeToString(cipher.doFinal(Base64.getEncoder().encode(message.getBytes())));
     }
 
     /**
-     * Decrypt message by {@link PublicKey}
-     * @param publicKey
+     * Decrypt message by {@link PrivateKey}
+     * @param privateKey
      * @param encrypted encrypted message
      * @return Decrypted message as a String
      * @throws Exception
      */
-    public static String decrypt(PublicKey publicKey, String encrypted) throws Exception {
+    public static String decrypt(PrivateKey privateKey, String encrypted) throws Exception {
         Cipher cipher = Cipher.getInstance("RSA");
-        cipher.init(Cipher.DECRYPT_MODE, publicKey);
-        return new String(cipher.doFinal(Base64.getDecoder().decode(encrypted)));
+        cipher.init(Cipher.DECRYPT_MODE, privateKey);
+        return new String(Base64.getDecoder().decode(cipher.doFinal(Base64.getDecoder().decode(encrypted))));
     }
 
     /**

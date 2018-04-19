@@ -1,6 +1,6 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.mapService;
 
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationLocation;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationLocationModel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,10 +9,10 @@ import java.util.List;
 public interface MapService {
 
     /**
-     * Get list StationOverview Locations near a determined stationLocation
-     * @param stationLocation @{@link StationLocation}
-     * @return {@link List< StationLocation >}
+     * Get list StationOverview Locations near a determined stationLocationModel
+     * @param stationLocationModel @{@link StationLocationModel}
+     * @return {@link List<  StationLocationModel  >}
      */
-    List<StationLocation> getNearByParking(StationLocation stationLocation, double radius);
+    List<StationLocationModel> getNearByParking(StationLocationModel stationLocationModel, double radius);
 
 }

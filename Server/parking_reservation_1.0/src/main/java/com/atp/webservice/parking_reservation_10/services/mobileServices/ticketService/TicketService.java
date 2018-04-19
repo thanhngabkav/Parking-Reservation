@@ -1,6 +1,7 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.ticketService;
 
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.Ticket;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.TicketModel;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.TicketReservationModel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,18 +10,18 @@ import java.util.List;
 public interface TicketService {
 
     /**
-     * Get list used Tickets {@link Ticket} by driver id {@link com.atp.webservice.parking_reservation_10.entities.Driver}
+     * Get list used Tickets {@link TicketModel} by driver id {@link com.atp.webservice.parking_reservation_10.entities.Driver}
      * @param userID : user id
-     * @return List {@link Ticket}
+     * @return List {@link TicketModel}
      */
-    List<Ticket> getUsedTickets(String userID);
+    List<TicketModel> getUsedTickets(String userID);
 
     /**
-     * Get list current using Tickets {@link Ticket} by driver id {@link com.atp.webservice.parking_reservation_10.entities.Driver}
+     * Get list current using Tickets {@link TicketModel} by driver id {@link com.atp.webservice.parking_reservation_10.entities.Driver}
      * @param userID
      * @return
      */
-    List<Ticket> getUsingTickets(String userID);
+    List<TicketModel> getUsingTickets(String userID);
 
     /**
      * Get list ticket by driver ID and ticket status
@@ -28,14 +29,13 @@ public interface TicketService {
      * @param status
      * @return
      */
-    List<Ticket> getListTicketByDriverIDAndStatus(String driverID, String status);
+    List<TicketModel> getListTicketByDriverIDAndStatus(String driverID, String status);
 
     /**
      * Send Reservation request to StationOverview
-     * @param userID {@link com.atp.webservice.parking_reservation_10.entities.Driver} Driver ID
-     * @param stationID {@link com.atp.webservice.parking_reservation_10.entities.Station} StationOverview ID
-     * @return Ticket {@link Ticket} if success or null if not
+     * @param ticketReservationModel {@link TicketReservationModel}
+     * @return TicketModel {@link TicketModel} if success or null if not
      */
-    Ticket sendRequestForReservation(String userID, String stationID);
+    TicketModel sendRequestForReservation(TicketReservationModel ticketReservationModel);
 
 }

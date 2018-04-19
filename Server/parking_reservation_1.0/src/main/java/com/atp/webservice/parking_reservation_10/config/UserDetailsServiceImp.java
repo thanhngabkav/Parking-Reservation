@@ -28,7 +28,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         User user = this.userService.getUserByUserName((userName));
         if(user == null){
-            throw new UsernameNotFoundException("Driver not found");
+            throw new UsernameNotFoundException("DriverModel not found");
         }
 
         List<GrantedAuthority> grantedAuthorityList = new ArrayList<GrantedAuthority>();
@@ -41,7 +41,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
             }
         }
 
-        logger.info("Authenticated Driver: " + userName);
+        logger.info("Authenticated DriverModel: " + userName);
 
         return new org.springframework.security.core.userdetails.User(userName,user.getPassword(), grantedAuthorityList);
     }
