@@ -107,7 +107,6 @@ public class Station implements Serializable{
     private List<Service> services;
 
     @OneToMany(mappedBy = "station")
-    @JsonIgnore
     private List<TicketType> ticketTypes;
 
 //    @OneToMany(mappedBy = "parking", cascade = CascadeType.MERGE)
@@ -307,6 +306,15 @@ public class Station implements Serializable{
 //        return this;
 //    }
 
+
+    public List<TicketType> getTicketTypes() {
+        return ticketTypes;
+    }
+
+    public Station setTicketTypes(List<TicketType> ticketTypes) {
+        this.ticketTypes = ticketTypes;
+        return this;
+    }
 
     @Override
     public boolean equals(Object o) {

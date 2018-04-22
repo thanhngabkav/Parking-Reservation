@@ -2,15 +2,23 @@ package com.atp.webservice.parking_reservation_10.config.generateData;
 
 
 import com.atp.webservice.parking_reservation_10.entities.*;
+import com.atp.webservice.parking_reservation_10.entities.sparkPresenter.StationPresenter;
 import com.atp.webservice.parking_reservation_10.entities.uitls.*;
+import com.atp.webservice.parking_reservation_10.repository.sparkRepository.SparkHelper;
+import com.atp.webservice.parking_reservation_10.repository.sparkRepository.StationRepository;
+import com.atp.webservice.parking_reservation_10.repository.sparkRepository.StationRepositoryImp;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.*;
 import com.atp.webservice.parking_reservation_10.services.algorithms.KeyHelper;
 import com.atp.webservice.parking_reservation_10.services.algorithms.KeypairHelper;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.mapService.MapService;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationLocationModel;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.TicketModel;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.stationService.StationService;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.ticketService.TicketConverter;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
+import org.apache.spark.storage.StorageLevel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -66,12 +74,22 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
     @Autowired
     private TicketConverter ticketConverter;
 
+
+
+    @Autowired
+    private StationService stationService;
+
+
     private static Logger logger = Logger.getLogger(DatabaseInitial.class);
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
 
+
         logger.info("Importing sample data");
+
+        initParkingDataSet();
+
         initRoles();
 
         initServices();
@@ -96,7 +114,34 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
 
         initTicket();
 
+
+//        for(int i =1;i<=1000;i++){
+//            try {
+//                initStation();
+//            } catch (IOException e) {
+//                logger.warn("Init Stations fail");
+//                e.printStackTrace();
+//            }
+//        }
+
+
+        logger.info("\n===========================================================\n" +
+                    "||                    GENERATED DATABASE                  ||\n" +
+                    "===========================================================");
+//        StationLocationModel stationLocationModel = new StationLocationModel();
+//        stationLocationModel.setLat(10.76739);
+//        stationLocationModel.setLng(106.696872);
+//        mapService.getNearByParking(stationLocationModel,5);
     }
+
+    public void initParkingDataSet(){
+        StationRepositoryImp.parkingDataSet = SparkHelper.GetRRDFromTable(TableName.STATION, StationPresenter.class)
+        .select("station_id", "application_id", "close_time", "coordinate", "created_date", "holding_slots", "image_link", "name",
+                "open_time", "owner_id", "parking_map_link", "station_id", "status", "total_slots", "used_slots");
+        StationRepositoryImp.parkingDataSet.persist(StorageLevel.MEMORY_ONLY());
+        StationRepositoryImp.parkingDataSet.show();
+    }
+
 
     private void initServices() {
         logger.info("Init Services");
@@ -165,7 +210,6 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
                 TicketType ticketType = new TicketType();
                 ticketType.setHoldingTime(Time.valueOf(LocalTime.of(1, 0, 0)));
                 ticketType.setPrice(vehicleType.getID() * 3 + station.getID() * 2 + 2000);
-                ticketType.setStation(station);
                 ticketType.setName("Type Name or description");
                 ticketType.setStationID(station.getID());
                 ticketType.setVehicleType(vehicleType);
@@ -1000,7 +1044,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
             station.setOwner(ownerList.get(ownerIndex));
             station.setServices(serviceCRUDRepository.findAll());
             station.setStatus(StationStatus.ACTIVE);
-            stationCRUDRepository.save(station);
+            stationService.addNewStation(station);
         }
     }
 }

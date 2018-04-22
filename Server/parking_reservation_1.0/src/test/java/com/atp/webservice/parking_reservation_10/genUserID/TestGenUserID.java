@@ -2,6 +2,7 @@ package com.atp.webservice.parking_reservation_10.genUserID;
 
 import com.atp.webservice.parking_reservation_10.services.algorithms.KeyHelper;
 import com.atp.webservice.parking_reservation_10.services.algorithms.KeypairHelper;
+import com.atp.webservice.parking_reservation_10.services.algorithms.MapHelper;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.TicketModel;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,19 +29,21 @@ public class TestGenUserID {
 //        System.out.println(enPass1);
 //        System.out.println(encoder.matches(text,enPass1));
 //        System.out.println(encoder1.matches(text, enPass));
-        ObjectMapper objectMapper = new ObjectMapper();
-        String mess = objectMapper.writeValueAsString(new TicketModel());
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(mess).append(mess).append(mess).append(mess).append(mess).append(mess).append(mess).append(mess).append(mess).append(mess);
-        String scretKey = KeyHelper.genSecretKey();
-        String scretKey2 = KeyHelper.genSecretKey();
-        System.out.println(scretKey);
-        System.out.println(scretKey2);
-        String encryptedMessage = KeyHelper.encrypt(stringBuilder.toString(), scretKey);
-        String decryptedMessage = KeyHelper.decrypt(encryptedMessage, scretKey);
-
-        System.out.println(encryptedMessage);
-        System.out.println(decryptedMessage);
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        String mess = objectMapper.writeValueAsString(new TicketModel());
+//        StringBuilder stringBuilder = new StringBuilder();
+//        stringBuilder.append(mess).append(mess).append(mess).append(mess).append(mess).append(mess).append(mess).append(mess).append(mess).append(mess);
+//        String scretKey = KeyHelper.genSecretKey();
+//        String scretKey2 = KeyHelper.genSecretKey();
+//        System.out.println(scretKey);
+//        System.out.println(scretKey2);
+//        String encryptedMessage = KeyHelper.encrypt(stringBuilder.toString(), scretKey);
+//        String decryptedMessage = KeyHelper.decrypt(encryptedMessage, scretKey);
+//
+//        System.out.println(encryptedMessage);
+//        System.out.println(decryptedMessage);
+        MapHelper mapHelper = new MapHelper();
+        System.out.println(mapHelper.distance(10.7974333,106.67,10.76739,106.696872,'K') <=5);
     }
 
 }

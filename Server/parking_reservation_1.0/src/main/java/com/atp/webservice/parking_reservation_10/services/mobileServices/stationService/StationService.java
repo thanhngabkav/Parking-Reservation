@@ -1,5 +1,6 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.stationService;
 
+import com.atp.webservice.parking_reservation_10.entities.Station;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationModel;
 
 import java.util.List;
@@ -20,6 +21,13 @@ public interface StationService {
      * @return StationOverview
      */
     StationModel getStationByID(int stationID);
+
+
+    /**
+     * Test
+     * @param station
+     */
+    void addNewStation(Station station);
 
 
 

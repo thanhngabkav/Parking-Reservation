@@ -1,6 +1,8 @@
 package com.atp.webservice.parking_reservation_10.services.algorithms;
 
-public class MapHelper {
+import java.io.Serializable;
+
+public class MapHelper implements Serializable {
 
     public double distance(double lat1, double lon1, double lat2, double lon2, char unit) {
         double theta = lon1 - lon2;

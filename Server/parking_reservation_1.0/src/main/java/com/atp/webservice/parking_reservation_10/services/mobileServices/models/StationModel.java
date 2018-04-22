@@ -1,6 +1,7 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.models;
 
 import com.atp.webservice.parking_reservation_10.entities.Service;
+import com.atp.webservice.parking_reservation_10.entities.TicketType;
 
 import java.io.Serializable;
 import java.sql.Time;
@@ -35,6 +36,8 @@ public class StationModel implements Serializable{
 
     private int usedSlots;
 
+    private int holdingSlots;
+
     private String parkingMapLink;
 
     private String coordinate;
@@ -43,10 +46,12 @@ public class StationModel implements Serializable{
 
     private List<Service> services;
 
+    List<TicketType> ticketTypes;
+
     public StationModel() {
     }
 
-    public StationModel(int ID, String applicationID, String name, String address, Timestamp createdDate, String status, double star, Time openTime, Time closeTime, String imageLink, int totalSlots, int usedSlots, String parkingMapLink, String coordinate, UUID ownerID) {
+    public StationModel(int ID, String applicationID, String name, String address, Timestamp createdDate, String status, double star, Time openTime, Time closeTime, String imageLink, int totalSlots, int usedSlots, int holdingSlots, String parkingMapLink, String coordinate, UUID ownerID) {
         this.ID = ID;
         this.applicationID = applicationID;
         this.name = name;
@@ -59,6 +64,7 @@ public class StationModel implements Serializable{
         this.imageLink = imageLink;
         this.totalSlots = totalSlots;
         this.usedSlots = usedSlots;
+        this.holdingSlots = holdingSlots;
         this.parkingMapLink = parkingMapLink;
         this.coordinate = coordinate;
         this.ownerID = ownerID;
@@ -181,6 +187,15 @@ public class StationModel implements Serializable{
         return this;
     }
 
+    public int getHoldingSlots() {
+        return holdingSlots;
+    }
+
+    public StationModel setHoldingSlots(int holdingSlots) {
+        this.holdingSlots = holdingSlots;
+        return this;
+    }
+
     public String getCoordinate() {
         return coordinate;
     }
@@ -208,6 +223,15 @@ public class StationModel implements Serializable{
         return this;
     }
 
+    public List<TicketType> getTicketTypes() {
+        return ticketTypes;
+    }
+
+    public StationModel setTicketTypes(List<TicketType> ticketTypes) {
+        this.ticketTypes = ticketTypes;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -222,26 +246,27 @@ public class StationModel implements Serializable{
         return Objects.hash(ID);
     }
 
-    public void convertFromEntities(com.atp.webservice.parking_reservation_10.entities.Station station){
-        if(station == null)
-            return ;
-        this.setAddress(station.getAddress())
-                        .setCloseTime(station.getCloseTime())
-                        .setCoordinate(station.getCoordinate())
-                        .setCreatedDate(station.getCreatedDate())
-                        .setID(station.getID())
-                        .setApplicationID(station.getApplicationID())
-                        .setImageLink(station.getImageLink())
-                        .setStar(station.getStar())
-                        .setName(station.getName())
-                        .setOpenTime(station.getOpenTime())
-                        .setCloseTime(station.getCloseTime())
-                        .setOwnerID(UUID.fromString(station.getOwnerID()))
-                        .setParkingMapLink(station.getParkingMapLink())
-                        .setStatus(station.getStatus())
-                        .setTotalSlots(station.getTotalSlots())
-                        .setUsedSlots(station.getUsedSlots())
-                        .setServices(station.getServices());
-
+    @Override
+    public String toString() {
+        return "StationModel{" +
+                "ID=" + ID +
+                ", applicationID='" + applicationID + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", createdDate=" + createdDate +
+                ", status='" + status + '\'' +
+                ", star=" + star +
+                ", openTime=" + openTime +
+                ", closeTime=" + closeTime +
+                ", imageLink='" + imageLink + '\'' +
+                ", totalSlots=" + totalSlots +
+                ", usedSlots=" + usedSlots +
+                ", holdingSlots=" + holdingSlots +
+                ", parkingMapLink='" + parkingMapLink + '\'' +
+                ", coordinate='" + coordinate + '\'' +
+                ", ownerID=" + ownerID +
+                ", services=" + services +
+                ", ticketTypes=" + ticketTypes +
+                '}';
     }
 }

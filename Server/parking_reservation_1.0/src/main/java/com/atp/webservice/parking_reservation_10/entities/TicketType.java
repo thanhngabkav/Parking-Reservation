@@ -43,6 +43,7 @@ public class TicketType implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "station_id", insertable = false, updatable = false)
+    @JsonIgnore
     private Station station;
 
 
@@ -118,18 +119,18 @@ public class TicketType implements Serializable{
     public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
     }
-
-    public void setStation(Station station) {
-        this.station = station;
-    }
-
-    public List<Ticket> getTickets() {
-        return tickets;
-    }
-
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
-    }
+//
+//    public void setStation(Station station) {
+//        this.station = station;
+//    }
+//
+//    public List<Ticket> getTickets() {
+//        return tickets;
+//    }
+//
+//    public void setTickets(List<Ticket> tickets) {
+//        this.tickets = tickets;
+//    }
 
     public String getName() {
         return name;

@@ -1,6 +1,7 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.mapService;
 
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationLocationModel;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,8 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/api/maps")
 public class MapController {
+
+    private static Logger logger = Logger.getLogger(MapController.class);
 
     @Autowired
     private MapService mapService;
@@ -32,8 +35,16 @@ public class MapController {
     public ResponseEntity<List<StationLocationModel>> getNearByLocation(@RequestParam("lat") double lat, @RequestParam("lng") double lng,
                                                                         @RequestParam("rad") double rad, HttpServletResponse response) {
 
+        // start time
+        long startTime = System.currentTimeMillis();
+
         StationLocationModel place = new StationLocationModel(-1, lat, lng);
         List<StationLocationModel> stationLocationModels = mapService.getNearByParking(place, rad);
+
+        //end time
+        long stopTime = System.currentTimeMillis();
+        long elapsedTime = stopTime - startTime;
+        logger.info("Time execute: "+elapsedTime + " millisecond. With " + stationLocationModels.size() + " results");
         return new ResponseEntity<List<StationLocationModel>>(stationLocationModels, HttpStatus.OK);
 
     }
