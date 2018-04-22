@@ -88,7 +88,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
 
         logger.info("Importing sample data");
 
-        initParkingDataSet();
+        //initParkingDataSet();
 
         initRoles();
 
@@ -1044,7 +1044,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
             station.setOwner(ownerList.get(ownerIndex));
             station.setServices(serviceCRUDRepository.findAll());
             station.setStatus(StationStatus.ACTIVE);
-            stationService.addNewStation(station);
+            stationCRUDRepository.save(station);
         }
     }
 }
