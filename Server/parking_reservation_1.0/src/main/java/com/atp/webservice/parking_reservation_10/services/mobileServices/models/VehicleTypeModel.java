@@ -5,6 +5,11 @@ import scala.Serializable;
 
 public class VehicleTypeModel implements Serializable{
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     public VehicleTypeModel() {
         this(DefaultValue.INT, DefaultValue.STRING);
     }

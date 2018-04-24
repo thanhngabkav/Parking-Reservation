@@ -17,9 +17,8 @@ public class TicketTypeConverter {
         ticketTypeModel.setName(enTicketType.getName());
         ticketTypeModel.setPrice(enTicketType.getPrice());
         ticketTypeModel.setServiceID(enTicketType.getServiceID());
-        ticketTypeModel.setStationID(enTicketType.getStationID());
+        ticketTypeModel.setStationVehicleTypeID(enTicketType.getStationVehicleTypeID());
         ticketTypeModel.setTicketTypeID(enTicketType.getID());
-        ticketTypeModel.setVehicleTypeID(enTicketType.getVehicleTypeID());
 
         return  ticketTypeModel;
 

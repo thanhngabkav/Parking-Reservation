@@ -9,6 +9,11 @@ import java.util.Objects;
  */
 public class TicketReservationModel implements Serializable {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     private String userID;
 
     private int stationID;

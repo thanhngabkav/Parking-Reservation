@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+//@Service
 public class MapServiceImp implements MapService {
 
     public static final char DISTANCE_UNIT = 'K';

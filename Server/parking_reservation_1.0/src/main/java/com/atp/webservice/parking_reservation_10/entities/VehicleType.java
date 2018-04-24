@@ -26,8 +26,8 @@ public class VehicleType implements Serializable{
     @JsonIgnore
     private List<Vehicle> vehicles;
 
-    @OneToMany(mappedBy = "vehicleType", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private List<TicketType> ticketTypes;
+    @OneToMany(mappedBy = "vehicleType")
+    private List<StationVehicleType> stationVehicleTypes;
 
     public VehicleType(){
         this(DefaultValue.STRING);

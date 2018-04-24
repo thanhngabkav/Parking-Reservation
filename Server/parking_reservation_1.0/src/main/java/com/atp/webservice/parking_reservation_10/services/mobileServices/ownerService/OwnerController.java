@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +18,9 @@ public class OwnerController {
 
     @Autowired
     private OwnerCRUDRepository parkingOwnerRepository;
+
+    @Autowired
+    private OwnerService ownerService;
 
 
     /**
@@ -46,5 +46,16 @@ public class OwnerController {
         Owner owner = this.parkingOwnerRepository.findOne(ownerID);
         return new ResponseEntity<Owner>(owner, HttpStatus.OK);
 
+    }
+
+    /**
+     * Find owner by phone number or email
+     * @param emailOrPhone
+     * @return Owner
+     */
+    @RequestMapping(value = "/find", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Owner> getByUserName(@RequestParam("userName") String emailOrPhone){
+        Owner owner = ownerService.findByPhoneNumberOrEmail(emailOrPhone);
+        return new ResponseEntity<Owner>(owner,HttpStatus.OK);
     }
 }

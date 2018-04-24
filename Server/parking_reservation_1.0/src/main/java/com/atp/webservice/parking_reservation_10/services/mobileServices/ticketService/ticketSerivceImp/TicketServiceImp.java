@@ -14,6 +14,7 @@ import com.atp.webservice.parking_reservation_10.services.mobileServices.ticketS
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
+import org.bouncycastle.util.Times;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.security.PrivateKey;
@@ -51,6 +52,9 @@ public class TicketServiceImp implements TicketService{
     private TicketConverter ticketConverter;
 
     @Autowired
+    private StationVehicleTypeCRUDRepository stationVehicleTypeCRUDRepository;
+
+    @Autowired
     private ServiceCRUDRepository serviceCRUDRepository;
 
     @Override
@@ -83,7 +87,7 @@ public class TicketServiceImp implements TicketService{
     public TicketModel sendRequestForReservation(TicketReservationModel ticketReservationModel) {
         /**
          * Steps:
-         * 1. Check station
+         * 1. Check station, service, vehicle type
          * 2. If driver pay for ticket, check account balance
          * 3. Create ticket
          */
@@ -99,8 +103,9 @@ public class TicketServiceImp implements TicketService{
         for (TicketTypeModel ticketDetail : ticketReservationModel.getTicketTypeModels()){
             TicketType mTicketType = ticketTypeCRUDRepository.findOne(ticketDetail.getTicketTypeID());
             Service msService = serviceCRUDRepository.findOne(ticketDetail.getServiceID());
+            StationVehicleType mStationVehicleType = stationVehicleTypeCRUDRepository.findOne(mTicketType.getStationVehicleTypeID());
             //invalid foreign keys
-            if(mTicketType == null || mTicketType.getStationID()!= mStation.getID() || mTicketType.getVehicleTypeID()!= mVehicle.getVehicleTypeID()
+            if(mTicketType == null || mTicketType.getStationVehicleTypeID()!= mStation.getID() || mStationVehicleType.getVehicleTypeId()!= mVehicle.getVehicleTypeID()
                     || mTicketType.getServiceID() != msService.getServiceID())
                 return null;
             mTicketTypes.add(mTicketType);
@@ -108,7 +113,6 @@ public class TicketServiceImp implements TicketService{
         }
         if(mTicketTypes.size() == 0)
             return null;
-
 
         //station is not active
         if(!mStation.getStatus().equals(StationStatus.ACTIVE)){
@@ -156,6 +160,35 @@ public class TicketServiceImp implements TicketService{
         ticketCRUDRepository.save(mTicket);
 
         return ticketConverter.convertFromEntity(mTicket);
+    }
+
+    @Override
+    public TicketModel updateTicket(TicketModel ticketModel) {
+        Ticket mTicket = ticketCRUDRepository.findOne(ticketModel.getId());
+        if(mTicket == null){
+            return null;
+        }
+
+        /**
+         * Update checkin time, checkout time, status and QR code
+         */
+        mTicket.setCheckoutTime(Timestamp.valueOf(ticketModel.getCheckOutTime()))
+                .setCheckinTime(Timestamp.valueOf(ticketModel.getCheckInTime()));
+        mTicket.setStatus(ticketModel.getStatus());
+        ObjectMapper objectMapper = new ObjectMapper();
+        StringBuilder QRCode = new StringBuilder();
+        Station mStation = stationCRUDRepository.findOne(Integer.parseInt(ticketModel.getStationID()));
+        Owner mOwner = ownerCRUDRepository.findOne(mStation.getOwnerID());
+        try {
+            String content =  objectMapper.writeValueAsString(ticketConverter.convertFromEntity(mTicket));
+            QRCode.append(KeyHelper.encrypt(content, mOwner.getSecretKey()));
+        } catch (Exception e) {
+            logger.error("Update QR code fail!");
+            e.printStackTrace();
+        }
+        mTicket.setqRCode(QRCode.toString());
+
+        return ticketConverter.convertFromEntity(ticketCRUDRepository.save(mTicket));
     }
 
 

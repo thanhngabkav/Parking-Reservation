@@ -107,7 +107,7 @@ public class Station implements Serializable{
     private List<Service> services;
 
     @OneToMany(mappedBy = "station")
-    private List<TicketType> ticketTypes;
+    private List<StationVehicleType> stationVehicleTypes;
 
 //    @OneToMany(mappedBy = "parking", cascade = CascadeType.MERGE)
 //    private List<ParkingStation> parkingStations;
@@ -307,13 +307,12 @@ public class Station implements Serializable{
 //    }
 
 
-    public List<TicketType> getTicketTypes() {
-        return ticketTypes;
+    public List<StationVehicleType> getStationVehicleTypes() {
+        return stationVehicleTypes;
     }
 
-    public Station setTicketTypes(List<TicketType> ticketTypes) {
-        this.ticketTypes = ticketTypes;
-        return this;
+    public void setStationVehicleTypes(List<StationVehicleType> stationVehicleTypes) {
+        this.stationVehicleTypes = stationVehicleTypes;
     }
 
     @Override

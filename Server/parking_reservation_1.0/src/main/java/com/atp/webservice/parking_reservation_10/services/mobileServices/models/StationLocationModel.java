@@ -5,6 +5,11 @@ import java.util.Objects;
 
 public class StationLocationModel implements Serializable{
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     private int stationID;
 
     private int totalSlot;

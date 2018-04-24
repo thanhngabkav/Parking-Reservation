@@ -27,6 +27,7 @@
                 <value>com.atp.webservice.parking_reservation_10.entities.Ticket</value>
                 <value>com.atp.webservice.parking_reservation_10.entities.Service</value>
                 <value>com.atp.webservice.parking_reservation_10.entities.Comment</value>
+                <value>com.atp.webservice.parking_reservation_10.entities.StationVehicleType</value>
 
 
             </list>
@@ -36,7 +37,7 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
                 <prop key="hibernate.current_session_context_class">thread</prop>
                 <prop key="hibernate.show_sql">false</prop>
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
         </property>
     </bean>

@@ -13,6 +13,11 @@ import java.util.Objects;
 @Table(name = TableName.SERVICE)
 public class Service implements Serializable{
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     @Id
     @Column(name = "service_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

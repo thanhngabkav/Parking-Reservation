@@ -62,4 +62,18 @@ public class TicketController {
             return new ResponseEntity<TicketModel>(HttpStatus.BAD_REQUEST);
         return new ResponseEntity<TicketModel>(mTicketModel,HttpStatus.OK);
     }
+
+
+    /**
+     * Update ticket
+     * @param ticketModel {@link TicketModel}
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TicketModel> makeReservation(@RequestBody TicketModel ticketModel){
+        TicketModel mTicketModel = ticketService.updateTicket(ticketModel);
+        if(mTicketModel == null)
+            return new ResponseEntity<TicketModel>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<TicketModel>(mTicketModel,HttpStatus.OK);
+    }
 }

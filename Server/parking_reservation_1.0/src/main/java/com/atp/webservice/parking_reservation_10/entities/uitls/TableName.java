@@ -21,5 +21,7 @@ public class TableName {
 
     public static final String ROLE = "role";
 
-    public  static final String SERVICE = "service";
+    public static final String SERVICE = "service";
+
+    public static final String STATION_VEHICLE_TYPE = "station_vehicle_type";
 }

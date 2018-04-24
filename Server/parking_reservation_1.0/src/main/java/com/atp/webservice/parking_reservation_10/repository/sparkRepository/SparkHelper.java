@@ -54,7 +54,6 @@ public class SparkHelper {
                 .option("dbtable",tableName)
                 .option("user","root")
                 .option("password","root")
-                .option("spark.driver.memory","1g")
                 .load();
         Encoder<T> encoder = Encoders.bean((type));
         return  dataset.as((encoder));

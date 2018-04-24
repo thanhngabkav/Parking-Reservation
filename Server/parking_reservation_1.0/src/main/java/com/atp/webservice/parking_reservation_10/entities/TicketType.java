@@ -19,12 +19,6 @@ public class TicketType implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
-    @Column(name = "vehicle_type_id")
-    private int vehicleTypeID;
-
-    @Column(name = "station_id")
-    private int stationID;
-
     @Column(name = "price")
     private double price;
 
@@ -37,33 +31,31 @@ public class TicketType implements Serializable{
     @Column(name = "service_id")
     private int serviceID;
 
-    @ManyToOne
-    @JoinColumn(name = "vehicle_type_id", updatable = false, insertable = false)
-    private VehicleType vehicleType;
+    @Column(name = "station_vehicle_type_id")
+    private int stationVehicleTypeID;
 
-    @ManyToOne
-    @JoinColumn(name = "station_id", insertable = false, updatable = false)
-    @JsonIgnore
-    private Station station;
-
-
-    public TicketType(int vehicleTypeID, int stationID, double price, Time holdingTime) {
-        this.vehicleTypeID = vehicleTypeID;
-        this.stationID = stationID;
-        this.price = price;
-        this.holdingTime = holdingTime;
-    }
 
     @ManyToOne
     @JoinColumn(name = "service_id", insertable = false , updatable = false)
     private Service service;
 
+    @ManyToOne
+    @JoinColumn(name = "station_vehicle_type_id", insertable = false, updatable = false)
+    private StationVehicleType stationVehicleType;
+
     @ManyToMany(mappedBy = "ticketTypes")
     @JsonIgnore
     private List<Ticket> tickets;
 
+    public TicketType(int stationVehicleTypeID ,double price, Time holdingTime) {
+        this.stationVehicleTypeID = stationVehicleTypeID;
+        this.price = price;
+        this.holdingTime = holdingTime;
+    }
+
+
     public TicketType() {
-        this(DefaultValue.INT,DefaultValue.INT,DefaultValue.DOUBLE, DefaultValue.TIME);
+        this(DefaultValue.INT,DefaultValue.DOUBLE, DefaultValue.TIME);
     }
 
     @Override
@@ -84,20 +76,12 @@ public class TicketType implements Serializable{
         return ID;
     }
 
-    public int getVehicleTypeID() {
-        return vehicleTypeID;
+    public int getStationVehicleTypeID() {
+        return stationVehicleTypeID;
     }
 
-    public void setVehicleTypeID(int vehicleTypeID) {
-        this.vehicleTypeID = vehicleTypeID;
-    }
-
-    public int getStationID() {
-        return stationID;
-    }
-
-    public void setStationID(int stationID) {
-        this.stationID = stationID;
+    public void setStationVehicleTypeID(int stationVehicleTypeID) {
+        this.stationVehicleTypeID = stationVehicleTypeID;
     }
 
     public double getPrice() {
@@ -116,9 +100,7 @@ public class TicketType implements Serializable{
         this.holdingTime = holdingTime;
     }
 
-    public void setVehicleType(VehicleType vehicleType) {
-        this.vehicleType = vehicleType;
-    }
+
 //
 //    public void setStation(Station station) {
 //        this.station = station;

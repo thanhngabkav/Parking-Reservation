@@ -1,5 +1,6 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.ticketService;
 
+import com.atp.webservice.parking_reservation_10.entities.Ticket;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.TicketModel;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.TicketReservationModel;
 import org.springframework.stereotype.Service;
@@ -37,5 +38,13 @@ public interface TicketService {
      * @return TicketModel {@link TicketModel} if success or null if not
      */
     TicketModel sendRequestForReservation(TicketReservationModel ticketReservationModel);
+
+
+    /***
+     * Update ticket (only necessary fields)
+     * @param ticketModel
+     * @return
+     */
+    TicketModel updateTicket(TicketModel ticketModel);
 
 }

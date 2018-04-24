@@ -6,11 +6,14 @@ import java.util.Objects;
 
 public class TicketTypeModel implements Serializable {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     private int ticketTypeID;
 
-    private int vehicleTypeID;
-
-    private int stationID;
+    private int stationVehicleTypeID;
 
     private double price;
 
@@ -28,20 +31,12 @@ public class TicketTypeModel implements Serializable {
         this.ticketTypeID = ticketTypeID;
     }
 
-    public int getVehicleTypeID() {
-        return vehicleTypeID;
+    public int getStationVehicleTypeID() {
+        return stationVehicleTypeID;
     }
 
-    public void setVehicleTypeID(int vehicleTypeID) {
-        this.vehicleTypeID = vehicleTypeID;
-    }
-
-    public int getStationID() {
-        return stationID;
-    }
-
-    public void setStationID(int stationID) {
-        this.stationID = stationID;
+    public void setStationVehicleTypeID(int stationVehicleTypeID) {
+        this.stationVehicleTypeID = stationVehicleTypeID;
     }
 
     public double getPrice() {
@@ -81,18 +76,24 @@ public class TicketTypeModel implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TicketTypeModel that = (TicketTypeModel) o;
-        return ticketTypeID == that.ticketTypeID &&
-                vehicleTypeID == that.vehicleTypeID &&
-                stationID == that.stationID &&
-                Double.compare(that.price, price) == 0 &&
-                serviceID == that.serviceID &&
-                Objects.equals(holdingTime, that.holdingTime) &&
-                Objects.equals(name, that.name);
+        return ticketTypeID == that.ticketTypeID;
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(ticketTypeID, vehicleTypeID, stationID, price, holdingTime, name, serviceID);
+        return Objects.hash(ticketTypeID);
+    }
+
+    @Override
+    public String toString() {
+        return "TicketTypeModel{" +
+                "ticketTypeID=" + ticketTypeID +
+                ", stationVehicleTypeID=" + stationVehicleTypeID +
+                ", price=" + price +
+                ", holdingTime=" + holdingTime +
+                ", name='" + name + '\'' +
+                ", serviceID=" + serviceID +
+                '}';
     }
 }

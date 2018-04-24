@@ -1,7 +1,7 @@
 package com.atp.webservice.parking_reservation_10.services.mobileServices.models;
 
 import com.atp.webservice.parking_reservation_10.entities.Service;
-import com.atp.webservice.parking_reservation_10.entities.TicketType;
+import com.atp.webservice.parking_reservation_10.entities.StationVehicleType;
 
 import java.io.Serializable;
 import java.sql.Time;
@@ -11,6 +11,11 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class StationModel implements Serializable{
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
     private int ID;
 
@@ -46,7 +51,7 @@ public class StationModel implements Serializable{
 
     private List<Service> services;
 
-    List<TicketType> ticketTypes;
+    List<StationVehicleTypeModel> stationVehicleTypes;
 
     public StationModel() {
     }
@@ -223,13 +228,13 @@ public class StationModel implements Serializable{
         return this;
     }
 
-    public List<TicketType> getTicketTypes() {
-        return ticketTypes;
+
+    public List<StationVehicleTypeModel> getStationVehicleTypes() {
+        return stationVehicleTypes;
     }
 
-    public StationModel setTicketTypes(List<TicketType> ticketTypes) {
-        this.ticketTypes = ticketTypes;
-        return this;
+    public void setStationVehicleTypes(List<StationVehicleTypeModel> stationVehicleTypes) {
+        this.stationVehicleTypes = stationVehicleTypes;
     }
 
     @Override
@@ -266,7 +271,7 @@ public class StationModel implements Serializable{
                 ", coordinate='" + coordinate + '\'' +
                 ", ownerID=" + ownerID +
                 ", services=" + services +
-                ", ticketTypes=" + ticketTypes +
+                ", stationVehicleTypes=" + stationVehicleTypes +
                 '}';
     }
 }
