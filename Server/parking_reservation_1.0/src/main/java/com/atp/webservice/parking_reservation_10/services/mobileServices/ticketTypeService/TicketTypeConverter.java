@@ -24,4 +24,18 @@ public class TicketTypeConverter {
 
     }
 
+    public TicketType convertFromModel(TicketTypeModel ticketTypeModel){
+        if(ticketTypeModel == null)
+            return null;
+
+        TicketType ticketType = new TicketType();
+        ticketType.setStationVehicleTypeID(ticketTypeModel.getStationVehicleTypeID());
+        ticketType.setHoldingTime(ticketTypeModel.getHoldingTime());
+        ticketType.setName(ticketTypeModel.getName());
+        ticketType.setPrice(ticketTypeModel.getPrice());
+        ticketType.setServiceID(ticketTypeModel.getServiceID());
+
+        return ticketType;
+    }
+
 }

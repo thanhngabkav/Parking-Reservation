@@ -22,6 +22,8 @@ import java.util.UUID;
 @Service
 public class DriverServiceImp implements DriverService {
 
+    private static final int PAGE_SIZE = 20;
+
     @Autowired
     private DriverCRUDRepository  driverCRUDRepository;
 

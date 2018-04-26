@@ -11,4 +11,6 @@ import java.util.List;
 public interface TicketTypeCRUDRepository extends JpaRepository<TicketType, Integer> {
 
     List<TicketType>  findByStationVehicleTypeID(int stationVehicleTypeId);
+
+    TicketType findByServiceIDAndStationVehicleTypeID(int serviceID, int vehicleTypeID);
 }

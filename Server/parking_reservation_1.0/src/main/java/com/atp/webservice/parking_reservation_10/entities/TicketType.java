@@ -72,6 +72,10 @@ public class TicketType implements Serializable{
         return Objects.hash(ID);
     }
 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
     public int getID() {
         return ID;
     }

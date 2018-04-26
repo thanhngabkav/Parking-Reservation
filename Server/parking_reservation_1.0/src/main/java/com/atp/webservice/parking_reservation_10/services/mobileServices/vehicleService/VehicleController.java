@@ -63,7 +63,7 @@ public class VehicleController {
 
 
     /**
-     * Add new {@link com.atp.webservice.parking_reservation_10.entities.Vehicle}
+     * Edit new {@link com.atp.webservice.parking_reservation_10.entities.Vehicle}
      * @param vehicleModel
      * @param result
      * @return

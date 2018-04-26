@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface DriverService {
 
-    static final int PAGE_SIZE = 20;
 
     /**
      * Add new driverModel into database

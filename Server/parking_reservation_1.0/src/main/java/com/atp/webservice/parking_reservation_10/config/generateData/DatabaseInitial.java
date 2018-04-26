@@ -89,32 +89,32 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
 
 
         logger.info("Importing sample data");
-//
-//        initRoles();
-//
-//        initServices();
-//
-//        try {
-//            initUser();
-//        } catch (NoSuchAlgorithmException e) {
-//            logger.warn("Init Owners fail");
-//            e.printStackTrace();
-//        }
-//        try {
-//            initStation();
-//        } catch (IOException e) {
-//            logger.warn("Init Stations fail");
-//            e.printStackTrace();
-//        }
-//        initVehicleType();
-//
-//        initStationVehicleType();
-//
-//        initVehicle();
-//
-//        initTicketType();
-//
-//        initTicket();
+
+        initRoles();
+
+        initServices();
+
+        try {
+            initUser();
+        } catch (NoSuchAlgorithmException e) {
+            logger.warn("Init Owners fail");
+            e.printStackTrace();
+        }
+        try {
+            initStation();
+        } catch (IOException e) {
+            logger.warn("Init Stations fail");
+            e.printStackTrace();
+        }
+        initVehicleType();
+
+        initStationVehicleType();
+
+        initVehicle();
+
+        initTicketType();
+
+        initTicket();
 
 
 //        /**
