@@ -5,14 +5,10 @@ import com.atp.webservice.parking_reservation_10.entities.*;
 import com.atp.webservice.parking_reservation_10.entities.sparkPresenter.StationPresenter;
 import com.atp.webservice.parking_reservation_10.entities.uitls.*;
 import com.atp.webservice.parking_reservation_10.repository.sparkRepository.SparkHelper;
-import com.atp.webservice.parking_reservation_10.repository.sparkRepository.StationRepository;
 import com.atp.webservice.parking_reservation_10.repository.sparkRepository.StationRepositoryImp;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.*;
 import com.atp.webservice.parking_reservation_10.services.algorithms.KeyHelper;
 import com.atp.webservice.parking_reservation_10.services.algorithms.KeypairHelper;
-import com.atp.webservice.parking_reservation_10.services.mobileServices.mapService.MapService;
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationLocationModel;
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.TicketModel;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.stationService.StationService;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.ticketService.TicketConverter;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -29,8 +25,6 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -260,7 +254,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
 
         List<Vehicle> allVehicles = vehicleCRUDRepository.findAll();
         List<Station> allStations = stationCRUDRepository.findAll();
-        String[] ticketStatus = {TicketStatus.CHECKED, TicketStatus.HOLDIND, TicketStatus.IN_USE, TicketStatus.USED};
+        String[] ticketStatus = {TicketStatus.CHECKED, TicketStatus.HOLDING, TicketStatus.EXPRIRRED, TicketStatus.USED};
         int i = 0;
 
         for (Vehicle vehicle : allVehicles) {

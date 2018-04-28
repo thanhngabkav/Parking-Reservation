@@ -5,20 +5,16 @@ import com.atp.webservice.parking_reservation_10.entities.uitls.StationStatus;
 import com.atp.webservice.parking_reservation_10.entities.uitls.TicketStatus;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.*;
 import com.atp.webservice.parking_reservation_10.services.algorithms.KeyHelper;
-import com.atp.webservice.parking_reservation_10.services.algorithms.KeypairHelper;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.TicketModel;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.TicketTypeModel;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.TicketReservationModel;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.ticketService.TicketConverter;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.ticketService.TicketService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
-import org.bouncycastle.util.Times;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
-import java.security.PrivateKey;
-import java.security.PublicKey;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -57,26 +53,41 @@ public class TicketServiceImp implements TicketService{
     @Autowired
     private ServiceCRUDRepository serviceCRUDRepository;
 
-    @Override
-    public List<TicketModel> getUsedTickets(String userID) {
-        return getListTicketByDriverIDAndStatus(userID, TicketStatus.USED);
-    }
+    private static final int PAGE_SIZE = 20;
+
+//    @Override
+//    public List<TicketModel> getUsedTickets(String userID) {
+//        return getListTicketByDriverIDAndStatus(userID, TicketStatus.USED);
+//    }
+//
+//    @Override
+//    public List<TicketModel> getUsingTickets(String userID) {
+//        //get list Holding tickets
+//        List<TicketModel> result = getListTicketByDriverIDAndStatus(userID, TicketStatus.HOLDING);
+//        //add checked tickets
+//        result.addAll(getListTicketByDriverIDAndStatus(userID, TicketStatus.CHECKED));
+//        return result;
+//    }
 
     @Override
-    public List<TicketModel> getUsingTickets(String userID) {
-        //get list Holding tickets
-        List<TicketModel> result = getListTicketByDriverIDAndStatus(userID, TicketStatus.HOLDIND);
-        //add checked tickets
-        result.addAll(getListTicketByDriverIDAndStatus(userID, TicketStatus.CHECKED));
+    public List<TicketModel> getUserTickets(String userID, int page) {
+        PageRequest pageRequest = new PageRequest(page-1, PAGE_SIZE);
+        List<Ticket> userTickets = ticketCRUDRepository.findByDriverID(userID,pageRequest);
+        List<TicketModel> result = new ArrayList<TicketModel>();
+        for(Ticket ticket : userTickets){
+            TicketModel m_ticketModel = ticketConverter.convertFromEntity(ticket);
+            result.add(m_ticketModel);
+        }
         return result;
     }
 
     @Override
-    public List<TicketModel> getListTicketByDriverIDAndStatus(String driverID, String status){
+    public List<TicketModel> getListTicketByDriverIDAndStatus(String driverID, String status, int page){
+        PageRequest pageRequest = new PageRequest(page-1, PAGE_SIZE);
         List<com.atp.webservice.parking_reservation_10.entities.Ticket> tickets =
-                ticketCRUDRepository.findTicketsByDriverIDAndStatus(driverID, status);
+                ticketCRUDRepository.findTicketsByDriverIDAndStatus(driverID, status, pageRequest);
         List<TicketModel> result = new ArrayList<TicketModel>();
-        for(com.atp.webservice.parking_reservation_10.entities.Ticket ticket : tickets){
+        for(Ticket ticket : tickets){
             TicketModel m_ticketModel = ticketConverter.convertFromEntity(ticket);
             result.add(m_ticketModel);
         }
@@ -139,7 +150,7 @@ public class TicketServiceImp implements TicketService{
         mTicket.setDriver(mDriver);
         mTicket.setTicketTypes(mTicketTypes);
         mTicket.setVehicleID(mVehicle.getID());
-        mTicket.setStatus(TicketStatus.HOLDIND);
+        mTicket.setStatus(TicketStatus.HOLDING);
         mTicket.setStationID(mStation.getID());
         mTicket.setDriverID(mDriver.getUserID());
         mTicket.setCreatedTime(Timestamp.valueOf(LocalDateTime.now()));

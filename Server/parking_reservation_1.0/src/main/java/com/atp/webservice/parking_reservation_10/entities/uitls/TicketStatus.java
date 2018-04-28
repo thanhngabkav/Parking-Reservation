@@ -4,9 +4,10 @@ public class TicketStatus {
 
     public static final String CHECKED = "Checked";
 
-    public static final String HOLDIND = "Holding";
+    public static final String HOLDING = "Holding";
 
     public static final String USED = "Used";
 
-    public static final String IN_USE = "InUse";
+    public static final String EXPRIRRED = "Expired";
+
 }
