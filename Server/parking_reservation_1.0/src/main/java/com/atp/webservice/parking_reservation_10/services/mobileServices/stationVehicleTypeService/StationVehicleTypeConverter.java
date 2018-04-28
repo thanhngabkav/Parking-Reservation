@@ -3,7 +3,9 @@ package com.atp.webservice.parking_reservation_10.services.mobileServices.statio
 import com.atp.webservice.parking_reservation_10.entities.StationVehicleType;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationModel;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationVehicleTypeModel;
+import org.springframework.stereotype.Component;
 
+@Component
 public class StationVehicleTypeConverter {
 
     /**
@@ -29,7 +31,7 @@ public class StationVehicleTypeConverter {
      * @param stationVehicleTypeModel
      * @return StationVehicleTypeModel
      */
-    public StationVehicleType convertfromModel(StationVehicleTypeModel stationVehicleTypeModel){
+    public StationVehicleType convertFromModel(StationVehicleTypeModel stationVehicleTypeModel){
         StationVehicleType m_stationVehicleType = new StationVehicleType();
         m_stationVehicleType.setVehicleTypeId(stationVehicleTypeModel.getVehicleTypeId());
         m_stationVehicleType.setUsedSlots(stationVehicleTypeModel.getUsedSlots());

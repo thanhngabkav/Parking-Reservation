@@ -11,6 +11,7 @@ import de.bytefish.fcmjava.requests.data.DataUnicastMessage;
 import de.bytefish.fcmjava.requests.topic.TopicUnicastMessage;
 import de.bytefish.fcmjava.responses.FcmMessageResponse;
 import de.bytefish.fcmjava.responses.TopicMessageResponse;
+import org.apache.log4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,8 @@ public class MessageServiceImp implements MessageService {
     private static  final String CONTENT_TYPE = MediaType.APPLICATION_JSON_VALUE;
 
     private static final long MESSAGE_TIME_TO_LIVE_IN_HOUR =1;
+
+    private static Logger logger = Logger.getLogger(MessageServiceImp.class);
 
 
     private Properties getFcmConfigProperties(){
@@ -48,12 +51,13 @@ public class MessageServiceImp implements MessageService {
 
         DataUnicastMessage personalMessage = new DataUnicastMessage(options, clientID, message);
         FcmMessageResponse response = fcmClient.send(personalMessage);
+        logger.debug("Sent message to " +  clientID + ".Response: " + response.toString());
         return response;
     }
 
     @Override
     public TopicMessageResponse sendMessageToTopic(ServerMessage message, String topicName) {
-        FcmClient fcmClient = new FcmClient(PropertiesBasedSettings.createFromProperties(getFcmConfigProperties()));
+                FcmClient fcmClient = new FcmClient(PropertiesBasedSettings.createFromProperties(getFcmConfigProperties()));
 
         FcmMessageOptions options = FcmMessageOptions.builder()
                 .setTimeToLive(Duration.ofHours(MESSAGE_TIME_TO_LIVE_IN_HOUR))
@@ -62,7 +66,7 @@ public class MessageServiceImp implements MessageService {
         Topic topic = new Topic(topicName);
         TopicUnicastMessage unicastMessage = new TopicUnicastMessage(options, topic,message);
         TopicMessageResponse response = fcmClient.send(unicastMessage);
-
+        logger.debug("Sent message to " +  topicName + ".Response: " + response.toString());
         return response;
     }
 
@@ -76,6 +80,7 @@ public class MessageServiceImp implements MessageService {
 
         DataMulticastMessage multicastMessage = new DataMulticastMessage(options, clientIDs, message);
         FcmMessageResponse response = fcmClient.send(multicastMessage);
+        logger.debug("Sent message to clients.Response: " + response.toString());
         return response;
     }
 }

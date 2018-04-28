@@ -8,6 +8,8 @@ import com.atp.webservice.parking_reservation_10.services.algorithms.KeyHelper;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.TicketModel;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.TicketTypeModel;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.models.TicketReservationModel;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.stationService.StationService;
+import com.atp.webservice.parking_reservation_10.services.mobileServices.stationVehicleTypeService.StationVehicleTypeService;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.ticketService.TicketConverter;
 import com.atp.webservice.parking_reservation_10.services.mobileServices.ticketService.TicketService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,6 +19,7 @@ import org.springframework.data.domain.PageRequest;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -52,6 +55,9 @@ public class TicketServiceImp implements TicketService{
 
     @Autowired
     private ServiceCRUDRepository serviceCRUDRepository;
+
+    @Autowired
+    private StationVehicleTypeService stationVehicleTypeService;
 
     private static final int PAGE_SIZE = 20;
 
@@ -109,6 +115,12 @@ public class TicketServiceImp implements TicketService{
         if(mStation == null || mDriver == null || mVehicle == null){
             return null;
         }
+        //check active time
+        LocalTime openTime = mStation.getOpenTime().toLocalTime();
+        LocalTime closeTime = mStation.getCloseTime().toLocalTime();
+        if(LocalTime.now().isAfter(closeTime) || LocalTime.now().isBefore(openTime))
+            return null;
+
         List<com.atp.webservice.parking_reservation_10.entities.TicketType>  mTicketTypes = new ArrayList<com.atp.webservice.parking_reservation_10.entities.TicketType>();
         double totalPrice =0;
         for (TicketTypeModel ticketDetail : ticketReservationModel.getTicketTypeModels()){
@@ -169,14 +181,20 @@ public class TicketServiceImp implements TicketService{
         mTicket.setqRCode(QRCode.toString());
         //save new ticket
         ticketCRUDRepository.save(mTicket);
-
+        //send message to station
+        stationVehicleTypeService.updateHoldingSlots(mTicketTypes.get(0).getStationVehicleTypeID(),1);//new reservation
         return ticketConverter.convertFromEntity(mTicket);
     }
 
     @Override
     public TicketModel updateTicket(TicketModel ticketModel) {
         Ticket mTicket = ticketCRUDRepository.findOne(ticketModel.getId());
-        if(mTicket == null){
+        ArrayList<String> ticketStatus = new ArrayList<String>();
+        ticketStatus.add(TicketStatus.HOLDING);
+        ticketStatus.add(TicketStatus.EXPRIRRED);
+        ticketStatus.add(TicketStatus.CHECKED);
+        ticketStatus.add(TicketStatus.USED);
+        if(mTicket == null || !ticketStatus.contains(ticketModel.getStatus())){
             return null;
         }
 
@@ -185,7 +203,6 @@ public class TicketServiceImp implements TicketService{
          */
         mTicket.setCheckoutTime(Timestamp.valueOf(ticketModel.getCheckOutTime()))
                 .setCheckinTime(Timestamp.valueOf(ticketModel.getCheckInTime()));
-        mTicket.setStatus(ticketModel.getStatus());
         ObjectMapper objectMapper = new ObjectMapper();
         StringBuilder QRCode = new StringBuilder();
         Station mStation = stationCRUDRepository.findOne(Integer.parseInt(ticketModel.getStationID()));
@@ -198,7 +215,18 @@ public class TicketServiceImp implements TicketService{
             e.printStackTrace();
         }
         mTicket.setqRCode(QRCode.toString());
-
+        //if check in
+        if((mTicket.getStatus().equals(TicketStatus.HOLDING) || mTicket.getStatus().equals(TicketStatus.EXPRIRRED))
+                && ticketModel.getStatus().equals(TicketStatus.CHECKED)){
+            if(mTicket.getStatus().equals(TicketStatus.HOLDING))
+                stationVehicleTypeService.updateHoldingSlots(mTicket.getTicketTypes().get(0).getStationVehicleTypeID(),-1);
+            stationVehicleTypeService.updateUsedSlots(mTicket.getTicketTypes().get(0).getStationVehicleTypeID(),1);
+        }
+        //if check out
+        if(mTicket.getStatus().equals(TicketStatus.CHECKED) && ticketModel.getStatus().equals(TicketStatus.USED)){
+            stationVehicleTypeService.updateUsedSlots(mTicket.getTicketTypes().get(0).getStationVehicleTypeID(),-1);
+        }
+        mTicket.setStatus(ticketModel.getStatus());
         return ticketConverter.convertFromEntity(ticketCRUDRepository.save(mTicket));
     }
 

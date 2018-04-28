@@ -1,4 +1,4 @@
-package com.atp.webservice.parking_reservation_10.config.generateData;
+package com.atp.webservice.parking_reservation_10.config.initial;
 
 import java.util.ArrayList;
 

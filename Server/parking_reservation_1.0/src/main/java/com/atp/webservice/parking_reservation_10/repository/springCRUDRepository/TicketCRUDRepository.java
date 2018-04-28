@@ -15,7 +15,7 @@ public interface TicketCRUDRepository extends JpaRepository<Ticket, String> {
 
     List<Ticket> findTicketsByDriverIDAndStatus(@Param("driverID") String driverID,@Param("status") String status, Pageable pageRequest);
 
-    List<Ticket> findByStatus(String status);
+    List<Ticket> findByStatus(@Param("status") String status);
 
     List<Ticket> findByStatus(@Param("status") String status, Pageable pageRequest);
 

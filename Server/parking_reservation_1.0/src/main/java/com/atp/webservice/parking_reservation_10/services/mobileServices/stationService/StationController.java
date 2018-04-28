@@ -58,12 +58,6 @@ public class StationController {
         StationModel m_stationModel = stationService.addNewStation(stationModel);
         if (m_stationModel == null)
             return new ResponseEntity<StationModel>(HttpStatus.BAD_REQUEST);
-        //send message to client
-        ServerMessage<StationModel> message = new ServerMessage<StationModel>();
-        message.setTitle("New Station");
-        message.setStatus(MessageStatus.NEW_STATION);
-        message.setData(m_stationModel);
-        messageService.sendMessageToTopic(message, MessageTopic.ADMIN_TOPIC);
 
         return new ResponseEntity<StationModel>(m_stationModel, HttpStatus.OK);
     }

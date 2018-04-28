@@ -1,4 +1,4 @@
-package com.atp.webservice.parking_reservation_10.config.generateData;
+package com.atp.webservice.parking_reservation_10.config.initial;
 
 
 import com.atp.webservice.parking_reservation_10.entities.*;
@@ -34,8 +34,9 @@ import java.util.*;
 /**
  * This class is use for generate sample data
  */
+
 @Component
-public class DatabaseInitial implements ApplicationListener<ContextRefreshedEvent> {
+public class DatabaseInitial {
 
     @Autowired
     private OwnerCRUDRepository ownerCRUDRepository;
@@ -78,37 +79,36 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
 
     private static Logger logger = Logger.getLogger(DatabaseInitial.class);
 
-    @Override
-    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+    public void doImport() {
 
 
         logger.info("Importing sample data");
-//
-//        initRoles();
-//
-//        initServices();
-//
-//        try {
-//            initUser();
-//        } catch (NoSuchAlgorithmException e) {
-//            logger.warn("Init Owners fail");
-//            e.printStackTrace();
-//        }
-//        try {
-//            initStation();
-//        } catch (IOException e) {
-//            logger.warn("Init Stations fail");
-//            e.printStackTrace();
-//        }
-//        initVehicleType();
-//
-//        initStationVehicleType();
-//
-//        initVehicle();
-//
-//        initTicketType();
-//
-//        initTicket();
+
+        initRoles();
+
+        initServices();
+
+        try {
+            initUser();
+        } catch (NoSuchAlgorithmException e) {
+            logger.warn("Init Owners fail");
+            e.printStackTrace();
+        }
+        try {
+            initStation();
+        } catch (IOException e) {
+            logger.warn("Init Stations fail");
+            e.printStackTrace();
+        }
+        initVehicleType();
+
+        initStationVehicleType();
+
+        initVehicle();
+
+        initTicketType();
+
+        initTicket();
 
 
 //        /**
@@ -144,17 +144,17 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
         for (Station station : allStations) {
             totalSlots = 0;
             usedSlots = 0;
-            holdingSlots =0;
+            holdingSlots = 0;
             for (VehicleType vehicleType : allVehicleTypes) {
                 StationVehicleType stationVehicleType = new StationVehicleType();
                 stationVehicleType.setVehicleTypeId(vehicleType.getID());
                 stationVehicleType.setStationID(station.getID());
                 stationVehicleType.setTotalSlots(30);
-                stationVehicleType.setHoldingSlots(5);
+                stationVehicleType.setHoldingSlots(0);
                 stationVehicleType.setUsedSlots(10);
                 totalSlots += 30;
                 usedSlots += 10;
-                holdingSlots += 5;
+                holdingSlots += 0;
                 stationVehicleTypeCRUDRepository.save(stationVehicleType);
             }
             station.setTotalSlots(totalSlots);
@@ -241,8 +241,8 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
         for (StationVehicleType stationVehicleType : stationVehicleTypes) {
             Random random = new Random();
             TicketType ticketType = new TicketType();
-            ticketType.setHoldingTime(Time.valueOf(LocalTime.of(1, 0, 0)));
-            ticketType.setPrice(random.nextInt()%5000+2000);
+            ticketType.setHoldingTime(Time.valueOf(LocalTime.of(0, Math.abs(random.nextInt()) % 5, Math.abs(random.nextInt()) % 60)));
+            ticketType.setPrice(Math.abs(random.nextInt()) % 5000 + 2000);
             ticketType.setName("Type Name or description");
             ticketType.setStationVehicleTypeID(stationVehicleType.getId());
             ticketType.setServiceID(1);//dich vu gui xe
@@ -256,15 +256,15 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
         List<Station> allStations = stationCRUDRepository.findAll();
         String[] ticketStatus = {TicketStatus.CHECKED, TicketStatus.HOLDING, TicketStatus.EXPRIRRED, TicketStatus.USED};
         int i = 0;
-
-        for (Vehicle vehicle : allVehicles) {
-            for (Station station : allStations) {
+        for (Station station : allStations) {
+            for (Vehicle vehicle : allVehicles) {
                 Owner owner = ownerCRUDRepository.findOne(station.getOwnerID());
-                logger.info("Init Tickets " + i); i++;
+                logger.info("Init Tickets " + i);
+                i++;
                 List<StationVehicleType> stationVehicleTypes = new ArrayList<StationVehicleType>();
                 stationVehicleTypes.add(stationVehicleTypeCRUDRepository.findFirstByStationIDAndAndVehicleTypeId(station.getID(), vehicle.getVehicleTypeID()));
                 List<TicketType> ticketTypes = new ArrayList<TicketType>();
-                for(StationVehicleType stationVehicleType : stationVehicleTypes){
+                for (StationVehicleType stationVehicleType : stationVehicleTypes) {
                     ticketTypes.addAll(ticketTypeCRUDRepository.findByStationVehicleTypeID(stationVehicleType.getId()));
                 }
                 Ticket ticket = new Ticket();
@@ -279,6 +279,13 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
                 ticket.setqRCode("");
                 ticket.setStationID(station.getID())
                         .setStatus(ticketStatus[i % 4]);
+                StationVehicleType stationVehicleType = stationVehicleTypes.get(0);
+                if (ticketStatus[i % 4].equals(TicketStatus.HOLDING)) {
+                    station.setHoldingSlots(station.getHoldingSlots() + 1);
+                    stationVehicleType.setHoldingSlots(stationVehicleType.getHoldingSlots() + 1);
+                    stationCRUDRepository.save(station);
+                    stationVehicleTypeCRUDRepository.save(stationVehicleType);
+                }
                 ticket.setStation(station);
                 ticket.setTicketTypes(ticketTypes);
                 ticket.setVehicleID(vehicle.getID());
@@ -1073,6 +1080,7 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
             station.setOpenTime(openTime);
             station.setCloseTime(closingTime);
             station.setTotalSlots(100);
+            station.setHoldingSlots(0);
             station.setUsedSlots(23);
             station.setStar(3);
             station.setOwner(ownerList.get(ownerIndex));
