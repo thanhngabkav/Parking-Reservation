@@ -105,7 +105,7 @@ public class TicketServiceImp implements TicketService{
             Service msService = serviceCRUDRepository.findOne(ticketDetail.getServiceID());
             StationVehicleType mStationVehicleType = stationVehicleTypeCRUDRepository.findOne(mTicketType.getStationVehicleTypeID());
             //invalid foreign keys
-            if(mTicketType == null || mTicketType.getStationVehicleTypeID()!= mStation.getID() || mStationVehicleType.getVehicleTypeId()!= mVehicle.getVehicleTypeID()
+            if(mTicketType == null || mTicketType.getStationVehicleTypeID()!= mStationVehicleType.getId() || mStationVehicleType.getVehicleTypeId()!= mVehicle.getVehicleTypeID()
                     || mTicketType.getServiceID() != msService.getServiceID())
                 return null;
             mTicketTypes.add(mTicketType);

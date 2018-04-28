@@ -77,8 +77,9 @@ public class StationRepositoryImp implements StationRepository {
 
     @Override
     public StationPresenter save(StationPresenter stationPresenter) {
-//        Station station = stationPresenter.convertToEntities();
-//        this.stationCRUDRepository.save(station);
+        if(exist(stationPresenter.getStation_id())){
+            parkingDataSet = parkingDataSet.filter(parkingDataSet.col(StationColumns.ID).cast("integer").notEqual(stationPresenter.getStation_id()));
+        }
         List<StationPresenter> presenterList = new ArrayList<StationPresenter>();
         presenterList.add(stationPresenter);
         Dataset<StationPresenter> newDataset = SparkHelper.getSession().createDataset(presenterList, Encoders.bean(StationPresenter.class));

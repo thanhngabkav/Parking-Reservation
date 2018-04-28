@@ -15,6 +15,15 @@ public interface TicketTypeService {
     List<TicketTypeModel> getAllTicketTypesByServiceIDAndStationID(int serviceID, int stationID);
 
     /**
+     * Get list ticket type by service, station and vehicle type
+     * @param serviceID
+     * @param stationID
+     * @param vehicleTypeID
+     * @return List {@link TicketTypeModel}
+     */
+    List<TicketTypeModel> getTicketTypesByServiceIDAndStationIDAndVehicleTypeID(int serviceID, int stationID, int vehicleTypeID);
+
+    /**
      * Add new {@link com.atp.webservice.parking_reservation_10.entities.TicketType}
      * @param ticketTypeModel
      * @return
@@ -27,5 +36,8 @@ public interface TicketTypeService {
      * @return
      */
     TicketTypeModel updateTicketType(TicketTypeModel ticketTypeModel);
+
+
+
 
 }

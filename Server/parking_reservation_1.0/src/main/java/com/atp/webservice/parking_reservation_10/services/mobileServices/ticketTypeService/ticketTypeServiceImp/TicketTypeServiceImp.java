@@ -29,8 +29,22 @@ public class TicketTypeServiceImp implements TicketTypeService{
         List<TicketTypeModel> m_TicketTypeModels = new ArrayList<TicketTypeModel>();
         TicketTypeConverter m_converter = new TicketTypeConverter();
         for(StationVehicleType vehicleType : m_stationVehicleTypes){
-            TicketType m_tickettType = ticketTypeCRUDRepository.findByServiceIDAndStationVehicleTypeID(serviceID, vehicleType.getId());
-            m_TicketTypeModels.add(m_converter.convertFromEntity(m_tickettType));
+            List<TicketType> m_ticketTypes =ticketTypeCRUDRepository.findByServiceIDAndStationVehicleTypeID(serviceID, vehicleType.getId());
+            for(TicketType ticketType : m_ticketTypes){
+                m_TicketTypeModels.add(m_converter.convertFromEntity(ticketType));
+            }
+        }
+        return m_TicketTypeModels;
+    }
+
+    @Override
+    public List<TicketTypeModel> getTicketTypesByServiceIDAndStationIDAndVehicleTypeID(int serviceID, int stationID, int vehicleTypeID) {
+        StationVehicleType m_stationVehicleType = stationVehicleTypeCRUDRepository.findFirstByStationIDAndAndVehicleTypeId(stationID, vehicleTypeID);
+        List<TicketTypeModel> m_TicketTypeModels = new ArrayList<TicketTypeModel>();
+        TicketTypeConverter m_converter = new TicketTypeConverter();
+        List<TicketType> m_ticketTypes =ticketTypeCRUDRepository.findByServiceIDAndStationVehicleTypeID(serviceID, m_stationVehicleType.getId());
+        for(TicketType ticketType : m_ticketTypes){
+            m_TicketTypeModels.add(m_converter.convertFromEntity(ticketType));
         }
         return m_TicketTypeModels;
     }

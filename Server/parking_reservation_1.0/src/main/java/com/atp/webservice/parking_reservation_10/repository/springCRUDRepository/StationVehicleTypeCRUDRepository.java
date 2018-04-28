@@ -11,5 +11,5 @@ public interface StationVehicleTypeCRUDRepository extends JpaRepository<StationV
 
     List<StationVehicleType> findByStationID(int stationID);
 
-    List<StationVehicleType> findByStationIDAndAndVehicleTypeId(int stationID, int vehicleTypeID);
+    StationVehicleType findFirstByStationIDAndAndVehicleTypeId(int stationID, int vehicleTypeID);
 }

@@ -11,7 +11,7 @@ public class MessageTopic implements Serializable {
 
     public static final String DRIVER_TOPIC = "driver";
 
-    public static final String STATION_TOPIC = "station_";
+    public static final String STATION_TOPIC = "station";
 
     public static final String OWNER_TOPIC = "owner";
 

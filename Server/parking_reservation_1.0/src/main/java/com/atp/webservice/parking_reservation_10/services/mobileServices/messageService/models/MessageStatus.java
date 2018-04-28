@@ -4,8 +4,12 @@ import java.io.Serializable;
 
 public enum MessageStatus implements Serializable {
 
-    INFO(200),
     NOTIFY(100),
+    INFO(200),
+    UPDATE_MAP(201),
+    UPDATE_STATION(202),
+    NEW_OWNER(204),
+    NEW_STATION(205),
     WARNING(500),
     UPDATE(300),
     DO_BACKGROUND(400),

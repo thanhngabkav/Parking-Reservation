@@ -12,5 +12,5 @@ public interface TicketTypeCRUDRepository extends JpaRepository<TicketType, Inte
 
     List<TicketType>  findByStationVehicleTypeID(int stationVehicleTypeId);
 
-    TicketType findByServiceIDAndStationVehicleTypeID(int serviceID, int vehicleTypeID);
+    List<TicketType> findByServiceIDAndStationVehicleTypeID(int serviceID, int vehicleTypeID);
 }

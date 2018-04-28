@@ -89,32 +89,32 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
 
 
         logger.info("Importing sample data");
-
-        initRoles();
-
-        initServices();
-
-        try {
-            initUser();
-        } catch (NoSuchAlgorithmException e) {
-            logger.warn("Init Owners fail");
-            e.printStackTrace();
-        }
-        try {
-            initStation();
-        } catch (IOException e) {
-            logger.warn("Init Stations fail");
-            e.printStackTrace();
-        }
-        initVehicleType();
-
-        initStationVehicleType();
-
-        initVehicle();
-
-        initTicketType();
-
-        initTicket();
+//
+//        initRoles();
+//
+//        initServices();
+//
+//        try {
+//            initUser();
+//        } catch (NoSuchAlgorithmException e) {
+//            logger.warn("Init Owners fail");
+//            e.printStackTrace();
+//        }
+//        try {
+//            initStation();
+//        } catch (IOException e) {
+//            logger.warn("Init Stations fail");
+//            e.printStackTrace();
+//        }
+//        initVehicleType();
+//
+//        initStationVehicleType();
+//
+//        initVehicle();
+//
+//        initTicketType();
+//
+//        initTicket();
 
 
 //        /**
@@ -267,8 +267,8 @@ public class DatabaseInitial implements ApplicationListener<ContextRefreshedEven
             for (Station station : allStations) {
                 Owner owner = ownerCRUDRepository.findOne(station.getOwnerID());
                 logger.info("Init Tickets " + i); i++;
-                List<StationVehicleType> stationVehicleTypes =
-                        stationVehicleTypeCRUDRepository.findByStationIDAndAndVehicleTypeId(station.getID(), vehicle.getVehicleTypeID());
+                List<StationVehicleType> stationVehicleTypes = new ArrayList<StationVehicleType>();
+                stationVehicleTypes.add(stationVehicleTypeCRUDRepository.findFirstByStationIDAndAndVehicleTypeId(station.getID(), vehicle.getVehicleTypeID()));
                 List<TicketType> ticketTypes = new ArrayList<TicketType>();
                 for(StationVehicleType stationVehicleType : stationVehicleTypes){
                     ticketTypes.addAll(ticketTypeCRUDRepository.findByStationVehicleTypeID(stationVehicleType.getId()));
