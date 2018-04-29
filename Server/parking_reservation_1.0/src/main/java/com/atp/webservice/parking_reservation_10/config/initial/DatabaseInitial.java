@@ -9,8 +9,8 @@ import com.atp.webservice.parking_reservation_10.repository.sparkRepository.Stat
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.*;
 import com.atp.webservice.parking_reservation_10.services.algorithms.KeyHelper;
 import com.atp.webservice.parking_reservation_10.services.algorithms.KeypairHelper;
-import com.atp.webservice.parking_reservation_10.services.mobileServices.stationService.StationService;
-import com.atp.webservice.parking_reservation_10.services.mobileServices.ticketService.TicketConverter;
+import com.atp.webservice.parking_reservation_10.services.stationService.StationService;
+import com.atp.webservice.parking_reservation_10.services.ticketService.TicketConverter;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
@@ -84,31 +84,31 @@ public class DatabaseInitial {
 
         logger.info("Importing sample data");
 
-        initRoles();
-
-        initServices();
-
-        try {
-            initUser();
-        } catch (NoSuchAlgorithmException e) {
-            logger.warn("Init Owners fail");
-            e.printStackTrace();
-        }
-        try {
-            initStation();
-        } catch (IOException e) {
-            logger.warn("Init Stations fail");
-            e.printStackTrace();
-        }
-        initVehicleType();
-
-        initStationVehicleType();
-
-        initVehicle();
-
-        initTicketType();
-
-        initTicket();
+//        initRoles();
+//
+//        initServices();
+//
+//        try {
+//            initUser();
+//        } catch (NoSuchAlgorithmException e) {
+//            logger.warn("Init Owners fail");
+//            e.printStackTrace();
+//        }
+//        try {
+//            initStation();
+//        } catch (IOException e) {
+//            logger.warn("Init Stations fail");
+//            e.printStackTrace();
+//        }
+//        initVehicleType();
+//
+//        initStationVehicleType();
+//
+//        initVehicle();
+//
+//        initTicketType();
+//
+//        initTicket();
 
 
 //        /**
@@ -251,7 +251,7 @@ public class DatabaseInitial {
     }
 
     private void initTicket() {
-
+        logger.info("Init Tickets");
         List<Vehicle> allVehicles = vehicleCRUDRepository.findAll();
         List<Station> allStations = stationCRUDRepository.findAll();
         String[] ticketStatus = {TicketStatus.CHECKED, TicketStatus.HOLDING, TicketStatus.EXPRIRRED, TicketStatus.USED};
@@ -259,7 +259,7 @@ public class DatabaseInitial {
         for (Station station : allStations) {
             for (Vehicle vehicle : allVehicles) {
                 Owner owner = ownerCRUDRepository.findOne(station.getOwnerID());
-                logger.info("Init Tickets " + i);
+                logger.debug("Init Tickets " + i);
                 i++;
                 List<StationVehicleType> stationVehicleTypes = new ArrayList<StationVehicleType>();
                 stationVehicleTypes.add(stationVehicleTypeCRUDRepository.findFirstByStationIDAndAndVehicleTypeId(station.getID(), vehicle.getVehicleTypeID()));

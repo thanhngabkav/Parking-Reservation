@@ -3,7 +3,7 @@ package com.atp.webservice.parking_reservation_10.genUserID;
 import com.atp.webservice.parking_reservation_10.services.algorithms.KeyHelper;
 import com.atp.webservice.parking_reservation_10.services.algorithms.KeypairHelper;
 import com.atp.webservice.parking_reservation_10.services.algorithms.MapHelper;
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.TicketModel;
+import com.atp.webservice.parking_reservation_10.services.models.TicketModel;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

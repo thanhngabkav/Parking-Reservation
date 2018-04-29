@@ -4,7 +4,7 @@ import com.atp.webservice.parking_reservation_10.entities.sparkPresenter.Station
 import com.atp.webservice.parking_reservation_10.entities.uitls.StationColumns;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.StationCRUDRepository;
 import com.atp.webservice.parking_reservation_10.services.algorithms.MapHelper;
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationLocationModel;
+import com.atp.webservice.parking_reservation_10.services.models.StationLocationModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 import org.apache.spark.api.java.function.FilterFunction;

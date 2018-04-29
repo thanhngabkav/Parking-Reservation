@@ -2,7 +2,7 @@ package com.atp.webservice.parking_reservation_10.repository.sparkRepository;
 
 
 import com.atp.webservice.parking_reservation_10.entities.sparkPresenter.StationPresenter;
-import com.atp.webservice.parking_reservation_10.services.mobileServices.models.StationLocationModel;
+import com.atp.webservice.parking_reservation_10.services.models.StationLocationModel;
 
 import java.util.List;
 

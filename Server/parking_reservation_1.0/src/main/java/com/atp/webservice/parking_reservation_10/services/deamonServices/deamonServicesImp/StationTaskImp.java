@@ -6,7 +6,7 @@ import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.TicketCRUDRepository;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.VehicleCRUDRepository;
 import com.atp.webservice.parking_reservation_10.services.deamonServices.StationTask;
-import com.atp.webservice.parking_reservation_10.services.mobileServices.stationVehicleTypeService.StationVehicleTypeService;
+import com.atp.webservice.parking_reservation_10.services.stationVehicleTypeService.StationVehicleTypeService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
