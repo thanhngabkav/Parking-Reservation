@@ -49,4 +49,9 @@ public class MapServiceImp implements MapService {
         }
         return result;
     }
+
+    @Override
+    public List<StationLocationModel> getNearByStationsService(StationLocationModel stationLocationModel, double radius, int serviceID) {
+        return null;
+    }
 }

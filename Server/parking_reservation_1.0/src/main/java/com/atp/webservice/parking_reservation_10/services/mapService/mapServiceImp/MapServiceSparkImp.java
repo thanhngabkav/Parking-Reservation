@@ -2,6 +2,8 @@ package com.atp.webservice.parking_reservation_10.services.mapService.mapService
 
 import com.atp.webservice.parking_reservation_10.entities.sparkPresenter.StationPresenter;
 import com.atp.webservice.parking_reservation_10.repository.sparkRepository.StationRepository;
+import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.ServiceCRUDRepository;
+import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.StationCRUDRepository;
 import com.atp.webservice.parking_reservation_10.services.mapService.MapService;
 import com.atp.webservice.parking_reservation_10.services.mapService.MapService;
 import com.atp.webservice.parking_reservation_10.services.models.StationLocationModel;
@@ -22,6 +24,9 @@ public class MapServiceSparkImp implements MapService {
     @Autowired
     private StationRepository stationRepository;
 
+    @Autowired
+    private StationCRUDRepository stationCRUDRepository;
+
     @Override
     public List<StationLocationModel> getNearByParking(StationLocationModel stationLocationModel, double radius) {
         List<StationPresenter> stationPresenterList = stationRepository.findNearByStations(stationLocationModel, radius, 'K');
@@ -30,6 +35,22 @@ public class MapServiceSparkImp implements MapService {
             result.add(convertFromStationPresenter(stationPresenter));
         }
         return result;
+    }
+
+    @Override
+    public List<StationLocationModel> getNearByStationsService(StationLocationModel stationLocationModel, double radius, int serviceID) {
+        List<StationLocationModel> nearByStations = getNearByParking(stationLocationModel, radius);
+        List<StationLocationModel> results = new ArrayList<StationLocationModel>();
+        for(StationLocationModel station : nearByStations){
+            List<com.atp.webservice.parking_reservation_10.entities.Service> stationServices
+                    = stationCRUDRepository.findOne(station.getStationID()).getServices();
+            for(com.atp.webservice.parking_reservation_10.entities.Service service : stationServices){
+                if(service.getServiceID() == serviceID){
+                    results.add(station);
+                }
+            }
+        }
+        return results;
     }
 
     /**

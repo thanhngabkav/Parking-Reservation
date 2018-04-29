@@ -4,11 +4,17 @@ import com.atp.webservice.parking_reservation_10.entities.uitls.DefaultValue;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "comment")
-public class Comment {
+public class Comment implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name = "id")

@@ -17,4 +17,7 @@ public interface MapService extends Serializable {
      */
     List<StationLocationModel> getNearByParking(StationLocationModel stationLocationModel, double radius);
 
+
+    List<StationLocationModel> getNearByStationsService(StationLocationModel stationLocationModel, double radius, int serviceID);
+
 }
