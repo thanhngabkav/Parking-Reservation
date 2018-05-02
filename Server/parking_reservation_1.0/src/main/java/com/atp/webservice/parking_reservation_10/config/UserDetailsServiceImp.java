@@ -28,7 +28,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         User user = this.userService.getUserByUserName((userName));
         if(user == null){
-            throw new UsernameNotFoundException("DriverModel not found");
+            throw new UsernameNotFoundException("User not found");
         }
 
         List<GrantedAuthority> grantedAuthorityList = new ArrayList<GrantedAuthority>();

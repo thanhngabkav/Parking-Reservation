@@ -5,9 +5,7 @@ import com.atp.webservice.parking_reservation_10.entities.uitls.StationStatus;
 import com.atp.webservice.parking_reservation_10.entities.uitls.TicketStatus;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.*;
 import com.atp.webservice.parking_reservation_10.services.algorithms.KeyHelper;
-import com.atp.webservice.parking_reservation_10.services.models.TicketModel;
-import com.atp.webservice.parking_reservation_10.services.models.TicketTypeModel;
-import com.atp.webservice.parking_reservation_10.services.models.TicketReservationModel;
+import com.atp.webservice.parking_reservation_10.services.models.*;
 import com.atp.webservice.parking_reservation_10.services.stationService.StationService;
 import com.atp.webservice.parking_reservation_10.services.stationVehicleTypeService.StationVehicleTypeService;
 import com.atp.webservice.parking_reservation_10.services.ticketService.TicketConverter;
@@ -18,6 +16,7 @@ import com.atp.webservice.parking_reservation_10.services.models.TicketTypeModel
 import com.atp.webservice.parking_reservation_10.services.stationVehicleTypeService.StationVehicleTypeService;
 import com.atp.webservice.parking_reservation_10.services.ticketService.TicketConverter;
 import com.atp.webservice.parking_reservation_10.services.ticketService.TicketService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -176,9 +175,8 @@ public class TicketServiceImp implements TicketService {
         mTicket.setStation(mStation);
         mTicket.setVehicle(mVehicle);
         StringBuilder QRCode = new StringBuilder();
-        ObjectMapper objectMapper = new ObjectMapper();
         try {
-            String content =  objectMapper.writeValueAsString(ticketConverter.convertFromEntity(mTicket));
+            String content =  createQRCodeContent(ticketConverter.convertFromEntity(mTicket));
             QRCode.append(KeyHelper.encrypt(content, mOwner.getSecretKey()));
         } catch (Exception e) {
             logger.error("Can not gen QR code!");
@@ -213,14 +211,6 @@ public class TicketServiceImp implements TicketService {
         StringBuilder QRCode = new StringBuilder();
         Station mStation = stationCRUDRepository.findOne(Integer.parseInt(ticketModel.getStationID()));
         Owner mOwner = ownerCRUDRepository.findOne(mStation.getOwnerID());
-        try {
-            String content =  objectMapper.writeValueAsString(ticketConverter.convertFromEntity(mTicket));
-            QRCode.append(KeyHelper.encrypt(content, mOwner.getSecretKey()));
-        } catch (Exception e) {
-            logger.error("Update QR code fail!");
-            e.printStackTrace();
-        }
-        mTicket.setqRCode(QRCode.toString());
         //if check in
         if((mTicket.getStatus().equals(TicketStatus.HOLDING) || mTicket.getStatus().equals(TicketStatus.EXPRIRRED))
                 && ticketModel.getStatus().equals(TicketStatus.CHECKED)){
@@ -233,7 +223,44 @@ public class TicketServiceImp implements TicketService {
             stationVehicleTypeService.updateUsedSlots(mTicket.getTicketTypes().get(0).getStationVehicleTypeID(),-1);
         }
         mTicket.setStatus(ticketModel.getStatus());
+        //update QR code
+        try {
+            String content =  createQRCodeContent(ticketConverter.convertFromEntity(mTicket));
+            QRCode.append(KeyHelper.encrypt(content, mOwner.getSecretKey()));
+        } catch (Exception e) {
+            logger.error("Update QR code fail!");
+            e.printStackTrace();
+        }
+        mTicket.setqRCode(QRCode.toString());
         return ticketConverter.convertFromEntity(ticketCRUDRepository.save(mTicket));
+    }
+
+    @Override
+    public String createQRCodeContent(TicketModel ticketModel) throws JsonProcessingException {
+        TicketQRModel ticketQRModel = new TicketQRModel();
+        Driver driver = driverCRUDRepository.findOne(ticketModel.getVehicleModel().getDriverID());
+        ticketQRModel.setCheckinTime(ticketModel.getCheckInTime());
+        ticketQRModel.setVehicleTypeName(ticketModel.getVehicleTypeName());
+        ticketQRModel.setCheckoutTime(ticketModel.getCheckOutTime());
+        ticketQRModel.setCreatedTime(ticketModel.getCreatedDate());
+        ticketQRModel.setId(ticketModel.getId());
+        ticketQRModel.setIspPaid(ticketModel.isPaid());
+        ticketQRModel.setDriverName(driver.getFullName());
+        ticketQRModel.setLicensePlate(ticketModel.getVehicleModel().getLicensePlate());
+        ticketQRModel.setStatus(ticketModel.getStatus());
+        ticketQRModel.setTotalPrice(ticketModel.getTotalPrice());
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        return objectMapper.writeValueAsString(ticketQRModel);
+    }
+
+    @Override
+    public TicketModel getTicketById(String ticketID) {
+        Ticket ticket = ticketCRUDRepository.findOne(ticketID);
+        if(ticket == null)
+            return null;
+        return ticketConverter.convertFromEntity(ticket);
     }
 
 

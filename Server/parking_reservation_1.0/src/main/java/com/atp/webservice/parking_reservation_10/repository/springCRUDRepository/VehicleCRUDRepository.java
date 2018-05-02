@@ -24,4 +24,6 @@ public interface VehicleCRUDRepository extends JpaRepository<Vehicle, String> {
     //@Query(value = "select v from VehicleModel v where v.vehicleTypeID = ?1", nativeQuery = true)
     List<Vehicle> findByVehicleTypeID(@Param("vehicleTypeID") int typeID, Pageable pageRequest);
 
+    List<Vehicle> findAllByVehicleTypeID(int typeID);
+
 }

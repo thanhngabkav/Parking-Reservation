@@ -63,6 +63,7 @@ public class TicketConverter {
         mVehicleModel.setDriverID(enTicket.getDriverID());
         mTicketModel.setPaid(enTicket.isPaid());
         mTicketModel.setVehicleModel(mVehicleModel);
+        mTicketModel.setVehicleTypeName(mVehicleTypeModel.getTypeName());
 
 
         return mTicketModel;

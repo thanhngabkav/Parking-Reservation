@@ -1,0 +1,3195 @@
+[
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.831072,
+        "lng": 106.6807222
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8324975302915,
+          "lng": 106.6820943302915
+        },
+        "southwest": {
+          "lat": 10.82979956970849,
+          "lng": 106.6793963697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "0cfe3c373c3631d2e56bdf101d96d6489140377d",
+    "name": "Công ty Cổ phần Đầu tư Công nghệ Thiên Ân",
+    "place_id": "ChIJEWneIP8odTERoYVjYIEJzXY",
+    "rating": 4.5,
+    "reference": "CmRRAAAABPL71rIAt3NoXjqfmYKN3UBxOAgFzC9io-s6tv8NBZKnOSk9NdDgTViANv-SlLQDvDqVayBF0DBRh8FG0WyKYzL4a2px1bPVv-Vzw3tu314alzOD84ORpi9dkxoADG3_EhAJSaxGtm0URi0buOGPq2iqGhRU78OHxqQu5FZ-TBvmnhitrS0Pdw",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "home_goods_store",
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "15 Hẻm 29,Lê Đức Thọ, Phường 7"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7591219,
+        "lng": 106.6925985
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7604708802915,
+          "lng": 106.6939474802915
+        },
+        "southwest": {
+          "lat": 10.7577729197085,
+          "lng": 106.6912495197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "fa7a2950a45d9a5214958618907cd5a00179403d",
+    "name": "Công Ty TNHH Trung Viễn",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 381,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/112767675690685779060/photos\"\u003eCông Ty TNHH Trung Viễn\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAcdyOxilXvk58Y6mKrl5HdAtDoMing3BnWkLHXTBL38zgcL7JMAoR70Pxb_Zu-_s9Qz2LQuXIzIgXipJ4VvqeFfBdeWgLC6WuuhR-SWxh7tFrZAi-W3--Ci7wK_rF7yJ1EhApDgVzaRkECTl01OjjKLXrGhQs7FQ-YH_h-yPh6zasus405AXFAQ",
+        "width": 1000
+      }
+    ],
+    "place_id": "ChIJXQmLmBEvdTERjX7mkr3s9x0",
+    "rating": 4.5,
+    "reference": "CmRRAAAAcHrwkOrEhx8omssNPCQ630WHsxHEKIH2bE15jtfjFgSG0NVu7PPPa6Z3t4mHfXTwFR2HM_hjeyghjPR3iThvC-CqQcdbGS1bQUyslGM0HtjmmasJHXQ25Dg8XDuJFDyjEhAKfrV3TvbQ3JMF3PTyW7gCGhRRnJ73VqOOiuI8cPwGOf0uL4MiQw",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "storage",
+      "store",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "446 Võ Văn Kiệt, Phường Cô Giang, Quận 1"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.811576,
+        "lng": 106.629084
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8131760802915,
+          "lng": 106.6303915302915
+        },
+        "southwest": {
+          "lat": 10.8104781197085,
+          "lng": 106.6276935697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "3327ffeeafe110d9850789031662c8c7efac0c4c",
+    "name": "Trung tâm dịch vụ đậu xe Tiên Tiến",
+    "photos": [
+      {
+        "height": 467,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/110657465276458060053/photos\"\u003eQuốc Huy\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAA3g_L4UMzWsjLVwr9BWTldDgMT3PL3cMhqhIP74nhB8F3Xw7Z5o1MFfDlSasmLf8jSq6QvdbPMsxsrLAKfqXOSYYeeMTynK0S6A2fyO1ekQQOG-mxU1pkhkOLvMv4XbsHEhB230OMo4S_BMpZpHsrfH6_GhT2Wjt-fkPkm76cEJmigkzcA31p8g",
+        "width": 700
+      }
+    ],
+    "place_id": "ChIJiwElfF8pdTEREZ76hqeOZeo",
+    "rating": 4.2,
+    "reference": "CmRSAAAAw19CwzrI9z-CPZfuMHG300QJg2OfEuByq6qednBQULjA_ivtO9eltEgsmClsuHsD23zb4rT1bwluSZtI75cAT_OQmB8I0cLAxbCjK9E-_QWM62P5AkPC9HHPJD42q2BwEhBxEuB3v6ebWrelYiltlw8aGhTBIibU8Riq_gKqhKp8xIVLnOWjGw",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "71 Chế Lan Viên, Phường 15"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8724135,
+        "lng": 106.6750802
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8738048802915,
+          "lng": 106.6763679802915
+        },
+        "southwest": {
+          "lat": 10.8711069197085,
+          "lng": 106.6736700197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "ae2782f88ae109429fb49720ef78f6daa8ad7408",
+    "name": "Bãi Xe Minh Hùng",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 3096,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/116340722397159323815/photos\"\u003eNash Lo\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAwLgEqCuwOly2o8V0alhX3um4BBM48YQr6xiO80jUfB6HRRXipbQUGi_To9XXFRcA82nlBMWKwd7yTtwD9xPzJrqiHgMYlu4snz8YPN-AcKZWrTPsjtBC6i3hAoj2aXarEhBvYh214vT05guNcFyLuKt6GhRbOc_jPjjCWNUhTnkkdJVwOxuixA",
+        "width": 4128
+      }
+    ],
+    "place_id": "ChIJibG9b9MpdTERf4wJbtCNay4",
+    "rating": 3,
+    "reference": "CmRRAAAA4k7quuw0EUCAzQLBmhrybNApkDAGuOb4ICcPrqzV_iEi52Sq64pqq-CrB7VJBnPFnubfNIkHa9P10HINpGdIEu9u911YJ8Sd58ZmcisEQHo__pwf1aohcGXTX199SowtEhADUivI4njvcD2uS7QcYPjtGhR-aQ_MQdKFdiuZ9JtATUTFsUSRNA",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "115 Tô Ngọc Vân KP5, Thạnh Xuân"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8227247,
+        "lng": 106.6999453
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8238872802915,
+          "lng": 106.7013476302915
+        },
+        "southwest": {
+          "lat": 10.8211893197085,
+          "lng": 106.6986496697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "89c9ff3534d8558eade74c7a994be69c59cb0b13",
+    "name": "Bãi giữ xe Tân Hoàn Cầu I",
+    "place_id": "ChIJR4DbTI0odTERciN5c4o2zE4",
+    "reference": "CmRRAAAAirGfqOv1PE7Yx42GOfYqmPKThR22b5gnb_cwCfUTPldGRE5ilXAFlUg-p1ZJL7fPO9FIVmm9pAU_MFR-dCN-_EGBSKs1R9ncQde6UzoPUsbrjMuvXkfzF9824expKM_KEhBBJY6ZlAMGsHbdwrq-NiHKGhRi6h1vjfY_oENUXfN92sX5NGprWw",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "Phạm Văn Đồng, Phường 13"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.804674,
+        "lng": 106.667061
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8060229802915,
+          "lng": 106.6684099802915
+        },
+        "southwest": {
+          "lat": 10.8033250197085,
+          "lng": 106.6657120197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "e78a41a9d1a8bf1dfe3fcd82d1f860f29a473dd1",
+    "name": "Nhà Xe Minh Quốc",
+    "place_id": "ChIJm-S_2CQpdTER40Wmz4C1yBQ",
+    "reference": "CmRRAAAAsEZZB4pGDFM8IlU5YHSKzfIGBfQHp1Ghxqjih3yLdUEbmlU68ugfau12KtV15nZ-Akzod-HtGg5TWIyUXDkMCM581kLhueQOPF3jg7fJwvKtEDkQUYlIAJvrkI_OqvssEhDXJRfflS665A22BzGIO77kGhQ9Cv-lKPNMgsaLrgu375Of02R56A",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "32, Huỳnh Lan Khanh, Phường 2, Quận Tân Bình, Thành Phố Hồ Chí Minh"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8169222,
+        "lng": 106.7108719
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8181013802915,
+          "lng": 106.7124085802915
+        },
+        "southwest": {
+          "lat": 10.8154034197085,
+          "lng": 106.7097106197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "ecccca7858e791f31bdc578e0e91d850c5d5dd87",
+    "name": "Xe Tốc Hành Sài Gòn Miền Trung",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "place_id": "ChIJTTjEvJAodTERh1hw-qEG_SM",
+    "rating": 5,
+    "reference": "CmRRAAAASJFB5oDa2ncsu9Rbo2NfMOul0spsWZOm5qrIK_c23oE1suw7d7Ly1cRU7vjrcLzEzkDdRzkUDxkg2qZRJwJUCYRB8YshMpjeKGYcTOarM8rWJ4Vi5Qp7CXCEtuT3V-6TEhCBDQ5OqAcPqy-okxz_eF2wGhSR9Ge2R28TwBG9PL_QQyTA089hXg",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "78/5 Đinh Bộ Lĩnh, Phường 26"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.868031,
+        "lng": 106.720171
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8693799802915,
+          "lng": 106.7215199802915
+        },
+        "southwest": {
+          "lat": 10.8666820197085,
+          "lng": 106.7188220197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "a8432948e8faeda5db8a345fcb76ef611efaf66c",
+    "name": "Xe nâng hàng - Fork lift truck - Yale Service Center",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 720,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/109088766611849576439/photos\"\u003eDo Nguyen\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAA4R-Kfh3BbGD-PK5IwGyoojCTuqoQDjLZwXM_PsafPYmRWRLhSQtfRrmiy4r9LKoW5GvabRZaj_wq6Lh-48MBvIQ8sVzOfCzOdbNl_eMiinbrMBY30hyCXJiBzypQzsYaEhCWyVwVRJ3wFjTg8nmflQByGhRxxTyHCzSETQVpVgor0XZUS-rr_g",
+        "width": 960
+      }
+    ],
+    "place_id": "ChIJOVdMnwcodTERBTktYQKxZh4",
+    "rating": 4.4,
+    "reference": "CmRRAAAAICSKCA8aG3IRmU_Z110rLbhwAPP_9ZM9J7Rx7vbfGrs4Jx8jkGGZ8ueWd-D6i0hsfMb5U_eox46fQ_ME26Abzqb9AGtET4WXtPq9AZZRKmoMc89ZqXWKVyHw9ow0ef4gEhD_JazxETrdrI-JGxPIEULDGhSmcmJ8GC1-eKAtGuTf0FCw1Hr20w",
+    "scope": "GOOGLE",
+    "types": [
+      "car_rental",
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "827 Quốc lộ 13 Thủ Đức"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8543884,
+        "lng": 106.7002021
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8557373802915,
+          "lng": 106.7015510802915
+        },
+        "southwest": {
+          "lat": 10.8530394197085,
+          "lng": 106.6988531197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "f1e714a90daecb2bbfcc750d8c560fc8e65dac26",
+    "name": "Công ty Rồng Xanh",
+    "photos": [
+      {
+        "height": 1725,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/108937427298865827309/photos\"\u003eTừ người dùng Google\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAACEFmbyY5GI6E-EsloLu-xu-nns9rIbCSRs0LBomerhlLONmmllFPB5aiTeZWt-iO6UwlziqDEbXHfLUHVayT2UyMlldQ8dH8vw3IUjTb6pwnAvHYPPLadVZOaVQGSakBEhDY7fiiDUD_A7kT2ZAp3GE5GhSvABKGRpZAzOcEdflznTnYL-aIeQ",
+        "width": 4683
+      }
+    ],
+    "place_id": "ChIJXTR-qWoodTER4jjODKEs6rk",
+    "rating": 3.8,
+    "reference": "CmRSAAAAVmgysYJQYszvb-fG2_2EuUoLRrufsccg31tMs9vTkDvVNwuygrJXGkFVIXik3RhyaA8E1Qf_jU1T8y_7clMFunXYKq4wIXLzpxAoawR2BUlUPF90A-SMBEj_d8jwiSeSEhAVUpHoKbBU7rNo17VZYkIWGhS6mhOqiOMfbElmb4QVrGuLAqpYaw",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "7 Võ Thị Liễu, An Phú Đông"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.801648,
+        "lng": 106.6589665
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8029969802915,
+          "lng": 106.6603154802915
+        },
+        "southwest": {
+          "lat": 10.8002990197085,
+          "lng": 106.6576175197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "a9db70053273c5ced1d270e830af35052aa9bcdf",
+    "name": "Bãi giữ xe ô tô Bảo An 18 cộng Hoà Quận Tân Bình",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "place_id": "ChIJ9UH-rTApdTER1JVu0rXc92U",
+    "rating": 4.5,
+    "reference": "CmRRAAAAvYCBHoxY_2KRVUdpTBLtuCpw8LDaREd9oT0TA8vIsZVvynA6-BQIZVdqXfTC3YapuEbhlqGrLR2VYk7FtyMlKfFgi4XioFeUzzcwP2pSQbXKCeAgzsKRNEKyPo8FWYBREhC8egRUti_zNis7njLqSBdSGhTMPWQjKwxn2v-J38QsHQyxt0jH6Q",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "142/18 Cộng Hòa, Phường 4"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.80558,
+        "lng": 106.652881
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8069289802915,
+          "lng": 106.6542299802915
+        },
+        "southwest": {
+          "lat": 10.8042310197085,
+          "lng": 106.6515320197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/shopping-71.png",
+    "id": "c9afc48313576cfec7a73c7deadb43a61abfb000",
+    "name": "Công ty Cổ phần thiết bị Tân MInh Giang",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 1536,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/104735812493687404887/photos\"\u003eCông ty Cổ phần thiết bị Tân MInh Giang\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAwpMh47X6LwFaCowK3ud6WKVS0l3yfu-z6GVl7FrwOsKwpJ0Luz2G1IJrzv_3D-4OQKtSxwaIrJ5T2Gwxz7CdXs2YGeV15Vd0o-8l_VxXklauB9Y3l_plYZ8B9jgiq4vYEhDfImJN0HSLYOGmOq6c9ux4GhR1gyjqOCvygzqIKBHdTvxq_Z8WGQ",
+        "width": 2048
+      }
+    ],
+    "place_id": "ChIJO9_QkjApdTERvHIsS3aAuSk",
+    "rating": 5,
+    "reference": "CmRRAAAAxQbvOdCNCOJ9nLlPVujqkN9rX9Sr5GPKmnCDqwtnMZVD9Wa9CvvTNbXJl4irw7GKiJ3U7AQs73tcrl5qaTxbOhtughAEo8DEy8kzXsgAovGJhWnoz121Cb-ZYc4RnGwpEhBjKG7fWl7IhtJacj__lN09GhRwUXO31URamL9MVbwIqY-pfGXLeQ",
+    "scope": "GOOGLE",
+    "types": [
+      "car_wash",
+      "parking",
+      "car_repair",
+      "store",
+      "general_contractor",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "20 Cộng Hòa, Phường 12, tân Bình, Phường 12"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7939576,
+        "lng": 106.6630103
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7953210802915,
+          "lng": 106.6643331802915
+        },
+        "southwest": {
+          "lat": 10.7926231197085,
+          "lng": 106.6616352197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "e62fdfaf2e91761ac09dd74c70de362ea8d96f1b",
+    "name": "Bãi Giữ Xe Oto Bảo An",
+    "photos": [
+      {
+        "height": 3264,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/114382615972999416456/photos\"\u003eTrung Liêm Lê\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAAkUnXKMUnLuxUq2vwh_1u6DoKo1dT4lz0MpdUvAYV6uQ_Q4JJFPTj5B-aqWcUIsLax_gLVA6S4MNO7BEwtHPFifq0yB9l0jWrHI1KAAm15uYKwkijrFuDdlMhQnmITlSEhAY7vAOAlkMDx3pc1tw9dM2GhQQJz-XexYdc_fiPUEToiQTbgLUgw",
+        "width": 2448
+      }
+    ],
+    "place_id": "ChIJA8H8XzIpdTER146kZprrxVs",
+    "rating": 4.7,
+    "reference": "CmRRAAAAZ_7sTv9ETjkAB_2WDbr_CwdPaimz_a0gOfbyNGBxvM1Z2oTz3KpC3NLq5dEbjhiY0tJ_XJsdNKhfFpJdLk7ayMBCkWdBCheNZWvOlxFxWkHhY3c3HW7-TvLQG5rVcan9EhBS8OvTMD3CUcWTO4ekpGBGGhQy8NpjAmGT2GhYK5yzkOzlY-wumw",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "91 Phạm Văn Hai, Phường 3"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8007821,
+        "lng": 106.65036
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8025374302915,
+          "lng": 106.6517458802915
+        },
+        "southwest": {
+          "lat": 10.7998394697085,
+          "lng": 106.6490479197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "f1c2751baa3c9cfe93987875c44952dad9153202",
+    "name": "Bãi giữ xe ô tô Bảo An Quận Tân Bình",
+    "place_id": "ChIJSUqFWkgpdTER7ofrwhpg4R0",
+    "rating": 5,
+    "reference": "CmRRAAAAo8b8sE6UKXiQo2hogZp84BDIBVOq4d7Bnrc7mC5Uzaj0X0475zRFYJDFM4xQ2Isq_5oY6ZN6KOE3mVP8Jiv2ysoq3mmgKLWKnELfWDrw9I_04OdGum1r39GaOPwoz7LcEhDoa0pjXVOeJw-1fw2yIHrMGhSQfvQ4x3-2DsFxwWOX5FGrqT9VoQ",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "A/P Serviced Apartments, 19 Cộng Hòa, Phường 12"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8716395,
+        "lng": 106.6769618
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8729879802915,
+          "lng": 106.6782888302915
+        },
+        "southwest": {
+          "lat": 10.8702900197085,
+          "lng": 106.6755908697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "20e688d721d3cc4302d9a60f34fe4bb84f38b959",
+    "name": "Garage Phương phát",
+    "photos": [
+      {
+        "height": 1440,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/106734842452024067665/photos\"\u003eHoa Nguyen Thi\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAXMX3-zdIdkYikO0naRnN_tiu4HsFnB_OHXCEb4EwquezBa00sTTIucaRVVkSmyP4Vl4G2Q1a8nw-lqfYrx0mLr14e53kaIZq5NXkHTZvmPJZ0Wbtun_Ib2lvyvHen7rjEhDq-D6WieIWZRMzpqMRe7hkGhRmVxcAXglxU70lTYwd3_aAIUyLCQ",
+        "width": 2560
+      }
+    ],
+    "place_id": "ChIJRRS1cDIodTERazymBS_Han4",
+    "rating": 4.4,
+    "reference": "CmRRAAAA3-135gUtDyXGlIQ1JX8OWPNqwidO0o619DEEEBf3Ggruh3fiEqMhAcc0OtYB-7bnKYFCJobgh1Uk9JcUidfxvfpVVIlHClw05rged9mdSHxjQV8SthvFh3Mxy3jZ5WrTEhDk8lMYMvtQdA6Km9mJ7ecfGhQCGPuZ0XdjO7ZInwOc-O7l-i0_Tw",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "340 Hà Huy Giáp, Thạnh Lộc"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8390263,
+        "lng": 106.7343112
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8403752802915,
+          "lng": 106.7356601802915
+        },
+        "southwest": {
+          "lat": 10.8376773197085,
+          "lng": 106.7329622197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "9ea7a6b3b31fa628a6583dc7c682b2f9e8d65c9f",
+    "name": "Bãi Đậu Xe Ô Tô",
+    "photos": [
+      {
+        "height": 5312,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/103881550298207839573/photos\"\u003eBenja Tjn\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAIS6kiDVgi_xOck2zcXDnXLvNcefKaA7lPUIp7dKrI33LVC62GcSW_uW6MIXajszjSIOdKz52DfG7FhQBH0GwAR6BQD43HvmjtdSLFEjJlLnVtv5brHuKWrtR1PLFuD32EhCTD_-GCl_i8QFJQc0sCpzTGhSBMBPrXYu5MAzI6ChPbFRNySZ_hg",
+        "width": 2988
+      }
+    ],
+    "place_id": "ChIJA6guM9AndTERdtwn3mlD28k",
+    "rating": 4.4,
+    "reference": "CmRSAAAAj0YeFSv__Akn1tDlFntBqe1KtSI12lz8OR6Z-YX2_xRjMk2WCIdg3Mrps7NudK9VrfJjoUhDOmoV97vSrytczM2dp6Stz4wzNiDvxyBrUk7pGnQas8nUcCR6iwKgD35nEhDtq2bmUAomXE3L6D_JT2dQGhQPEmPNhgDGMag6b3qC2ZNBtk4YJA",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "521 Kha Vạn Cân, Hiệp Bình Chánh"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7779213,
+        "lng": 106.704792
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7793064302915,
+          "lng": 106.7061010302915
+        },
+        "southwest": {
+          "lat": 10.7766084697085,
+          "lng": 106.7034030697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "aa01e26ec788e1ea35868c3a0aca94e809d71b60",
+    "name": "Bãi Giữ Xe Hoa Sen Group",
+    "place_id": "ChIJLTeWHUYvdTERX-gjnhIt_qY",
+    "reference": "CmRSAAAAe1B6782c_xFLUdLT1DYJzaw8HxiXlIJlBY9xBjJXf-DbzIEPheqsYqxNcfEsNbPFhihuPEK06b4y-Ubh0kIVO_G3KduQxfayrG6Mtqf9lDPA8z6ESLOOzkmNlrRAXU4YEhAoM1e0eIrPQ-dAli1qj7QYGhQA6ClCbRXBxqYlyeB3ZhlV2z35ew",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "Nguyễn Siêu, Bến Nghé"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.772969,
+        "lng": 106.6661143
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7743179802915,
+          "lng": 106.6674632802915
+        },
+        "southwest": {
+          "lat": 10.7716200197085,
+          "lng": 106.6647653197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "aadeb5eb791475bf359a5ad94780c29930f76767",
+    "name": "Bai Giu Xe",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 4208,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/112148984253570429720/photos\"\u003eNguyen Toan Nhat\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAkElGfkjFgH1xfbBOyRCUMy0z3hWiVx_O4i9GAGos9frp4jC7ny3SjYSAuhFxWyNO6SeydFfecGVH0KGjGMPEz_0OxOb0uKcq1cYTSZGt2VJJpejKKrC8Hb5R6K0C8F_2EhAc5N2fGN_9DU9On01S_OH_GhTwm5HHGVmRDhoeIWZaBb_AK2R97w",
+        "width": 2368
+      }
+    ],
+    "place_id": "ChIJJyKG6dwudTERRAk0C34Tf5A",
+    "reference": "CmRSAAAAqE3c_bDzh5kQRDAe0PnSre886nheH1m12nlRO-JHM66ONBkozb0-cdVcLpK2PyGQMRaEkHjp3dQhf94pfO3aqzkSnXN8PzZ5KxgN_tODPryLuKWme5_x-GmfvbkJYh-bEhD3p9aQn4wcF-_tSGV6LSXCGhSym-mxlCo_Kh2ndu68l9oqDB18Ew",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "520C/21, 520C/21 Nguyễn Tri Phương Tổ 61 Khu phố Khu phố, Phường 12"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7692673,
+        "lng": 106.6940404
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7704915802915,
+          "lng": 106.6954391802915
+        },
+        "southwest": {
+          "lat": 10.7677936197085,
+          "lng": 106.6927412197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "f2913f61509702bd3551fd577097176cc565e9d8",
+    "name": "BÃI XE PARKING PRO",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 2976,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/102062253003285774878/photos\"\u003eNguyễn Tuấn\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAZFLzML7JFgy8YMj1iWcP1KmOYpf_N3WRzQ5edyX643EjrIJkJrhJi4pZFNYmLXFKIlfXhtmqoMxDzv0tBUbAEu4AEdyfGMOEU_FGqr7_1Zd4WXvzRkKlOFPzKMd-WjiOEhBhb_CXLjoG4o66mnBEPKiHGhQdhAcU_7Dzu_j168iOAZCoGCus7A",
+        "width": 3968
+      }
+    ],
+    "place_id": "ChIJoa2bdT4vdTERbzexHZTKq7Y",
+    "rating": 2,
+    "reference": "CmRSAAAAzb0vziVV3LeZvEohchVy6WoeFiwLc-aMxTGQ6Qkz26DqCTax_VP1bTrc4YNHmBuUDfwvGs9t_sG9aGft_phS1Bg4ScfsKdzKDEMs4sztH-QNTaCiMZmDVe-tax3LSpq2EhA1onY9x_Dhh0B9pO4rBoz4GhQ4jltyRA5sozXk-lrVxTc6wOjWVg",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "2B Phạm Ngũ Lão, Phường Phạm Ngũ Lão"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7736782,
+        "lng": 106.6562032
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7750271802915,
+          "lng": 106.6575521802915
+        },
+        "southwest": {
+          "lat": 10.7723292197085,
+          "lng": 106.6548542197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "518d0932ec59db0afbfe1f059a4e30ea479456d4",
+    "name": "Garage Ô Tô Hiệp Cường",
+    "place_id": "ChIJUcsAGcEudTERO3ZDtFTe2Mw",
+    "rating": 3,
+    "reference": "CmRSAAAAluKOaV3xZbsbFiNGoDqrn3lfsVTmzH7MU348xFX83Usp8UI00z9uQLmSPa0SoGnvNjhY59ObApu0-VRt4lEGx2PC0JarUwXI3MkPPyWI0UQeCpBovZvTE4EP_Bf1JwMCEhDHA0jGaJ5E2jnweXfe5E7tGhRqT1pBLc6RIKpnXRjebHj3UJGczw",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "6/12, Đường Số 3, Cư Xá Lữ Gia, Phường 15, Quận 11, Thành Phố Hồ Chí Minh, Phường 15"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7867282,
+        "lng": 106.6358522
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7880981302915,
+          "lng": 106.6372112302915
+        },
+        "southwest": {
+          "lat": 10.7854001697085,
+          "lng": 106.6345132697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "5e5a435c47e33a0bf552b71ad4e727d43202fb07",
+    "name": "Cho thuê xe du lịch tự lái Sài Gòn",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 525,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/100572261160701673994/photos\"\u003eCho thuê xe du lịch tự lái Sài Gòn\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAgYU1vQ3V-EWovUGU5YEkOaJCrRHyzYdLLPA2dR7k05B-AULSrxnU-9IEe7jV1KU_JTl4yPv63-yUNizmR0hxI99WjMmcsq8Ivp0BSjizfV-pKVO5KWBKpPdWUHzB5TirEhBth0BcwsWZRXGzqnJttmm8GhSbxv_4qbhRyMeywU712-nbPEColw",
+        "width": 526
+      }
+    ],
+    "place_id": "ChIJB1NAMSkpdTERg0zlhPhI6Go",
+    "rating": 5,
+    "reference": "CmRRAAAAZI5O9HDUYXfFHrA9if2yN7BIt3Duj3gXIciIXYA9vc6t7PTX51BAIP78snHTjj28ACIBuzfubKaGrqdsRMOW4YtCsIENdSRFQQ_z_zJ-6saZyDkJlKNUJe0apGptcSbFEhAT9VXzYlTtqcr56NQ9I_TNGhQQ_ATJHa8T47LfQXwjsR0COuDPmg",
+    "scope": "GOOGLE",
+    "types": [
+      "car_rental",
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "111/1A Vườn Lài, Hoà Thanh"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7729167,
+        "lng": 106.6346795
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7742656802915,
+          "lng": 106.6360284802915
+        },
+        "southwest": {
+          "lat": 10.7715677197085,
+          "lng": 106.6333305197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "5db00ada104add60f2e6c47e293479e5b22c8773",
+    "name": "CÔNG TY TNHH CÔNG ÍCH BẢO AN",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 267,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/114382615972999416456/photos\"\u003eTrung Liêm Lê\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAW6WBmiSrjXfpIMP2asnHHZB_9pi8bBId2IoZTnSHfAFDRcQUkVOX9dY8Qw3iS7RHC6lOYffS654IVAAsGX_QyMNqrWi1L_ERNxXm670d8lSTb_LP8gprVSWhpDIoEGwWEhDAofmBYyVy5EDtjyZGd7iWGhQGrnWQOQrF6QWdQMKmposJzwaN5A",
+        "width": 400
+      }
+    ],
+    "place_id": "ChIJx9gSg58udTERFVrjwMfTkRs",
+    "rating": 4.7,
+    "reference": "CmRRAAAAapx6okxzjM9r7T8NZJN-_UO-sHgWxRSXYyvm6dmVuFixsn2ml7-VJ0VH-_l2wBS4zk0SfkBornZ8aDb7ctyltD1G_TBSg6RySp_Vw98xaROVOgKQHVac28txwA0dKih0EhBbRfKZzHGGQykdSni-wG_-GhR2MLK000L5PrO6wPA9bcAORMJvDg",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "262/13 Lũy Bán Bích, Hoà Thanh"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7563668,
+        "lng": 106.6577243
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7577099302915,
+          "lng": 106.6590743302915
+        },
+        "southwest": {
+          "lat": 10.7550119697085,
+          "lng": 106.6563763697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "46de23062348ea5520d4852319123d3cd5d8b592",
+    "name": "Dịch Vụ Xe Khách Kim Cương Trạm P12-Q5",
+    "photos": [
+      {
+        "height": 361,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/109038994945633476571/photos\"\u003ePhuong Hoang Ngoc\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAA0LYU7bGa1doAYeCVXEbyEmp6OsCvuaKJ4ueSvQqX82Nq_6YmNpbc4UTwk07hf6OPzYAGu8uiRPedEIFDSY2xCQkKKi1-UY8PYeRvhpd58akS0ehN6836iRKM5IATT2XHEhDbSS9ZOF71ErKcYPhh3SEiGhQoewBqPKf6X4QHP36W93SKkykmtg",
+        "width": 1221
+      }
+    ],
+    "place_id": "ChIJ1ckwMvIudTERf32r86tJeq8",
+    "rating": 3,
+    "reference": "CmRSAAAACy6sfQ61gLsXds_TgRorCQJMDElxXeb8ChXIcMh18XLrG7BdQo_YUjFrwjfQH3D8hSYW8f7ctdv-QH4X6ZDi9qU34CwBstN-OvVM5P7sX0AsGQVHcKsiZhep8_8LNoGbEhA1uHaeZRkRYy2uSDweJlVrGhSCrsU9rkJ8ml6F5fjWUPZcJmAA-A",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "14 Tân Thành, Phường 12"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.832631,
+        "lng": 106.60489
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8339799802915,
+          "lng": 106.6062389802915
+        },
+        "southwest": {
+          "lat": 10.8312820197085,
+          "lng": 106.6035410197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "da6d271371ed3ff1b80d8bdfd0773cf849bd7237",
+    "name": "Dragon Industries Co.,ltd",
+    "photos": [
+      {
+        "height": 4160,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/108575836037167376886/photos\"\u003eNHƯ NGUYỄN\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAORRpwd9h7WoYdwThIP5uU2YnFYy7MdN_jmbhcXlUvFvPOQb8BddxuFotXn5T7hZnqHDfL8i1k9TkBsjNzzElA3HAN0V1-Mthauybx4giZMkykVBA4d1LVXq2fap7KDYYEhBDS6EdG1PDwI5JkbfV_iBlGhTcZjp9KPzP477_Wn_MWZxtl0JrBw",
+        "width": 2340
+      }
+    ],
+    "place_id": "ChIJiSM__bUrdTERj8IZQ9R9QwU",
+    "rating": 3,
+    "reference": "CmRRAAAAUeENcB2AU9pHDavGOwwup1U5KtlBj5pGTGBA1OH522uKlFJUDlyEP2KUSwiBqL1Wij2zXcb-soCoCmJxB8va5UZizIZIcctZDBeV8332e4pp9obNc2A5pZ1rORfmgw7VEhCPpRhvRCr88mBsHT5lo46iGhSNFxGOlDMHvccll9-fGwvtDfos1g",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "57/10 National highway No.1A - Ba Diem commune - Hoc Mon District, Bà Điểm"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7878992,
+        "lng": 106.6143832
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7892996302915,
+          "lng": 106.6157370302915
+        },
+        "southwest": {
+          "lat": 10.7866016697085,
+          "lng": 106.6130390697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "4f814ca24e4cf736b26870f9712939ec5ba77d84",
+    "name": "Garage Phú Tài",
+    "place_id": "ChIJQWMg1g4sdTERWClz4W9-H60",
+    "rating": 4.4,
+    "reference": "CmRSAAAAVeXULgpAyu83DhxftkRZEwP6-ZYtyu78rVqs8hE4WPkVM-AQtAj2yK13wOAxbFxX9ZV85Wcq2Gr39366pdPaPxnjVDnQzyiE8GgC3Gxi4f2BdeQviAhkICySHB5NhVXfEhC3xmUc3AsGd9-j3An3jBm1GhRQOQx4lJwCddDr2Wm_lU-OAQOgoA",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "58 Kênh Nước Đen"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8788971,
+        "lng": 106.7532871
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8802460802915,
+          "lng": 106.7546360802915
+        },
+        "southwest": {
+          "lat": 10.8775481197085,
+          "lng": 106.7519381197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "245a92aa8f1f8a67fc0612560bc55583c7654e2f",
+    "name": "BAI XE NGUYEN KHANG",
+    "place_id": "ChIJMWeiVHHYdDERSYYfcWNaKVc",
+    "reference": "CmRRAAAAawGts_b2MD9g2uj2Upmbc1IZkqSm-IxFeDNXrrgVbb_35FaEeuXHwM5AnpHzolbBESAAQkQ5-pnNzcNFwKsAecKH50_Ad_5APnOPV0kgJz_7mxNHkEnPJlw12Yij5l-LEhDTRtF0B6rphQvlmr0OM6uoGhTSoLK23a9wYL00DrnvfDfB-G4mBw",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "An Bình"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.744775,
+        "lng": 106.665353
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7457856302915,
+          "lng": 106.6667618302915
+        },
+        "southwest": {
+          "lat": 10.7430876697085,
+          "lng": 106.6640638697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "940742755332eab2c41c4b4958670f5717d23193",
+    "name": "Trung tâm đồ cũ sài gòn",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "place_id": "ChIJJcvYd1cudTERXqRP5QDjTdI",
+    "reference": "CmRSAAAAQAoVfHFGA9RIPjEIf700egb5YE8YlabR4IHHv8JcDW6vfHUgKRnWhlkJ1aUYz57pzsTgpXKMpU9RubAFz-2Ffnw4VHveLUSYFEFYxGTd8BQW88v-8HzEVv76flunzNauEhA7NJe1kncKDlIOiYwFQ7gAGhRSD0th6joNj0GDPgRlL-G1BOyfJQ",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "400 Đường Nguyễn Duy, Phường 9"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7654709,
+        "lng": 106.6184537
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7668198802915,
+          "lng": 106.6198026802915
+        },
+        "southwest": {
+          "lat": 10.7641219197085,
+          "lng": 106.6171047197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "86a87b0052b2ec5f26226472dd559446373f0752",
+    "name": "Gara Sửa Xe My",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 2160,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/115262764888190793505/photos\"\u003eLoc Hoang kim\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAALEtyDkKeYrZtBPIZc4q2t57hAzy8Nlryq7nEQ1eiUjHsXaAtW1yG1RShw85gqaVxGf6vTbTR1onMCbs-LH5f9Afjy_Bfl99tovkr4_3DzEQSQWfTcQykqnR4oy4JJcXXEhA40b94LRPuja8myqaeGh5RGhQFORqHWMq6OgOvtV9Rt7dKNEvQuw",
+        "width": 3840
+      }
+    ],
+    "place_id": "ChIJr8gKvCQsdTEReiKZ4zBTY-0",
+    "rating": 5,
+    "reference": "CmRSAAAAR4dNXTHsuS-TG3wVf2jFQWUoIVbpdrkWQyLQD6FxpQZWxOsZfqnGEVT0cjyVIt3xN4ztAYxljnezvlXMwVfeMu7fgpwX5XxIwW9JUWPucx2IdrslQuQV67f2MI2Mzud1EhCRzTAxv2ghnCkI6eKu0Cp2GhRg02qGDsMfvMgESk4bJ829hrj9SA",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "445/76 Tân Hòa Đông, Bình Trị Đông"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8630084,
+        "lng": 106.6484728
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8641257802915,
+          "lng": 106.6496459802915
+        },
+        "southwest": {
+          "lat": 10.8614278197085,
+          "lng": 106.6469480197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "fd0c65eb7f4ef93cf34f8861bc67905e67ff4874",
+    "name": "Bãi đỗ xe MM Mega Market Hiệp Phú",
+    "photos": [
+      {
+        "height": 1058,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/102871705228957536531/photos\"\u003eNguyen Quoc Chuong\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAbkDJOv_KtyM9UxQQRk2YFJUzES_BLocAuNjE-3H7Fgrt653hX5PMBc8n0AVdRbqWL-1wS-KzvBk-1NaQgs0Jr7Z7RLLb7m5VFPH3HTer7H6g9aaLXQ3yup5xLhO7-6mxEhC5eIWHNyPrkXZZy-uJWsbUGhSqqAc31K2gXNEo21VTF3ZDimrtWA",
+        "width": 1411
+      }
+    ],
+    "place_id": "ChIJCfrvY-kpdTERGueT6QOxqxg",
+    "rating": 4.4,
+    "reference": "CmRRAAAAP1vsg2VkoRGPdSnrxEfm8pfHZCgzJBrdZRjOCehcRx0OKJVz8nI5l1_g4y-hf06NV5tHyPC0q1Y-eRlRVMoT675KlRqff-DPHkbAN1NRX3rRvoG05lgv5xOLm-1VI0mYEhCdO3Yf7oBOyhZATexVX88JGhQVkvsGKLGBCkNju-pG6VYSt-_i7g",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "3/3d Tân Thới Hiệp 7, Hiệp Thành"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7783538,
+        "lng": 106.7020753
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7798763302915,
+          "lng": 106.7032243802915
+        },
+        "southwest": {
+          "lat": 10.7771783697085,
+          "lng": 106.7005264197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "8074e8d46ebaaed63fcff27cae3ef9674d211aec",
+    "name": "Hầm xe Vincom",
+    "photos": [
+      {
+        "height": 3004,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/108560942924143558054/photos\"\u003eDuy Nguyen Danh\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAkkLYn2-uIj3HzXCh9my4wlb98Wn1OX6CqCnHVum5DFWj9iQLMAOc4z-5yPsgHf4Z1NMjRIAa2mDtlEUhRKOW9E4xkFjxcc1KbXcXn5-eZQXG9pjm1riyZGw8IBHh_mgdEhCfuj_IydmeSAM9e_wF7jmkGhThKCiX_8K8z-a3nOKUF2OBo79fwg",
+        "width": 5325
+      }
+    ],
+    "place_id": "ChIJcdOVeUgvdTERgmez6MudRKA",
+    "rating": 4,
+    "reference": "CmRSAAAAmCH4BJCdPXEijV2EwGiJbMvA3S30taDE8g7f4uKLyiwEsQWSTZKVEWHw2ifMwnfzh60iBysxTA6_UF8-15ymz9QGS2rapXUVMQI97omTRPTYxH_lIWok3bXldMFu1lXJEhBNIMG2sw-PGwV2Ram277anGhQThoBCNzszmK4wWd3JT8tDwLBUDg",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "Lý Tự Trọng, Bến Nghé"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.821181,
+        "lng": 106.687476
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8224495802915,
+          "lng": 106.6888986802915
+        },
+        "southwest": {
+          "lat": 10.8197516197085,
+          "lng": 106.6862007197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "c8c36001e5be10943745f1fabf5ef8fe43e33e73",
+    "name": "Bãi giữ xe tự phát",
+    "place_id": "ChIJDwNjXeUodTERucoaNh4YfAM",
+    "rating": 3,
+    "reference": "CmRRAAAAHKLgJmUJbYLjWiQL6QZkzqLtx8s0x4Vk8IN3gRX2KhQ1ug8VIx4hKzC3Vr-zA2GQKnLSeVsb3OaA8hzCIy_cy4cTn5vWVLMqOHPln8TnnmGgFty5uevObIiEZS_iMmWjEhApiu8tV79rZNmZmt7IYWNKGhRLUNZ6oKj6BPCXsMk1_F2KtVlw-w",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "6&8 Lê Lợi, Phường 4"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8203667,
+        "lng": 106.6865513
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8216774802915,
+          "lng": 106.6879335302915
+        },
+        "southwest": {
+          "lat": 10.8189795197085,
+          "lng": 106.6852355697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "f7e0cbc7fa496226af2d71223dd389dfa2fc7f01",
+    "name": "Bãi giữ xe Leng Keng quán",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "place_id": "ChIJoYjYDOUodTERr65BRHr9fn4",
+    "rating": 4,
+    "reference": "CmRRAAAABcqAzWqlDRcSaItCfSgO4c8lwQyBE85GBLZ1eaR-NToctiZLlwgyuAK94-KazC3hSdKpN_0T-2fTKB6z6a2YYRAsxcT1FExR8mxJVyug5hvArobZz4OwbLgWY_S4rB2cEhBTrZbes7geT_Q-vHk7MjqkGhTbbrA4YPZZUw3kVc3_fX0ou11NSQ",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "66 Lê Lợi, Phường 4"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8383969,
+        "lng": 106.678154
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8397942302915,
+          "lng": 106.6794934302915
+        },
+        "southwest": {
+          "lat": 10.8370962697085,
+          "lng": 106.6767954697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "75fa9aa71f286cdb6068ab76c8b9fa178192e1dc",
+    "name": "Bai Tap Lai Xe VINHEMPIC",
+    "place_id": "ChIJJ-9TkVQodTER6yU-g3Wwfok",
+    "reference": "CmRSAAAAgvbC5mAxZUVRf0PhEr2YaKBlw4n5_i-ZnX4nub2t-CiSu_v-fShfCy-vmnPKN1OA4HvawOirHfGKz2LLAfMSYLUe5L-On9rOvkgwS5LGUWXZMgLIbcnYgAuUWM12s5gxEhDJ-V_BOpjMpGIAh75ILO-FGhRLBNEaIpAcODunZujgjaSxKimS_w",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "Hẻm 82-84 Nguyễn Văn Lương, Phường 17"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8153945,
+        "lng": 106.6863887
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8167576302915,
+          "lng": 106.6877650302915
+        },
+        "southwest": {
+          "lat": 10.8140596697085,
+          "lng": 106.6850670697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "c6d510183c9e94d4887a1458b4fff99a03d07a35",
+    "name": "Bãi Giữ Xe Ô Tô Tín Triệu",
+    "place_id": "ChIJ4YUsR-YodTERDUNeBejvEm8",
+    "rating": 2.3,
+    "reference": "CmRRAAAAaJxPlvcCZ64T2E22VfQOsZDIpc7oEkLZp5DCaSBs2jAQy2i9_3iNfLXXirqXsoqjyRZnuBuWRQ6egTd4Wy0yVNSr18h4FJ_m2iuCg53fweLcI7DLSv7_1TGbewo7epUXEhBldqgoaq79q4meuMkunIwqGhS1sl07ZQA7TCVgQFco8hHBcnmBCA",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "88 Trần Bình Trọng"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8150921,
+        "lng": 106.6865916
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8164410802915,
+          "lng": 106.6879405802915
+        },
+        "southwest": {
+          "lat": 10.8137431197085,
+          "lng": 106.6852426197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "81a07db6168f2a3f73af68b049854266ab9bfd55",
+    "name": "Bãi Xe Sang Hồng",
+    "place_id": "ChIJ4Rn-R-YodTERgEdiM6Xptcs",
+    "reference": "CmRSAAAA4FDiNhKClNQ4s3TER0RviYzz4_e18Vt0rGFNcfQkn7V1ru5cdpG99QcBHd4ZwHQm1S8MXqtv8_ldY8OdzdsGOpbuiliA7MRbupNUE53kEIkZLlVWfdIF_YUtcYdfKJa5EhD4R2_-NlY01x6xbbX2fQirGhQ2xGLT-BCz4Tvv893OExtNyQ6LIA",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "69, TRần Bình Trọng, Phường 1, Quận Gò Vấp, Thành Phố Hồ Chí Minh, Phường 1"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8117116,
+        "lng": 106.6783779
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8130605802915,
+          "lng": 106.6797268802915
+        },
+        "southwest": {
+          "lat": 10.8103626197085,
+          "lng": 106.6770289197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "1199f96e037ec965760d91e84419ff8594e5b71b",
+    "name": "Dịch Vụ Giữ Xe Trần Ngọc Toàn",
+    "place_id": "ChIJGXxH2t8odTERG6oLgeHErXM",
+    "rating": 4,
+    "reference": "CmRRAAAAG7dD4N6TipTS4m7Me-BPhgrFJHbSsL2LgXLOkA3YaypAwbZRfDSfFrPO8W5dmiV4cc9iTuMs-8n5AiV_9Z5YydZkCBukiQOWQhDeECTrWfRE0N9rbY5t-iacPRCeEA6UEhCSNeNJ9fDYctheUPWSXfTrGhRgAoPijucvGhPDt5PBo5vqhEv1gQ",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "776, Đường Nguyễn Kiệm, Phường 4, Quận Phú Nhuận, Thành Phố Hồ Chí Minh, Phường 3"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8160682,
+        "lng": 106.6963397
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8174600302915,
+          "lng": 106.6976681302915
+        },
+        "southwest": {
+          "lat": 10.8147620697085,
+          "lng": 106.6949701697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "dceb578fa8a3e634dfe6f6b468891891cc027ad7",
+    "name": "Bãi đỗ xe",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 4160,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/102965275990813829622/photos\"\u003eLe Van Nhan\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAA1iWZn25-99Wbkgplb4Br6zezfhynLJimVszOF5obOQV7U4hslmUukIWMBFkrNe8Fva_X7-W_gS3myUgebQt5bbdRq9EVqr-1jerKK2y0N3SMcuweOYpbtvs6WPRFD768EhCzRwbWcIG0Ww-GABU06A_3GhSqWGaj7jhFM8_ZLRuLMdHmGn0_jA",
+        "width": 3120
+      }
+    ],
+    "place_id": "ChIJAVwGhesodTERvJWaJTMDEFg",
+    "rating": 4,
+    "reference": "CmRRAAAAYHMAd_cHUDVfm21NOGFXWFll4-zve-n-knj1DKlcIyf7HK3Wemgdet5T3Qydj07RybeoIGGnxejm1cZG-0g9g3L0W8AwKWyl3N1qCUqfjnjn5RnVHJWDGO733aYi7EErEhCxk9UqqMS7MVbbdVb-9t3EGhRUFj_6RNtg8n3vsWO2jsBqwdDKgA",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "23 Trần Quý Cáp, Phường 11"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8405411,
+        "lng": 106.669744
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8419454302915,
+          "lng": 106.6710729302915
+        },
+        "southwest": {
+          "lat": 10.8392474697085,
+          "lng": 106.6683749697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "7567b9f14e4a3eac37b4fd846a032df458789344",
+    "name": "Bãi giữ xe ô tô Nguyễn Văn Lượng",
+    "place_id": "ChIJsYc-pa4pdTERsYEAyH0c9RA",
+    "reference": "CmRRAAAAJjd89KcW3Gok0P8xYqh0Z2hteAjvo8StTr1zyXxUS7u3dJMM55LaFQuW5yYpXpHlwUzlQ0zX3SLDzh_rXtDGCNo3P5wHB5tMQXjuuI61WbVyndxRghOp7ZJHL34BqicAEhBTRu562tS6MlPqg80ovSb4GhRkfhdoqF-TXNjDl-IobyLeFwoscg",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "93 Đường số 11, Phường 16"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8149512,
+        "lng": 106.6699166
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8163001802915,
+          "lng": 106.6712655802915
+        },
+        "southwest": {
+          "lat": 10.8136022197085,
+          "lng": 106.6685676197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "ea3e43ce13c1d9a83f9b04d481b2599483424311",
+    "name": "Phi Công Trẻ Garage",
+    "place_id": "ChIJUT5f0RgpdTERiMYeshaQYW8",
+    "rating": 4,
+    "reference": "CmRRAAAAPgEZTu4KCc9aj6N-crPqOXwJo2is-xvyD6Ogo4chJu6L08vvVR7w7MoiS0v9M7SEQEFpMrLB-zaOI0w2i6iROhecvmssprrkrX4e5rYIXnUv98miYl7bOqwXOpOf6M7CEhA35KdaV0MiUR4l_Cm6dSXuGhQ2rnyoUFaCoJn3o45tfG6smK7frw",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "114D Bạch Đằng, Phường 2, Tân Bình Phường 2 Tân Bình Hồ Chí Minh, Vietnam, Phường 2"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.813327,
+        "lng": 106.6970633
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8146796302915,
+          "lng": 106.6984076802915
+        },
+        "southwest": {
+          "lat": 10.8119816697085,
+          "lng": 106.6957097197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "625da259977e97b9f56f2baae23dff26ebd7139f",
+    "name": "Tân Hiệp Phát Nơ Trang Long",
+    "place_id": "ChIJe5D3-OoodTERwkHMKL87L10",
+    "reference": "CmRRAAAAEtKeaZOvREHBcexpJdM69OqRUrqLL4oNQGT39SA5NpOUFf5TyPyVFNXimkbo1Lm4TudW1s6fDNjLxOhDvU_IZzZymvTGZLt5cgPnfxx2H1hi4TUMt9ivMIknRQWAcvFKEhBOic1wd7SyUd2oQGIEgn6TGhSLYKE7391IULmB3_rPSqT7ktapyw",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "167A Nơ Trang Long, Phường 11"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8088419,
+        "lng": 106.6769188
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8101908802915,
+          "lng": 106.6782677802915
+        },
+        "southwest": {
+          "lat": 10.8074929197085,
+          "lng": 106.6755698197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "7fe39b4f0128c094174982b427b7fb89beab4334",
+    "name": "Bãi Giữ Xe 24/24",
+    "place_id": "ChIJKTzJet8odTERZ6lUMhueWo0",
+    "rating": 3,
+    "reference": "CmRSAAAADv6iQwPDyQ3YhqwAuElYFqLbTg3l6b1Nqb56ErzLzUF3eW-DkATvIEfT7WIkQ0f51uN1OysU6JIA_X651Iym8qpM7L5CRYT87psqv_x_PFu7emfF6qvbieQUkBrDB1g8EhAaI0LfeFna7wAIXV7dY2ogGhS72RVkIOgkESpNVLL0ByF7m0avGg",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "553 Nguyễn Kiệm, Phường 9"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8284132,
+        "lng": 106.7046174
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8298799302915,
+          "lng": 106.7066178802915
+        },
+        "southwest": {
+          "lat": 10.8271819697085,
+          "lng": 106.7039199197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "7935d4f473c6aab7a015c97846adba32bd8410d3",
+    "name": "Bãi giữ xe Tân Hoàn Cầu III",
+    "photos": [
+      {
+        "height": 2988,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/117188440644323513031/photos\"\u003ehoancau tan\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAMz6_l2EyGtv9aCZHEuE3SJXqYixL3y6X24pVK405dkhnlBjkAD3AOSDpvt5FR_h5ElPFICgz99E5hMtQUXV4eo7s4gbpqVrZlVH7L1GtLqTsfjDpJNtMbNut-BAmQ9bxEhAtEysfJBLB2RGA0oxg17AwGhSwOJ1Ad6YVOAGFkCWd2k-ivzR-dg",
+        "width": 5312
+      }
+    ],
+    "place_id": "ChIJ_VvjwYsodTEREbDpBGJHx_o",
+    "rating": 2.5,
+    "reference": "CmRSAAAAOOFdlQrEikeBjADMDDfkMWe5_OY4y2dq9XFBMgjJ1STRFFReecAJZOA48KhCLk47oZx1uSIDuE-DLJqqjUpUGoa102GvTus67T-Dh-9HRpkMVa4s309QnpRP0jOlFQihEhBOX8u5GVZDTmVC2HFOkOADGhRqXJ8i7-sg7lJOtC6sMTsl191X4g",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "phía sau), 463 Bình Lợi, Phường 13"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8284235,
+        "lng": 106.7046911
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8297724802915,
+          "lng": 106.7060400802915
+        },
+        "southwest": {
+          "lat": 10.8270745197085,
+          "lng": 106.7033421197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "bad1aa1823f2a79840fff21b214541e14ea88ffb",
+    "name": "Bãi giữ xe TÂN HOÀN CẦU III",
+    "place_id": "ChIJwYIEwosodTERXkHdzLAqkiQ",
+    "rating": 5,
+    "reference": "CmRRAAAAEKRyYLO9Jh4mgZGMTFuFSDbv17uiLtoaO0ajdDaK6iVqRpuR6tY2niU28QH87v43fqD860iaYXVh75sSMaZqdC8DcLf_pdK5CgvY-RZ20h8b9QaHoTeBq2Zy3tWNuxH-EhArMENiuOJ2MBmiX7rogxBUGhRZDeKHzXnRtEo27qaL8tTGhFTfFg",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "Hẻm 118 Đường Trục, Phường 13"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8241753,
+        "lng": 106.7044584
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8255242802915,
+          "lng": 106.7058073802915
+        },
+        "southwest": {
+          "lat": 10.8228263197085,
+          "lng": 106.7031094197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "fe21e74740b4d17be476085122d6544fd4928053",
+    "name": "Bãi Giữ Xe Hưng Thành An",
+    "place_id": "ChIJkYX7yo0odTERXIz1ibC29kU",
+    "reference": "CmRRAAAAz77H9BFJDUcdlCBeyhgldKYI5YRdJhCl_q4J-pwN65wpI7a42FdbiJvsjBWLdkpGKN3WBX9EU7hJsJwF3eRwW4e9UuYVmpqh8AJa47bUc78lRuTFfwvjLrxXKziSdeAtEhAiISdQZEGsDNeMyv7l3spCGhQn5FkUiTzHtsHS5Y42vI3aVU7puw",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "Phường 13"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8397727,
+        "lng": 106.6661653
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8411216802915,
+          "lng": 106.6675142802915
+        },
+        "southwest": {
+          "lat": 10.8384237197085,
+          "lng": 106.6648163197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "6c9a825310c781b10b5b5cdac7fe2c7aa372201a",
+    "name": "Bãi Giữ xe Gò Vấp",
+    "place_id": "ChIJ_-jMy6gpdTERN_lpnx0-bAo",
+    "rating": 5,
+    "reference": "CmRRAAAAsihOU6BO3idxMhocVM6N6qxPy1UF4sg5euPnGerd_TS5fK7bPTPlxIZIfX85YTetU1HynDmVDo8SQrp_-DX2AAjDzgvMA7CYONTxGJl3gmRd4yQEocow5DetKfaJVYbMEhAHJ-nyQk_6uujY2tcKCRQGGhRQu9Wm_1d_hpyvuYVrNaljFBen2A",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "Đường số 11, Phường 16"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8457029,
+        "lng": 106.6715293
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8470511302915,
+          "lng": 106.6728774302915
+        },
+        "southwest": {
+          "lat": 10.8443531697085,
+          "lng": 106.6701794697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "6a9ac115d533c2f1b40fbaad19c0459815173f64",
+    "name": "Gara Đỗ Xe Trung Phú Thành Tài",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "place_id": "ChIJ2RYsDLIpdTERt2ck27QQQv0",
+    "reference": "CmRSAAAA5n9qW-9THtoyjug3RFSYUE972iF3nrCNawbLxTIaWA9Vih1kjnnOqmN_JsESRpI_psYx0n3l9PYRNksGIyWzZpuX7xSxuLIxTKK-uWEca4Ywt50VyLlVj8zX5uKGdkamEhBUeVb0moRyYKSHxrnYkJ4PGhSFB1pRj9yZlz4KsLTJRjE6HDMhpw",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "212 Lê Đức Thọ, Phường 15"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.824167,
+        "lng": 106.7058009
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8255159802915,
+          "lng": 106.7071498802915
+        },
+        "southwest": {
+          "lat": 10.8228180197085,
+          "lng": 106.7044519197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "a0702f8fda6f059c4abae48830418a890704157c",
+    "name": "Bãi Giữ Xe Rửa Xe Vip",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "place_id": "ChIJzyTuzo0odTERvmOp01GCyAM",
+    "reference": "CmRRAAAAm22mSM8hJPwkZ-wnG2GCB0wBJQyUlGDyRaqMNDXGqvFq3mvIjoPSqcmU_jGdblrx5YYb8O71M9GUdwJuf-xE6S3kX4tHhiufQG95WPzIG6BUS2g2Qj4cqtvcjkdKfLVKEhAQHezBgxYL9cH1sim6CHW9GhTp3695dgtkNC-niZLhQBT4-X_i7g",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "477/37, Phạm Văn Đồng, Phường 13, Quận Bình Thạnh, Thành Phố Hồ Chí Minh, Phường 13"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8065814,
+        "lng": 106.6781473
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8079303802915,
+          "lng": 106.6794962802915
+        },
+        "southwest": {
+          "lat": 10.8052324197085,
+          "lng": 106.6767983197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "ef5668c7080c1d73b57b5a83c93c3b5805a5b47d",
+    "name": "Dịch Vụ Giữ Xe Vương Quang Hào",
+    "place_id": "ChIJz-CczNgodTERMPvleeyFUZU",
+    "rating": 4,
+    "reference": "CmRSAAAAH4YR_01TVLdAbEr_rdvjR0zE5idUJgg_nkPyNrBVB6XNsGs1BZ1Mb76ufJvdwpu6IXBbNI51xae6WXUOk3bQULZD3LS-G_hyTubmRXwVD59rk6PJ0jprdvn4XU6uHw_1EhCyg-2kAyaSbEBA91j7eGwAGhTGlI3pidxdxHi5He4mPdbkbNNBzA",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "12/12, Đường Đào Duy Anh, Phường 9, Quận Phú Nhuận, Thành Phố Hồ Chí Minh, Phường 9"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8488196,
+        "lng": 106.673888
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8501550802915,
+          "lng": 106.6752487802915
+        },
+        "southwest": {
+          "lat": 10.8474571197085,
+          "lng": 106.6725508197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "f2ef6969f82c393c3abf95c5265444df4b7b4ae5",
+    "name": "đồng diều Lý Tự Trọng",
+    "photos": [
+      {
+        "height": 2592,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/107306947387133896900/photos\"\u003eTrọng Quỳnh Nguyễn\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAA9JFpPutC0j4mDnnG4H3FDmW55LAwTC1diafhTcdmP15fPzYUU2TZrpmZtDw67pheRDA8Xix5eF4cEuACfQ_efZg3FZ3qPaLHM_PsX4rrTXXV_4q6ElxLV-OMtZtRTU2zEhD_4gCEADXU3aIdW2gxRJPcGhSAt74Rs0suh1gnlngrLE4oaC9t_Q",
+        "width": 4608
+      }
+    ],
+    "place_id": "ChIJs0iADrMpdTER-dGjyt8xGoU",
+    "reference": "CmRSAAAAYyBmciVuTpoqulCVW0kRRgcrTtRGfLRTr0DRnmMgASayfkyNlkIs1O3LH0JwbYs6LZntWcAkMMSAqrfZiQx4Ie7YK7u0_UbQyFXBsRq5MAcHwCxu48AzcbUNNqv6bK5wEhCmswcOFwx4ctlSGePPEnRcGhRSIe52Q8YSaGdAIb59EHxLJkQkcQ",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "Hẻm 688, Phường 15"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.81813,
+        "lng": 106.705
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8194789802915,
+          "lng": 106.7063489802915
+        },
+        "southwest": {
+          "lat": 10.8167810197085,
+          "lng": 106.7036510197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "16b3b9135590f39e6f7e4795b373fe53fbbc92ae",
+    "name": "Công Ty TNHH YSA",
+    "place_id": "ChIJxeZQxZModTERvqdnjdLRmTg",
+    "reference": "CmRRAAAADkYmSqHm4u0KyoXBG1niuKSbxWHwNuUnOUpuEsP-usF0bsuXneobmjkMr3sYDlp6AdEuDvwLul0PPbXkPCZagrR6Z20PJk07h7T8DydDrtW-FGm_bCdFSsLl9jpWfsVAEhDBfu04AGrVpx5grIK1bI3XGhTJOYvukW6TqRsOMbE4LkeJmPC83g",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "412/76, Nguyễn Xí, Phường 26, Quận Bình Thạnh, Thành Phố Hồ Chí Minh, Thành Phố Hồ Chí Minh, Phường 13"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8114607,
+        "lng": 106.6659747
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8128096802915,
+          "lng": 106.6673236802915
+        },
+        "southwest": {
+          "lat": 10.8101117197085,
+          "lng": 106.6646257197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "61bf0ec6e95e8959b97e33e49d2c45503e83ceb9",
+    "name": "Nhà Gởi Xe Moto Sân Bay Tân Sơn Nhát",
+    "photos": [
+      {
+        "height": 3264,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/102735738255273203508/photos\"\u003eĐỨC TỊNH\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAABDfe7qKrLSCeVduKm0iwcfh2Rd1PEs5heQUxE9uD23ZFVvUCLRo0YRkp8is71KmZQHmLQ1swrm3tQolUKhpNiRxY7a1lBBEm8dFVO_BzLnkfj-EOEpO3Y-Gbb06-4ewpEhAwuyqvlnSLbJu_6ymiPAmXGhQnFcdoUgPxtOv3W2Qn6WexzH7XiA",
+        "width": 2448
+      }
+    ],
+    "place_id": "ChIJv1ZQ5RcpdTER-HyjrEWqarc",
+    "rating": 4,
+    "reference": "CmRSAAAAkzsNnP1qNSF-0pc_LQJ834IAvFQiBtT6-KkOOZUVAFo52amrts7W6kffA5wt_b7s2qw1jGBaccWMBLnL4_Rx1VbxBjgw1cA4QvPMbcdZhLXN2UyVuRDiSBqMiu7elBLSEhAIOptLtYU4CUEahr2PeM1ZGhRRaKG9gn_iK-wmJ4CX3t3hPGWucg",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "Phường 2"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.813336,
+        "lng": 106.663693
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8146849802915,
+          "lng": 106.6650419802915
+        },
+        "southwest": {
+          "lat": 10.8119870197085,
+          "lng": 106.6623440197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "a55a04f998400196c68a1c9832b2a82c271b289b",
+    "name": "TCP Park",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 3840,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/113619553258048539238/photos\"\u003eTCP Park\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAuWxp_aOkuefjK9IgImLMoskJp-YyvpHei4wEQLxmkUFExhoN2EW-mhAbgNPjxLCdIPRnDA9Pjxxoyigtp3bPrW-nDOjsUgGfwO6kP6pgOe9HF2PYkT8ir5ooCTA5aepYEhA21mnn7daMRobPZmc71z6PGhRCq7u89Eg3ia4fd91u56hlPHcNHA",
+        "width": 5760
+      }
+    ],
+    "place_id": "ChIJMbI1-xcpdTEREDpzG93Zd9k",
+    "rating": 4.8,
+    "reference": "CmRSAAAAIv_YIqZ25q8k6yo3QW0hx3zEolIjkP58f8mv5RaxTJAqkNYrrItQq5h6CEFy1NgOv8rVFu0dU7fKGeoyD5b3SJtX2VOF53NOArXaqR1RrBKXgKQOd6I7dg-Eo5cWwfP5EhAYoklT3eH7KZZfzLf_jYx9GhREGlJgQR4NtE39tOs48t32mu3RSA",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "Nhà ga Quốc nội, Cảng hàng không quốc tế Tân Sơn Nhất, Phường 2, Phường 2"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8134409,
+        "lng": 106.6634378
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8147898802915,
+          "lng": 106.6647867802915
+        },
+        "southwest": {
+          "lat": 10.8120919197085,
+          "lng": 106.6620888197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "a49ad1d549607498c69a5af9e390ff48081bd2f0",
+    "name": "TSN Airport Bike Parking",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 2340,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/118406785832505738214/photos\"\u003eHuynh Thanh Tuan Anh\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAArVAKIiUUWxbxUT68Qt6vJF1U-gOjRZWPQxwi9rVQg32vgoBOSvCpqJBI8Y7Vwf2Ntiv6DmI6NP2QriM0QkqHDAC8hZHeNkyw2LThaS-GRmmxBYwKuGIG1qWqgiNan-KyEhDBqd4m5YeUr6Hm8COq67GNGhQIoC0vRZxhiVla4fVP4lue0M2Eug",
+        "width": 4160
+      }
+    ],
+    "place_id": "ChIJtaDqVT0pdTERMZFy8WWZvnw",
+    "rating": 3.6,
+    "reference": "CmRRAAAAvY-AIsjYEv-W5Rvn_rgNOZs19yMJmBlnPBLRWyH7K7hai78-Z0Yp4lptuMCJRsFVWT1hAwVJ78ysPy99LodEU4BWQduMKhwa-lc1UT2gpJfcsjzkH8UZgKDkmIpgk-y-EhBj7pIn1vVow5Wo7Q_u1aFZGhS6s_cPlDZ3AE0uiITozYuWo-EjkA",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "Phường 2"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8134987,
+        "lng": 106.662766
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8148476802915,
+          "lng": 106.6641149802915
+        },
+        "southwest": {
+          "lat": 10.8121497197085,
+          "lng": 106.6614170197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "aead675cbc5131bfd42e0a8eb7fe2ffbe0366685",
+    "name": "TSN Parking compound",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/113999238786313631449/photos\"\u003eQuang Huy Nguyễn\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAA_Alk_jxxtzcu0_FKNhadCRTrMDOzi_qKPg3pleDWrGvFRQoDsR8lzDF4kgG_SHMqBs2_9hJeyUV9SoYqlbAdQYZamRIXGwsHoPIBoD-2mVBwrDeAd_sQrVHW0vBWKEocEhACAWgjj0gBY6Kim9h8Ol5YGhTrznt3GHitvCPadMtVaweWBvcP2w",
+        "width": 3024
+      }
+    ],
+    "place_id": "ChIJ7-Ne3BcpdTERukFamhsrPyU",
+    "rating": 3,
+    "reference": "CmRRAAAACgZ2jFogVvYsnaNArpt8Xx1laipt38kr7iUa2Dub4Iq5QnpeMxAz8CsZotWj0H7F_vVtkmYGh3PkPf4LNomEG39sqkAAvA9FcICCPe1hZVWxpxyEQovwZ9agw3nPULz1EhDcz4sHl6Fi-ORrgz_r2AtGGhR8rbBFgWBwiMIJvIZMcT00HVZZ-A",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "Phường 2"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8152229,
+        "lng": 106.6614532
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8164260802915,
+          "lng": 106.66386025
+        },
+        "southwest": {
+          "lat": 10.8137281197085,
+          "lng": 106.66065085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "dcc3ff5a6b1274f9c597ee6eadff2a60cbc48923",
+    "name": "Bãi đỗ",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 3264,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/106182773729630127119/photos\"\u003eRoberto Ferigolli\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAs1rjhCZmAfdaJLGP6EQc5UISp1aa_K3zvSdLFgXwWwNNyfEpkaH1ZaEgHFWiH5zooEWFylhDpsXAF9FbTAVWOivxL90iMY2iOQ_-TKOYHvQOe34pNDyEsPyOKTr4f5ubEhCgH7HacB1QP5x00FiQ-BfwGhQ9iILQWwiM_emjEi8k9Tjwfcztlg",
+        "width": 2448
+      }
+    ],
+    "place_id": "ChIJNYnpUhYpdTERxPuaZGtsp_s",
+    "rating": 4.2,
+    "reference": "CmRSAAAAvpsg5ep3UYax0iFvmgtYp_BKeTdKDHEYLMPGq0wccpAHWH5EvHd0Z0OIkAcIX6eMgnsHiuxFTkzNRlX_FsmE3IjVWzR2iYSGMSQf9o2FXKy9bgqvBkdTJQ37QOGkcOUpEhB94g2gJIHAogPbkEv5ING_GhTbbsDc73iyiHwnJTDZSZtv4EYFTQ",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "Arrival Loop, Phường 4"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8053576,
+        "lng": 106.6959921
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8068065802915,
+          "lng": 106.6973213302915
+        },
+        "southwest": {
+          "lat": 10.8041086197085,
+          "lng": 106.6946233697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "6897b79d4a4908f545467f042592868deb8445ee",
+    "name": "Bãi Giữ Xe",
+    "place_id": "ChIJv-2kzcYodTER-VgVPA4Ul2E",
+    "reference": "CmRRAAAAQWoRV3RKg62dgIqlgf79XejjXpGey2HLwOkbPWy0nBEOWKQUdHaYQA5RO9eNtmPGmTerKNpQbg1dSh5v0enOfohEjvy7xskZYbM1gvVVVcmGpG4LRtc4WW47UDPpGePsEhBFjw5E1j2jKND1umoOp_3zGhTxM4KlvvvXnoz0zeW2QjYWGiQ6YQ",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "14/11 Nguyễn Huy Lượng, Phường 14"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.808589,
+        "lng": 106.7010534
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8099926302915,
+          "lng": 106.7024040302915
+        },
+        "southwest": {
+          "lat": 10.8072946697085,
+          "lng": 106.6997060697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "3d641bac1a908b09bb2f6ac05e99edfb3f9cebd7",
+    "name": "Bãi giữ xe ô tô ngày đêm 24/7",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "place_id": "ChIJLwRqmb8odTERzi_rKH2cwMI",
+    "reference": "CmRSAAAArGX2MyEu4tqwqJAr4lSOoWT0qtQXYDFr6jctU-p6heCNgdafbJPdD5Gx9qX1VUk2kxUkQhqCp3RVD5OwdhAIlNjnQ88LBtykI3GfAT1KGIRJGMSnq79RzS3qhbGEC0mNEhArXiIayJhCY_EsSg6wgTfyGhRZ7oC_37Mtzo-k1ALhag79mdg3Vw",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "62a Ngô Đức Kế"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.854099,
+        "lng": 106.6782315
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8554479802915,
+          "lng": 106.6795804802915
+        },
+        "southwest": {
+          "lat": 10.8527500197085,
+          "lng": 106.6768825197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "483991a9029acf930c61480d35f64ec7ff152790",
+    "name": "Garage Ôtô Công Đức",
+    "photos": [
+      {
+        "height": 2988,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/102939081194044738617/photos\"\u003eQuang Tran Vu\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAA8BJPCwzCCw3Jaz8Aw3lygXKmwBHb-pyT2LDIn8uHn7K-wnfA7zQkh8kdCQy5SNs8u_A-2ZBkEoFrX1-62GpC5aNljOwwI1KUBhYWBaX3bEiz2t3mpjiQNOeyAud_CloVEhC8_pey6thZYjC_TwHN1ZTyGhSqUobBRHX7Lq63umZhxcMYp42IOA",
+        "width": 5312
+      }
+    ],
+    "place_id": "ChIJB-E97EoodTERdKKbtoj5uFk",
+    "rating": 3.5,
+    "reference": "CmRRAAAAHY8KsaUq_i97YvYqLjbMfqq2_f7FGJyikS4MLYaLKwIrrWPgvSkEhJd35orJwFGAKMuaIiuSE5P7HxfuurcjwF5dyHG5P69f6Dm-GXiWHfMrt3Dyy3AhaHc_rL2i8rPJEhBRCAfI0vC843o17JxwSzwvGhRdu8T3v967T-BeE04Q1XW_lzulBg",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "184 Hà Huy Giáp, Thạnh Lộc"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8063311,
+        "lng": 106.668195
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8076642802915,
+          "lng": 106.6695882302915
+        },
+        "southwest": {
+          "lat": 10.8049663197085,
+          "lng": 106.6668902697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "74dbfb2ce6db26ec1365e206ca3e75e3b6d2c039",
+    "name": "Gara Xe Michelin",
+    "place_id": "ChIJu6NhbyQpdTERwY3atGlI2nI",
+    "rating": 5,
+    "reference": "CmRRAAAAUDfmvFNxlLYocmFefQRVW7c1SQmm3003dBjzxdocw-udvFYgdjn49I_xLmW_u_0ABHF0C3L5VdU-IacYF4sBphhXfhkvyBnKErh897PMcjR4BldsBEyzUzzmHQ6epHUOEhClCjFUDb8Zs5MovNIBvoU_GhR4qgUY3GfkXewLWp_Tmi9gzhKRhA",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "Hẻm 66 Phổ Quang, Phường 2"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8436762,
+        "lng": 106.6616464
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8450459802915,
+          "lng": 106.6631563302915
+        },
+        "southwest": {
+          "lat": 10.8423480197085,
+          "lng": 106.6604583697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "6b2264faa8f640fee9f00e0281b78d27997fa1a5",
+    "name": "Gara Ô tô Hai Tấn",
+    "photos": [
+      {
+        "height": 702,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/108990868342461950599/photos\"\u003eThi Bùi\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAaCsL3NpD6nnEcl4xRBz3s-VVABXrQnd9n91ubUXXMMO4wgY3M1M3WlzsiUJX34rPtB7Yn0PYOmWroxkNjT9xGgJbeKoZcdO8f7b23cB9LU4ZI4yo9c-kJ5lUgqjpHc3eEhAQVZNSmoYE7RS35OPUmE33GhRZuDXlhpswEMaTwSym5lrL5QIsiQ",
+        "width": 960
+      }
+    ],
+    "place_id": "ChIJgSHIAqUpdTER1trJEOq0U2M",
+    "rating": 2.8,
+    "reference": "CmRRAAAATnPzJ_0IOqKaCH3ERK6T0NaSN-Gyl--jc2ZajhNa_C0-BP6XmaWLxG7oGsmhoFOxI3aHtdMErbNtI4m45VDw3I_9qvSw4RxnR39RD03S6qjyVciDsvlGciSnSmO9lWWjEhDwRY4Wm8HQK9ZweilwYlzBGhRZcasaN-oLZm-Fypx9uKupxMpPTQ",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "20, 117/2 Đường số 8, Phường 11"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8544693,
+        "lng": 106.6792007
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8558088802915,
+          "lng": 106.6806126302915
+        },
+        "southwest": {
+          "lat": 10.8531109197085,
+          "lng": 106.6779146697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "96aef2a35a4954179ebfa9e39184cea3590a014a",
+    "name": "Ô tô Bình Đan Phát (Tuấn Thanh Tùng)",
+    "place_id": "ChIJ4VtjikoodTERUBPtAOXOf3I",
+    "rating": 5,
+    "reference": "CmRRAAAA-PcPxlDSHK5Xmw9UyHul7CbPS5yShKzrYnsCE66OJcP_GShJ-dT173eQQAKiMXr32ZL57xZn3dwH5EZc8VPtuGKWyaaTsmzz-_5yWG8RrjPG6EKa111gQQafTfZDU41vEhCbQyj50xAsWqd_V1yu0MKRGhRDi6Xxrgb9Fk7U4HyIR3_WEz_4fQ",
+    "scope": "GOOGLE",
+    "types": [
+      "parking",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "54 Hà Huy Giáp, Thạnh Lộc"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.76739,
+        "lng": 106.696872
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7687689302915,
+          "lng": 106.6981211302915
+        },
+        "southwest": {
+          "lat": 10.7660709697085,
+          "lng": 106.6954231697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "40d46399d9ff8f27caca3a8d51841f6d1c7a3a36",
+    "name": "Bệnh viện Tai Mũi Họng Sài Gòn",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 1536,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/115104980557034098383/photos\"\u003eHai Long Hoang\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAqfp2PxFLl4P2FDaND6iRNs10krifG2wriVeDnmr1XpOHLY_zU5ZOEQUSoN892ikqGX1IuraMiNmYyhRRZgLR1FbUCKCMS4oTHYNJDl8A1Mlv7g1Tmwqfqs3GYpeq3BdDEhCtEXSyFh0SdimAblgK6QgNGhQBj8JRGECmNgm9r2uO2vY2WUbiqw",
+        "width": 2048
+      }
+    ],
+    "place_id": "ChIJifuj1T8vdTERBohoHDXzPOI",
+    "rating": 3.9,
+    "reference": "CmRSAAAA9JuaIOoASLDDLH4MbC_urayxMfJaVC4qilfLR5jaZFIIFabIG9cjt4jbPPTEnVeXeM8JMePFaopiW8RSPbkKrR6rMAJOZmAyXsfvQpbAEf8WrDSJhPQ8NDvXat2NEuaJEhCmt-i4uLNG38bnpqWjIyBTGhT9SdQC0kQjW3dDZ53GIave9oJ-_w",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "1 Trịnh Văn Cấn, Phường Cầu Ông Lãnh"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.797504,
+        "lng": 106.671343
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7990015302915,
+          "lng": 106.6728545302915
+        },
+        "southwest": {
+          "lat": 10.7963035697085,
+          "lng": 106.6701565697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "8d073016e84ac097a5d39ada8c482f1a2a2e24fb",
+    "name": "Viện Y dược học dân tộc Thành phố Hồ Chí Minh",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 540,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/110334963104471852803/photos\"\u003eViện Y dược học dân tộc Thành phố Hồ Chí Minh\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAALrRE3fy9mtd6LSFYwojFrgO5WVCIEYfiNmqOLiXRMFmOeMoKe7EbWvdUT0fDBzqny8A1C_jTXbYJHhh3p9Gj4JDXGIvq0Bcb8T6BQUKpSvwvCdaUuw9v8Tba-Fn5q6dnEhD-7qI1l1ElYvv9vMi4KkH2GhSlPWYuGchph8boga9JgjOi9m9lKg",
+        "width": 960
+      }
+    ],
+    "place_id": "ChIJDagOPCkpdTERU_OVnL-RCdY",
+    "rating": 4.3,
+    "reference": "CmRSAAAAwGpCcnMqlFrtXT8TBo-igKsBGLNzWkry4BDIbBerFIYOqrD8VjE-mIb7SaiMRorelPEVtD1f07vdubH5bgD3JvqrAXsC-Teyi75lxg7fx9kUlQXVrqi5hS_FAisTN_ePEhDRmiTmwDEUczpi5QxGRfrjGhThdUvvcMeq_WlImwQ1J3JWM0Rt4g",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "273 Nguyễn Văn Trỗi, Phường 10"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7578734,
+        "lng": 106.660513
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7594054302915,
+          "lng": 106.6619249802915
+        },
+        "southwest": {
+          "lat": 10.75670746970849,
+          "lng": 106.6592270197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "c84cbc992799e12d1e88fd1c236a78f57ae617ad",
+    "name": "Bệnh viện Răng Hàm Mặt Trung ương (Thành phố Hồ Chí Minh)",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/111519493792675677490/photos\"\u003eQUANG PHU QUOC\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAApxudz7Vvhg8wmygPSdfiQ0W91Bzh8RE87qIp2VB0iFJssSOPMN4DJO6QvnQx6JUAMXw6xfUbhVKt0nfc2upzxetR7OXDF7-qQIm0S-T8w3sKTuysoXUCPV_WW9EgP7LGEhBlH3JyzFuOvAE5JiXG-8QWGhTfxbe4SOoKTLRCyL6RJWdMuED0Vg",
+        "width": 3024
+      }
+    ],
+    "place_id": "ChIJM8U52vEudTERWPVz1MZDV90",
+    "rating": 3.7,
+    "reference": "CmRSAAAATh-NlVdkDxcwUmhubABx16a3vCAUi97dW8lN2_YLM0kCv56fGOBevr8JTiWOJeUaxOhiLtns0HQcpQqWuCSBt9xuQNJzZdAcUUBgC_KjV8bhZ6VUNh2R6TyTi7HD_CfqEhChunTA4N9WNjubNwCWoafzGhR2qhWfc1tEtz-ETN33Tk2yT0VlMA",
+    "scope": "GOOGLE",
+    "types": [
+      "beauty_salon",
+      "dentist",
+      "hospital",
+      "doctor",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "201A Nguyễn Chí Thanh, Phường 12"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7919967,
+        "lng": 106.6771842
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7933141302915,
+          "lng": 106.6785514802915
+        },
+        "southwest": {
+          "lat": 10.7906161697085,
+          "lng": 106.6758535197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "f5b050bfa4f19f20a735c962bd5121ac45b5b864",
+    "name": "Trạm Y Tế Phường 12 Quận Phú Nhuận",
+    "place_id": "ChIJHZTCaNUodTER8STAsAr5_x8",
+    "reference": "CmRRAAAAJMQFZowLk7vaL84u3vuS4uhsX8FgCelCLkkUcc1vsKp2k1XOKV4oT6rg8Q7OTnYziVpXPXLkOqnPixD_9D_rwikPMYY8WHsYIDMxZB1bhv3ea1MJ8XFNeA9lMDNveuaGEhBwIdGgjZIbwV6uVXSTO1qPGhQjXn9_aWpko9gLGjhMsd3ah-GRSg",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "225 Huỳnh Văn Bánh"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7570385,
+        "lng": 106.6597305
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7588751802915,
+          "lng": 106.6609910802915
+        },
+        "southwest": {
+          "lat": 10.7561772197085,
+          "lng": 106.6582931197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "59b51d27a7cc4711255a3dbb1201854ff85a2341",
+    "name": "Bịnh viện Chợ Rẫy",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 371,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/101229873700523481250/photos\"\u003eMèo Ngốc\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAA6VSoUh2pBMis1IWLqNP-XIJlrq15wsop1vOFKYTfrwJhqB8oqZmPrVnzOdEsOV-a-qkDAm77uTux8uzL4z74JB8zeRygnc5UNN7YyddYyRtnkmonqLkdQ8hsKn1znpbdEhBejLYK-pkgehDIiIGJSwVRGhRqWcigr5jDW-AgVaG3C9RmAApupw",
+        "width": 660
+      }
+    ],
+    "place_id": "ChIJ1_fr7_EudTERWAqRuFPOFJA",
+    "rating": 4,
+    "reference": "CmRSAAAAf77vq2-6X4wUHgprrTRC1LDJsjvIzN-AkkVWeKnl3eer-TmxMuaE9LF_uKmYblW8wtLUWeAdjWK5-8Xd9uhvJGZP_ckF3uJZdS46iMSqyis_3DkZI6SN5shrWH6qh7UFEhB-FOTmv0wQqgAh8_qPwmqBGhQS1P6ts21xF6xQHng7FG840vOyqw",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "BV Chợ Rẫy"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7768014,
+        "lng": 106.6869485
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7779471302915,
+          "lng": 106.6880911302915
+        },
+        "southwest": {
+          "lat": 10.7752491697085,
+          "lng": 106.6853931697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "38b096356d673981b67f60bb6e161ed459775d71",
+    "name": "Bệnh viện Da liễu Tp Hồ Chí Minh",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 1080,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/116567212006902850602/photos\"\u003eOach Travel\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAALsHltSUtAn46IGqHp2MUZbP10pZ9YGsPhdCBOwaQSG7_IBoh5GIJyjpaWwJwUmiRTEl1HKM5lTwoscXD-s3w3LTO6eK2lwHbATTM3tjITO7kWK48Oeq6RUPCzSksln4hEhCZgLzsQlyIt9P03TqEj-CoGhTiqH_zwkjzddGXSsAu7spEqZWa7A",
+        "width": 1920
+      }
+    ],
+    "place_id": "ChIJQzfzHyUvdTERuyCQaRYr4xM",
+    "rating": 3.7,
+    "reference": "CmRRAAAAXOadP_5QFmIhrKe-pirfJrtALQt0R7TGUSIIDYMXmoyOhsaO1QWVFHCRbkyL4NkJsPGZC9fSi2j2JHrJCHoFmCpqONqtSzcAp0-x5libyV9rUaeIEDhYCUR4CLJB6OnfEhAKQ1sKlrunG4QiHegHQPrGGhRrV5IACYEK6uGsCExRwF5cbrQNIA",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "2 Nguyễn Thông"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7815242,
+        "lng": 106.7026387
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.78498935,
+          "lng": 106.7042142
+        },
+        "southwest": {
+          "lat": 10.77809635,
+          "lng": 106.7004922
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "fcb17ff4024aa6568a8b2e49e90335ef7604340f",
+    "name": "Bệnh viện Nhi Đồng 2",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 2448,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/114508535546419017601/photos\"\u003eTong Do Tien\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAsukyTU2sNlvKSr82uwlbaoZxUxFNh9I3bhBBzjRWEuH88CSPvxygGVnCHPAjeSSK-fMuiwVcq8iU9U9M1tj0ltU68kcc5bQecgr0JFr211XZX7ddWGYMcv4tAP0-O6MrEhBro6xlh6ZabaJbtW5T5T4hGhQ8RwPBefPpW9BANRKpfY1yfmUcbw",
+        "width": 3264
+      }
+    ],
+    "place_id": "ChIJB0QTqEkvdTERpAKg4ETIOos",
+    "rating": 4,
+    "reference": "CmRSAAAAQc9uYM5Mgg4Yt2eqcSbhpeYhGOSJ-Vv647qFVH1kNxDnPW8_Py73mLRNRMP-_7fChLXDUHGQCM0nfUBqDAVLBt634noyqXhNYanavdzTU5W0AfC-AfxTgZEJ64TBGAHZEhC0ugFR-VjEeriCBSLHrG2GGhQHj6allFkMprrlxb4UntsH11EWtw",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "14 Lý Tự Trọng, Bến Nghé"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7843705,
+        "lng": 106.6840455
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7857931302915,
+          "lng": 106.6854367802915
+        },
+        "southwest": {
+          "lat": 10.7830951697085,
+          "lng": 106.6827388197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "2a14cc4c173da489a470b9108229d531039aa98b",
+    "name": "Bệnh viện Tai Mũi Họng Thành Phố Hồ Chí Minh",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 2988,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/116672363966761297232/photos\"\u003eSơn Nguyễn Minh\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAApTYYRR1aBSISPGup6eVJl-KXdgKWFKtSm3StmOkYrhARsEKCiYsnmISt78iid-WJfXITzYHCbi62bgCIIldd5Weghmqc2nxzAz64YPxTRGXHMyLVWXO394bnANHGm-NAEhBPWK43CwteoddfCkMNkfULGhSPnwsanhJkEDNNL4-qRWJZNYWBzw",
+        "width": 5312
+      }
+    ],
+    "place_id": "ChIJazoXICwvdTER0OBg-I63dYU",
+    "rating": 3.5,
+    "reference": "CmRSAAAA11NVHKA1loBnliukCMWX5QwkYQW96YKrbc12QK-GFp_UnbZ3fZfflhRP0hj0UTJnf0TYeLPToOJT-b-P49UO0PrGaqBJXyHZsGUnTVHESobYMAnDA2i0Tp-X8yLcp3SyEhDyXhmFlrbmKtNcyTnQ4IQUGhRN0tr0Dz2sxJWyDrJG5VckVsIExQ",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "doctor",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "155B Trần Quốc Thảo, Phường 9"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7744283,
+        "lng": 106.6662819
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7756742,
+          "lng": 106.66934975
+        },
+        "southwest": {
+          "lat": 10.7729278,
+          "lng": 106.66313795
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "0d73bbeccca9f92a1ad14d76e0bdb47fd2fa4c0c",
+    "name": "Bệnh viện Nhân Dân 115",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 3024,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/116981176499772562232/photos\"\u003eVinh Tran quoc\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAQQjPl2j-aWg4vEsitUR1Xjd-_VyE7szor8jVavoN_1W78M86WGvy9gCqF5CXl3k3oBIy9VOOs1TtRNH1Z6648BmTXRpcTIwTgWx-VUQ1lG_hg-rAUMRVw7_POPnvopK3EhC8G4nHDQvyqUDKkDKZUpYmGhQLMI4JHR7JOPM_FID5THuiT5plsw",
+        "width": 4032
+      }
+    ],
+    "place_id": "ChIJ9wf5nNwudTERGKS75vgAyoc",
+    "rating": 3.8,
+    "reference": "CmRSAAAAWMyAtIU6y3V0dqyiufkT3dZTqmV1uV-W51HLsZno4ROViGSImGaYdpPagvf4PEYsoSYZghoV01a0A4lAfJF7O-Jw4zsFsv6BSr86aUmv__O7NmHzlDJrA1gofFmFSjqCEhAAw4ejYmUs7J5dP6QtX137GhTmbnUOSYuvrTe0JFGBMlFc0G4k5A",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "527 Sư Vạn Hạnh, Phường 12"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.8540899,
+        "lng": 106.7542368
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8554066302915,
+          "lng": 106.7555916302915
+        },
+        "southwest": {
+          "lat": 10.8527086697085,
+          "lng": 106.7528936697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "b89e1a15534856a8c0333f4778b4e4bddfc51b5e",
+    "name": "Trạm Y tế phường Linh Tây",
+    "photos": [
+      {
+        "height": 3096,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/116340722397159323815/photos\"\u003eNash Lo\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAA2bEgyKhNglrkUJKKWLvUhTakNiUTyAmPspgPbP8Vdq1Tk-uGBJquR3V0gGWdpV5XnB8cwSOvSdYM27Dt-czlYsKp6jUpfLD4zFeCHMdNJa2e9c_vID5GNfyN7vJqfUDAEhBpMAcJ4zTlE5n09WIqbFfsGhQtV25j_4fNTRMxABdKKNv8JgpE6A",
+        "width": 4128
+      }
+    ],
+    "place_id": "ChIJ62HhYJYndTER5bCra_PgFHI",
+    "rating": 4.2,
+    "reference": "CmRRAAAAYhp8sn4dzeD8G4Atv5ziIXjA6eRqpYQGLHCyISdUYZ5X1gU8olOlleUjQTzfocgmSdhyGtLsYZBl5loo4_ppw9SEckVmX1gEAi4-4mQq2GB215YGhuzgMFwYyLQA9l6VEhA1q1Dm-fLF07ziMGvjrTp1GhQzHuXkVNr1jZAp_zj9Dei2Q_RXSA",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "23 Đường Nguyễn Văn Lịch"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7658858,
+        "lng": 106.693319
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7672286302915,
+          "lng": 106.6946756802915
+        },
+        "southwest": {
+          "lat": 10.7645306697085,
+          "lng": 106.6919777197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "b7475a35c28c36c1fdef4e51f010cb7dbaa7f40c",
+    "name": "Thẩm mỹ viện AVIDA",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 675,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/105844531627092910810/photos\"\u003eThẩm mỹ viện AVIDA\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAd6tlctNudCoBtpLQyjF1u5PzkwjzJ-TNdlvvGIXBcHSWeiMghLamBP-JbfPzO8ww7aTRMPSz1lcGaLHNgyb0eipF25C9sVxm2nTnbXKyOHiBIyYZQBG-gbckz4Ht54dpEhBsdp6g-bk9YciGzzD8B4AOGhTtm0NjubjUAHgATVkZtVSjmFLoNQ",
+        "width": 1193
+      }
+    ],
+    "place_id": "ChIJRxbTcRYvdTEREbQvymK5i9A",
+    "rating": 4.4,
+    "reference": "CmRSAAAAzh8EqlSaC8_YcrGX0p3nesCVWuerT3UMqdPCITOwSgMWIJHpAsZeWe0lD7ydAe7kbtX8kVLqn_Y5vQ1YSfyULAZeoFFI3q5MlOZDFKp929IZJ0V5bdVRVvE6lJZvaUdhEhCrjbR1if-ckTNEvWJJc57mGhQIw06LDBT1IyoPQtY_tZwtJE0qWg",
+    "scope": "GOOGLE",
+    "types": [
+      "beauty_salon",
+      "hospital",
+      "doctor",
+      "store",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "106 Đường Trần Hưng Đạo, Phường Phạm Ngũ Lão"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7685603,
+        "lng": 106.6701589
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7699788802915,
+          "lng": 106.67244105
+        },
+        "southwest": {
+          "lat": 10.7672809197085,
+          "lng": 106.66844165
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "9e403a154879185151a101dd7f36d72c16f01adb",
+    "name": "Bệnh viện Nhi Đồng 1",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 2988,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/101894365731879551986/photos\"\u003eBao Nguyen Nguyen Tran\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAV2ZA_2csYrUn7DniQstJI_r6ClwsdIrsslfbdJ1e4yXY7DaYkexhol_CltMQCj_PrxSyg_WKPeIXYPFRoaCeo3s2_Sk3cvumQchOBHUXnJKQnGShyW9VOn7Jmkyhl_rEEhAqc5f99_CLSrjAC_oY8Tk4GhTqhk4VkkT4NVLvc0pe5DcBjDnJQQ",
+        "width": 5312
+      }
+    ],
+    "place_id": "ChIJ8RrVGt4udTER6IGFV0rDIAU",
+    "rating": 4,
+    "reference": "CmRRAAAAtXFpEEB0ZY71XOqf3yRvBSRXwAoi48oCMvpXqvfQn9IN5XfhEY2CfSbWrqFdMF6WOf_2pQdEx7TOSHjDuoYVOpdMujSDemZzou7SfHEAb7T3tSw1GOzmKju5YczAcaEaEhDrCPRlsayFdmF7EBBHDc5FGhQURdKY_ooK77fnGvVRkKZNGKMXdA",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "341 Sư Vạn Hạnh, Phường 10"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7635921,
+        "lng": 106.6918415
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7651855802915,
+          "lng": 106.6930939302915
+        },
+        "southwest": {
+          "lat": 10.7624876197085,
+          "lng": 106.6903959697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "cafec064c2fc05f29218c2bca26e7d0a046ca62d",
+    "name": "Bệnh viện Răng Hàm Mặt Tp. HCM",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 1150,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/101493865766707585554/photos\"\u003eBệnh viện Răng Hàm Mặt Tp. HCM\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAWGZHNw5kmV5WHw-uIa3kYLgoDFGM7yVUvfmClsAtr333hyOznD1nKq58r_xkYouxsUZUjc8iDbRSjtXSOiiD7EUsgNRSzF0Cf2GIdmTmQHLxsbfcTRJPLiLdVMOQA2JuEhDjp_Khz6h8oDg5KKLsEFF7GhTqS7udsjBWrFqfJd_IgUOOQWM78w",
+        "width": 2048
+      }
+    ],
+    "place_id": "ChIJe1zY5xYvdTERCu7JEruNQTw",
+    "rating": 3.8,
+    "reference": "CmRRAAAA1CFmJq0UrsXpwB971V1ob85SKnDjdY5HrpfeHK9q2_A9Md6J9AXtB9cBBZR9PUsxbhtTSKfvw18BWyn4efKQwyOR3fThBWKLt7PGfTLwuFbTlqIfq34gPl6ccsR4B6bYEhDy5_cvKYExH4Hp39sxyWljGhQaT1gCkejC_oci2PGDyQ6VlZzDCg",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "263-265 Đường Trần Hưng Đạo, Phường Cô Giang"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7913464,
+        "lng": 106.6534322
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7933519,
+          "lng": 106.65540525
+        },
+        "southwest": {
+          "lat": 10.7892323,
+          "lng": 106.65162345
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "b2005ba2c3ef6976586f921c38876e3f755ef3ad",
+    "name": "Bệnh viện Thống Nhất",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 3024,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/110179233797160190202/photos\"\u003eTran Do Duy Quang\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAA58hXVX6vst2eDHnErywWZSjC1_PIxc6JDxvBTP6knUEotUSvNDmA0QthAFB-n8ju_MyCDtX6UInuYAZWlWdmGAwzFAW_SkVPPr6uc9MWfecYRm5q07vS6_rEoJFo9EzwEhBHQNDRT7vftNWTI_Kn6d_8GhQHeCtGABroxMmXa9JcRJx1J_jmxg",
+        "width": 4032
+      }
+    ],
+    "place_id": "ChIJKbEmq8oudTERHKoGJK1mPmo",
+    "rating": 3.7,
+    "reference": "CmRRAAAAUzJaJigwP9_QDvP1eFa3v_nlXzn61BPhyyDgLmby435TLvPqeGUga3kgq6pxC_2zxEqlYz9oPJKYHd_IVYS0Hge9idTYwdrgpjfkwzjswXgcaO5Yr-fkvLlwZIxCd7MQEhAwY2cGcsSvjDx4zaHZCzklGhTHHa9O8UTSuakR-gt4ZIcYZMdfJw",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "1 Lý Thường Kiệt, Phường 7"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.761512,
+        "lng": 106.6607
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7628550302915,
+          "lng": 106.6620260802915
+        },
+        "southwest": {
+          "lat": 10.7601570697085,
+          "lng": 106.6593281197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "2aea7a302a85188aa3f109d28cd33a2bd46dc2a3",
+    "name": "Nha Khoa Thẩm Mỹ Châu Á",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 3000,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/117919717628466169319/photos\"\u003eCuc Bui\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAADvZoEY49prwqr1db3HmdgXW9_BBYN9y9rQpCDLXy6YUUC6UEFtc0VrDvJCBrlhvqFhBcw6kYaHSPawuG685EZS1SdUTgGF78bLMpnuRSqIjy84QatJOOE7OMZWAZ28r9EhA7jVFg4mkBKaU7R4uMYRjlGhTkHkpiq1qDpsxijZE2GWh5Lr05Qw",
+        "width": 4000
+      }
+    ],
+    "place_id": "ChIJV8bzV-4udTERYIvTe8C-aBg",
+    "rating": 4.9,
+    "reference": "CmRRAAAAj840z8Y0wtLUL1ifzFMIT0IZZRHYtH7atlChddPYxegGpbfsLXiPhPwDz0a2y562pFENi4YX-v3rXQ8LVTI0Dq5juWjv0bBfFUfVT2TvlgEtgvnra7RvGv9wp4z8IIfVEhCzhENyeG1pHed3W-svYw5PGhRH8jfuWz2n7lqWRrCiRTR99bFtgA",
+    "scope": "GOOGLE",
+    "types": [
+      "dentist",
+      "hospital",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "116 Lý Thường Kiệt, Phường 7"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.757373,
+        "lng": 106.67815
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7587219802915,
+          "lng": 106.6794989802915
+        },
+        "southwest": {
+          "lat": 10.7560240197085,
+          "lng": 106.6768010197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "bdd6e9815ad4e7d00ca29477ae94bbca613f1f13",
+    "name": "PHÒNG KHÁM ĐA KHOA MỸ TÙNG",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 2048,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/115008925487294541423/photos\"\u003ePHÒNG KHÁM ĐA KHOA MỸ TÙNG\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAzPA-OJpupsTq-LpkD95m8sMVp-YoEG6YHQOGPNnClrzZcp1dsP0YZPw80TRevSMU0ve6W1szqR2zJLwYwVJQVKkke42TZra5h0kEF0ZHKkUJHfvu4mGVGSdS7H3823mwEhDPokN71oIEAKRoX0um3gGVGhSGAL_B9YVyLLi7d2hpTvnhzLiQDg",
+        "width": 1467
+      }
+    ],
+    "place_id": "ChIJ3aPRNB0vdTERpEGDBVVEBAY",
+    "rating": 5,
+    "reference": "CmRRAAAAcqeP1tpCLQwLc_-gJj6Xus7tKu8Qxz3YkvQdKjDA4FGQ4X1tKQKeYMCWeUittqrxDwjdhfRXLnNGaPTxy5nrVFpNRwdRI2p8UWEbomx2T_S3aTlY9Iq2mgBP7F1sGO-nEhDiwBOhlVpjFdAbFfDa4f6DGhSYGxB1qxT4BaAoftoTDMMFAEuaqw",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "doctor",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "142, LÊ HỒNG PHONG, P3, 5"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7591033,
+        "lng": 106.6730315
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7607215,
+          "lng": 106.6746597302915
+        },
+        "southwest": {
+          "lat": 10.7579299,
+          "lng": 106.6719617697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "e7faa742f8c950bcda48fbbb3efe51d60a8f9bc7",
+    "name": "Bệnh viện Công an 30/4",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 387,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/103008413632408144361/photos\"\u003eNam Viet Machinery\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAv1HKipnA7N8FesIE7MI4VIHJho_dLD1aIEKbiGJhMn7conjGyzLQF9JmWe1d8xFUCBXBecFn2X3Pag2fJQua07gV0Dq2bJfLB1_51K32Da4j9GzwrSjw1KDgHKH22nHaEhCtpIq0xxwuXTIA_-rAvlubGhT07Uhl9A0UxiclYy84emZAxNDREg",
+        "width": 540
+      }
+    ],
+    "place_id": "ChIJh7mlJuMudTERypwNPF9ciQI",
+    "rating": 4.2,
+    "reference": "CmRRAAAAKzkAaV7fZRQ1dS8DQbtlswap9OzEM77zBTO97iHixTwXE1QIURavksnYWMnoYWAY9tmdgWWuix77r9axCUwFUMth4WVoRSNrjkwBSjhYWJGd9PNb1fMIXG50-Wfj_oX7EhCpprWXYbHRJpNX5ZelWg6NGhSSNhbwE9hZnFUif8POTQtwz6fZGw",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "9 Sư Vạn Hạnh, Phường 9"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7528588,
+        "lng": 106.6785529
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7538974802915,
+          "lng": 106.680922
+        },
+        "southwest": {
+          "lat": 10.7511995197085,
+          "lng": 106.67649
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "1a5b420fe20476ad0a55661d1ba25ab2a5c08972",
+    "name": "Bệnh viện Bệnh Nhiệt đới",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 551,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/101321808385952242268/photos\"\u003eHospital for Tropical Diseases\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAA3jXVFyU_ggsv6m2RGtSh4YEqx3nvgybUTmDAqfzJwvt1ai1-7FdxV0CGBtFAiIIfZixkPg2H_GytsYyQ9qgyupqUgCG_iXGKLfk5GJsh6X7KY_XzHKpg9GmBGtobxnjEEhBcm9p__ok4gbPrc72VCHk-GhSkhGHUdl1gdzONi8CeVnGIPCJavA",
+        "width": 960
+      }
+    ],
+    "place_id": "ChIJtyvehgEvdTERVJzqi4krOQE",
+    "rating": 4.1,
+    "reference": "CmRRAAAAAbWRb37oa9kK3fuHfdeYcqQYPAS5xLU3j_GUv4eJKlzNa-fz0t31Ppa3CQeNLtLUFG9H2OKGC27s2pODADFkA-whYvlGvCXlc2Igrp3oDKLDNXnRvMmP7aI9vgxVt6ywEhBCHlcUn8FL767-a5TiYnhCGhSlbX9PbnDcFiT-Gr-2wKWEj64N9A",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "764 Đường Võ Văn Kiệt, Phường 1"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7555904,
+        "lng": 106.6701775
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.7565411302915,
+          "lng": 106.6712740802915
+        },
+        "southwest": {
+          "lat": 10.7538431697085,
+          "lng": 106.6685761197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/doctor-71.png",
+    "id": "09989d58c06d3ba57ba2870e42bc1a88457bf724",
+    "name": "Bệnh viện Nguyễn Tri Phương",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 2202,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/109509403333209164512/photos\"\u003eTung Huynh\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAaopKdc0vw4tpvwVLdpZM_yPX9Tf1a886KRXbSF5JyK_OFpE7zgVY0RLchjSd6Z5TkzIqK_YiTqbm_MeUzp7hebTaCEhIlVSOjr-unBbVwQVkcUmRhKo-r9g7AfrDV29LEhBxY7C2zGVHSdvrtTgzdiwTGhRvpgJQABB6v2s5uM3kBHyAWajVKg",
+        "width": 3124
+      }
+    ],
+    "place_id": "ChIJvwHebf0udTERlRZ19irsWAQ",
+    "rating": 3.8,
+    "reference": "CmRRAAAAsgxeaF2ZxZT_hTJ3rJL2xaZ5F2YgMUHvUrVOKDaEiCxJXyYQWHox1oDwQOSElLuN6DJ9TlcZ6y9ii6v0z9uJvYfQqzgrNioQoKQ1AerRbNT6lIufqymWZtYP3b6pATbXEhAxkVDT7bI9ZP8vtY30yR_fGhRw7XG2fBXkvgtW19C456HeyZQgEw",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "468 Nguyễn Trãi"
+  },
+  {
+    "geometry": {
+      "location": {
+        "lat": 10.7997299,
+        "lng": 106.6673626
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 10.8012659802915,
+          "lng": 106.6688794302915
+        },
+        "southwest": {
+          "lat": 10.7985680197085,
+          "lng": 106.6661814697085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+    "id": "08b9c3c33dbc356f9d825be76500d87317eadf10",
+    "name": "Bệnh viện Phụ sản MêKông",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": [
+
+      ]
+    },
+    "photos": [
+      {
+        "height": 3024,
+        "html_attributions": [
+          "\u003ca href=\"https://maps.google.com/maps/contrib/111510073812492093288/photos\"\u003eHà Tâm Trần\u003c/a\u003e"
+        ],
+        "photo_reference": "CmRaAAAAPfxtQPYpn8B4fnKQNs5ZLhSvNycQcOsEA41-_gjjzOOm2flUNlTEXplbveRjioo3p3CiQGxOW-rFCMyb0pMfKsb-lKCSC5KuXdt8AmnFeU5DpsaOGtnu8BQ0uSHEyM9GEhCfYq0bCygUZgAA5gRlCmnyGhS6u5zbod5Vb-flbwe_0eQezUFezQ",
+        "width": 4032
+      }
+    ],
+    "place_id": "ChIJB-cqpy8pdTERm6nF11U6Ph0",
+    "rating": 4.2,
+    "reference": "CmRRAAAAa3foaSlZJqBXD8Ofzzgpen05WuQKQJsy0rP3EOdHVhCr0iTXX2Zd41wyO7ztRfAgWhwk39IAxzE5025IMyk0kHbdEHs4qug2OXvS6awrp2rRzn7h2s7k_9MXVxpugoyIEhBJGxBp8aGMJHVgzVXxg1HkGhSDrtjmP4p6YFrswP9r2d1SRMy6sQ",
+    "scope": "GOOGLE",
+    "types": [
+      "hospital",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "243 - 243A - 243B Hoàng Văn Thụ, Phường 1"
+  }
+]

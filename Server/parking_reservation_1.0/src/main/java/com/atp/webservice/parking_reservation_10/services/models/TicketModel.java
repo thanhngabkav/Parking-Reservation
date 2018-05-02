@@ -35,6 +35,8 @@ public class TicketModel implements Serializable{
 
     private boolean isPaid;
 
+    private String vehicleTypeName;
+
     public String getId() {
         return id;
     }
@@ -133,6 +135,14 @@ public class TicketModel implements Serializable{
     public TicketModel setTicketTypeModels(List<TicketTypeModel> ticketTypeModels) {
         this.ticketTypeModels = ticketTypeModels;
         return this;
+    }
+
+    public String getVehicleTypeName() {
+        return vehicleTypeName;
+    }
+
+    public void setVehicleTypeName(String vehicleTypeName) {
+        this.vehicleTypeName = vehicleTypeName;
     }
 
     @Override

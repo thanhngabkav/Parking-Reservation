@@ -77,4 +77,19 @@ public class TicketController {
             return new ResponseEntity<TicketModel>(HttpStatus.BAD_REQUEST);
         return new ResponseEntity<TicketModel>(mTicketModel, HttpStatus.OK);
     }
+
+    /**
+     * Get ticket by ID
+     *
+     * @param ticketID
+     * @return
+     */
+    @RequestMapping(value = "/{id}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TicketModel> makeReservation(@PathVariable("id") String ticketID) {
+        TicketModel mTicketModel = ticketService.getTicketById(ticketID);
+        if (mTicketModel == null)
+            return new ResponseEntity<TicketModel>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<TicketModel>(mTicketModel, HttpStatus.OK);
+    }
+
 }

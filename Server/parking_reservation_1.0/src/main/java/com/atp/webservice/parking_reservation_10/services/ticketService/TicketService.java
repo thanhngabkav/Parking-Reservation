@@ -3,6 +3,7 @@ package com.atp.webservice.parking_reservation_10.services.ticketService;
 import com.atp.webservice.parking_reservation_10.entities.Ticket;
 import com.atp.webservice.parking_reservation_10.services.models.TicketModel;
 import com.atp.webservice.parking_reservation_10.services.models.TicketReservationModel;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,5 +41,22 @@ public interface TicketService {
      * @return
      */
     TicketModel updateTicket(TicketModel ticketModel);
+
+    /**
+     * Create QR code content from {@link TicketModel}
+     * @param ticketModel
+     * @return String is QR content
+     */
+    String createQRCodeContent(TicketModel ticketModel) throws JsonProcessingException;
+
+
+    /**
+     * Get ticket by id
+     * @param ticketID
+     * @return
+     */
+    TicketModel getTicketById(String ticketID);
+
+
 
 }
