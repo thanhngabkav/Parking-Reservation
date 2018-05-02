@@ -92,46 +92,46 @@ public class DatabaseInitial {
     public void doImport() {
 
 
-//        logger.info("Importing sample data");
-//
-//        initRoles();
-//
-//        initServices();
-//
-//        try {
-//            initUser();
-//        } catch (NoSuchAlgorithmException e) {
-//            logger.warn("Init Owners fail");
-//            e.printStackTrace();
-//        }
-//        try {
-//            initStation();
-//        } catch (IOException e) {
-//            logger.warn("Init Stations fail");
-//            e.printStackTrace();
-//        }
-//        initVehicleType();
-//
-//        initStationVehicleType();
-//
-//        initVehicle();
-//
-//        initTicketType();
-//
-//        initTicket();
-//
-//
-//        /**
-//         * This code block used to generate more station
-//
-//        for(int i =1;i<=10;i++){
-//            try {
-//                initStation();
-//            } catch (IOException e) {
-//                logger.warn("Init Stations fail");
-//                e.printStackTrace();
-//            }
-//        }*/
+        logger.info("Importing sample data");
+
+        initRoles();
+
+        initServices();
+
+        try {
+            initUser();
+        } catch (NoSuchAlgorithmException e) {
+            logger.warn("Init Owners fail");
+            e.printStackTrace();
+        }
+        try {
+            initStation();
+        } catch (IOException e) {
+            logger.warn("Init Stations fail");
+            e.printStackTrace();
+        }
+        initVehicleType();
+
+        initStationVehicleType();
+
+        initVehicle();
+
+        initTicketType();
+
+        initTicket();
+
+
+        /**
+         * This code block used to generate more station
+
+        for(int i =1;i<=10;i++){
+            try {
+                initStation();
+            } catch (IOException e) {
+                logger.warn("Init Stations fail");
+                e.printStackTrace();
+            }
+        }*/
 
         initParkingDataSet();
 
