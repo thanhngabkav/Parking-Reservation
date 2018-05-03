@@ -12,7 +12,7 @@ import java.util.Objects;
 
 @Component
 @JsonPropertyOrder({ "station_id", "application_id", "close_time", "coordinate", "created_date", "holding_slots", "image_link", "name",
-"open_time", "owner_id", "parking_map_link", "station_id", "status", "total_slots", "used_slots"})
+"open_time", "owner_id", "parking_map_link", "station_id", "status", "total_slots", "used_slots","address","star"})
 public class StationPresenter implements Serializable {
 
     @JsonProperty("station_id")

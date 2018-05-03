@@ -177,7 +177,7 @@ public class DatabaseInitial {
     public void initParkingDataSet() {
         StationRepositoryImp.parkingDataSet = SparkHelper.GetRRDFromTable(TableName.STATION, StationPresenter.class)
                 .select("station_id", "application_id", "close_time", "coordinate", "created_date", "holding_slots", "image_link", "name",
-                        "open_time", "owner_id", "parking_map_link", "station_id", "status", "total_slots", "used_slots");
+                        "open_time", "owner_id", "parking_map_link", "station_id", "status", "total_slots", "used_slots","address","star");
         StationRepositoryImp.parkingDataSet.persist(StorageLevel.MEMORY_ONLY());
         StationRepositoryImp.parkingDataSet.show();
     }
