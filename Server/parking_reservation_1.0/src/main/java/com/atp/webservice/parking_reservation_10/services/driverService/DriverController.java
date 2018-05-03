@@ -45,7 +45,7 @@ public class DriverController {
      * @param result {@link BindingResult}
      * @return
      */
-    @RequestMapping(value = "/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<DriverModel> addNewDriver(@RequestBody DriverModel driverModel, BindingResult result){
         if(result.hasErrors())
             return new ResponseEntity<DriverModel>(HttpStatus.NOT_ACCEPTABLE);

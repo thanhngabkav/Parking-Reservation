@@ -55,4 +55,10 @@ public interface VehicleService {
      * @return
      */
     List<VehicleModel> getPageListVehicleByTypeId(int typeID, int pageNumber);
+
+    /**
+     * Delele vehicle by id
+     * @param id
+     */
+    void deleteVehicle(String id);
 }

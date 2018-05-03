@@ -1,6 +1,7 @@
 package com.atp.webservice.parking_reservation_10.services.driverService.driverServiceImp;
 
 import com.atp.webservice.parking_reservation_10.entities.User;
+import com.atp.webservice.parking_reservation_10.entities.uitls.UserStatus;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.DriverCRUDRepository;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.RoleCRUDRepository;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.UserCRUDRepository;
@@ -50,6 +51,7 @@ public class DriverServiceImp implements DriverService {
             driverEntity.setUserID(UUID.randomUUID().toString());
             driverEntity.setCreatedDate(Timestamp.valueOf(LocalDateTime.now()));
             driverEntity.setPassword(encoder.encode(driverModel.getPassword()));
+            driverEntity.setStatus(UserStatus.ACTIVE);
             return driverConverter.convertFromEntity(driverCRUDRepository.save(driverEntity));
         }
     }

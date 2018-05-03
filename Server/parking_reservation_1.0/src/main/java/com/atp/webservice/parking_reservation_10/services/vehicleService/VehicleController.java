@@ -78,4 +78,15 @@ public class VehicleController {
             return new ResponseEntity<VehicleModel>(HttpStatus.BAD_REQUEST);
         return new ResponseEntity<VehicleModel>(editVehicleModel, HttpStatus.OK);
     }
+
+    /**
+     * Delete new {@link com.atp.webservice.parking_reservation_10.entities.Vehicle}
+     * @param id vehicleId
+     * @return
+     */
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity deleteVehicle(@PathVariable("id") String id){
+      vehicleService.deleteVehicle(id);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }

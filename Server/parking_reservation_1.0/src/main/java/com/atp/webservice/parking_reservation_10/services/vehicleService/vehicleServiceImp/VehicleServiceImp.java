@@ -85,6 +85,11 @@ public class VehicleServiceImp implements VehicleService {
         return vehicleModels;
     }
 
+    @Override
+    public void deleteVehicle(String id) {
+        vehicleCRUDRepository.delete(id);
+    }
+
     /**
      * Convert from {@link com.atp.webservice.parking_reservation_10.entities.Vehicle} to {@link VehicleModel}
      * @param vehicleEntity {@link com.atp.webservice.parking_reservation_10.entities.Vehicle}

@@ -1,5 +1,7 @@
 package com.atp.webservice.parking_reservation_10.services.models;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.Objects;
@@ -22,6 +24,8 @@ public class TicketTypeModel implements Serializable {
     private String name;
 
     private int serviceID;
+
+    private String vehicleTypeName;
 
     public int getTicketTypeID() {
         return ticketTypeID;
@@ -71,6 +75,18 @@ public class TicketTypeModel implements Serializable {
         this.serviceID = serviceID;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getVehicleTypeName() {
+        return vehicleTypeName;
+    }
+
+    public void setVehicleTypeName(String vehicleTypeName) {
+        this.vehicleTypeName = vehicleTypeName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -94,6 +110,7 @@ public class TicketTypeModel implements Serializable {
                 ", holdingTime=" + holdingTime +
                 ", name='" + name + '\'' +
                 ", serviceID=" + serviceID +
+                ", vehicleTypeName='" + vehicleTypeName + '\'' +
                 '}';
     }
 }
