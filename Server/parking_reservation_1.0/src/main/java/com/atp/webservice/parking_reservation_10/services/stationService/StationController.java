@@ -67,6 +67,20 @@ public class StationController {
     }
 
     /**
+     * Add new Station
+     * @param stationModel
+     * @return
+     */
+    @RequestMapping(value = "", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<StationModel> updateStation(@RequestBody StationModel stationModel) {
+        StationModel m_stationModel = stationService.updateStation(stationModel);
+        if (m_stationModel == null)
+            return new ResponseEntity<StationModel>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<StationModel>(m_stationModel, HttpStatus.OK);
+    }
+
+
+    /**
      * Add new images for station
      * @param stationID
      * @param files
@@ -111,7 +125,7 @@ public class StationController {
      * @throws IOException
      */
     @RequestMapping(value = "/{id}/images", method = RequestMethod.GET)
-    public ResponseEntity<List<byte[]>> updateImages(@PathVariable(name = "id") int stationID) throws IOException {
+    public ResponseEntity<List<byte[]>> getImages(@PathVariable(name = "id") int stationID) throws IOException {
         List<byte[]> result = stationService.getAllStationImage(stationID);
         return new ResponseEntity<List<byte[]>>(result, HttpStatus.OK);
     }
