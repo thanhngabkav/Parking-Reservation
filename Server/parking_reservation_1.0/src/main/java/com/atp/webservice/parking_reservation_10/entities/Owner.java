@@ -6,6 +6,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
 
@@ -39,6 +40,9 @@ public class Owner extends User implements Serializable{
     @Column(name = "secret_key")
     @Type(type =  "text")
     private String secretKey;
+
+    @Column(name = "created_time")
+    private Timestamp createdTime;
 
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.PERSIST)
@@ -103,6 +107,15 @@ public class Owner extends User implements Serializable{
 
     public Owner setSecretKey(String secretKey) {
         this.secretKey = secretKey;
+        return this;
+    }
+
+    public Timestamp getCreatedTime() {
+        return createdTime;
+    }
+
+    public Owner setCreatedTime(Timestamp createdTime) {
+        this.createdTime = createdTime;
         return this;
     }
 

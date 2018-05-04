@@ -2,11 +2,14 @@ package com.atp.webservice.parking_reservation_10.services.ticketTypeService;
 
 import com.atp.webservice.parking_reservation_10.entities.StationVehicleType;
 import com.atp.webservice.parking_reservation_10.entities.TicketType;
+import com.atp.webservice.parking_reservation_10.entities.VehicleType;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.StationVehicleTypeCRUDRepository;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.VehicleTypeCRUDRepository;
 import com.atp.webservice.parking_reservation_10.services.models.TicketTypeModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.Scanner;
 
 @Component
 public class TicketTypeConverter {
@@ -30,7 +33,8 @@ public class TicketTypeConverter {
         ticketTypeModel.setStationVehicleTypeID(enTicketType.getStationVehicleTypeID());
         ticketTypeModel.setTicketTypeID(enTicketType.getID());
         StationVehicleType stationVehicleType = stationVehicleTypeCRUDRepository.findOne(enTicketType.getStationVehicleTypeID());
-        ticketTypeModel.setVehicleTypeName(vehicleTypeCRUDRepository.getOne(stationVehicleType.getVehicleTypeId()).getName());
+        VehicleType vehicleType = vehicleTypeCRUDRepository.findOne(stationVehicleType.getVehicleTypeId());
+        ticketTypeModel.setVehicleTypeName(vehicleType.getName());
 
         return  ticketTypeModel;
 

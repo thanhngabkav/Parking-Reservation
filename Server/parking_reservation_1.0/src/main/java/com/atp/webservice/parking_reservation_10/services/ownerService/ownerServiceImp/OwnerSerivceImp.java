@@ -12,10 +12,11 @@ import com.atp.webservice.parking_reservation_10.services.ownerService.OwnerServ
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.NoSuchAlgorithmException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -51,6 +52,7 @@ public class OwnerSerivceImp implements OwnerService {
         owner.setUserID(UUID.randomUUID().toString());
         owner.setStatus(UserStatus.WAITING);
         owner.setPassword(encoder.encode(ownerModel.getPassword()));
+        owner.setCreatedTime(Timestamp.valueOf(LocalDateTime.now()));
         owner.setSecretKey(KeyHelper.genSecretKey());
 
         return ownerConverter.convertFromEntity(ownerCRUDRepository.save(owner));
@@ -59,7 +61,7 @@ public class OwnerSerivceImp implements OwnerService {
     @Override
     public List<OwnerModel> getPageListOwners(int page) {
         PageRequest pageRequest = new PageRequest(page-1, PAGE_SIZE);
-        List<Owner> ownerList = ownerCRUDRepository.findAll(pageRequest).getContent();
+        List<Owner> ownerList = ownerCRUDRepository.findAllByOrderByCreatedTimeDesc(pageRequest);
 
         List<OwnerModel> ownerModelList = new ArrayList<>();
         for(Owner owner : ownerList){

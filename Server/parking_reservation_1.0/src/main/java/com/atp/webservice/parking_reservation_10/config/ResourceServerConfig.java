@@ -16,12 +16,13 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         http.csrf().disable()
                 .anonymous().and()
                 .authorizeRequests()
-                .antMatchers("/api/maps/**").permitAll()
-                .antMatchers("/api/stations/**").hasAnyRole(UserRole.DRIVER_ROLE,UserRole.ADMIN_ROLE, UserRole.OWNER_ROLE )
-                .antMatchers("/api/vehicles/**").hasAnyRole(UserRole.DRIVER_ROLE,UserRole.ADMIN_ROLE)
-                .antMatchers(HttpMethod.POST,"/api/drivers/").permitAll()
-                .antMatchers("/api/drivers/**").hasAnyRole(UserRole.DRIVER_ROLE,UserRole.ADMIN_ROLE)
-                .antMatchers("/api/tickets/**").hasAnyRole(UserRole.DRIVER_ROLE,UserRole.ADMIN_ROLE, UserRole.OWNER_ROLE );
+                .antMatchers("/api/**").permitAll();
+//                .antMatchers("/api/maps/**").permitAll()
+//                .antMatchers("/api/stations/**").hasAnyRole(UserRole.DRIVER_ROLE,UserRole.ADMIN_ROLE, UserRole.OWNER_ROLE )
+//                .antMatchers("/api/vehicles/**").hasAnyRole(UserRole.DRIVER_ROLE,UserRole.ADMIN_ROLE)
+//                .antMatchers(HttpMethod.POST,"/api/drivers/").permitAll()
+//                .antMatchers("/api/drivers/**").hasAnyRole(UserRole.DRIVER_ROLE,UserRole.ADMIN_ROLE)
+//                .antMatchers("/api/tickets/**").hasAnyRole(UserRole.DRIVER_ROLE,UserRole.ADMIN_ROLE, UserRole.OWNER_ROLE );
 
     }
 }

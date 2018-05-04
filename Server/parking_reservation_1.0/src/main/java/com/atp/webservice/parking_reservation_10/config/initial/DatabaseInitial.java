@@ -92,33 +92,33 @@ public class DatabaseInitial {
     public void doImport() {
 
 
-//        logger.info("Importing sample data");
-//
-//        initRoles();
-//
-//        initServices();
-//
-//        try {
-//            initUser();
-//        } catch (NoSuchAlgorithmException e) {
-//            logger.warn("Init Owners fail");
-//            e.printStackTrace();
-//        }
-//        try {
-//            initStation();
-//        } catch (IOException e) {
-//            logger.warn("Init Stations fail");
-//            e.printStackTrace();
-//        }
-//        initVehicleType();
-//
-//        initStationVehicleType();
-//
-//        initVehicle();
-//
-//        initTicketType();
-//
-//        initTicket();
+        logger.info("Importing sample data");
+
+        initRoles();
+
+        initServices();
+
+        try {
+            initUser();
+        } catch (NoSuchAlgorithmException e) {
+            logger.warn("Init Owners fail");
+            e.printStackTrace();
+        }
+        try {
+            initStation();
+        } catch (IOException e) {
+            logger.warn("Init Stations fail");
+            e.printStackTrace();
+        }
+        initVehicleType();
+
+        initStationVehicleType();
+
+        initVehicle();
+
+        initTicketType();
+
+        initTicket();
 //
 //
 //        /**
@@ -200,6 +200,8 @@ public class DatabaseInitial {
     }
 
     private void initVehicleType() {
+        logger.info("Init vehicle types");
+
         VehicleType vehicle = new VehicleType();
         vehicle.setName("Xe Đạp");
         vehicleTypeCRUDRepository.save(vehicle);
@@ -422,7 +424,8 @@ public class DatabaseInitial {
         TypeReference<List<GenerateClass.RootObject>> typeReference = new TypeReference<List<GenerateClass.RootObject>>() {
         };
         //for local
-        Path dataFilePath = Paths.get(new File("static/data").getAbsolutePath() + "/Stations");
+        Path dataFilePath = Paths.get(new File("src/main/resources/static/data").getAbsolutePath() + "/Stations");
+        //H:\Hoc Ky 2 - 2017\Parking Reservation\Source\SourceServer\Server\parking_reservation_1.0\src\main\resources\static\data\Stations
         //for deploy
         //Path dataFilePath = Paths.get(new File("opt/tomcat/webapps/parking_reservation_1.0-1.0.0/WEB-INF/classes/static/data").getAbsolutePath() + "/Stations");
         String json =new String(Files.readAllBytes(dataFilePath), StandardCharsets.UTF_8);
