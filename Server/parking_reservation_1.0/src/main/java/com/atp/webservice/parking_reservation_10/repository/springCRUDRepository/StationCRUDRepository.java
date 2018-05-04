@@ -9,4 +9,6 @@ import java.util.List;
 public interface StationCRUDRepository extends JpaRepository<Station, Integer> {
 
     List<Station> findStationsByName(String name);
+
+    long countByOwnerID(String ownerID);
 }

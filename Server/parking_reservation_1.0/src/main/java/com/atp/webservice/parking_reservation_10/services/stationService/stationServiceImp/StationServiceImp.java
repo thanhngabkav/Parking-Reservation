@@ -1,14 +1,18 @@
 package com.atp.webservice.parking_reservation_10.services.stationService.stationServiceImp;
 
 import com.atp.webservice.parking_reservation_10.entities.Station;
+import com.atp.webservice.parking_reservation_10.entities.Ticket;
 import com.atp.webservice.parking_reservation_10.entities.sparkPresenter.StationPresenter;
 import com.atp.webservice.parking_reservation_10.entities.uitls.StationStatus;
+import com.atp.webservice.parking_reservation_10.entities.uitls.TicketStatus;
 import com.atp.webservice.parking_reservation_10.repository.sparkRepository.StationRepository;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.StationCRUDRepository;
+import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.TicketCRUDRepository;
 import com.atp.webservice.parking_reservation_10.services.messageService.MessageService;
 import com.atp.webservice.parking_reservation_10.services.messageService.models.MessageStatus;
 import com.atp.webservice.parking_reservation_10.services.messageService.models.MessageTopic;
 import com.atp.webservice.parking_reservation_10.services.messageService.models.ServerMessage;
+import com.atp.webservice.parking_reservation_10.services.models.ChartDataModel;
 import com.atp.webservice.parking_reservation_10.services.models.StationModel;
 import com.atp.webservice.parking_reservation_10.services.stationService.StationConverter;
 import com.atp.webservice.parking_reservation_10.services.stationService.StationService;
@@ -27,7 +31,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -50,6 +56,9 @@ public class StationServiceImp implements StationService {
 
     @Autowired
     private StationConverter stationConverter;
+
+    @Autowired
+    private TicketCRUDRepository ticketCRUDRepository;
 
     @Value("${imagesPath}")
     private String imagePath;
@@ -240,6 +249,28 @@ public class StationServiceImp implements StationService {
             result.add(Files.readAllBytes(file.toPath()));
 
         return result;
+    }
+
+    @Override
+    public List<ChartDataModel> getStationReportDataByYear(int stationID, int year) {
+        Timestamp beginTime = Timestamp.valueOf(LocalDateTime.of(LocalDate.of(year,1,1), LocalTime.MIN));
+        Timestamp endTime =  Timestamp.valueOf(LocalDateTime.of(LocalDate.of(year,12,31), LocalTime.MAX));
+        List<Ticket> ticketList = ticketCRUDRepository.findByStationIDAndCreatedTimeAfterAndCreatedTimeBefore(stationID, beginTime, endTime);
+
+        List<ChartDataModel> chartDataModels = new ArrayList<>();
+        for(int i=0;i<12;i++){
+            chartDataModels.add(new ChartDataModel());
+        }
+        for(Ticket ticket : ticketList){
+            int index = ticket.getCreatedTime().toLocalDateTime().getMonthValue() - 1;
+            if(ticket.getStatus().equals(TicketStatus.USED)|| ticket.getStatus().equals(TicketStatus.CHECKED)){
+                chartDataModels.get(index).setNumCheckedTickets(chartDataModels.get(index).getNumCheckedTickets()+1);
+            }
+            if(ticket.getStatus().equals(TicketStatus.EXPRIRRED)){
+                chartDataModels.get(index).setNumExpiredTickets(chartDataModels.get(index).getNumExpiredTickets()+1);
+            }
+        }
+        return chartDataModels;
     }
 
     private BufferedImage resizeImage(BufferedImage originalImage, int type) {

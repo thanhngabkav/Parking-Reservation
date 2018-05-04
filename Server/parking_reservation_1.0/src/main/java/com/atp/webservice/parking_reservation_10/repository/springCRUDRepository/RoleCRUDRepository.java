@@ -9,4 +9,5 @@ import java.util.List;
 public interface RoleCRUDRepository extends JpaRepository<Role, Integer> {
 
     List<Role> findRoleByRoleName(String roleName);
+
 }

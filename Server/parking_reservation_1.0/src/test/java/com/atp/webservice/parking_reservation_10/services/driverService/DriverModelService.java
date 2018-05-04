@@ -1,4 +1,4 @@
-package com.atp.webservice.parking_reservation_10.mobileServices.driverService;
+package com.atp.webservice.parking_reservation_10.services.driverService;
 
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

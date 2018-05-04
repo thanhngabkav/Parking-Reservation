@@ -5,6 +5,7 @@ import com.atp.webservice.parking_reservation_10.services.messageService.Message
 import com.atp.webservice.parking_reservation_10.services.messageService.models.MessageStatus;
 import com.atp.webservice.parking_reservation_10.services.messageService.models.MessageTopic;
 import com.atp.webservice.parking_reservation_10.services.messageService.models.ServerMessage;
+import com.atp.webservice.parking_reservation_10.services.models.ChartDataModel;
 import com.atp.webservice.parking_reservation_10.services.models.StationModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.ws.rs.PathParam;
 import javax.xml.ws.Response;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,7 +38,6 @@ public class StationController {
      */
     @RequestMapping(value = "/")
     public ResponseEntity<List<StationModel>> findByName(@RequestParam(value = "name") String name) {
-
         return new ResponseEntity<List<StationModel>>(stationService.getStationByName(name), HttpStatus.OK);
     }
 
@@ -128,6 +129,18 @@ public class StationController {
     public ResponseEntity<List<byte[]>> getImages(@PathVariable(name = "id") int stationID) throws IOException {
         List<byte[]> result = stationService.getAllStationImage(stationID);
         return new ResponseEntity<List<byte[]>>(result, HttpStatus.OK);
+    }
+
+    /**
+     * Get Station report data in a year
+     * @param year year
+     * @return
+     */
+    @RequestMapping(value = "/{id}/report", method = RequestMethod.GET)
+    public ResponseEntity<List<ChartDataModel>> getStationReport(@PathVariable(name = "id") int stationID,
+            @RequestParam("year") int year){
+        List<ChartDataModel> chartDataModels = stationService.getStationReportDataByYear(stationID, year);
+        return new ResponseEntity<List<ChartDataModel>>(chartDataModels, HttpStatus.OK);
     }
 
 }

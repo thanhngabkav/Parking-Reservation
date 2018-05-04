@@ -1,4 +1,4 @@
-package com.atp.webservice.parking_reservation_10.mobileServices.ticketService;
+package com.atp.webservice.parking_reservation_10.services.ticketService;
 
 
 import com.atp.webservice.parking_reservation_10.entities.Driver;
@@ -7,12 +7,9 @@ import com.atp.webservice.parking_reservation_10.entities.Vehicle;
 import com.atp.webservice.parking_reservation_10.entities.VehicleType;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.*;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

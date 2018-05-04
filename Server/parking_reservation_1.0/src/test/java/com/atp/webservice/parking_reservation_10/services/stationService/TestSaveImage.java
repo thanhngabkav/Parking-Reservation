@@ -1,13 +1,9 @@
-package com.atp.webservice.parking_reservation_10.mobileServices.stationService;
+package com.atp.webservice.parking_reservation_10.services.stationService;
 
-import com.atp.webservice.parking_reservation_10.services.stationService.StationService;
 import com.atp.webservice.parking_reservation_10.services.stationService.stationServiceImp.StationServiceImp;
 
 import java.util.*;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class TestSaveImage {
     public static void main(String[] args) throws IOException {

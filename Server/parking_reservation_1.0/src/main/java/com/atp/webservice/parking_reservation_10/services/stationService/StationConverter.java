@@ -23,8 +23,7 @@ public class StationConverter {
 
     @Autowired
     private StationVehicleTypeConverter stationVehicleTypeConverter;
-
-
+    
     /**
      * Convert from {@link Station} to {@link StationModel}
      * @param station
