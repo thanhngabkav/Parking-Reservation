@@ -342,6 +342,7 @@ public class DatabaseInitial {
         owner.setPassword(user.getPassword());
         owner.setRoles(roleCRUDRepository.findRoleByRoleName(UserRole.OWNER_ROLE));
         owner.setUserType(UserType.OWNER);
+        owner.setCreatedTime(Timestamp.valueOf(LocalDateTime.now()));
         ownerCRUDRepository.save(owner);
     }
 
