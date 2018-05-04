@@ -30,7 +30,7 @@ public class OwnerController {
      *
      * @return
      */
-    @RequestMapping(value = "/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Owner>> GetAll() {
         List<Owner> ownerList = new ArrayList<Owner>();
         this.parkingOwnerRepository.findAll().forEach(ownerList::add);

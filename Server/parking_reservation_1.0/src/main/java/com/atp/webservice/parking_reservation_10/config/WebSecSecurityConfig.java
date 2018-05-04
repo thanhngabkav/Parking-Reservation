@@ -38,4 +38,6 @@ public class WebSecSecurityConfig extends WebSecurityConfigurerAdapter{
 //                .antMatchers("/api/drivers/**").hasAnyAuthority(UserRole.DRIVER_ROLE,UserRole.ADMIN_ROLE)
 //                .antMatchers("/api/tickets/").hasAnyRole(UserRole.DRIVER_ROLE,UserRole.ADMIN_ROLE, UserRole.OWNER_ROLE );
     }
+
+
 }
