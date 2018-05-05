@@ -5,6 +5,7 @@ import com.atp.webservice.parking_reservation_10.entities.Owner;
 import com.atp.webservice.parking_reservation_10.repository.springCRUDRepository.OwnerCRUDRepository;
 import com.atp.webservice.parking_reservation_10.services.models.OwnerModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,9 @@ public class OwnerController {
     @Autowired
     private OwnerService ownerService;
 
+    @Autowired
+    private OwnerConverter ownerConverter;
+
 
     /**
      * Get All StationOverview Owner
@@ -31,10 +35,9 @@ public class OwnerController {
      * @return
      */
     @RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Owner>> GetAll() {
-        List<Owner> ownerList = new ArrayList<Owner>();
-        this.parkingOwnerRepository.findAll().forEach(ownerList::add);
-        return new ResponseEntity<List<Owner>>(ownerList, HttpStatus.OK);
+    public ResponseEntity<List<OwnerModel>> GetAll() {
+        List<OwnerModel> ownerList = ownerService.getAllOwnerModel();
+        return new ResponseEntity<List<OwnerModel>>(ownerList, HttpStatus.OK);
     }
 
     /**
@@ -44,9 +47,9 @@ public class OwnerController {
      * @return
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Owner> GetOwnerByID(@PathVariable("id") String ownerID) {
+    public ResponseEntity<OwnerModel> GetOwnerByID(@PathVariable("id") String ownerID) {
         Owner owner = this.parkingOwnerRepository.findOne(ownerID);
-        return new ResponseEntity<Owner>(owner, HttpStatus.OK);
+        return new ResponseEntity<OwnerModel>(ownerConverter.convertFromEntity(owner), HttpStatus.OK);
 
     }
 
@@ -80,9 +83,9 @@ public class OwnerController {
      * @return
      */
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<OwnerModel>> getPageListOwner(@RequestParam("page") int page){
-        List<OwnerModel> ownerModelList = ownerService.getPageListOwners(page);
+    public ResponseEntity<Page<OwnerModel>> getPageListOwner(@RequestParam("page") int page){
+        Page<OwnerModel> ownerModelList = ownerService.getPageListOwners(page);
 
-        return new ResponseEntity<List<OwnerModel>>(ownerModelList, HttpStatus.OK);
+        return new ResponseEntity<Page<OwnerModel>>(ownerModelList, HttpStatus.OK);
     }
 }

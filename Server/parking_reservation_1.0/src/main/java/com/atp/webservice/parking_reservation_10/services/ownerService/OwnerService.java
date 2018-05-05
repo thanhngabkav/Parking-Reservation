@@ -2,7 +2,7 @@ package com.atp.webservice.parking_reservation_10.services.ownerService;
 
 import com.atp.webservice.parking_reservation_10.entities.Owner;
 import com.atp.webservice.parking_reservation_10.services.models.OwnerModel;
-
+import org.springframework.data.domain.Page;
 import java.util.*;
 import java.security.NoSuchAlgorithmException;
 
@@ -28,5 +28,12 @@ public interface OwnerService {
      * @param page page number
      * @return List {@link OwnerModel}
      */
-    List<OwnerModel> getPageListOwners(int page);
+    Page<OwnerModel> getPageListOwners(int page);
+
+
+    /**
+     *Get all {@link OwnerModel}
+     * @return
+     */
+    List<OwnerModel> getAllOwnerModel();
 }

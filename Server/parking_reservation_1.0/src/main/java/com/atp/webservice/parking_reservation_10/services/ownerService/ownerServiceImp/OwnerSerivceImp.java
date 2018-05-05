@@ -10,7 +10,8 @@ import com.atp.webservice.parking_reservation_10.services.models.OwnerModel;
 import com.atp.webservice.parking_reservation_10.services.ownerService.OwnerConverter;
 import com.atp.webservice.parking_reservation_10.services.ownerService.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.data.domain.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,7 +35,7 @@ public class OwnerSerivceImp implements OwnerService {
     @Autowired
     private OwnerConverter ownerConverter;
 
-    private static int PAGE_SIZE = 50;
+    private static int PAGE_SIZE = 20;
 
     @Override
     public Owner findByPhoneNumberOrEmail(String phoneOrEmail) {
@@ -59,16 +61,27 @@ public class OwnerSerivceImp implements OwnerService {
     }
 
     @Override
-    public List<OwnerModel> getPageListOwners(int page) {
+    public Page<OwnerModel> getPageListOwners(int page) {
         PageRequest pageRequest = new PageRequest(page-1, PAGE_SIZE);
-        List<Owner> ownerList = ownerCRUDRepository.findAllByOrderByCreatedTimeDesc(pageRequest);
+        Page<Owner> ownerList = ownerCRUDRepository.findAllByOrderByCreatedTimeDesc(pageRequest);
 
         List<OwnerModel> ownerModelList = new ArrayList<>();
-        for(Owner owner : ownerList){
+        for(Owner owner : ownerList.getContent()){
             ownerModelList.add(ownerConverter.convertFromEntity(owner));
         }
+        Page<OwnerModel> ownerModelPage = new PageImpl<OwnerModel>(ownerModelList);
+        return ownerModelPage;
+    }
 
+    @Override
+    public List<OwnerModel> getAllOwnerModel() {
+        List<Owner> ownerList = ownerCRUDRepository.findAllByOrderByCreatedTimeDesc();
+        List<OwnerModel> ownerModelList = new ArrayList<OwnerModel>();
+        for(Owner ownerEntity :  ownerList){
+            ownerModelList.add(ownerConverter.convertFromEntity(ownerEntity));
+        }
         return ownerModelList;
     }
+
 
 }
