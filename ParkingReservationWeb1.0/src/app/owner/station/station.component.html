@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <mat-card class="example-card">
+            <mat-card-header >
+                <mat-card-title >Shiba Inu</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                    The Shiba Inu is the smallest asdas dasd asd asds
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="row">
+        <div class="offset-2"></div>
+        <mat-form-field class="col-2">
+            <input matInput [matDatepicker]="pickerStart" placeholder="Start Day">
+            <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStart></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="col-2">
+            <input matInput [matDatepicker]="pickerEnd" placeholder="End Day">
+            <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+            <mat-datepicker #pickerEnd></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <div style="display: block">
+                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+                    [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+            </div>
+        </div>
+        <div class="col-4">
+            <form [formGroup]="formGroup" class="form">
+                <mat-icon color="accent">settings</mat-icon>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Name" formControlName="name" required>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Address" formControlName="address" required>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Status" formControlName="status" required>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Number of slot" formControlName="slots" required type="number">
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Service" formControlName="service" required type="number">
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Vehicle Type" formControlName="vehicleType" required type="number">
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Ticket Type" formControlName="ticketType" required type="number">
+                </mat-form-field>
+            </form>
+        </div>
+    </div>
+
+</div>

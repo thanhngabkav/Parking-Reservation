@@ -1,3 +1,6 @@
+.mat-icon:hover {
+    cursor: pointer;
+}
 .form {
     min-width: 150px;
     max-width: 500px;
@@ -6,4 +9,9 @@
   
   .full-width {
     width: 100%;
+  }
+
+  .container {
+    margin-top: 20px;
+    margin-bottom: 20px
   }

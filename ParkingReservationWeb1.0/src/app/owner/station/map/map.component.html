@@ -1,0 +1,28 @@
+
+<form class="form">
+  <mat-form-field class="offset-3 col-8">
+    <input matInput type="text" placeholder="Tìm địa điểm" [(ngModel)]="value" [ngModelOptions]="{standalone: true}"/>
+    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="mapSearch(value)" (keyup.enter)="mapSearch(value)">
+      <mat-icon color="primary">search</mat-icon>
+    </button>
+  </mat-form-field>
+</form>
+
+<agm-map 
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  [disableDefaultUI]="false"
+  [zoomControl]="false"
+  (mapClick)="mapClicked($event)">
+
+  <agm-marker 
+      *ngIf="markers"
+      [latitude]="markers.lat"
+      [longitude]="markers.lng"
+      [label]="markers.label"
+      [markerDraggable]="markers.draggable"
+      (dragEnd)="markerDragEnd(m, $event)">
+      
+  </agm-marker>
+</agm-map>
