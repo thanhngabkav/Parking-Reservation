@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  isLinear : boolean = false;
-  // firstFormGroup: FormGroup;
-  // secondFormGroup: FormGroup;
+  isLinear: boolean = false;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
 
   constructor() { }
 
@@ -21,6 +21,27 @@ export class RegisterComponent implements OnInit {
     // this.secondFormGroup = this._formBuilder.group({
     //   secondCtrl: ['', Validators.required]
     // });
+    this.inputFirstForm()
+    this.inputSecondForm()
+  }
+
+  private inputFirstForm() {
+    this.firstFormGroup = new FormGroup({
+      fullName: new FormControl('', Validators.required)
+      , email: new FormControl('', [Validators.required, Validators.email])
+      , phone: new FormControl('', [Validators.required])
+      , address: new FormControl('', [Validators.required])
+      , password: new FormControl('', [Validators.required])
+    })
+  }
+
+  private inputSecondForm() {
+    this.secondFormGroup = new FormGroup({
+      stationName: new FormControl('', Validators.required)
+      , openTime: new FormControl('', )
+      , closedTime: new FormControl('')
+      , slots: new FormControl('')
+    })
   }
 
 }

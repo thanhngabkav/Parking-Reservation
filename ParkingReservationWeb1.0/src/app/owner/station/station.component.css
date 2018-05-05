@@ -1,0 +1,22 @@
+.form {
+    width: 100%;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+
+  .mat-icon:hover {
+    cursor: pointer;
+  }
+
+  .example-card {
+    max-width: 250px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .mat-card:hover {
+    cursor: pointer;
+    background: #B2DFDB;
+  }

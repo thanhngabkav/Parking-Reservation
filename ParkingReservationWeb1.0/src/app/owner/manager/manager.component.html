@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <form [formGroup]="formGroup" class="form">
+        <mat-icon color="accent">settings</mat-icon>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Tên" formControlName="name" required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Số Lượng Chỗ" formControlName="slots" required type="number">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-select placeholder="Trạng thái" formControlName="status">
+            <mat-option value="option">Option</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="row">
+          <div class="col">
+            <h4>Loại Xe</h4>
+            <div *ngFor="let status of statuses; let i = index">
+              <mat-checkbox class="full-width" [formControlName]="i">
+                {{status}}
+              </mat-checkbox>
+            </div>
+          </div>
+
+          <div class="col">
+            <h4>Dịch Vụ</h4>
+            <div *ngFor="let service of services; let i = index">
+              <mat-checkbox class="full-width" [formControlName]="i">
+                {{service}}
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+
+        <mat-list>
+          <mat-list-item> Loại vé (áp dụng cho dịch vụ gửi xe)
+            <mat-icon>confirmation_number</mat-icon>
+          </mat-list-item>
+        </mat-list>
+
+      </form>
+    </div>
+    <div class="col-6">
+      <app-map></app-map>
+    </div>
+  </div>
+
+  <div class="row">
+
+  </div>
+</div>
