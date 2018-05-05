@@ -72,9 +72,9 @@ public class OwnerController {
      */
     @RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<OwnerModel> createNewOwner(@RequestBody OwnerModel ownerModel) throws NoSuchAlgorithmException {
-        OwnerModel ownerModel1 = ownerService.createOwner(ownerModel);
+        OwnerModel saveModel = ownerService.createOwner(ownerModel);
 
-        return new ResponseEntity<OwnerModel>(ownerModel, HttpStatus.OK);
+        return new ResponseEntity<OwnerModel>(saveModel, HttpStatus.OK);
     }
 
     /**

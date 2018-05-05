@@ -91,35 +91,35 @@ public class DatabaseInitial {
 
     public void doImport() {
 
-//
-//        logger.info("Importing sample data");
-//
-//        initRoles();
-//
-//        initServices();
-//
-//        try {
-//            initUser();
-//        } catch (NoSuchAlgorithmException e) {
-//            logger.warn("Init Owners fail");
-//            e.printStackTrace();
-//        }
-//        try {
-//            initStation();
-//        } catch (IOException e) {
-//            logger.warn("Init Stations fail");
-//            e.printStackTrace();
-//        }
-//        initVehicleType();
-//
-//        initStationVehicleType();
-//
-//        initVehicle();
-//
-//        initTicketType();
-//
-//        initTicket();
-//
+
+        logger.info("Importing sample data");
+
+        initRoles();
+
+        initServices();
+
+        try {
+            initUser();
+        } catch (NoSuchAlgorithmException e) {
+            logger.warn("Init Owners fail");
+            e.printStackTrace();
+        }
+        try {
+            initStation();
+        } catch (IOException e) {
+            logger.warn("Init Stations fail");
+            e.printStackTrace();
+        }
+        initVehicleType();
+
+        initStationVehicleType();
+
+        initVehicle();
+
+        initTicketType();
+
+        initTicket();
+
 //
 //        /**
 //         * This code block used to generate more station
@@ -329,10 +329,11 @@ public class DatabaseInitial {
     private void initOwner(User user, int i) throws NoSuchAlgorithmException {
         //Init owner
         // logger.info("Init Owners");
+        Faker faker = new Faker();
         Owner owner = new Owner();
         owner.setUserID(user.getUserID());
         owner.setAddress("Owner Address");
-        owner.setName("Owner " + user.getUserID().toString());
+        owner.setName(faker.name().fullName());
         owner.setUserName("Owner_" + i);
         KeyPair keyPair = KeypairHelper.buildKeyPair();
         owner.setSecretKey(KeyHelper.genSecretKey());
@@ -351,12 +352,13 @@ public class DatabaseInitial {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String pass = "123";
         for (int i = 1; i <= 100; i++) {
+            Faker faker = new Faker();
             StringBuilder email = new StringBuilder();
             email.append("user_").append(i).append("@gmail.com");
             User user = new User();
             user.setUserID(UUID.randomUUID().toString());
             user.setPassword(encoder.encode(pass));
-            user.setPhoneNumber("0962810884" + i);
+            user.setPhoneNumber(faker.phoneNumber().phoneNumber());
             user.setEmail(email.toString());
 
             switch (i % 3) {
@@ -428,7 +430,7 @@ public class DatabaseInitial {
         Path dataFilePath = Paths.get(new File("src/main/resources/static/data").getAbsolutePath() + "/Stations");
         //H:\Hoc Ky 2 - 2017\Parking Reservation\Source\SourceServer\Server\parking_reservation_1.0\src\main\resources\static\data\Stations
         //for deploy
-        //Path dataFilePath = Paths.get(new File("opt/tomcat/webapps/parking_reservation_1.0-1.0.0/WEB-INF/classes/static/data").getAbsolutePath() + "/Stations");
+        //Path dataFilePath = Paths.get(new File("/opt/tomcat/webapps/parking_reservation_1.0-1.0.0/WEB-INF/classes/static/data").getAbsolutePath() + "/Stations");
         String json =new String(Files.readAllBytes(dataFilePath), StandardCharsets.UTF_8);
         List<GenerateClass.RootObject> rootObjects = objectMapper.readValue(json, typeReference);
         Time openTime = Time.valueOf(LocalTime.of(8, 30));
