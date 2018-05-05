@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <section>
+        <header class="header">
+          <div class="row">
+            <div class="col-md-4">
+              <h1 class="alert alert-success" role="alert">Danh Sách Owners</h1>
+            </div>
+          </div>
+
+        </header>
+      </section>
+      <section class="main">
+        <div class="mat-app-background basic-container">
+            <div class="example-container mat-elevation-z8">
+                <mat-table #table [dataSource]="dataSource">
+      
+                  <!-- full Name Column -->
+                  <ng-container matColumnDef="fullName">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: left" class="mat-header-cell cdk-column-position mat-column-position ng-star-inserted"> Họ Tên </th>
+                    <td mat-cell *matCellDef="let element" style="text-align: left" class="mat-cell cdk-column-position mat-column-position ng-star-inserted" role="gridcell"> {{element.fullName}} </td>
+                  </ng-container>
+      
+                  <!-- Email Column -->
+                  <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: left" class="mat-header-cell cdk-column-position mat-column-position ng-star-inserted"> Email </th>
+                    <td mat-cell *matCellDef="let element" style="text-align: left" class="email mat-cell cdk-column-position mat-column-position ng-star-inserted" role="gridcell"> {{element.email}} </td>
+                  </ng-container>
+      
+                  <!-- Phone number Column -->
+                  <ng-container matColumnDef="phoneNumber">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: left" class="mat-header-cell cdk-column-position mat-column-position ng-star-inserted"> Phone </th>
+                    <td mat-cell *matCellDef="let element" style="text-align: left" class="mat-cell cdk-column-position mat-column-position ng-star-inserted" role="gridcell"> {{element.phoneNumber}} </td>
+                  </ng-container>
+      
+                  <!-- Address Column -->
+                  <ng-container matColumnDef="address">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: left; padding-left: 20px;" class="mat-header-cell cdk-column-position mat-column-position ng-star-inserted"> Địa Chỉ </th>
+                    <td mat-cell *matCellDef="let element" style="text-align: left; padding-left: 30px;" class="mat-cell cdk-column-position mat-column-position ng-star-inserted" role="gridcell"> {{element.address}} </td>
+                  </ng-container>
+      
+                  <!-- Number of Statation Column -->
+                  <ng-container matColumnDef="numStations">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: right" class="mat-header-cell cdk-column-position mat-column-position ng-star-inserted"> Trạm DV </th>
+                    <td mat-cell *matCellDef="let element" style="text-align: right; padding-right: 25px;" class="mat-cell cdk-column-position mat-column-position ng-star-inserted" role="gridcell"> <a href="#">{{element.numStations}} </a></td>
+                  </ng-container>
+      
+                   <!-- Status Column -->
+                   <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef  style="text-align: center" class="mat-header-cell cdk-column-position mat-column-position ng-star-inserted"> Trạng thái </th>
+                    <td mat-cell *matCellDef="let element" style="text-align: center" class="mat-cell cdk-column-position mat-column-position ng-star-inserted" role="gridcell"> {{element.status}} </td>
+                  </ng-container>
+
+                   <!-- Actions Column -->
+                   <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef  style="text-align: center" class="mat-header-cell cdk-column-position mat-column-position ng-star-inserted"></th>
+                    <td mat-cell *matCellDef="let element" style="text-align: center"  class="mat-cell cdk-column-position mat-column-position ng-star-inserted">  <a href="#" type="button" class="btn btn-primary active">Chi Tiết</a> </td>
+                  </ng-container>
+                
+      
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>>
+                </mat-table>
+      
+                <mat-paginator #paginator
+                       [pageSize]="10"
+                       [pageSizeOptions]="[10]"
+                       [showFirstLastButtons]="true" >
+                </mat-paginator>
+              </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

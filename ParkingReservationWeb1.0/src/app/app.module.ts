@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './owner/register/register.component';
 import { HomeComponent } from './home/home.component';
+import { AdminModule } from './admin/admin.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -19,7 +21,9 @@ import { HomeComponent } from './home/home.component';
   imports: [
     AppRoutingModule,
     BrowserModule,
+    HttpClientModule,
     OwnerModule,
+    AdminModule,
     HttpModule,
   ],
   providers: [],
