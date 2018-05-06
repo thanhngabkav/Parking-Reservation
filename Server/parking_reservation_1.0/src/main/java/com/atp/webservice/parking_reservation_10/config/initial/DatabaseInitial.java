@@ -177,7 +177,7 @@ public class DatabaseInitial {
     public void initParkingDataSet() {
         StationRepositoryImp.parkingDataSet = SparkHelper.GetRRDFromTable(TableName.STATION, StationPresenter.class)
                 .select("station_id", "application_id", "close_time", "coordinate", "created_date", "holding_slots", "image_link", "name",
-                        "open_time", "owner_id", "parking_map_link", "station_id", "status", "total_slots", "used_slots","address","star");
+                        "open_time", "owner_id", "parking_map_link", "station_id", "status", "total_slots", "used_slots", "address", "star");
         StationRepositoryImp.parkingDataSet.persist(StorageLevel.MEMORY_ONLY());
         StationRepositoryImp.parkingDataSet.show();
     }
@@ -254,8 +254,8 @@ public class DatabaseInitial {
         for (StationVehicleType stationVehicleType : stationVehicleTypes) {
             Random random = new Random();
             TicketType ticketType = new TicketType();
-            ticketType.setHoldingTime(Time.valueOf(LocalTime.of(0, Math.abs(random.nextInt()) % 5, Math.abs(random.nextInt()) % 60)));
-            ticketType.setPrice(Math.abs(random.nextInt()) % 5000 + 2000);
+            ticketType.setHoldingTime(Time.valueOf(LocalTime.of(1, Math.abs(random.nextInt()) % 50, Math.abs(random.nextInt()) % 60)));
+            ticketType.setPrice((Math.abs(random.nextInt()) % 50)*1000);
             ticketType.setName("Vé giữ trong ngày");
             ticketType.setStationVehicleTypeID(stationVehicleType.getId());
             ticketType.setServiceID(1);//dich vu gui xe
@@ -265,63 +265,64 @@ public class DatabaseInitial {
 
     private void initTicket() {
         logger.info("Init Tickets");
-        List<Vehicle> vehicles = vehicleCRUDRepository.findAllByVehicleTypeID(2);//xe may
+        List<Vehicle> vehicles = vehicleCRUDRepository.findAll();//xe may
         List<Station> allStations = stationCRUDRepository.findAll();
         String[] ticketStatus = {TicketStatus.CHECKED, TicketStatus.HOLDING, TicketStatus.EXPRIRRED, TicketStatus.USED};
         int i = 0;
-        for (Station station : allStations) {
-            for (Vehicle vehicle : vehicles) {
-                Owner owner = ownerCRUDRepository.findOne(station.getOwnerID());
-                logger.debug("Init Tickets " + i);
-                i++;
-                List<StationVehicleType> stationVehicleTypes = new ArrayList<StationVehicleType>();
-                stationVehicleTypes.add(stationVehicleTypeCRUDRepository.findFirstByStationIDAndAndVehicleTypeId(station.getID(), vehicle.getVehicleTypeID()));
-                List<TicketType> ticketTypes = new ArrayList<TicketType>();
-                for (StationVehicleType stationVehicleType : stationVehicleTypes) {
-                    ticketTypes.addAll(ticketTypeCRUDRepository.findByStationVehicleTypeID(stationVehicleType.getId()));
-                }
-                Ticket ticket = new Ticket();
-                ticket.setID(UUID.randomUUID().toString())
-                        .setCheckinTime(Timestamp.valueOf(LocalDateTime.now()));
-                if (i % 5 == 0)
-                    ticket.setCheckoutTime(Timestamp.valueOf(LocalDateTime.now()));
-                else
-                    ticket.setCheckoutTime(null);
-                ticket.setCreatedTime(Timestamp.valueOf(LocalDateTime.now()))
-                        .setDriverID(vehicle.getDriverID());
-                ticket.setqRCode("");
-                ticket.setStationID(station.getID())
-                        .setStatus(ticketStatus[i % 4]);
-                StationVehicleType stationVehicleType = stationVehicleTypes.get(0);
-                if (ticketStatus[i % 4].equals(TicketStatus.HOLDING)) {
-                    station.setHoldingSlots(station.getHoldingSlots() + 1);
-                    stationVehicleType.setHoldingSlots(stationVehicleType.getHoldingSlots() + 1);
-                    stationCRUDRepository.save(station);
-                    stationVehicleTypeCRUDRepository.save(stationVehicleType);
-                }
-                ticket.setStation(station);
-                ticket.setTicketTypes(ticketTypes);
-                ticket.setVehicleID(vehicle.getID());
-                ticket.setVehicle(vehicle);
-                ticket.setPaid(false);
-                double totalPrice = 0;
-                for (TicketType ticketType : ticketTypes)
-                    totalPrice += ticketType.getPrice();
-                ticket.setTotalPrice(totalPrice);
-                StringBuilder QRCode = new StringBuilder();
-               // ObjectMapper objectMapper = new ObjectMapper();
-                try {
-                    String content = ticketService.createQRCodeContent(ticketConverter.convertFromEntity(ticket));
-                    //System.out.println(content);
-                    QRCode.append(KeyHelper.encrypt(content, owner.getSecretKey()));
-                    //System.out.println(KeyHelper.decrypt(QRCode.toString(),owner.getSecretKey()));
-                } catch (Exception e) {
-                    logger.error("Gen QR code fail!");
-                    e.printStackTrace();
-                }
-                ticket.setqRCode(QRCode.toString());
-                ticketCRUDRepository.save(ticket);
+        for (Vehicle vehicle : vehicles) {
+            Random random = new Random();
+            int index = Math.abs(random.nextInt()) % allStations.size();
+            Station station = allStations.get(index);
+            Owner owner = ownerCRUDRepository.findOne(station.getOwnerID());
+            logger.debug("Init Tickets " + i);
+            i++;
+            List<StationVehicleType> stationVehicleTypes = new ArrayList<StationVehicleType>();
+            stationVehicleTypes.add(stationVehicleTypeCRUDRepository.findFirstByStationIDAndAndVehicleTypeId(station.getID(), vehicle.getVehicleTypeID()));
+            List<TicketType> ticketTypes = new ArrayList<TicketType>();
+            for (StationVehicleType stationVehicleType : stationVehicleTypes) {
+                ticketTypes.addAll(ticketTypeCRUDRepository.findByStationVehicleTypeID(stationVehicleType.getId()));
             }
+            Ticket ticket = new Ticket();
+            ticket.setID(UUID.randomUUID().toString())
+                    .setCheckinTime(Timestamp.valueOf(LocalDateTime.now()));
+            if (i % 5 == 0)
+                ticket.setCheckoutTime(Timestamp.valueOf(LocalDateTime.now()));
+            else
+                ticket.setCheckoutTime(null);
+            ticket.setCreatedTime(Timestamp.valueOf(LocalDateTime.now()))
+                    .setDriverID(vehicle.getDriverID());
+            ticket.setqRCode("");
+            ticket.setStationID(station.getID())
+                    .setStatus(ticketStatus[i % 4]);
+            StationVehicleType stationVehicleType = stationVehicleTypes.get(0);
+            if (ticketStatus[i % 4].equals(TicketStatus.HOLDING)) {
+                station.setHoldingSlots(station.getHoldingSlots() + 1);
+                stationVehicleType.setHoldingSlots(stationVehicleType.getHoldingSlots() + 1);
+                stationCRUDRepository.save(station);
+                stationVehicleTypeCRUDRepository.save(stationVehicleType);
+            }
+            ticket.setStation(station);
+            ticket.setTicketTypes(ticketTypes);
+            ticket.setVehicleID(vehicle.getID());
+            ticket.setVehicle(vehicle);
+            ticket.setPaid(false);
+            double totalPrice = 0;
+            for (TicketType ticketType : ticketTypes)
+                totalPrice += ticketType.getPrice();
+            ticket.setTotalPrice(totalPrice);
+            StringBuilder QRCode = new StringBuilder();
+            // ObjectMapper objectMapper = new ObjectMapper();
+            try {
+                String content = ticketService.createQRCodeContent(ticketConverter.convertFromEntity(ticket));
+                //System.out.println(content);
+                QRCode.append(KeyHelper.encrypt(content, owner.getSecretKey()));
+                //System.out.println(KeyHelper.decrypt(QRCode.toString(),owner.getSecretKey()));
+            } catch (Exception e) {
+                logger.error("Gen QR code fail!");
+                e.printStackTrace();
+            }
+            ticket.setqRCode(QRCode.toString());
+            ticketCRUDRepository.save(ticket);
         }
 
     }
@@ -431,7 +432,7 @@ public class DatabaseInitial {
         //H:\Hoc Ky 2 - 2017\Parking Reservation\Source\SourceServer\Server\parking_reservation_1.0\src\main\resources\static\data\Stations
         //for deploy
         //Path dataFilePath = Paths.get(new File("/opt/tomcat/webapps/parking_reservation_1.0-1.0.0/WEB-INF/classes/static/data").getAbsolutePath() + "/Stations");
-        String json =new String(Files.readAllBytes(dataFilePath), StandardCharsets.UTF_8);
+        String json = new String(Files.readAllBytes(dataFilePath), StandardCharsets.UTF_8);
         List<GenerateClass.RootObject> rootObjects = objectMapper.readValue(json, typeReference);
         Time openTime = Time.valueOf(LocalTime.of(8, 30));
         Time closingTime = Time.valueOf(LocalTime.of(22, 30));

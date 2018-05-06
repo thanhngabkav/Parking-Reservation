@@ -30,13 +30,18 @@ public class TicketController {
      */
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
     public ResponseEntity<List<TicketModel>> getTicketsByStatus(@PathVariable("id") String userID,
-                                                                @RequestParam("page") int page,
+                                                                @RequestParam(value = "page", required = false, defaultValue = DefaultValue.INT +"") int page,
                                                                 @RequestParam(value = "status", required = false, defaultValue = DefaultValue.STRING) String status,
                                                                 HttpServletRequest request) {
 
         //get all
         if (request.getParameter("status") == null || status.equals(DefaultValue.STRING)) {
             List<TicketModel> ticketModels = ticketService.getUserTickets(userID, page);
+            return new ResponseEntity<List<TicketModel>>(ticketModels, HttpStatus.OK);
+        }
+
+        if(request.getParameter("page") == null || page == DefaultValue.INT){
+            List<TicketModel> ticketModels = ticketService.getAllTicketsByDriverIDAndStatus(userID, status);
             return new ResponseEntity<List<TicketModel>>(ticketModels, HttpStatus.OK);
         }
 

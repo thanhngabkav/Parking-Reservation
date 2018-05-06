@@ -27,6 +27,15 @@ public interface TicketService {
      */
     List<TicketModel> getListTicketByDriverIDAndStatus(String driverID, String status, int page);
 
+
+    /**
+     * Get all driver's tickets by driver ID and Status
+     * @param driverID
+     * @param status
+     * @return
+     */
+    List<TicketModel> getAllTicketsByDriverIDAndStatus(String driverID, String status);
+
     /**
      * Send Reservation request to StationOverview
      * @param ticketReservationModel {@link TicketReservationModel}

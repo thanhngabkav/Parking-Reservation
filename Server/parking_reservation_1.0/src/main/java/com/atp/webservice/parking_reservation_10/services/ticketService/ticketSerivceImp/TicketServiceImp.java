@@ -106,6 +106,16 @@ public class TicketServiceImp implements TicketService {
     }
 
     @Override
+    public List<TicketModel> getAllTicketsByDriverIDAndStatus(String driverID, String status) {
+        List<TicketModel> allTicketModels = new ArrayList<TicketModel>();
+        List<Ticket> allUserTicket = ticketCRUDRepository.findTicketsByDriverIDAndStatus(driverID, status);
+        for(Ticket ticket : allUserTicket){
+            allTicketModels.add(ticketConverter.convertFromEntity(ticket));
+        }
+        return allTicketModels;
+    }
+
+    @Override
     public TicketModel sendRequestForReservation(TicketReservationModel ticketReservationModel) {
         /**
          * Steps:
