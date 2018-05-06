@@ -110,9 +110,10 @@ public class StationServiceImp implements StationService {
         message.setData(newStation);
         messageService.sendMessageToTopic(message, MessageTopic.ADMIN_TOPIC);
 
-        stationPresenter.convertFromEntities(m_station);
-        //save to spark data set
-        stationRepository.save(stationPresenter);
+
+//        //save to spark data set
+//        stationPresenter.convertFromEntities(m_station);
+//        stationRepository.save(stationPresenter);
 
         return newStation;
     }
@@ -155,9 +156,9 @@ public class StationServiceImp implements StationService {
         topicNameBuilder.append("_").append(stationID);
         messageService.sendMessageToTopic(message, topicNameBuilder.toString());
         //update spark data set
-        StationPresenter stationPresenter = new StationPresenter();
-        stationPresenter.convertFromEntities(updatedStation);
-        stationRepository.save(stationPresenter);
+//        StationPresenter stationPresenter = new StationPresenter();
+//        stationPresenter.convertFromEntities(updatedStation);
+//        stationRepository.save(stationPresenter);
         return updatedStationModel;
     }
 
@@ -169,10 +170,6 @@ public class StationServiceImp implements StationService {
         }
         //update station
         Station updatedStation = stationCRUDRepository.save(stationConverter.convertToEntity(stationModel));
-        //update spark data set
-        StationPresenter stationPresenter = new StationPresenter();
-        stationPresenter.convertFromEntities(updatedStation);
-        stationRepository.save(stationPresenter);
         StationModel updatedStationModel = stationConverter.convertFromEntities(updatedStation);
         //send message to station
         ServerMessage<StationModel> message = new ServerMessage<StationModel>();
@@ -183,6 +180,10 @@ public class StationServiceImp implements StationService {
         topicNameBuilder.append(MessageTopic.STATION_TOPIC);
         topicNameBuilder.append("_").append(stationModel.getID());
         messageService.sendMessageToTopic(message, topicNameBuilder.toString());
+//        //update spark data set
+//        StationPresenter stationPresenter = new StationPresenter();
+//        stationPresenter.convertFromEntities(updatedStation);
+//        stationRepository.save(stationPresenter);
         return updatedStationModel;
     }
 
