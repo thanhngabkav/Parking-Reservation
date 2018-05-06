@@ -12,9 +12,9 @@ import java.util.List;
 @Repository
 public interface TicketCRUDRepository extends JpaRepository<Ticket, String> {
 
-    List<Ticket> findTicketsByDriverIDAndStatus(String driverID, String status);
+    List<Ticket> findTicketsByDriverIDAndStatusOrderByCreatedTimeDesc(String driverID, String status);
 
-    List<Ticket> findTicketsByDriverIDAndStatus(@Param("driverID") String driverID,@Param("status") String status, Pageable pageRequest);
+    List<Ticket> findTicketsByDriverIDAndStatusOrderByCreatedTimeDesc(@Param("driverID") String driverID,@Param("status") String status, Pageable pageRequest);
 
     List<Ticket> findByStatus(@Param("status") String status);
 

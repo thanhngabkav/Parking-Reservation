@@ -96,7 +96,7 @@ public class TicketServiceImp implements TicketService {
     public List<TicketModel> getListTicketByDriverIDAndStatus(String driverID, String status, int page){
         PageRequest pageRequest = new PageRequest(page-1, PAGE_SIZE);
         List<com.atp.webservice.parking_reservation_10.entities.Ticket> tickets =
-                ticketCRUDRepository.findTicketsByDriverIDAndStatus(driverID, status, pageRequest);
+                ticketCRUDRepository.findTicketsByDriverIDAndStatusOrderByCreatedTimeDesc(driverID, status, pageRequest);
         List<TicketModel> result = new ArrayList<TicketModel>();
         for(Ticket ticket : tickets){
             TicketModel m_ticketModel = ticketConverter.convertFromEntity(ticket);
@@ -108,7 +108,7 @@ public class TicketServiceImp implements TicketService {
     @Override
     public List<TicketModel> getAllTicketsByDriverIDAndStatus(String driverID, String status) {
         List<TicketModel> allTicketModels = new ArrayList<TicketModel>();
-        List<Ticket> allUserTicket = ticketCRUDRepository.findTicketsByDriverIDAndStatus(driverID, status);
+        List<Ticket> allUserTicket = ticketCRUDRepository.findTicketsByDriverIDAndStatusOrderByCreatedTimeDesc(driverID, status);
         for(Ticket ticket : allUserTicket){
             allTicketModels.add(ticketConverter.convertFromEntity(ticket));
         }

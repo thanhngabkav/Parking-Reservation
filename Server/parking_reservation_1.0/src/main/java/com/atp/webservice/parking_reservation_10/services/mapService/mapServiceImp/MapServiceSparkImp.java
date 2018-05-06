@@ -18,7 +18,7 @@ import java.util.List;
  * This is a implement of {@link MapService} using Spark repository
  */
 
-@Service
+//@Service
 public class MapServiceSparkImp implements MapService {
 
     @Autowired
