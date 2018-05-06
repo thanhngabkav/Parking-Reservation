@@ -101,9 +101,6 @@ public class StationServiceImp implements StationService {
         station.setStatus(StationStatus.WAITING_FOR_ACTIVE);
         //save to database
         Station m_station = stationCRUDRepository.save(stationConverter.convertToEntity(station));
-        stationPresenter.convertFromEntities(m_station);
-        //save to spark data set
-        stationRepository.save(stationPresenter);
         StationModel newStation = stationConverter.convertFromEntities(m_station);
 
         //send message to admin
@@ -112,6 +109,10 @@ public class StationServiceImp implements StationService {
         message.setStatus(MessageStatus.NEW_STATION);
         message.setData(newStation);
         messageService.sendMessageToTopic(message, MessageTopic.ADMIN_TOPIC);
+
+        stationPresenter.convertFromEntities(m_station);
+        //save to spark data set
+        stationRepository.save(stationPresenter);
 
         return newStation;
     }
@@ -143,10 +144,6 @@ public class StationServiceImp implements StationService {
         station.setUsedSlots(station.getUsedSlots() + num > 0 ? station.getHoldingSlots() + num : 0);
         //update station
         Station updatedStation = stationCRUDRepository.save(station);
-        //update spark data set
-        StationPresenter stationPresenter = new StationPresenter();
-        stationPresenter.convertFromEntities(updatedStation);
-        stationRepository.save(stationPresenter);
         StationModel updatedStationModel = stationConverter.convertFromEntities(updatedStation);
         //send message to station
         ServerMessage<StationModel> message = new ServerMessage<StationModel>();
@@ -157,6 +154,10 @@ public class StationServiceImp implements StationService {
         topicNameBuilder.append(MessageTopic.STATION_TOPIC);
         topicNameBuilder.append("_").append(stationID);
         messageService.sendMessageToTopic(message, topicNameBuilder.toString());
+        //update spark data set
+        StationPresenter stationPresenter = new StationPresenter();
+        stationPresenter.convertFromEntities(updatedStation);
+        stationRepository.save(stationPresenter);
         return updatedStationModel;
     }
 
