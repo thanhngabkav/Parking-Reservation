@@ -9,7 +9,7 @@ import { Owner } from './owner';
 export class OwnerService {
 
 
-  private apiUrl = "http:localhost:8080/api/owners/";
+  private apiUrl = "http://localhost:8080/api/owners/";
   constructor(private http : Http){}
 
   findPageList(page : number): Observable<Owner[]>{
@@ -25,7 +25,7 @@ export class OwnerService {
     let headers = new Headers();
     headers.append('Content-Type','application/json');
     const options = new RequestOptions({headers: headers});
-    return this.http.get("http://45.119.81.16:8080/parking_reservation_1.0-1.0.0/api/owners/all", options)
+    return this.http.get(this.apiUrl+'all', options)
             .map((res:Response)=>res.json())
             .catch((error:any)=>Observable.throw(error.json().error || 'Server error'));
 

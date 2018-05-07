@@ -10,6 +10,8 @@ import { RegisterComponent } from './owner/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AdminModule } from './admin/admin.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AlertComponent } from './_directives/alert/alert.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     HomeComponent,
+    AlertComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -25,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     OwnerModule,
     AdminModule,
     HttpModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

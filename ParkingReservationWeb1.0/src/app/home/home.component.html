@@ -11,7 +11,7 @@
       <nav id="nav" class="navbar nav-transparent">
         <div class="container">
   
-          <div class="navbar-header">
+          <div class="navbar-header" style="margin-left: -60%">
             <!-- Logo -->
             <div class="navbar-brand">
               <a href="index.html">
@@ -24,42 +24,48 @@
             <!-- Collapse nav button -->
             <div class="nav-collapse">
               <span></span>
+              
             </div>
             <!-- /Collapse nav button -->
           </div>
   
           <!--  Main navigation  -->
-          <div class="main-nav nav navbar-nav navbar-right">
+          <div class="main-nav nav navbar-nav navbar-right" style="position: fixed">
             <div class="row">
-                <form class="form-inline">
-                    <div class="form-group">
-                        <input required type="email" class="form-control" id="userName" name="userName" placeholder="email">
-                        <input required type="password" class="form-control" id="password" name="password" placeholder="mật khẩu">
-                        <button  type="submit" class="form-control  btn-success" style="height: 40px;">Đăng Nhập</button>
-                    </div>                 
-                </form>
-                <div>
-                  Or
-                </div> 
-                <div>
-                    <button  class="form-control white-btn" style="height: 40px;"><a style="color: green;" class="white-tex" href="#"><strong>Đăng Ký Bãi Đỗ Xe Của Bạn</strong></a></button>
-                </div>
+                  <ul class="main-nav nav navbar-nav navbar-header col-md-6" style="display: inline; margin-left: 0;">
+                    <!-- <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="#pricing">Prices</a></li> -->
+                    <li *ngIf="!isLogin"><a class="btn" (click)="goToManagerPage()">About Us</a></li>
+                    <li *ngIf="isLogin"><a class="btn" style="font-size: 18px" (click)="goToManagerPage()">Manager</a></li>
+                  </ul>
+                 
+                  <div class="col-md-6">
+                      <form *ngIf="!isLogin" class="form-inline" style="margin-left: 40%">
+                          <div  class="form-group">
+                              <input required type="email" class="form-control" style="margin-right: 5px;" name="userName" id="userName" [(ngModel)]="loginModel.userName" #username="ngModel" placeholder="email or phone">
+                              <input required type="password" class="form-control" style="margin-right: 5px;" name="password" id="password" [(ngModel)]="loginModel.password" #password="ngModel" placeholder="mật khẩu">
+                              <button (click)="login()"  class="form-control  btn-success" style="height: 40px;">Đăng Nhập</button>
+                              <span class="white-tex" style="color: aliceblue; margin-left: 5px;margin-right: 5px;">Or</span>
+                              <button  class="form-control white-btn" style="height: 40px;"><a style="color: green;" class="white-tex" href="#"><strong>Đăng Ký Bãi Đỗ Xe Của Bạn</strong></a></button>
+                              
+                          </div>   
+                          <span *ngIf="isLoginSuccess" class="text-danger">Tên đăng nhập hoặc nật khẩu không đúng</span>
+                          <div  class="row">
+                          </div>
+                      </form>      
+                      <div *ngIf="isLogin" class="form-group" style="position: fixed; margin-left:70%; margin-top: 10px; height: 40px; font-size: 15px">
+                          <a href="#">Logout</a>    
+                      </div>      
+                  </div>               
             </div>
-             
+              
+            
+             <!-- /Main navigatio -->
           </div>
-          <!-- <ul class="main-nav nav navbar-nav navbar-right">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#service">Services</a></li>
-            <li><a href="#pricing">Prices</a></li>
-            <li><a href="#team">About</a></li>
-           
-            <li><a href="#team">Team</a></li>
-          
-            <li><a href="#contact">Contact</a></li>
-          </ul> -->
-           <!-- /Main navigatio -->
+         
   
         </div>
       </nav>
@@ -73,7 +79,7 @@
             <!-- home content -->
             <div class="col-md-10 col-md-offset-1">
               <div class="home-content">
-                <h1 class="text-success">PF<span class="white-text">ree</span></h1>
+                <h1 class="text-success">VP<span class="white-text">arking</span></h1>
                 <p class="white-text">
                     Ứng dụng tìm kiếm bãi đỗ xe miễn phí
                 </p>
@@ -100,15 +106,16 @@
       <!-- Container -->
       <div class="container">
   
+         <!-- Section header -->
+         <div class="section-header text-center">
+          <h2 class="title">Dịch Vụ Cung Cấp</h2>
+        </div>
+        <!-- /Section header -->
+
         <!-- Row -->
         <div class="row">
   
-          <!-- Section header -->
-          <div class="section-header text-center">
-            <h2 class="title">Dịch Vụ Cung Cấp</h2>
-          </div>
-          <!-- /Section header -->
-  
+      
           <!-- about -->
           <div class="col-md-4">
             <div class="about">
@@ -158,14 +165,13 @@
       <!-- Container -->
       <div class="container">
   
+         <!-- Section header -->
+         <div class="section-header text-center">
+          <h2 class="title">Tính Năng Đang Phát Triển</h2>
+        </div>
+        <!-- /Section header -->
         <!-- Row -->
         <div class="row">
-  
-          <!-- Section header -->
-          <div class="section-header text-center">
-            <h2 class="title">Tính Năng Đang Phát Triển</h2>
-          </div>
-          <!-- /Section header -->
   
           <!-- Work -->
           <div class="col-md-4 col-xs-6 work">
@@ -277,14 +283,13 @@
       <!-- Container -->
       <div class="container">
   
+         <!-- Section-header -->
+         <div class="section-header text-center">
+          <h2 class="title">Liên Hệ</h2>
+        </div>
+        <!-- /Section-header -->
         <!-- Row -->
         <div class="row">
-  
-          <!-- Section-header -->
-          <div class="section-header text-center">
-            <h2 class="title">Liên Hệ</h2>
-          </div>
-          <!-- /Section-header -->
   
           <!-- contact -->
           <div class="col-sm-4">
