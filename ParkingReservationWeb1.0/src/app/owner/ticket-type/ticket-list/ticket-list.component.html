@@ -6,23 +6,23 @@
     <mat-card-content>
 
       <div class="example-container mat-elevation-z8">
-        <mat-table #table [dataSource]="dataSource">
+        <mat-table #table [dataSource]="dataSource" *ngIf=dataSource>
           <!-- Position Column -->
           <ng-container matColumnDef="stt">
             <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.stt}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
           </ng-container>
 
           <!-- Name Column -->
           <ng-container matColumnDef="type">
             <mat-header-cell *matHeaderCellDef> Loại </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.vehicleTypeName}} </mat-cell>
           </ng-container>
 
           <!-- Weight Column -->
           <ng-container matColumnDef="service">
             <mat-header-cell *matHeaderCellDef> Dịch Vụ </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.service}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.serviceID}} </mat-cell>
           </ng-container>
 
           <!-- Symbol Column -->
@@ -34,7 +34,7 @@
           <!-- Symbol Column -->
           <ng-container matColumnDef="description">
             <mat-header-cell *matHeaderCellDef> Mô Tả </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
           </ng-container>
 
           <!-- Event -->

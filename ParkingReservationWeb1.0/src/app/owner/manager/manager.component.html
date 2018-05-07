@@ -17,21 +17,25 @@
           </mat-select>
         </mat-form-field>
 
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Địa Chỉ" formControlName="address" required type="number">
+          </mat-form-field>
+
         <div class="row">
           <div class="col">
             <h4>Loại Xe</h4>
-            <div *ngFor="let status of statuses; let i = index">
-              <mat-checkbox class="full-width" [formControlName]="i">
-                {{status}}
+            <div *ngFor="let status of types; let i = index">
+              <mat-checkbox class="full-width" >
+                {{status.name}}
               </mat-checkbox>
             </div>
           </div>
 
           <div class="col">
             <h4>Dịch Vụ</h4>
-            <div *ngFor="let service of services; let i = index">
-              <mat-checkbox class="full-width" [formControlName]="i">
-                {{service}}
+            <div *ngFor="let service of services; let ii = index">
+              <mat-checkbox class="full-width">
+                {{service.name}}
               </mat-checkbox>
             </div>
           </div>
@@ -46,7 +50,7 @@
       </form>
     </div>
     <div class="col-6">
-      <app-map></app-map>
+      <app-map (location)="location($event)"></app-map>
     </div>
   </div>
 

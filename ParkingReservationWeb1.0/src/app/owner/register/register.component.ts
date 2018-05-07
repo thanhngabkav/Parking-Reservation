@@ -1,26 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Owner } from '../model/owner.model';
+import { StationService } from '../service/station.service';
+import { Station } from '../model/station.model';
+import { OwnerService } from '../service/owner.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [StationService, OwnerService]
 })
 export class RegisterComponent implements OnInit {
 
   isLinear: boolean = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
 
-  constructor() { }
+  owner: Owner;
+  station: Station;
+  location: string;
+  constructor(private stationService: StationService
+    , private ownerService: OwnerService) { }
 
   ngOnInit() {
-    // this.firstFormGroup = this._formBuilder.group({
-    //   firstCtrl: ['', Validators.required]
-    // });
-    // this.secondFormGroup = this._formBuilder.group({
-    //   secondCtrl: ['', Validators.required]
-    // });
+
     this.inputFirstForm()
     this.inputSecondForm()
   }
@@ -33,6 +38,15 @@ export class RegisterComponent implements OnInit {
       , address: new FormControl('', [Validators.required])
       , password: new FormControl('', [Validators.required])
     })
+
+    this.thirdFormGroup = new FormGroup({
+      fullName: new FormControl({ value: '', disabled: true }, Validators.required)
+      , email: new FormControl({ value: '', disabled: true }, [Validators.required, Validators.email])
+      , phone: new FormControl({ value: '', disabled: true }, [Validators.required])
+      , address: new FormControl({ value: '', disabled: true }, [Validators.required])
+      , password: new FormControl({ value: '', disabled: true }, [Validators.required])
+    })
+
   }
 
   private inputSecondForm() {
@@ -41,7 +55,52 @@ export class RegisterComponent implements OnInit {
       , openTime: new FormControl('', )
       , closedTime: new FormControl('')
       , slots: new FormControl('')
+      , address: new FormControl('')
     })
   }
 
+
+  // event
+  public getLocation(e: any) {
+    console.log(e);
+  }
+
+  public onFirstStep() {
+    this.owner = {
+      phoneNumber: this.firstFormGroup.controls['phone'].value
+      , email: this.firstFormGroup.controls['email'].value
+      , password: this.firstFormGroup.controls['password'].value
+      , fullName: this.firstFormGroup.controls['fullName'].value
+      , address: this.firstFormGroup.controls['address'].value
+      , bankAccountNumber: 'DEFAULT'
+      , status: 'Active'
+      , bank: 'DEFAULT'
+      , numStations: 1
+    }
+   
+    this.thirdFormGroup = new FormGroup({
+      fullName: new FormControl({ value: this.owner.fullName, disabled: true }, Validators.required)
+      , email: new FormControl({ value: this.owner.email, disabled: true }, [Validators.required, Validators.email])
+      , phone: new FormControl({ value: this.owner.phoneNumber, disabled: true }, [Validators.required])
+      , address: new FormControl({ value: this.owner.address, disabled: true }, [Validators.required])
+      , password: new FormControl({ value: this.owner.password, disabled: true }, [Validators.required])
+    })
+  }
+
+  public onSecondStep() {
+    this.station = {
+      name: this.secondFormGroup.controls['stationName'].value
+      , openTime: this.secondFormGroup.controls['openTime'].value
+      , closeTime: this.secondFormGroup.controls['closedTime'].value
+      , totalSlots: this.secondFormGroup.controls['slots'].value
+      , address: this.secondFormGroup.controls['address'].value
+      , status: 'Active'
+      , createdDate: new Date().getTime()
+      , coordinate: this.location
+    }
+  }
+
+  public saveAll()  {
+    this.ownerService.addOwner(this.owner)
+  }
 }

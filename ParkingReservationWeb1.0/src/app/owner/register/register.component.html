@@ -1,92 +1,112 @@
 <div class="container">
-    <h1>Register page</h1>
+    <mat-card class="form">
+        <mat-card-header>
+            <mat-card-title>Card with multiple sections</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
 
+            <h1>Register page</h1>
 
-    <mat-horizontal-stepper [linear]="isLinear" #stepper>
-        <!-- step 1 -->
-        <mat-step [stepControl]="firstFormGroup">
-            <form [formGroup]="firstFormGroup" class="form">
-                <ng-template matStepLabel>Create Your Profile</ng-template>
+            <mat-horizontal-stepper [linear]="isLinear" #stepper>
+                <!-- step 1 -->
+                <mat-step [stepControl]="firstFormGroup" >
+                    <form [formGroup]="firstFormGroup" class="form" (ngSubmit)="onFirstStep()">
+                        <ng-template matStepLabel>Create Your Profile</ng-template>
 
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Full Name" formControlName="fullName" required>
-                </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Full Name" formControlName="fullName" required>
+                        </mat-form-field>
 
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Email" formControlName="email" required type="email">
-                </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Email" formControlName="email" required type="email">
+                        </mat-form-field>
 
-                <mat-form-field class="full-width">
-                    <span matPrefix>+84 &nbsp;</span>
-                    <input matInput placeholder="Phone Number" formControlName="phone" type="tel" required>
-                    <mat-icon matSuffix>mode_edit</mat-icon>
-                </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <span matPrefix>+84 &nbsp;</span>
+                            <input matInput placeholder="Phone Number" formControlName="phone" type="tel" required>
+                            <mat-icon matSuffix>mode_edit</mat-icon>
+                        </mat-form-field>
 
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Address" formControlName="address" required>
-                </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Address" formControlName="address" required>
+                        </mat-form-field>
 
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Password" formControlName="password" required type="password">
-                </mat-form-field>
-                <div>
-                    <button mat-raised-button matStepperNext [disabled]="firstFormGroup.invalid">Next</button>
-                </div>
-            </form>
-        </mat-step>
-        <!-- step 2 -->
-        <mat-step [stepControl]="secondFormGroup">
-            <form [formGroup]="secondFormGroup" class="form">
-                <ng-template matStepLabel>First Station</ng-template>
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Password" formControlName="password" required type="password">
+                        </mat-form-field>
+                        <div>
+                            <button type="submit" mat-raised-button matStepperNext [disabled]="firstFormGroup.invalid">Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <!-- step 2 -->
+                <mat-step [stepControl]="secondFormGroup" >
+                    <div class="row">
+                        <div class="col">
+                            <form [formGroup]="secondFormGroup" class="form">
+                                <ng-template matStepLabel>First Station</ng-template>
 
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Station Name*" formControlName="stationName" required>
-                </mat-form-field>
+                                <mat-form-field class="full-width">
+                                    <input matInput placeholder="Station Name*" formControlName="stationName" required>
+                                </mat-form-field>
 
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Open Time" formControlName="openTime" >
-                </mat-form-field>
+                                <mat-form-field class="full-width">
+                                    <input matInput placeholder="Open Time" formControlName="openTime">
+                                </mat-form-field>
 
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Closed Time" formControlName="closedTime" >
-                </mat-form-field>
+                                <mat-form-field class="full-width">
+                                    <input matInput placeholder="Closed Time" formControlName="closedTime">
+                                </mat-form-field>
 
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Number of slot" formControlName="slots" type="number">
-                </mat-form-field>
-            </form>
-            <div>
-                <button mat-raised-button matStepperNext [disabled]="secondFormGroup.invalid">Next</button>
-            </div>
-        </mat-step>
+                                <mat-form-field class="full-width">
+                                    <input matInput placeholder="Number of slot" formControlName="slots" type="number">
+                                </mat-form-field>
 
-        <!-- step done -->
-        <mat-step>
-            <ng-template matStepLabel>Done</ng-template>
-            You are now done.
-            <form [formGroup]="firstFormGroup" class="form">
-                <mat-form-field class="full-width">
-                    <input disabled matInput placeholder="Full Name*" formControlName="fullName" required>
-                </mat-form-field>
+                                <mat-form-field class="full-width">
+                                        <input matInput placeholder="Address" formControlName="address" type="text" required>
+                                    </mat-form-field>
 
-                <mat-form-field class="full-width">
-                    <input disabled matInput placeholder="Address*" formControlName="address" required>
-                </mat-form-field>
+                            </form>
+                        </div>
+                        <div class="col">
+                            <app-map location="getLocation($event)"></app-map>
+                        </div>
+                    </div>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-raised-button matStepperNext [disabled]="secondFormGroup.invalid">Next</button>
+                    </div>
+                </mat-step>
 
-                <mat-form-field class="full-width">
-                    <input disabled matInput placeholder="Email" formControlName="email" required type="email">
-                </mat-form-field>
+                <!-- step done -->
+                <mat-step editable="false">
+                    <ng-template matStepLabel>Done</ng-template>
+                    You are now done.
+                    <form [formGroup]="thirdFormGroup" class="form">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Full Name*" formControlName="fullName" required>
+                        </mat-form-field>
 
-                <mat-form-field class="full-width">
-                    <span matPrefix>+84 &nbsp;</span>
-                    <input matInput placeholder="Phone Number" formControlName="phone" type="tel" required>
-                    <mat-icon matSuffix>mode_edit</mat-icon>
-                </mat-form-field>
-            </form>
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-raised-button (click)="stepper.reset()">Reset</button>
-            </div>
-        </mat-step>
-    </mat-horizontal-stepper>
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Address*" formControlName="address" required>
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Email" formControlName="email" required type="email">
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width">
+                            <span matPrefix>+84 &nbsp;</span>
+                            <input matInput placeholder="Phone Number" formControlName="phone" type="tel" required>
+                            <mat-icon matSuffix>mode_edit</mat-icon>
+                        </mat-form-field>
+                    </form>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-raised-button (click)="Save()">Save</button>
+                    </div>
+                </mat-step>
+            </mat-horizontal-stepper>
+        </mat-card-content>
+    </mat-card>
 </div>
