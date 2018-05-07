@@ -62,7 +62,7 @@ export class RegisterComponent implements OnInit {
 
   // event
   public getLocation(e: any) {
-    console.log(e);
+    this.location = e.lat +  ',' + e.lng;
   }
 
   public onFirstStep() {
@@ -77,7 +77,7 @@ export class RegisterComponent implements OnInit {
       , bank: 'DEFAULT'
       , numStations: 1
     }
-   
+
     this.thirdFormGroup = new FormGroup({
       fullName: new FormControl({ value: this.owner.fullName, disabled: true }, Validators.required)
       , email: new FormControl({ value: this.owner.email, disabled: true }, [Validators.required, Validators.email])
@@ -95,12 +95,34 @@ export class RegisterComponent implements OnInit {
       , totalSlots: this.secondFormGroup.controls['slots'].value
       , address: this.secondFormGroup.controls['address'].value
       , status: 'Active'
-      , createdDate: new Date().getTime()
+      , createdDate: 1000
       , coordinate: this.location
+      , services: []
+      , usedSlots: 0
+      , imageLink: ''
+      , stationVehicleTypes: []
+      , parkingMapLink: ''
+      , holdingSlots: 0
+      , star: 0
+      , applicationID: ''
+      , ownerID: ''
     }
   }
 
-  public saveAll()  {
-    this.ownerService.addOwner(this.owner)
+  public save() {
+    console.log(this.owner);
+    console.log(this.station);
+    this.ownerService.addOwner(this.owner).subscribe(data => {
+      console.log('id: ' + data.id);
+      
+      if (data.id) {
+        this.station.ownerID = data.id;
+        this.stationService.addStation(this.station).subscribe(it => {
+            console.log("successful")
+        })
+      } else {
+
+      }
+    })
   }
 }

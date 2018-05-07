@@ -74,7 +74,7 @@
                     </div>
                     <div>
                         <button mat-button matStepperPrevious>Back</button>
-                        <button mat-raised-button matStepperNext [disabled]="secondFormGroup.invalid">Next</button>
+                        <button mat-raised-button matStepperNext [disabled]="secondFormGroup.invalid" (click)="onSecondStep()">Next</button>
                     </div>
                 </mat-step>
 
@@ -103,7 +103,7 @@
                     </form>
                     <div>
                         <button mat-button matStepperPrevious>Back</button>
-                        <button mat-raised-button (click)="Save()">Save</button>
+                        <button mat-raised-button (click)="save()">Save</button>
                     </div>
                 </mat-step>
             </mat-horizontal-stepper>

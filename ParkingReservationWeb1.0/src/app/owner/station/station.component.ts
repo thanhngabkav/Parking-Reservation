@@ -33,7 +33,7 @@ export class StationComponent implements OnInit {
 
   ngOnInit() {
     localStorage['owner'] = '160f8bc0-b84a-45d2-9aa1-bcaa487f41cf';
-    localStorage['token'] = 'f1b5a3a5-f53b-42dc-8c66-f32fd7b47e96';
+    localStorage['token'] = 'V2ViQXBwOldlYkFwcF9QYXJraW5nUmVzZXJ2YXRpb24=';
     this.initFormGroup();
     this.initChart();
   }

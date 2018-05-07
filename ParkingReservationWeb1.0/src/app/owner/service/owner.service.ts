@@ -11,7 +11,7 @@ import { HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class OwnerService {
 
-  private apiUrl = 'http://45.119.81.16:8080/parking_reservation_1.0-1.0.0/api/owner';
+  private apiUrl = 'http://45.119.81.16:8080/parking_reservation_1.0-1.0.0/api/owners';
 
   private finalHeader;
   constructor(private http: Http) {
@@ -22,8 +22,9 @@ export class OwnerService {
     this.finalHeader = { headers: header }
   }
 
-  addOwner(owner: Owner) {
+  addOwner(owner: Owner):Observable<Owner> {
     return this.http.post(this.apiUrl, owner, this.finalHeader)
+    .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
