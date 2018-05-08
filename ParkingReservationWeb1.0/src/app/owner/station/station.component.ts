@@ -60,8 +60,8 @@ export class StationComponent implements OnInit {
       , address: new FormControl({value: station.address, disabled: true})
       , status: new FormControl({value: station.status, disabled: true})
       , slots: new FormControl({value: station.totalSlots, disabled: true})
-      , service: new FormControl({value: '', disabled: true})
-      , vehicleType: new FormControl({value: '', disabled: true})
+      , service: new FormControl({value: station.services.length, disabled: true})
+      , vehicleType: new FormControl({value: station.stationVehicleTypes.length, disabled: true})
       , ticketType: new FormControl({value:'', disabled: true})
     })
   }

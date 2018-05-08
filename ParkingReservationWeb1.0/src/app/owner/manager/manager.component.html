@@ -13,7 +13,7 @@
 
         <mat-form-field class="full-width">
           <mat-select placeholder="Trạng thái" formControlName="status">
-            <mat-option value="option">Option</mat-option>
+            <mat-option value="a" *ngFor="let a of status">{{a}}</mat-option>
           </mat-select>
         </mat-form-field>
 
@@ -25,7 +25,7 @@
           <div class="col">
             <h4>Loại Xe</h4>
             <div *ngFor="let status of types; let i = index">
-              <mat-checkbox class="full-width" >
+              <mat-checkbox class="full-width" checked="status.checked">
                 {{status.name}}
               </mat-checkbox>
             </div>
@@ -34,7 +34,7 @@
           <div class="col">
             <h4>Dịch Vụ</h4>
             <div *ngFor="let service of services; let ii = index">
-              <mat-checkbox class="full-width">
+              <mat-checkbox class="full-width" checked="service.checked">
                 {{service.name}}
               </mat-checkbox>
             </div>
