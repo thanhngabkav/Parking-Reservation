@@ -12,7 +12,7 @@ import { TicketType } from '../model/ticket.model';
 @Injectable()
 export class TicketService {
 
-    private apiUrl = 'http://45.119.81.16:8080/parking_reservation_1.0-1.0.0/api';
+    private apiUrl = 'http://localhost:8080/api';
 
     private finalHeader;
     constructor(private http: Http) {

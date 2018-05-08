@@ -4,6 +4,8 @@ import { Owner } from '../model/owner.model';
 import { StationService } from '../service/station.service';
 import { Station } from '../model/station.model';
 import { OwnerService } from '../service/owner.service';
+import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +24,9 @@ export class RegisterComponent implements OnInit {
   station: Station;
   location: string;
   constructor(private stationService: StationService
-    , private ownerService: OwnerService) { }
+    , private ownerService: OwnerService
+    , private snackBar: MatSnackBar
+    , private router: Router) { }
 
   ngOnInit() {
 
@@ -62,7 +66,8 @@ export class RegisterComponent implements OnInit {
 
   // event
   public getLocation(e: any) {
-    this.location = e.lat +  ',' + e.lng;
+    this.location = e.lat + ',' + e.lng;
+    console.log('location: ' + this.location)
   }
 
   public onFirstStep() {
@@ -114,11 +119,13 @@ export class RegisterComponent implements OnInit {
     console.log(this.station);
     this.ownerService.addOwner(this.owner).subscribe(data => {
       console.log('id: ' + data.id);
-      
+
       if (data.id) {
         this.station.ownerID = data.id;
         this.stationService.addStation(this.station).subscribe(it => {
-            console.log("successful")
+          console.log("successful")
+          this.snackBar.open("Them thanh cong", '', { duration: 2000 });
+          this.router.navigate(['/']);
         })
       } else {
 

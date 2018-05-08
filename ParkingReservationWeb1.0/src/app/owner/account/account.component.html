@@ -1,0 +1,54 @@
+<div class="container" style="padding-top: 100px">
+
+  <mat-card class="form">
+    <h1>Thông tin cá nhân</h1>
+  </mat-card>
+  <h4 *ngIf="updatedSuccess" class="alert alert-success" role="alert">Cập nhật thành công</h4>
+  <h4 *ngIf="updatedFail" class="alert alert-danger" role="alert">Cập nhật không thành công</h4>
+  <br *ngIf="!updatedSuccess && !updatedFail">
+  
+  <form class="form" [formGroup]="profileFormGroup" (ngSubmit)="onUpdateProfile()" >
+
+    <!-- <ng-template matStepLabel>Create Your Profile</ng-template> -->
+
+    <mat-form-field class="full-width">
+        <mat-select [value]= "owner.status" placeholder = "Status" >
+            <mat-option *ngFor="let status of OwnerStatus" [value]="status">
+                {{status}}
+              </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Full Name" formControlName="fullName" required>
+      <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Email" formControlName="email" required type="email">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="full-width">
+      <span matPrefix></span>
+      <input matInput placeholder="Phone Number" formControlName="phone" type="tel" required>
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Address" formControlName="address" required>
+      <mat-icon matSuffix>mode_edit</mat-icon>
+
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Password" formControlName="password" required type="password">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+    <div>
+      <button type="submit" mat-raised-button [disabled]="profileFormGroup.invalid">Update</button>
+    </div>
+  </form>
+</div>

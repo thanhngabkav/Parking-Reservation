@@ -25,7 +25,7 @@ export class OwnerService {
     let headers = new Headers();
     headers.append('Content-Type','application/json');
     const options = new RequestOptions({headers: headers});
-    return this.http.get(this.apiUrl+'all', options)
+    return this.http.get(this.apiUrl+'all')
             .map((res:Response)=>res.json())
             .catch((error:any)=>Observable.throw(error.json().error || 'Server error'));
 

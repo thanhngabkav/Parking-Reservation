@@ -36,6 +36,7 @@ import { TicketListComponent } from './ticket-type/ticket-list/ticket-list.compo
 import { CdkTableModule } from '@angular/cdk/table';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { HttpModule } from '@angular/http';
+import { AccountComponent } from './account/account.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -86,7 +87,8 @@ import { HttpModule } from '@angular/http';
     ManagerComponent,
     MapComponent,
     TicketTypeComponent,
-    TicketListComponent
+    TicketListComponent,
+    AccountComponent
   ]
 })
 export class OwnerModule { }

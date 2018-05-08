@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { VehicleType, Service } from '../model/ticket.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Station } from '../model/station.model';
 import { StationService } from '../service/station.service';
 
@@ -14,7 +14,8 @@ import { StationService } from '../service/station.service';
 export class ManagerComponent implements OnInit {
 
   constructor(private activate: ActivatedRoute
-    , private stationService: StationService) { }
+    , private stationService: StationService
+    , private router: Router) { }
 
   formGroup: FormGroup;
 
@@ -90,6 +91,10 @@ export class ManagerComponent implements OnInit {
 
   public location(e: any) {
     console.log(e);
+  }
+
+  public toTicketType(){
+    this.router.navigate['/owner/ticket-type?station=1'];
   }
 
 }

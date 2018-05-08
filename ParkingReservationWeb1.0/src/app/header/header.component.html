@@ -1,0 +1,70 @@
+<div class="container" style="margin-bottom: 100px">
+<!-- Nav -->
+<nav id="nav" class="navbar fixed-top" style="background-color: rgb(17, 16, 16)">
+  <div class="container">
+
+    <div class="navbar-header" style="margin-left: -200px; margin-top: -20px">
+      <!-- Logo -->
+      <div class="navbar-brand">
+        <a href="index.html">
+          <img class="logo" src="../../assets/img/logo.png" alt="logo">
+          <!-- <img class="logo-alt" src="../../assets/img/logo-alt.png" alt="logo"> -->
+        </a>
+      </div>
+      <!-- /Logo -->
+
+      <!-- Collapse nav button -->
+      <div class="nav-collapse">
+        <span></span>
+        
+      </div>
+      <!-- /Collapse nav button -->
+    </div>
+
+    <!--  Main navigation  -->
+    <div class="main-nav nav navbar-nav navbar-right" >
+      <div class="row">
+            <ul class="main-nav nav navbar-nav navbar-header col-md-6" style="display: inline; margin-left: -100px;">
+              <!-- <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#service">Services</a></li>
+              <li><a href="#pricing">Prices</a></li> -->
+              <li *ngIf="!isLogin" class="nav-item" ><a href="#" class="nav-link" style="color: aliceblue;background-color: transparent; font-size: 15px;" (click)="goToManagerPage()">About Us</a></li>
+              <li *ngIf="isLogin"><a class="nav-item btn" (click)="goToManagerPage()" style="font-size: 18px; color: aliceblue;background-color: transparent; font-size: 15px;margin-right: 500px;" (click)="goToManagerPage()">Manager</a></li>
+            </ul>
+           
+            <div class="col-md-6">
+                <form *ngIf="!isLogin" class="form-inline">
+                    <div  class="form-group">
+                        <input required type="email" class="form-control" style="margin-right: 5px " name="userName" id="userName" [(ngModel)]="loginModel.userName" #username="ngModel" placeholder="email or phone">
+                        <input required type="password" class="form-control" style="margin-right: 5px;" name="password" id="password" [(ngModel)]="loginModel.password" #password="ngModel" placeholder="mật khẩu">
+                        <button (click)="login()"  class="form-control  btn-success">Đăng Nhập</button>
+                        <span class="white-tex" style="color: aliceblue; margin-left: 5px;margin-right: 5px;">Or</span>
+                        <button  class="form-control white-btn"><a style="color: green;" class="white-tex" (click)="register()"><strong>Đăng Ký Bãi Đỗ Xe Của Bạn</strong></a></button>
+                        
+                    </div>   
+                    <span *ngIf="!isLoginSuccess" class="text-warning">Tên đăng nhập hoặc mật khẩu không đúng</span>
+                    <div  class="row">
+                    </div>
+                </form>      
+                
+            </div>   
+            <div *ngIf="isLogin" class="form-inline" style="font-size: 15px;margin-right: -140px">
+              <span  >
+                <a href="#" (click)="accountManagerPage()" onclick="return false;" style="text-decoration: none;">Welcome : {{user.userType}}</a>
+              </span>  
+              
+                <a href="#" (click)="logout()" style="padding-left: 40px;text-decoration: none;">Logout</a>    
+            </div>                 
+      </div>
+        
+      
+       <!-- /Main navigatio -->
+    </div>
+   
+
+  </div>
+</nav>
+<!-- /Nav -->
+</div>

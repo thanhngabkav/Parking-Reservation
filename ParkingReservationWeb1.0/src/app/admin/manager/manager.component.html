@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="padding-top: 100px">
   <div class="row">
     <div class="col">
       <section>
@@ -30,8 +30,8 @@
       
                   <!-- Phone number Column -->
                   <ng-container matColumnDef="phoneNumber">
-                    <th mat-header-cell *matHeaderCellDef style="text-align: left" class="mat-header-cell cdk-column-position mat-column-position ng-star-inserted"> Phone </th>
-                    <td mat-cell *matCellDef="let element" style="text-align: left" class="mat-cell cdk-column-position mat-column-position ng-star-inserted" role="gridcell"> {{element.phoneNumber}} </td>
+                    <th mat-header-cell *matHeaderCellDef style="text-align: center" class="mat-header-cell cdk-column-position mat-column-position ng-star-inserted"> Phone </th>
+                    <td mat-cell *matCellDef="let element" style="text-align: right" class="mat-cell cdk-column-position mat-column-position ng-star-inserted" role="gridcell"> {{element.phoneNumber}} </td>
                   </ng-container>
       
                   <!-- Address Column -->
@@ -55,7 +55,7 @@
                    <!-- Actions Column -->
                    <ng-container matColumnDef="actions">
                     <th mat-header-cell *matHeaderCellDef  style="text-align: center" class="mat-header-cell cdk-column-position mat-column-position ng-star-inserted"></th>
-                    <td mat-cell *matCellDef="let element" style="text-align: center"  class="mat-cell cdk-column-position mat-column-position ng-star-inserted">  <a href="#" class="btn btn-info active">Chi Tiết</a> </td>
+                    <td mat-cell *matCellDef="let element" style="text-align: center"  class="mat-cell cdk-column-position mat-column-position ng-star-inserted">  <a href= "{{'/owner/' + element.id}}" class="btn btn-info active">Chi Tiết</a> </td>
                   </ng-container>
                 
       

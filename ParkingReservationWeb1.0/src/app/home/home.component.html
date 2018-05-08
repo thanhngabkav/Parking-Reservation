@@ -6,70 +6,7 @@
         <div class="overlay"></div>
       </div>
       <!-- /Background Image -->
-  
-      <!-- Nav -->
-      <nav id="nav" class="navbar nav-transparent">
-        <div class="container">
-  
-          <div class="navbar-header" style="margin-left: -60%">
-            <!-- Logo -->
-            <div class="navbar-brand">
-              <a href="index.html">
-                <img class="logo" src="../../assets/img/logo.png" alt="logo">
-                <img class="logo-alt" src="../../assets/img/logo-alt.png" alt="logo">
-              </a>
-            </div>
-            <!-- /Logo -->
-  
-            <!-- Collapse nav button -->
-            <div class="nav-collapse">
-              <span></span>
-              
-            </div>
-            <!-- /Collapse nav button -->
-          </div>
-  
-          <!--  Main navigation  -->
-          <div class="main-nav nav navbar-nav navbar-right" style="position: fixed">
-            <div class="row">
-                  <ul class="main-nav nav navbar-nav navbar-header col-md-6" style="display: inline; margin-left: 0;">
-                    <!-- <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#service">Services</a></li>
-                    <li><a href="#pricing">Prices</a></li> -->
-                    <li *ngIf="!isLogin"><a class="btn" (click)="goToManagerPage()">About Us</a></li>
-                    <li *ngIf="isLogin"><a class="btn" style="font-size: 18px" (click)="goToManagerPage()">Manager</a></li>
-                  </ul>
-                 
-                  <div class="col-md-6">
-                      <form *ngIf="!isLogin" class="form-inline" style="margin-left: 40%">
-                          <div  class="form-group">
-                              <input required type="email" class="form-control" style="margin-right: 5px;" name="userName" id="userName" [(ngModel)]="loginModel.userName" #username="ngModel" placeholder="email or phone">
-                              <input required type="password" class="form-control" style="margin-right: 5px;" name="password" id="password" [(ngModel)]="loginModel.password" #password="ngModel" placeholder="mật khẩu">
-                              <button (click)="login()"  class="form-control  btn-success" style="height: 40px;">Đăng Nhập</button>
-                              <span class="white-tex" style="color: aliceblue; margin-left: 5px;margin-right: 5px;">Or</span>
-                              <button  class="form-control white-btn" style="height: 40px;"><a style="color: green;" class="white-tex" href="#"><strong>Đăng Ký Bãi Đỗ Xe Của Bạn</strong></a></button>
-                              
-                          </div>   
-                          <span *ngIf="isLoginSuccess" class="text-danger">Tên đăng nhập hoặc nật khẩu không đúng</span>
-                          <div  class="row">
-                          </div>
-                      </form>      
-                      <div *ngIf="isLogin" class="form-group" style="position: fixed; margin-left:70%; margin-top: 10px; height: 40px; font-size: 15px">
-                          <a href="#">Logout</a>    
-                      </div>      
-                  </div>               
-            </div>
-              
-            
-             <!-- /Main navigatio -->
-          </div>
-         
-  
-        </div>
-      </nav>
-      <!-- /Nav -->
+    
   
       <!-- home wrapper -->
       <div class="home-wrapper">
@@ -81,7 +18,7 @@
               <div class="home-content">
                 <h1 class="text-success">VP<span class="white-text">arking</span></h1>
                 <p class="white-text">
-                    Ứng dụng tìm kiếm bãi đỗ xe miễn phí
+                    Ứng dụng tìm kiếm và quản lí bãi đỗ xe miễn phí
                 </p>
                 <!-- <input type="button" class="btn-warning" st > -->
                 <div>
@@ -175,14 +112,14 @@
   
           <!-- Work -->
           <div class="col-md-4 col-xs-6 work">
-            <img class="img-responsive" src="../../assets/img/work1.jpg" alt="">
+            <img class="img-responsive" src="../../assets/img/nfc.jpg" alt="">
             <div class="overlay"></div>
             <div class="work-content">
               <span>Category</span>
-              <h3>Lorem ipsum dolor</h3>
+              <h3>NFC</h3>
               <div class="work-link">
                 <a href="#"><i class="fa fa-external-link"></i></a>
-                <a class="lightbox" href="../../assets/img/work1.jpg"><i class="fa fa-search"></i></a>
+                <a class="lightbox" href="../../assets/img/nfc.jpg"><i class="fa fa-search"></i></a>
               </div>
             </div>
           </div>
@@ -190,14 +127,14 @@
   
           <!-- Work -->
           <div class="col-md-4 col-xs-6 work">
-            <img class="img-responsive" src="../../assets/img/work2.jpg" alt="">
+            <img class="img-responsive" src="../../assets/img/sua-chua.jpg" alt="">
             <div class="overlay"></div>
             <div class="work-content">
               <span>Category</span>
-              <h3>Lorem ipsum dolor</h3>
+              <h3>Đặt trước các dịch vụ đi kèm</h3>
               <div class="work-link">
                 <a href="#"><i class="fa fa-external-link"></i></a>
-                <a class="lightbox" href="../../assets/img/work2.jpg"><i class="fa fa-search"></i></a>
+                <a class="lightbox" href="../../assets/img/sua-chua.jpg"><i class="fa fa-search"></i></a>
               </div>
             </div>
           </div>
@@ -205,21 +142,21 @@
   
           <!-- Work -->
           <div class="col-md-4 col-xs-6 work">
-            <img class="img-responsive" src="../../assets/img/work3.jpg" alt="">
+            <img class="img-responsive" src="../../assets/img/thanh-toan-dien-tu.jpg" alt="">
             <div class="overlay"></div>
             <div class="work-content">
               <span>Category</span>
-              <h3>Lorem ipsum dolor</h3>
+              <h3>Thanh toán điện tử</h3>
               <div class="work-link">
                 <a href="#"><i class="fa fa-external-link"></i></a>
-                <a class="lightbox" href="../../assets/img/work3.jpg"><i class="fa fa-search"></i></a>
+                <a class="lightbox" href="../../assets/img/thanh-toan-dien-tu.jpg"><i class="fa fa-search"></i></a>
               </div>
             </div>
           </div>
           <!-- /Work -->
   
           <!-- Work -->
-          <div class="col-md-4 col-xs-6 work">
+          <!-- <div class="col-md-4 col-xs-6 work">
             <img class="img-responsive" src="../../assets/img/work4.jpg" alt="">
             <div class="overlay"></div>
             <div class="work-content">
@@ -230,11 +167,11 @@
                 <a class="lightbox" href="../../assets/img/work4.jpg"><i class="fa fa-search"></i></a>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- /Work -->
   
           <!-- Work -->
-          <div class="col-md-4 col-xs-6 work">
+          <!-- <div class="col-md-4 col-xs-6 work">
             <img class="img-responsive" src="../../assets/img/work5.jpg" alt="">
             <div class="overlay"></div>
             <div class="work-content">
@@ -245,11 +182,11 @@
                 <a class="lightbox" href="../../assets/img/work5.jpg"><i class="fa fa-search"></i></a>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- /Work -->
   
           <!-- Work -->
-          <div class="col-md-4 col-xs-6 work">
+          <!-- <div class="col-md-4 col-xs-6 work">
             <img class="img-responsive" src="../../assets/img/work6.jpg" alt="">
             <div class="overlay"></div>
             <div class="work-content">
@@ -260,7 +197,7 @@
                 <a class="lightbox" href="../../assets/img/work6.jpg"><i class="fa fa-search"></i></a>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- /Work -->
   
         </div>

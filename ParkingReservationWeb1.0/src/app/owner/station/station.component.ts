@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { StationService } from '../service/station.service';
 import { Station } from '../model/station.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-station',
@@ -11,7 +12,8 @@ import { Station } from '../model/station.model';
 })
 export class StationComponent implements OnInit {
 
-  constructor(private stationService: StationService) { }
+  constructor(private stationService: StationService
+  , private router: Router) { }
 
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
@@ -93,5 +95,8 @@ export class StationComponent implements OnInit {
     )
   }
 
+  public edit(id: string){
+    this.router.navigate(['/owner/manager'], {queryParams:{stationID: id}});
+  }
 
 }

@@ -69,7 +69,7 @@
                             </form>
                         </div>
                         <div class="col">
-                            <app-map location="getLocation($event)"></app-map>
+                            <app-map (location)="getLocation($event)"></app-map>
                         </div>
                     </div>
                     <div>

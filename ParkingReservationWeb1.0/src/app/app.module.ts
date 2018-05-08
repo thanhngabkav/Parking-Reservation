@@ -12,6 +12,7 @@ import { AdminModule } from './admin/admin.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './_directives/alert/alert.component';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     HomeComponent,
     AlertComponent,
+    HeaderComponent,
   ],
   imports: [
     AppRoutingModule,

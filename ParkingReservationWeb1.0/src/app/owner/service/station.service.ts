@@ -11,7 +11,7 @@ import { HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class StationService {
 
-  private apiUrl = 'http://45.119.81.16:8080/parking_reservation_1.0-1.0.0/api/stations';
+  private apiUrl = 'http://localhost:8080/api/stations';
 
   private finalHeader;
   constructor(private http: Http) {
