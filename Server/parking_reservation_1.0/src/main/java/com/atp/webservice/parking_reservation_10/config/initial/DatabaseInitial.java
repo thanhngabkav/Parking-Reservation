@@ -86,39 +86,42 @@ public class DatabaseInitial {
     @Autowired
     private TicketService ticketService;
 
+    @Autowired
+    private UserCRUDRepository userCRUDRepository;
+
 
     private static Logger logger = Logger.getLogger(DatabaseInitial.class);
 
     public void doImport() {
 
 
-//        logger.info("Importing sample data");
-//
-//        initRoles();
-//
-//        initServices();
-//
-//        try {
-//            initUser();
-//        } catch (NoSuchAlgorithmException e) {
-//            logger.warn("Init Owners fail");
-//            e.printStackTrace();
-//        }
-//        try {
-//            initStation();
-//        } catch (IOException e) {
-//            logger.warn("Init Stations fail");
-//            e.printStackTrace();
-//        }
-//        initVehicleType();
-//
-//        initStationVehicleType();
-//
-//        initVehicle();
-//
-//        initTicketType();
-//
-//        initTicket();
+        logger.info("Importing sample data");
+
+        initRoles();
+
+        initServices();
+
+        try {
+            initUser();
+        } catch (NoSuchAlgorithmException e) {
+            logger.warn("Init Owners fail");
+            e.printStackTrace();
+        }
+        try {
+            initStation();
+        } catch (IOException e) {
+            logger.warn("Init Stations fail");
+            e.printStackTrace();
+        }
+        initVehicleType();
+
+        initStationVehicleType();
+
+        initVehicle();
+
+        initTicketType();
+
+        initTicket();
 
 //
 //        /**
@@ -265,7 +268,7 @@ public class DatabaseInitial {
 
     private void initTicket() {
         logger.info("Init Tickets");
-        List<Vehicle> vehicles = vehicleCRUDRepository.findAll();//xe may
+        List<Vehicle> vehicles = vehicleCRUDRepository.findAll();
         List<Station> allStations = stationCRUDRepository.findAll();
         String[] ticketStatus = {TicketStatus.CHECKED, TicketStatus.HOLDING, TicketStatus.EXPRIRRED, TicketStatus.USED};
         int i = 0;
@@ -333,7 +336,7 @@ public class DatabaseInitial {
         Faker faker = new Faker();
         Owner owner = new Owner();
         owner.setUserID(user.getUserID());
-        owner.setAddress("Owner Address");
+        owner.setAddress(faker.address().streetAddress());
         owner.setName(faker.name().fullName());
         owner.setUserName("Owner_" + i);
         KeyPair keyPair = KeypairHelper.buildKeyPair();
@@ -350,8 +353,19 @@ public class DatabaseInitial {
 
     private void initUser() throws NoSuchAlgorithmException {
         logger.info("Init user");
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String pass = "123";
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+        //init admin
+        User userAdmin = new User();
+        userAdmin.setUserID(UUID.randomUUID().toString());
+        userAdmin.setEmail("admin@gmail.com");
+        userAdmin.setStatus(UserStatus.ACTIVE);
+        userAdmin.setPassword(encoder.encode(pass));
+        userAdmin.setUserType(UserType.ADMIN);
+        userAdmin.setPhoneNumber("0962810884");
+        userCRUDRepository.save(userAdmin);
+
         for (int i = 1; i <= 100; i++) {
             Faker faker = new Faker();
             StringBuilder email = new StringBuilder();
@@ -359,7 +373,7 @@ public class DatabaseInitial {
             User user = new User();
             user.setUserID(UUID.randomUUID().toString());
             user.setPassword(encoder.encode(pass));
-            user.setPhoneNumber(faker.phoneNumber().phoneNumber());
+            user.setPhoneNumber("+84 " + faker.number().digits(9));
             user.setEmail(email.toString());
 
             switch (i % 3) {

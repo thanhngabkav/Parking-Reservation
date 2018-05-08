@@ -7,4 +7,6 @@ public class UserType {
     public static final String OWNER = "OWNER";
 
     public static final String THIRD_PARTY = "THIRD_PARTY";
+
+    public static final String ADMIN = "ADMIN";
 }

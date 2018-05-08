@@ -83,5 +83,14 @@ public class OwnerSerivceImp implements OwnerService {
         return ownerModelList;
     }
 
+    @Override
+    public OwnerModel updateOwner(OwnerModel ownerModel) throws NoSuchAlgorithmException {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        Owner owner = ownerConverter.convertFromModel(ownerModel);
+        owner.setPassword(encoder.encode(ownerModel.getPassword()));
+
+        return ownerConverter.convertFromEntity(ownerCRUDRepository.save(owner));
+    }
+
 
 }

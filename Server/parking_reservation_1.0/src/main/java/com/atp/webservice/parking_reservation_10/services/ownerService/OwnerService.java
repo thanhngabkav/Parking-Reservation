@@ -36,4 +36,12 @@ public interface OwnerService {
      * @return
      */
     List<OwnerModel> getAllOwnerModel();
+
+    /**
+     * Update Owner
+     * @param ownerModel
+     * @return OwnerModel
+     * @throws NoSuchAlgorithmException
+     */
+    OwnerModel updateOwner(OwnerModel ownerModel) throws NoSuchAlgorithmException;
 }

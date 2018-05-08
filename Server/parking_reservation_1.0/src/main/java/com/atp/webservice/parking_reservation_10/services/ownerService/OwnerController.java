@@ -78,6 +78,19 @@ public class OwnerController {
     }
 
     /**
+     * Create new {@link Owner}
+     * @param ownerModel {@link OwnerModel} - presenter of {@link Owner}
+     * @return OwnerModel
+     * @throws NoSuchAlgorithmException
+     */
+    @RequestMapping(value = "", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<OwnerModel> updateOwner(@RequestBody OwnerModel ownerModel) throws NoSuchAlgorithmException {
+        OwnerModel saveModel = ownerService.updateOwner(ownerModel);
+
+        return new ResponseEntity<OwnerModel>(saveModel, HttpStatus.OK);
+    }
+
+    /**
      * Get page list Owners
      * @param page
      * @return
