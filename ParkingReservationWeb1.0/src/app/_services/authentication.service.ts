@@ -10,7 +10,7 @@ import { headersToString } from 'selenium-webdriver/http';
 @Injectable()
 export class AuthenticationService {
 
-  private apiUrl = "http://localhost:8080/oauth/token?";
+  private apiUrl = "http://45.119.81.16:8080/parking_reservation_1.0-1.0.0/oauth/token?";
   private clientID = "WebApp";
   private secret = "WebApp_ParkingReservation";
 
@@ -19,8 +19,8 @@ export class AuthenticationService {
 
   // /**
   //  * Login by user name and password, if success, save token in cookie
-  //  * @param userName 
-  //  * @param password 
+  //  * @param userName
+  //  * @param password
   //  */
   // login(userName: string, password: string) {
   //   let params = new URLSearchParams();
@@ -38,7 +38,7 @@ export class AuthenticationService {
   //   // console.log("header: " + JSON.stringify(options))
 
   //   let finalUrl = this.apiUrl + params.toString();
-    
+
   //   this.http.post(finalUrl, null, {headers: header})
   //     .map(res => res.json())
   //     .subscribe(
@@ -67,7 +67,7 @@ export class AuthenticationService {
     return this.http.post(finalUrl, null, {headers: header})
       .map(res => res.json())
       .catch((error:any)=>Observable.throw(error.json().error || 'Server error'));
-    
+
   }
 
   saveToken(token){
