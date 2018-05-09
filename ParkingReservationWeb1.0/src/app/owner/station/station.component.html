@@ -1,71 +1,17 @@
 <div class="container">
     <div class="row">
-        <mat-card class="example-card">
+        <mat-card class="example-card" *ngFor="let a of listStation" (click)="selectStation(a)">
             <mat-card-header>
-                <mat-card-title>Shiba Inu</mat-card-title>
+                <mat-card-title>{{a.name}}</mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <p>
-                    The Shiba Inu is the smallest asdas dasd asd asds
+                    {{a.address}}
                 </p>
             </mat-card-content>
         </mat-card>
     </div>
-    <div class="row">
-        <div class="offset-3"></div>
-        <!-- <mat-form-field class="col-2">
-            <input matInput [matDatepicker]="pickerEnd" placeholder="End Day">
-            <mat-datepicker-toggle matSuffix [for]="pickerEnd" ></mat-datepicker-toggle>
-            <mat-datepicker #pickerEnd startView='year'> </mat-datepicker>
-        </mat-form-field> -->
 
-        <mat-form-field>
-            <mat-select placeholder="Select year" (selectionChange)="selectionChange($event)">
-                <mat-option *ngFor="let year of years" [value]="year">
-                    {{ year }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div class="row">
-        <div class="col-8">
-            <div style="display: block">
-                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
-                    [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
-            </div>
-        </div>
-        <div class="col-4">
-            <form [formGroup]="formGroup" class="form">
-                <mat-icon color="accent" (click)="edit($event)">settings</mat-icon>
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Name" formControlName="name" required>
-                </mat-form-field>
-
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Address" formControlName="address" required>
-                </mat-form-field>
-
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Status" formControlName="status" required>
-                </mat-form-field>
-
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Number of slot" formControlName="slots" required type="number">
-                </mat-form-field>
-
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Service" formControlName="service" required type="number">
-                </mat-form-field>
-
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Vehicle Type" formControlName="vehicleType" required type="number">
-                </mat-form-field>
-
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Ticket Type" formControlName="ticketType" required type="number">
-                </mat-form-field>
-            </form>
-        </div>
-    </div>
+  <app-station-detail [(station)]='station' *ngIf="station"> </app-station-detail>
 
 </div>

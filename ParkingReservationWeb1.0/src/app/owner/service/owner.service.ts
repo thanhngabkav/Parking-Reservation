@@ -14,8 +14,8 @@ export class OwnerService {
   private finalHeader;
 
   constructor(private http: Http) {
-    let token = localStorage.key['token'];
-    let header = new Headers();
+    const token = localStorage.key['access_token'];
+    const header = new Headers();
     header.append('Authorization', 'Bearer' + token);
     header.append('Content-Type', 'application/json');
     this.finalHeader = {headers: header};

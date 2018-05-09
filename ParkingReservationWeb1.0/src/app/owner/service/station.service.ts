@@ -11,7 +11,7 @@ import { HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class StationService {
 
-  private apiUrl = 'http://45.119.81.16:8080/parking_reservation_1.0-1.0.0/stations';
+  private apiUrl = 'http://45.119.81.16:8080/parking_reservation_1.0-1.0.0/api/stations';
 
   private finalHeader;
   constructor(private http: Http) {
@@ -31,7 +31,7 @@ export class StationService {
 
   getStation(id: number): Observable<Station> {
     return this.http.get(this.apiUrl + '/' + id, this.finalHeader)
-      .map((res: Response) => res.json())
+      .map((res: Response) => res.json());
 
   }
 
