@@ -1,6 +1,6 @@
 <div class="container">
 <!-- Nav -->
-<nav id="nav" class="navbar fixed-top" style="background-color: rgb(17, 16, 16)">
+<nav id="nav" class="navbar fixed-top" style="background-color:#0C89C9">
   <div class="container">
 
     <div class="navbar-header" style="margin-left: -200px;">
@@ -52,10 +52,10 @@
             </div>   
             <div *ngIf="isLogin" class="form-inline" style="font-size: 15px;margin-right: -140px">
               <span  >
-                <a href="#" (click)="accountManagerPage()" onclick="return false;" style="text-decoration: none;">Welcome : {{user.userType}}</a>
+                <a href="#" (click)="accountManagerPage()"  onclick="return false;" style="text-decoration: none; color: rgb(79, 197, 108);">Welcome : {{user.userType}}</a>
               </span>  
               
-                <a href="#" (click)="logout()" style="padding-left: 40px;text-decoration: none;">Logout</a>    
+                <a href="#" (click)="logout()" style="padding-left: 40px; color: rgb(166, 151, 247);text-decoration: none;">Logout</a>    
             </div>                 
       </div>
         
