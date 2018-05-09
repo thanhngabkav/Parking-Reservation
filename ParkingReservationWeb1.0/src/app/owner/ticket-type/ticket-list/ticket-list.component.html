@@ -5,44 +5,46 @@
     </mat-card-header>
     <mat-card-content>
 
+      <mat-icon style="margin-bottom: 30px;"  (click)="addTicketType()">add_circle</mat-icon>
+
       <div class="example-container mat-elevation-z8">
         <mat-table #table [dataSource]="dataSource" *ngIf=dataSource>
           <!-- Position Column -->
           <ng-container matColumnDef="stt">
-            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+            <mat-header-cell *matHeaderCellDef> No.</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
           </ng-container>
 
           <!-- Name Column -->
           <ng-container matColumnDef="type">
-            <mat-header-cell *matHeaderCellDef> Loại </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.vehicleTypeName}} </mat-cell>
+            <mat-header-cell *matHeaderCellDef> Loại</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.vehicleTypeName}}</mat-cell>
           </ng-container>
 
           <!-- Weight Column -->
           <ng-container matColumnDef="service">
-            <mat-header-cell *matHeaderCellDef> Dịch Vụ </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.serviceID}} </mat-cell>
+            <mat-header-cell *matHeaderCellDef> Dịch Vụ</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.serviceID}}</mat-cell>
           </ng-container>
 
           <!-- Symbol Column -->
           <ng-container matColumnDef="price">
-            <mat-header-cell *matHeaderCellDef> Giá </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+            <mat-header-cell *matHeaderCellDef> Giá</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.price}}</mat-cell>
           </ng-container>
 
           <!-- Symbol Column -->
           <ng-container matColumnDef="description">
-            <mat-header-cell *matHeaderCellDef> Mô Tả </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+            <mat-header-cell *matHeaderCellDef> Mô Tả</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
           </ng-container>
 
           <!-- Event -->
           <ng-container matColumnDef="xxxx">
-            <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let element">
-              <mat-icon color="accent">mode_edit</mat-icon>
-              <mat-icon color="accent">delete</mat-icon>
+              <mat-icon color="accent" (click)="edit(element)">mode_edit</mat-icon>
+              <mat-icon color="accent"(click)="remove(element)" >delete</mat-icon>
             </mat-cell>
           </ng-container>
 

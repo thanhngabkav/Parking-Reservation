@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { TicketService } from '../../service/ticket.service';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {TicketType} from '../../model/ticket.model';
 
 @Component({
   selector: 'app-ticket-list',
@@ -15,33 +16,32 @@ export class TicketListComponent implements OnInit {
 
   displayedColumns = ['stt', 'type', 'price', 'service', 'description', 'xxxx'];
   dataSource =  new MatTableDataSource();
+  stationID: number;
   constructor(
     private serviceTicket: TicketService
     , private activate: ActivatedRoute
+    , private router: Router
   ) { }
 
   ngOnInit() {
     this.activate.queryParams.subscribe(p => {
-      let stationID = p['stationID'];
-      this.serviceTicket.getTicketType(stationID).subscribe(types => {
-        this.dataSource.data = types
-      })
-    })
-  
+      const stationID = p['stationID'];
+      const serviceID = p['serviceID'];
+      this.stationID = stationID;
+      this.serviceTicket.getTicketType(stationID, serviceID).subscribe(types => {
+        this.dataSource.data = types;
+      });
+    });
   }
 
-  ngAfterViewInit() {
-    
+  public addTicketType() {
+    this.router.navigate(['owner/ticket-type/create']);
   }
 
-}
+  public edit(id: TicketType) {
+    this.router.navigate(['owner/ticket-type/edit'], {queryParams: {id: this.stationID, typeID: id.stationVehicleTypeID}});
+  }
 
-export interface xxx {
-  stt: number;
-  type: string;
-  service: string;
-  price: number;
-  description: string;
 }
 
 

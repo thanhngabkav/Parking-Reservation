@@ -37,6 +37,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { HttpModule } from '@angular/http';
 import { AccountComponent } from './account/account.component';
+import {StationDetailComponent} from './station/station-detail/station-detail.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -72,7 +73,7 @@ import { AccountComponent } from './account/account.component';
     BrowserAnimationsModule,
 
     CdkTableModule,
-    
+
     // chart
     ChartsModule,
 
@@ -88,7 +89,8 @@ import { AccountComponent } from './account/account.component';
     MapComponent,
     TicketTypeComponent,
     TicketListComponent,
-    AccountComponent
+    AccountComponent,
+    StationDetailComponent
   ]
 })
 export class OwnerModule { }

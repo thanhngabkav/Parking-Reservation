@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  isLinear: boolean = false;
+  isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
@@ -30,8 +30,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
 
-    this.inputFirstForm()
-    this.inputSecondForm()
+    this.inputFirstForm();
+    this.inputSecondForm();
   }
 
   private inputFirstForm() {
@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
       , phone: new FormControl('', [Validators.required])
       , address: new FormControl('', [Validators.required])
       , password: new FormControl('', [Validators.required])
-    })
+    });
 
     this.thirdFormGroup = new FormGroup({
       fullName: new FormControl({ value: '', disabled: true }, Validators.required)
@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
       , phone: new FormControl({ value: '', disabled: true }, [Validators.required])
       , address: new FormControl({ value: '', disabled: true }, [Validators.required])
       , password: new FormControl({ value: '', disabled: true }, [Validators.required])
-    })
+    });
 
   }
 
@@ -60,14 +60,14 @@ export class RegisterComponent implements OnInit {
       , closedTime: new FormControl('')
       , slots: new FormControl('')
       , address: new FormControl('')
-    })
+    });
   }
 
 
   // event
   public getLocation(e: any) {
     this.location = e.lat + ',' + e.lng;
-    console.log('location: ' + this.location)
+    console.log('location: ' + this.location);
   }
 
   public onFirstStep() {
@@ -81,7 +81,7 @@ export class RegisterComponent implements OnInit {
       , status: 'Active'
       , bank: 'DEFAULT'
       , numStations: 1
-    }
+    };
 
     this.thirdFormGroup = new FormGroup({
       fullName: new FormControl({ value: this.owner.fullName, disabled: true }, Validators.required)
@@ -89,7 +89,7 @@ export class RegisterComponent implements OnInit {
       , phone: new FormControl({ value: this.owner.phoneNumber, disabled: true }, [Validators.required])
       , address: new FormControl({ value: this.owner.address, disabled: true }, [Validators.required])
       , password: new FormControl({ value: this.owner.password, disabled: true }, [Validators.required])
-    })
+    });
   }
 
   public onSecondStep() {
@@ -111,7 +111,7 @@ export class RegisterComponent implements OnInit {
       , star: 0
       , applicationID: ''
       , ownerID: ''
-    }
+    };
   }
 
   public save() {
@@ -123,13 +123,13 @@ export class RegisterComponent implements OnInit {
       if (data.id) {
         this.station.ownerID = data.id;
         this.stationService.addStation(this.station).subscribe(it => {
-          console.log("successful")
-          this.snackBar.open("Them thanh cong", '', { duration: 2000 });
+          console.log('successful');
+          this.snackBar.open('Them thanh cong', '', { duration: 2000 });
           this.router.navigate(['/']);
-        })
+        });
       } else {
 
       }
-    })
+    });
   }
 }
