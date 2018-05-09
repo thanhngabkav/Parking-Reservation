@@ -142,7 +142,7 @@ public class StationServiceImp implements StationService {
         Station station = stationCRUDRepository.findOne(stationID);
         if (station == null) // station not found
             return null;
-        station.setUsedSlots(station.getUsedSlots() + num > 0 ? station.getHoldingSlots() + num : 0);
+        station.setUsedSlots(station.getUsedSlots() + num > 0 ? station.getUsedSlots() + num : 0);
         //update station
         Station updatedStation = stationCRUDRepository.save(station);
         StationModel updatedStationModel = stationConverter.convertFromEntities(updatedStation);
