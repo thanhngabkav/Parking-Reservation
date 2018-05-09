@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin-top: 100px">
   <div class="row">
     <div class="col-6">
       <form [formGroup]="formGroup" class="form">
@@ -46,8 +46,10 @@
             <mat-icon (click)="toTicketType()">confirmation_number</mat-icon>
           </mat-list-item>
         </mat-list>
-
       </form>
+      <div>
+        <button mat-raised-button (click)="save()">Save</button>
+    </div>
     </div>
     <div class="col-6">
       <app-map (location)="location($event)"></app-map>
