@@ -123,18 +123,18 @@ public class DatabaseInitial {
 
         initTicket();
 
-//
-//        /**
-//         * This code block used to generate more station
-//
-//        for(int i =1;i<=10;i++){
-//            try {
-//                initStation();
-//            } catch (IOException e) {
-//                logger.warn("Init Stations fail");
-//                e.printStackTrace();
-//            }
-//        }*/
+
+        /**
+         * This code block used to generate more station
+
+        for(int i =1;i<=10;i++){
+            try {
+                initStation();
+            } catch (IOException e) {
+                logger.warn("Init Stations fail");
+                e.printStackTrace();
+            }
+        }*/
 
 //        initParkingDataSet();
 
@@ -450,9 +450,11 @@ public class DatabaseInitial {
         List<GenerateClass.RootObject> rootObjects = objectMapper.readValue(json, typeReference);
         Time openTime = Time.valueOf(LocalTime.of(8, 30));
         Time closingTime = Time.valueOf(LocalTime.of(22, 30));
-        for (int i = 0; i < rootObjects.size(); i++) {
 
-            int ownerIndex = Math.min(i, activeOwners.size() - 1);
+        int numStationsPerOwner = rootObjects.size()/activeOwners.size();
+
+        for (int i = 0; i < rootObjects.size(); i++) {
+            int ownerIndex = i/(numStationsPerOwner) < activeOwners.size()? i/(numStationsPerOwner) :  activeOwners.size()-1 ;
             String coordinate = rootObjects.get(i).getGeometry().getLocation().getLat() + ","
                     + rootObjects.get(i).getGeometry().getLocation().getLng();
             Station station = new Station();

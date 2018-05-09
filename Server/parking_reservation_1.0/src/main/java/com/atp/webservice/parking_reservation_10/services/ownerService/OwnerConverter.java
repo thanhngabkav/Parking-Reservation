@@ -29,8 +29,9 @@ public class OwnerConverter {
      * @return
      */
     public OwnerModel convertFromEntity(Owner owner){
-
         OwnerModel ownerModel = new OwnerModel();
+        if(owner == null)
+            return  ownerModel;
         ownerModel.setAddress(owner.getAddress());
         ownerModel.setBank(owner.getBankName());
         ownerModel.setEmail(owner.getEmail());
