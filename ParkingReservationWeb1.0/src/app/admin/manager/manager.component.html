@@ -62,7 +62,7 @@
                    <!-- Actions Column -->
                    <ng-container matColumnDef="actions">
                     <th mat-header-cell *matHeaderCellDef  style="text-align: center" class="mat-header-cell cdk-column-position mat-column-position ng-star-inserted"></th>
-                    <td mat-cell *matCellDef="let element" style="text-align: center"  class="mat-cell cdk-column-position mat-column-position ng-star-inserted">  <a href= "{{'/owner/' + element.id}}" class="btn btn-info active">Chi Tiết</a> </td>
+                    <td mat-cell *matCellDef="let element" style="text-align: center"  class="mat-cell cdk-column-position mat-column-position ng-star-inserted">  <a href= "#" onclick="return false;" (click) = "viewOwnerDetail(element.id)" class="btn btn-info active">Chi Tiết</a> </td>
                   </ng-container>
                 
       

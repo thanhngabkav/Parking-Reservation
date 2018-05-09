@@ -86,4 +86,8 @@ export class ManagerComponent implements OnInit {
     
   }
 
+  viewOwnerDetail(ownerID: string){
+      this.router.navigate(['owner/'+ownerID])
+  }
+
 }
