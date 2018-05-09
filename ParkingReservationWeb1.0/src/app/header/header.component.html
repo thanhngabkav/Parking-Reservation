@@ -39,7 +39,7 @@
                     <div  class="form-group">
                         <input required type="email" class="form-control" style="margin-right: 5px " name="userName" id="userName" [(ngModel)]="loginModel.userName" #username="ngModel" placeholder="email or phone">
                         <input required type="password" class="form-control" style="margin-right: 5px;" name="password" id="password" [(ngModel)]="loginModel.password" #password="ngModel" placeholder="mật khẩu">
-                        <button (click)="login()"  class="form-control  btn-success">Đăng Nhập</button>
+                        <button (click)="login()" style="height: 40px;"  class="form-control btn-success">Đăng Nhập</button>
                         <span class="white-tex" style="color: aliceblue; margin-left: 5px;margin-right: 5px;">Or</span>
                         <button  class="form-control white-btn"><a style="color: green;" class="white-tex" (click)="register()"><strong>Đăng Ký Bãi Đỗ Xe Của Bạn</strong></a></button>
                         

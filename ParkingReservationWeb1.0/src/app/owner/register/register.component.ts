@@ -72,7 +72,7 @@ export class RegisterComponent implements OnInit {
 
   public onFirstStep() {
     this.owner = {
-      phoneNumber: this.firstFormGroup.controls['phone'].value
+      phoneNumber:'+84 '+ this.firstFormGroup.controls['phone'].value
       , email: this.firstFormGroup.controls['email'].value
       , password: this.firstFormGroup.controls['password'].value
       , fullName: this.firstFormGroup.controls['fullName'].value

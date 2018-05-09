@@ -3,22 +3,22 @@
   <mat-card class="form">
     <h1>Thông tin cá nhân</h1>
   </mat-card>
-  <h4 *ngIf="updatedSuccess" class="alert alert-success" role="alert">Cập nhật thành công</h4>
-  <h4 *ngIf="updatedFail" class="alert alert-danger" role="alert">Cập nhật không thành công</h4>
-  <br *ngIf="!updatedSuccess && !updatedFail">
+  <br>
   
   <form class="form" [formGroup]="profileFormGroup" (ngSubmit)="onUpdateProfile()" >
 
     <!-- <ng-template matStepLabel>Create Your Profile</ng-template> -->
 
-    <mat-form-field class="full-width">
-        <mat-select [value]= "owner.status" placeholder = "Status" >
-            <mat-option *ngFor="let status of OwnerStatus" [value]="status">
-                {{status}}
-              </mat-option>
-        </mat-select>
-      </mat-form-field>
-
+    <div *ngIf = "user.userType == 'ADMIN'">
+        <mat-form-field class="full-width">
+            <mat-select [(value)] = "owner.status" matInput  formControlName="status" placeholder = "Status" >
+                <mat-option *ngFor="let status of OwnerStatus" [value]="status.value">
+                    {{status.value}}
+                </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+      
     <mat-form-field class="full-width">
       <input matInput placeholder="Full Name" formControlName="fullName" required>
       <mat-icon matSuffix>mode_edit</mat-icon>

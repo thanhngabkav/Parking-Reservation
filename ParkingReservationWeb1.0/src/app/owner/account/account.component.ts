@@ -5,6 +5,8 @@ import { User } from '../../_models/user';
 import { OwnerService } from '../service/owner.service';
 import { UserService } from '../../_services/user.service';
 import { Owner } from '../model/owner.model';
+import { MatSnackBar } from '@angular/material';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-account',
@@ -19,12 +21,12 @@ export class AccountComponent implements OnInit {
 
   public updateSuccess = false;
   public updateFail = false;
-  private user: User;
+  public user: User;
   public owner: Owner;
-  OwnerStatus = ['Active','Waiting','Suspended'];
+  OwnerStatus = [{id :1, value:'Active'},{id :2, value:'Waiting'},{id:3, value:'Suspended'}];
 
   constructor(private router: Router, private userService: UserService,
-    private route: ActivatedRoute, private ownerService: OwnerService) { }
+    private route: ActivatedRoute, private ownerService: OwnerService,private snackBar: MatSnackBar) { }
 
   ngOnInit() {
 
@@ -37,16 +39,16 @@ export class AccountComponent implements OnInit {
           console.log(owner);
           this.user = JSON.parse(localStorage.getItem('user'));
           if(this.user.userType!= 'ADMIN' && this.user.id!= owner.id){
-            this.router.navigate(['/error']);
+            this.router.navigate(['/Error']);
           }else{
             this.profileFormGroup = new FormGroup({
-              fullName: new FormControl({ value: this.owner.fullName, disabled: false }, Validators.required)
+              status: new FormControl({ value: this.owner.status, disabled: this.user.userType != 'ADMIN' }, Validators.required)
+              ,fullName: new FormControl({ value: this.owner.fullName, disabled: false }, Validators.required)
               , email: new FormControl({ value: this.owner.email, disabled: true }, [Validators.required])
               , phone: new FormControl({ value: this.owner.phoneNumber, disabled: true }, [Validators.required])
               , address: new FormControl({ value: this.owner.address, disabled: false }, [Validators.required])
               , password: new FormControl({ value: this.owner.password, disabled: false }, [Validators.required])
-            })
-            
+            }) 
           }
           
         },
@@ -61,18 +63,25 @@ export class AccountComponent implements OnInit {
 
   public onUpdateProfile() {
     this.updateFail = false;
+    this.snackBar.open('Cập nhật thành công', '', { duration: 2000 });
     console.log("User:" + JSON.stringify(this.owner));
-    this.profileFormGroup.controls['asdsad1'].value
+    console.log(this.owner.status);
+    this.owner.address =  this.profileFormGroup.controls['address'].value;
+    this.owner.fullName = this.profileFormGroup.controls['fullName'].value;
+    this.owner.password = this.profileFormGroup.controls['password'].value;
+    console.log("New User:" + JSON.stringify(this.owner));
 
     this.ownerService.updateOwner(this.owner).subscribe(
       data => {
         //console.log('id: ' + data.id);
         console.log("Data:" + JSON.stringify(data));
         this.updateSuccess = true;
+        this.snackBar.open('Cập nhật thành công', '', { duration: 2000 });
       },
       err => {
         console.log(err);
         this.updateFail = true;
+        this.snackBar.open('Cập nhật thất bại', '', { duration: 2000 });
       }
     );
     

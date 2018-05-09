@@ -6,6 +6,7 @@ import { ManagerComponent } from './manager/manager.component';
 import { MapComponent } from './station/map/map.component';
 import { TicketListComponent } from './ticket-type/ticket-list/ticket-list.component';
 import { TicketTypeComponent } from './ticket-type/ticket-type.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
 
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: 'owner/ticket-type', component: TicketListComponent },
   { path: 'owner/ticket-type/create', component: TicketTypeComponent },
   { path: 'owner/ticket-type/edit', component: TicketTypeComponent },
-  // { path: 'owner/:id', component: AccountComponent},
+   { path: 'owner/:id', component: AccountComponent},
 ];
 
 @NgModule({

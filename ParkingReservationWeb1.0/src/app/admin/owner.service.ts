@@ -9,7 +9,7 @@ import { Owner } from './owner';
 export class OwnerService {
 
 
-  private apiUrl = "http://localhost:8080/api/owners/";
+  private apiUrl = 'http://45.119.81.16:8080/parking_reservation_1.0-1.0.0/api/owners/';
   constructor(private http : Http){}
 
   findPageList(page : number): Observable<Owner[]>{

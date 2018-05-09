@@ -8,6 +8,7 @@ import {MatIconModule} from '@angular/material';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { User } from '../../_models/user';
 import { UserService } from '../../_services/user.service';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -23,6 +24,7 @@ export class ManagerComponent implements OnInit {
   public displayedColumns = ['fullName', 'email', 'phoneNumber', 'address', 'numStations', 'status','actions'];
   public dataSource;
   private user : User;
+  public filterText : string;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -33,7 +35,7 @@ export class ManagerComponent implements OnInit {
       this.user = this.userService.getSavedUser();
       console.log(this.user);
       if(this.user == null || this.user.userType!= 'ADMIN'){
-          this.router.navigate(['/']);
+          this.router.navigate(['/Error']);
       }
   }
 
@@ -64,4 +66,24 @@ export class ManagerComponent implements OnInit {
       }
     )
   }
+
+  filterData(){
+    console.log("Do filter: " + this.filterText)
+    if(this.filterText!= ""){
+      let filterOwners = this.owners.filter(
+        owner => owner.address.includes(this.filterText)
+        ||  owner.fullName.includes(this.filterText)
+        ||  owner.email.includes(this.filterText)
+        ||  owner.phoneNumber.includes(this.filterText)
+        ||  owner.status.includes(this.filterText)
+      );
+      this.dataSource = new MatTableDataSource(filterOwners);
+      this.dataSource.paginator = this.paginator;
+    }else{
+      this.dataSource = new MatTableDataSource(this.owners);
+      this.dataSource.paginator = this.paginator;
+    }
+    
+  }
+
 }
